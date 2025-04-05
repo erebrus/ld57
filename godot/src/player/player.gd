@@ -22,6 +22,7 @@ class_name Player extends RigidBody2D
 
 var can_thrust:=true
 var thrust_factor := 0.0
+var last_thrust_direction:=Vector2.RIGHT
 
 @onready var energy:float = max_energy:
 	set(_energy):
@@ -50,14 +51,18 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("move_forward"):
 			charge_thrust(delta)
 		elif Input.is_action_just_released("move_forward"):
+			last_thrust_direction = Vector2.RIGHT
 			do_thrust()
 		if Input.is_action_just_pressed("move_back"):
+			last_thrust_direction = Vector2.LEFT
 			thrust_factor = back_thrust_factor
 			do_thrust(PI)
 		elif Input.is_action_just_pressed("move_left"):
+			last_thrust_direction = Vector2.UP
 			thrust_factor=strafe_thrust_factor
 			do_thrust(-PI/2)
 		elif Input.is_action_just_pressed("move_right"):
+			last_thrust_direction = Vector2.DOWN
 			thrust_factor=strafe_thrust_factor
 			do_thrust(PI/2)
 	
@@ -69,19 +74,29 @@ func charge_thrust(delta:float):
 	else:
 		thrust_factor+=delta*thrust_charge_speed
 	if thrust_factor >=1.0:
+		last_thrust_direction = Vector2.RIGHT
 		do_thrust()
 	
 func do_thrust(rotation_delta:float = 0):
+	var thrust_direction=Vector2.RIGHT.rotated(rotation+rotation_delta)
 	Logger.debug("thrust %d" % Time.get_ticks_msec())
 	if not has_energy():
 		thrust_factor *= no_energy_factor
 	var intensity:float = thrust * thrust_factor * (full_thrust_bonus if thrust_factor>=1.0 else 1)
 	Logger.debug("thrust intensity %.2f" % intensity)
-	apply_impulse(Vector2.RIGHT.rotated(rotation+rotation_delta)*intensity,Vector2.ZERO)
+	apply_impulse(thrust_direction * intensity,Vector2.ZERO)
 	do_noise()
 	can_thrust=false
 	$%ThrustState.color=Color("red")
-	animation_player.play("thrust")
+	match last_thrust_direction:
+		Vector2.LEFT:
+			Logger.info("thrust back")
+			animation_player.play("back")
+		_:
+			Logger.info("thrust forward")
+			animation_player.play("thrust")
+
+			
 	$ThrustTimer.wait_time = max(min_thrust_timeout, base_thrust_timeout*thrust_factor *( 1 if has_energy() else 1.15))
 	Logger.debug("wait time %.2f" % $ThrustTimer.wait_time )
 	energy = max(0, energy-energy_per_thrust*thrust_factor)
@@ -98,11 +113,15 @@ func _on_thrust_timer_timeout() -> void:
 	can_thrust=true
 	$%ThrustState.color=Color("white")
 	Logger.debug("thrust available %d" % Time.get_ticks_msec())
-	if not Input.is_action_pressed("move_forward"):
-		animation_player.play("thrust_to_idle")
-		await animation_player.animation_finished
-		animation_player.play("idle")
-	
+	match last_thrust_direction:
+		Vector2.LEFT:
+			animation_player.play("idle")
+		_:#Vector2.RIGHT:
+			if not Input.is_action_pressed("move_forward"):
+				animation_player.play("thrust_to_idle")
+				await animation_player.animation_finished
+				animation_player.play("idle")
+		
 
 	
 
