@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bidnwv4kin1iu"]
+
+[ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="1_xlegt"]
+[ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_0qwtu"]
+
+[node name="World" type="Node2D"]
+
+[node name="Obstacle" parent="." instance=ExtResource("1_xlegt")]
+position = Vector2(742, 122)
+
+[node name="Obstacle2" parent="." instance=ExtResource("1_xlegt")]
+position = Vector2(154, 384)
+
+[node name="Obstacle3" parent="." instance=ExtResource("1_xlegt")]
+position = Vector2(56, 82)
+
+[node name="Obstacle4" parent="." instance=ExtResource("1_xlegt")]
+position = Vector2(706, 470)
+
+[node name="Player" parent="." instance=ExtResource("2_0qwtu")]
+position = Vector2(442, 276)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

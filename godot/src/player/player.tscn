@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqwp3d1fs64el"]
+
+[ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lowyb"]
+size = Vector2(64, 64)
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.05
+inertia = 1.0
+lock_rotation = true
+linear_damp = 1.0
+angular_damp = 2.0
+script = ExtResource("1_lowyb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-32, -32)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(56, 64, 56, 0, 64, 24, 64, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lowyb")
+
+[node name="ThrustTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="ThrustTimer" to="." method="_on_thrust_timer_timeout"]
