@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="1_l0av5"]
 [ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="1_xlegt"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_0qwtu"]
+[ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="2_5kmgb"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_jte2u"]
 [ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="3_wg6dd"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_bsf3i"]
@@ -27,6 +28,9 @@ script = ExtResource("1_5kmgb")
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(424, 296)
 texture = ExtResource("1_l0av5")
+
+[node name="BaseBlock" parent="." instance=ExtResource("2_5kmgb")]
+position = Vector2(376, 627)
 
 [node name="Plancton" type="Node2D" parent="."]
 
