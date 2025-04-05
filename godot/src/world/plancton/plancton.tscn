@@ -1,7 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://iab6i78fljla"]
+[gd_scene load_steps=6 format=3 uid="uid://iab6i78fljla"]
 
 [ext_resource type="Script" uid="uid://dax3xkfee7704" path="res://src/world/plancton/plancton.gd" id="1_5cp07"]
 [ext_resource type="Script" uid="uid://dsanfc3iwqum4" path="res://addons/random_timer_plugin/random_timer.gd" id="1_pxc3u"]
+[ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="2_857ka"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7y42s"]
+shader = ExtResource("2_857ka")
+shader_parameter/light_color = Color(0.24, 1, 0.81, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 3.0
+shader_parameter/max_brightness = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tyvq"]
 radius = 2.0
@@ -17,6 +26,7 @@ script = ExtResource("1_5cp07")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_7y42s")
 color = Color(1, 1, 0.360784, 1)
 polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
 

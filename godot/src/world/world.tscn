@@ -14,6 +14,12 @@ size = Vector2(1280, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jte2u"]
 size = Vector2(647, 80)
 
+[sub_resource type="Environment" id="Environment_l0av5"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.15
+glow_blend_mode = 0
+
 [node name="World" type="Node2D"]
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -139,3 +145,6 @@ max_count = 200
 target_container = NodePath("../../Plancton")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l0av5")

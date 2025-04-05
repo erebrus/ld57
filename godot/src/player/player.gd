@@ -11,9 +11,12 @@ class_name Player extends RigidBody2D
 
 var can_thrust:=true
 var thrust_factor := 0.0
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-
+func _ready():
+	animation_player.play("idle")
+	
 func _physics_process(delta: float) -> void:
 	var rotate_input:float = Input.get_axis("rotate_left","rotate_right")
 	if rotate_input:
@@ -38,22 +41,30 @@ func _physics_process(delta: float) -> void:
 func charge_thrust(delta:float):
 	if thrust_factor == 0:
 		thrust_factor = .2	
+		animation_player.play("charge")
+		Logger.trace("start charge %d" %  Time.get_ticks_msec())
 	else:
 		thrust_factor+=delta*thrust_charge_speed
 	if thrust_factor >=1.0:
 		do_thrust()
 	
 func do_thrust(rotation_delta:float = 0):
-
+	Logger.trace("thrust %d" % Time.get_ticks_msec())
 	apply_impulse(Vector2.RIGHT.rotated(rotation+rotation_delta)*thrust*thrust_factor,Vector2.ZERO)
 	can_thrust=false
 	$%ThrustState.color=Color("red")
+	animation_player.play("thrust")
 
 	$ThrustTimer.wait_time = base_thrust_timeout*thrust_factor
 	thrust_factor=0
 	$ThrustTimer.start()
+	Logger.trace("thrust NOT available %d" % Time.get_ticks_msec())
 
 
 func _on_thrust_timer_timeout() -> void:
 	can_thrust=true
+	if not Input.is_action_pressed("move_forward"):
+		animation_player.play("idle")
+	Logger.trace("thrust available %d" % Time.get_ticks_msec())
+
 	$%ThrustState.color=Color("white")
