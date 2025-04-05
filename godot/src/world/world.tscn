@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=9 format=3 uid="uid://bidnwv4kin1iu"]
 
+[ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="1_l0av5"]
 [ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="1_xlegt"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_0qwtu"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_jte2u"]
@@ -13,6 +14,10 @@ size = Vector2(1280, 80)
 size = Vector2(647, 80)
 
 [node name="World" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(424, 296)
+texture = ExtResource("1_l0av5")
 
 [node name="Plancton" type="Node2D" parent="."]
 
