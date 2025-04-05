@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2vkirmvwtay8"
-path="res://.godot/imported/edge_taper_left_01.png-36800829e8d8171166d8e0135fd44a4f.ctex"
+uid="uid://bo8uogq80rgc7"
+path="res://.godot/imported/tiles2.png-72488196eb8f1219bbce6e09dc3f5350.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/environment/edge_taper_left_01.png"
-dest_files=["res://.godot/imported/edge_taper_left_01.png-36800829e8d8171166d8e0135fd44a4f.ctex"]
+source_file="res://assets/gfx/environment/tiles/tiles2.png"
+dest_files=["res://.godot/imported/tiles2.png-72488196eb8f1219bbce6e09dc3f5350.ctex"]
 
 [params]
 

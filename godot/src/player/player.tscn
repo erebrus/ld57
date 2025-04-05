@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=14 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
@@ -37,6 +37,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_244u8"]
 resource_name = "charge"
@@ -57,19 +69,19 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mf2ua"]
 resource_name = "idle"
-length = 0.1
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [Vector2i(0, 1), Vector2i(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_5f2sf"]
@@ -105,9 +117,28 @@ tracks/0/keys = {
 "values": [3]
 }
 
+[sub_resource type="Animation" id="Animation_o822w"]
+resource_name = "back"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_244u8"]
 _data = {
 &"RESET": SubResource("Animation_rxibo"),
+&"back": SubResource("Animation_o822w"),
 &"charge": SubResource("Animation_244u8"),
 &"idle": SubResource("Animation_mf2ua"),
 &"thrust": SubResource("Animation_5f2sf"),
