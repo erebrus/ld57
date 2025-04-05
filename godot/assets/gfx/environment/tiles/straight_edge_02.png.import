@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gw6x5pdcl7qt"
-path="res://.godot/imported/straight_edge_01.png-d6b6b272bc242f8b422d05f7b1242a22.ctex"
+uid="uid://csb13uh2pm8q7"
+path="res://.godot/imported/straight_edge_02.png-d6506e205eb6b38ff45504faf80ce512.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/environment/straight_edge_01.png"
-dest_files=["res://.godot/imported/straight_edge_01.png-d6b6b272bc242f8b422d05f7b1242a22.ctex"]
+source_file="res://assets/gfx/environment/tiles/straight_edge_02.png"
+dest_files=["res://.godot/imported/straight_edge_02.png-d6506e205eb6b38ff45504faf80ce512.ctex"]
 
 [params]
 
