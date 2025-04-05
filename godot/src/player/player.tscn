@@ -82,13 +82,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [3, 5, 4]
+"values": [3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_jiejy"]
 resource_name = "thrust_to_idle"
 length = 0.1
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -136,6 +135,7 @@ texture = ExtResource("2_rxibo")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mf2ua")
 
