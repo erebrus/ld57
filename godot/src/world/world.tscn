@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=13 format=3 uid="uid://bidnwv4kin1iu"]
 
-[ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_5kmgb"]
+[ext_resource type="Script" path="res://src/world/world.gd" id="1_5kmgb"]
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="1_l0av5"]
 [ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="1_xlegt"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_0qwtu"]
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="2_5kmgb"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_jte2u"]
-[ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="3_wg6dd"]
+[ext_resource type="PackedScene" path="res://src/world/plancton/krill.tscn" id="3_wg6dd"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_bsf3i"]
 [ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="5_43c6p"]
 

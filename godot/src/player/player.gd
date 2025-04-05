@@ -86,11 +86,15 @@ func do_thrust(rotation_delta:float = 0):
 
 func _on_thrust_timer_timeout() -> void:
 	can_thrust=true
-	if not Input.is_action_pressed("move_forward"):
-		animation_player.play("idle")
-	Logger.trace("thrust available %d" % Time.get_ticks_msec())
-
 	$%ThrustState.color=Color("white")
+	Logger.trace("thrust available %d" % Time.get_ticks_msec())
+	if not Input.is_action_pressed("move_forward"):
+		animation_player.play("thrust_to_idle")
+		await animation_player.animation_finished
+		animation_player.play("idle")
+	
+
+	
 
 
 func consume(krill:Krill):
