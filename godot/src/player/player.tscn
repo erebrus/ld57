@@ -1,7 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=13 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
+
+[sub_resource type="Curve" id="Curve_rxibo"]
+_data = [Vector2(0, 0.0224719), 0.0, 0.0, 0, 0, Vector2(0.340426, 0.382023), 0.0, 0.0, 0, 0, Vector2(0.542553, 0.606742), 0.0, 0.0, 0, 0, Vector2(0.787234, 0.707865), 0.0, 0.0, 0, 0, Vector2(0.994681, 1), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf2ua"]
 radius = 15.0
@@ -119,6 +123,7 @@ linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_lowyb")
 thrust = 300.0
+thrust_noise_curve = SubResource("Curve_rxibo")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
