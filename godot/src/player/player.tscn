@@ -1,7 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=13 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
+
+[sub_resource type="Curve" id="Curve_rxibo"]
+_data = [Vector2(0, 0.0224719), 0.0, 0.0, 0, 0, Vector2(0.340426, 0.382023), 0.0, 0.0, 0, 0, Vector2(0.542553, 0.606742), 0.0, 0.0, 0, 0, Vector2(0.787234, 0.707865), 0.0, 0.0, 0, 0, Vector2(0.994681, 1), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf2ua"]
 radius = 15.0
@@ -18,23 +22,6 @@ height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.99, 0.5)
-
-[sub_resource type="Animation" id="Animation_mf2ua"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_rxibo"]
 length = 0.001
@@ -68,6 +55,23 @@ tracks/0/keys = {
 "values": [1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_mf2ua"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_5f2sf"]
 resource_name = "thrust"
 length = 0.15
@@ -82,7 +86,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [3, 5, 4]
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_jiejy"]
+resource_name = "thrust_to_idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_244u8"]
@@ -90,16 +110,20 @@ _data = {
 &"RESET": SubResource("Animation_rxibo"),
 &"charge": SubResource("Animation_244u8"),
 &"idle": SubResource("Animation_mf2ua"),
-&"thrust": SubResource("Animation_5f2sf")
+&"thrust": SubResource("Animation_5f2sf"),
+&"thrust_to_idle": SubResource("Animation_jiejy")
 }
 
 [node name="Player" type="RigidBody2D"]
+collision_layer = 16
 gravity_scale = 0.05
 inertia = 1.0
 lock_rotation = true
 linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_lowyb")
+thrust = 300.0
+thrust_noise_curve = SubResource("Curve_rxibo")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -113,9 +137,11 @@ polygon = PackedVector2Array(56, 64, 56, 0, 64, 24, 64, 40)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("2_rxibo")
-hframes = 6
+hframes = 7
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mf2ua")
 
@@ -125,6 +151,7 @@ one_shot = true
 
 [node name="ThrustState" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -5.0
 offset_top = -4.0
 offset_right = 5.0
