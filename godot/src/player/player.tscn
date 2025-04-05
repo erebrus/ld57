@@ -28,4 +28,12 @@ shape = SubResource("RectangleShape2D_lowyb")
 wait_time = 0.6
 one_shot = true
 
+[node name="ThrustState" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 5.0
+offset_bottom = 6.0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="timeout" from="ThrustTimer" to="." method="_on_thrust_timer_timeout"]
