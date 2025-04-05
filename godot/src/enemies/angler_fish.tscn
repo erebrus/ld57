@@ -1,0 +1,97 @@
+[gd_scene load_steps=16 format=3 uid="uid://dx8q2k3ukco25"]
+
+[ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_2o0ra"]
+[ext_resource type="Script" uid="uid://pmiou8r6dblj" path="res://src/enemies/angler_fish.gd" id="2_g1key"]
+[ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="3_4cfmw"]
+[ext_resource type="Script" uid="uid://cnr4i1xiwfw14" path="res://addons/xsm/state.gd" id="4_wtdoh"]
+[ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="5_v23hx"]
+[ext_resource type="Script" uid="uid://c6tquf5jy74bu" path="res://src/enemies/xsm/follow.gd" id="6_v23hx"]
+[ext_resource type="Script" uid="uid://03jbhlg4opwu" path="res://src/enemies/attack.gd" id="7_wfifh"]
+[ext_resource type="Script" uid="uid://cossxko0rmudv" path="res://src/enemies/xsm/retreat.gd" id="8_wfifh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13xfw"]
+radius = 112.0
+height = 352.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtdoh"]
+shader = ExtResource("3_4cfmw")
+shader_parameter/light_color = Color(0.7905, 0.85, 0.34, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 3.0
+shader_parameter/max_brightness = 1.0
+
+[sub_resource type="Animation" id="Animation_wtdoh"]
+resource_name = "idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_2k0n5"]
+resource_name = "follow"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_v23hx"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_wfifh"]
+resource_name = "retreat"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daflk"]
+_data = {
+&"attack": SubResource("Animation_v23hx"),
+&"follow": SubResource("Animation_2k0n5"),
+&"idle": SubResource("Animation_wtdoh"),
+&"retreat": SubResource("Animation_wfifh")
+}
+
+[node name="AnglerFish" instance=ExtResource("1_2o0ra")]
+collision_layer = 32
+script = ExtResource("2_g1key")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+color = Color(0.230315, 0.230315, 0.230315, 1)
+polygon = PackedVector2Array(0, -128, -128, -128, -160, -64, -192, -88, -192, 96, -160, 64, -128, 128, -128, 128, 96, 128, 192, 0, 146.961, -60.0527, 184, -120, 126.044, -87.9415, 96, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-8, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_13xfw")
+
+[node name="LurePolygon" type="Polygon2D" parent="." index="2"]
+material = SubResource("ShaderMaterial_wtdoh")
+position = Vector2(184, -120)
+polygon = PackedVector2Array(-6, -6, 0, -8, 6, -6, 8, 0, 6, 6, 0, 8, -6, 6, -8, 0)
+
+[node name="XSM" type="Node" parent="." index="3"]
+script = ExtResource("4_wtdoh")
+history_size = 0
+disabled = false
+debug_mode = false
+target_path = NodePath("")
+timed = false
+next_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://cnr4i1xiwfw14"
+
+[node name="Idle" type="Node" parent="XSM" index="0"]
+script = ExtResource("5_v23hx")
+metadata/_custom_type_script = "uid://cieeujtlwwvwk"
+
+[node name="Follow" type="Node" parent="XSM" index="1"]
+script = ExtResource("6_v23hx")
+metadata/_custom_type_script = "uid://cieeujtlwwvwk"
+
+[node name="Attack" type="Node" parent="XSM" index="2"]
+script = ExtResource("7_wfifh")
+metadata/_custom_type_script = "uid://cieeujtlwwvwk"
+
+[node name="Retreat" type="Node" parent="XSM" index="3"]
+script = ExtResource("8_wfifh")
+metadata/_custom_type_script = "uid://cieeujtlwwvwk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_daflk")
+}
+
+[node name="HurtArea" parent="." index="6"]
+position = Vector2(240, 24)
