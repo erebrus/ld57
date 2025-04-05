@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=11 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
-[ext_resource type="Texture2D" uid="uid://u7ct75w54l0x" path="res://assets/gfx/jelly3.png" id="2_rxibo"]
+[ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf2ua"]
 radius = 15.0
@@ -18,6 +18,80 @@ height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.99, 0.5)
+
+[sub_resource type="Animation" id="Animation_mf2ua"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rxibo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_244u8"]
+resource_name = "charge"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_5f2sf"]
+resource_name = "thrust"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 5, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_244u8"]
+_data = {
+&"RESET": SubResource("Animation_rxibo"),
+&"charge": SubResource("Animation_244u8"),
+&"idle": SubResource("Animation_mf2ua"),
+&"thrust": SubResource("Animation_5f2sf")
+}
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.05
@@ -37,7 +111,9 @@ color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(56, 64, 56, 0, 64, 24, 64, 40)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("2_rxibo")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -58,5 +134,10 @@ metadata/_edit_use_anchors_ = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0.603922, 0.894118, 1)
 texture = SubResource("GradientTexture2D_mf2ua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_244u8")
+}
 
 [connection signal="timeout" from="ThrustTimer" to="." method="_on_thrust_timer_timeout"]
