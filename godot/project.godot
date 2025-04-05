@@ -24,9 +24,14 @@ Globals="*res://src/common/globals.tscn"
 Logger="*res://addons/gs_logger/logger.gd"
 Debug="*res://src/common/debug/debug.tscn"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gs_logger/plugin.cfg", "res://addons/xsm/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gs_logger/plugin.cfg", "res://addons/random_timer_plugin/plugin.cfg", "res://addons/xsm/plugin.cfg")
 
 [input]
 
@@ -80,3 +85,10 @@ rotate_right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="plancton"
+2d_physics/layer_5="player"
+2d_physics/layer_6="enemies"

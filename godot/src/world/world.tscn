@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=8 format=3 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="1_xlegt"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_0qwtu"]
+[ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_jte2u"]
+[ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_bsf3i"]
+[ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="5_43c6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fy3g"]
 size = Vector2(1280, 80)
@@ -11,93 +14,118 @@ size = Vector2(647, 80)
 
 [node name="World" type="Node2D"]
 
-[node name="Obstacle" parent="." instance=ExtResource("1_xlegt")]
-position = Vector2(742, 122)
+[node name="Plancton" type="Node2D" parent="."]
 
-[node name="Obstacle2" parent="." instance=ExtResource("1_xlegt")]
-position = Vector2(154, 384)
+[node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Obstacle3" parent="." instance=ExtResource("1_xlegt")]
-position = Vector2(56, 82)
-
-[node name="Obstacle4" parent="." instance=ExtResource("1_xlegt")]
-position = Vector2(706, 470)
-
-[node name="Player" parent="." instance=ExtResource("2_0qwtu")]
-position = Vector2(442, 276)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(40, 656)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D"]
 polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 977, 70, 977, -10)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D"]
 position = Vector2(337, 30)
 shape = SubResource("RectangleShape2D_6fy3g")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(1288, 8.00006)
 rotation = -0.660799
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D2"]
 polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D2"]
 position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_jte2u")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(1344, 504)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D3"]
 polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D3"]
 position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_jte2u")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(856, -176)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D4"]
 polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D4"]
 position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_jte2u")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(96, -384)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D5"]
 polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D5"]
 position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_jte2u")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+[node name="StaticBody2D6" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(-552, 8.00002)
 rotation = -0.982197
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D6"]
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D6"]
 polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D6"]
 position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_jte2u")
 metadata/_edit_lock_ = true
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("1_xlegt")]
+position = Vector2(742, 122)
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("1_xlegt")]
+position = Vector2(154, 384)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("1_xlegt")]
+position = Vector2(56, 82)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("1_xlegt")]
+position = Vector2(706, 470)
+
+[node name="Currents" type="Node2D" parent="."]
+
+[node name="Current" parent="Currents" instance=ExtResource("5_43c6p")]
+position = Vector2(944, 384)
+size = Vector2(300, 200)
+
+[node name="Current2" parent="Currents" instance=ExtResource("5_43c6p")]
+position = Vector2(384, 48)
+size = Vector2(400, 300)
+direction = Vector2(1, 0)
+
+[node name="Current3" parent="Currents" instance=ExtResource("5_43c6p")]
+position = Vector2(-192, 368)
+size = Vector2(400, 600)
+direction = Vector2(0, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_0qwtu")]
+position = Vector2(442, 276)
+
+[node name="PlanctonGenerator" parent="Player" instance=ExtResource("3_jte2u")]
+plancton_scene = ExtResource("4_bsf3i")
+max_count = 100
+target_container = NodePath("../../Plancton")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

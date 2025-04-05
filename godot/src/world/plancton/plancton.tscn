@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://iab6i78fljla"]
+
+[ext_resource type="Script" uid="uid://dax3xkfee7704" path="res://src/world/plancton/plancton.gd" id="1_5cp07"]
+[ext_resource type="Script" uid="uid://dsanfc3iwqum4" path="res://addons/random_timer_plugin/random_timer.gd" id="1_pxc3u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tyvq"]
+radius = 2.0
+
+[node name="Plancton" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+mass = 0.1
+gravity_scale = 0.0
+linear_damp = 5.0
+script = ExtResource("1_5cp07")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 0.360784, 1)
+polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2tyvq")
+
+[node name="RandomTimer" type="Timer" parent="."]
+wait_time = 5.0
+script = ExtResource("1_pxc3u")
+variance = 2.0
+metadata/_custom_type_script = "uid://dsanfc3iwqum4"
+
+[connection signal="timeout" from="RandomTimer" to="." method="_on_random_timer_timeout"]
