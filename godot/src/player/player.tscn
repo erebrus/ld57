@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=4 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
+[ext_resource type="Texture2D" uid="uid://u7ct75w54l0x" path="res://assets/gfx/jelly3.png" id="2_rxibo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lowyb"]
-size = Vector2(64, 64)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf2ua"]
+radius = 15.0
+height = 42.0
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.05
@@ -14,6 +16,7 @@ angular_damp = 2.0
 script = ExtResource("1_lowyb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(-32, -32)
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
 
@@ -21,8 +24,12 @@ polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(56, 64, 56, 0, 64, 24, 64, 40)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rxibo")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lowyb")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mf2ua")
 
 [node name="ThrustTimer" type="Timer" parent="."]
 wait_time = 0.6
