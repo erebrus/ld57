@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ch567fr6oyjsr" path="res://src/world/currents/current.gd" id="1_l28h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65j8w"]
-size = Vector2(400, 300)
+size = Vector2(400, 600)
 
 [node name="Current" type="Area2D"]
 collision_mask = 3

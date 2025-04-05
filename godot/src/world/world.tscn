@@ -125,7 +125,8 @@ position = Vector2(442, 276)
 
 [node name="PlanctonGenerator" parent="Player" instance=ExtResource("3_jte2u")]
 plancton_scene = ExtResource("4_bsf3i")
-max_count = 100
+size = Vector2(2000, 1200)
+max_count = 200
 target_container = NodePath("../../Plancton")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
