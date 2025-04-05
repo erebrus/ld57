@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi78s6peh5cvj"]
+
+[ext_resource type="Shader" uid="uid://cwr2yswref2nv" path="res://src/world/light/haruyou27.gdshader" id="1_o0gj3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xj6l3"]
+shader = ExtResource("1_o0gj3")
+shader_parameter/intensity = 5.0
+
+[node name="GlowLight" type="Sprite2D"]
+material = SubResource("ShaderMaterial_xj6l3")

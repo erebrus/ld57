@@ -1,17 +1,105 @@
-[gd_scene format=3 uid="uid://ke438w5ne7cw"]
+[gd_scene load_steps=8 format=3 uid="uid://ke438w5ne7cw"]
 
-[node name="Main" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/world.tscn" id="1_eewff"]
+[ext_resource type="PackedScene" uid="uid://t52up6ldx28f" path="res://src/world/light/elditch_light.tscn" id="5_fyndt"]
+[ext_resource type="Shader" uid="uid://cwr2yswref2nv" path="res://src/world/light/haruyou27.gdshader" id="6_5mrjc"]
+[ext_resource type="Texture2D" uid="uid://be0xvrixrkar2" path="res://src/world/light/round_light_16.tres" id="7_rlaii"]
+[ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="8_kf8lf"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgm53"]
+shader = ExtResource("6_5mrjc")
+shader_parameter/intensity = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uewes"]
+shader = ExtResource("8_kf8lf")
+shader_parameter/light_texture = ExtResource("7_rlaii")
+shader_parameter/light_color = Color(0.905882, 0.713726, 1, 1)
+shader_parameter/brightness = 0.2
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 3.0
+shader_parameter/max_brightness = 0.5
+
+[node name="Main" type="Node"]
+
+[node name="PlantLights" type="Node2D" parent="."]
+
+[node name="HaruYou" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_mgm53")
+position = Vector2(494, 275)
+texture = ExtResource("7_rlaii")
+
+[node name="HaruYou2" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_mgm53")
+position = Vector2(486, 294)
+texture = ExtResource("7_rlaii")
+
+[node name="HaruYou3" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_mgm53")
+position = Vector2(485, 299)
+texture = ExtResource("7_rlaii")
+
+[node name="HaruYou4" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_mgm53")
+position = Vector2(491, 298)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(519, 295)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta2" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(526, 293)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta3" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(522, 298)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta4" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(534, 311)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta5" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(536, 316)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta6" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(538, 311)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta7" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(531, 314)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta8" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(538, 311)
+texture = ExtResource("7_rlaii")
+
+[node name="Brakatuta9" type="Sprite2D" parent="PlantLights"]
+material = SubResource("ShaderMaterial_uewes")
+position = Vector2(532, 317)
+texture = ExtResource("7_rlaii")
+
+[node name="PointLight2D" type="PointLight2D" parent="PlantLights"]
+position = Vector2(571, 300)
+range_z_min = 0
+texture = ExtResource("7_rlaii")
+
+[node name="World" parent="." instance=ExtResource("1_eewff")]
+position = Vector2(-10, -2)
+
+[node name="Darkness" type="DirectionalLight2D" parent="."]
+color = Color(0.972029, 0.604719, 0.466865, 1)
+energy = 1.5
+blend_mode = 1
+
+[node name="ElditchLight" parent="." instance=ExtResource("5_fyndt")]
+position = Vector2(549, 469)

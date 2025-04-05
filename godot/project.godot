@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Ludum Dare 57"
 config/version="0.0.6"
-run/main_scene="uid://bidnwv4kin1iu"
+run/main_scene="uid://ke438w5ne7cw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -92,3 +92,7 @@ rotate_right={
 2d_physics/layer_2="plancton"
 2d_physics/layer_5="player"
 2d_physics/layer_6="enemies"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.0941176, 0.113725, 0.172549, 1)
