@@ -154,6 +154,7 @@ linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_lowyb")
 thrust = 300.0
+energy_per_thrust = 1.0
 thrust_noise_curve = SubResource("Curve_rxibo")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
