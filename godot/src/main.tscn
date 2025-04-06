@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ke438w5ne7cw"]
 
-[ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/world.tscn" id="1_eewff"]
+[ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_eewff"]
 [ext_resource type="PackedScene" uid="uid://t52up6ldx28f" path="res://src/world/light/elditch_light.tscn" id="5_fyndt"]
 [ext_resource type="Shader" uid="uid://cwr2yswref2nv" path="res://src/world/light/haruyou27.gdshader" id="6_5mrjc"]
 [ext_resource type="Texture2D" uid="uid://be0xvrixrkar2" path="res://src/world/light/round_light_16.tres" id="7_rlaii"]

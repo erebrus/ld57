@@ -38,3 +38,8 @@ max_count = 200
 target_container = NodePath("../../Plancton")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Darkness" type="DirectionalLight2D" parent="."]
+color = Color(0.972029, 0.604719, 0.466865, 1)
+energy = 1.5
+blend_mode = 1
