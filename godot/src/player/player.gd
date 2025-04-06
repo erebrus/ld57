@@ -66,6 +66,8 @@ var currents:int:
 @onready var thrust_sfx: AudioStreamPlayer2D = $sfx/thrust_sfx
 @onready var enter_current_sfx: AudioStreamPlayer2D = $sfx/enter_current_sfx
 @onready var loop_current_sfx: AudioStreamPlayer2D = $sfx/loop_current_sfx
+@onready var hurt_sfx: AudioStreamPlayer2D = $sfx/hurt_sfx
+@onready var krill_sfx: AudioStreamPlayer2D = $sfx/krill_sfx
 
 func _ready():
 	animation_player.play("idle")
@@ -169,12 +171,13 @@ func drain(val:float):
 	Logger.info("light %.2f/%.2f" % [energy, light.energy])
 
 func consume(krill:Krill):
+	krill_sfx.play()
 	energy = min(max_energy, energy+krill.energy)
 	Logger.info("light %.2f/%.2f" % [energy, light.energy])
 
 func hurt(dmg:float):
 	drain(dmg)
-	#TODO sound
+	hurt_sfx.play()
 	#TODO stop?
 
 func kill():
