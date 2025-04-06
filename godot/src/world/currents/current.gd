@@ -23,3 +23,14 @@ func _physics_process(delta: float) -> void:
 	for body in list:
 		if body is RigidBody2D:
 			body.apply_force(direction*intensity*body.mass)
+			
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.currents += 1
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player:
+		body.currents -= 1

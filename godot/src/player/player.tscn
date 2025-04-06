@@ -1,7 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=33 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
+[ext_resource type="AudioStream" uid="uid://dvd6t5087bqgt" path="res://assets/sfx/MC_Charge_1.wav" id="3_ylhto"]
+[ext_resource type="AudioStream" uid="uid://c1pcjv13bug0u" path="res://assets/sfx/MC_Charge_2.wav" id="4_cwolq"]
+[ext_resource type="AudioStream" uid="uid://ccddkymj467au" path="res://assets/sfx/MC_Charge_3.wav" id="5_2smqc"]
+[ext_resource type="AudioStream" uid="uid://bwupafmoiebd6" path="res://assets/sfx/MC_Tap_1.wav" id="6_rl62b"]
+[ext_resource type="AudioStream" uid="uid://dull5ssd2xdc" path="res://assets/sfx/MC_Tap_2.wav" id="7_wlj80"]
+[ext_resource type="AudioStream" uid="uid://bc1nxocp72pws" path="res://assets/sfx/MC_Tap_3.wav" id="8_6bm8s"]
+[ext_resource type="AudioStream" uid="uid://dnxn5ufv43y2i" path="res://assets/sfx/MC_Thrust_1.wav" id="9_hrerp"]
+[ext_resource type="AudioStream" uid="uid://dqmvi8fgvigrx" path="res://assets/sfx/MC_Thrust_2.wav" id="10_oyld2"]
+[ext_resource type="AudioStream" uid="uid://c6luq3mrryr5i" path="res://assets/sfx/MC_Thrust_3.wav" id="11_vwsmr"]
+[ext_resource type="AudioStream" uid="uid://bajjfpb2361kh" path="res://assets/sfx/ENV_Current_enterring_1.wav" id="12_rl62b"]
+[ext_resource type="AudioStream" uid="uid://pv5bq76gj8ob" path="res://assets/sfx/ENV_Current_enterring_2.wav" id="13_wlj80"]
+[ext_resource type="AudioStream" uid="uid://o6qrpmknil7w" path="res://assets/sfx/ENV_Current_enterring_3.wav" id="14_6bm8s"]
+[ext_resource type="AudioStream" uid="uid://b3a5mv2nbu5k8" path="res://assets/sfx/ENV_Current_loop.wav" id="15_wlj80"]
 
 [sub_resource type="Curve" id="Curve_rxibo"]
 _data = [Vector2(0, 0.0224719), 0.0, 0.0, 0, 0, Vector2(0.340426, 0.382023), 0.0, 0.0, 0, 0, Vector2(0.542553, 0.606742), 0.0, 0.0, 0, 0, Vector2(0.787234, 0.707865), 0.0, 0.0, 0, 0, Vector2(0.994681, 1), 0.0, 0.0, 0, 0]
@@ -277,6 +290,30 @@ _data = {
 &"thrust_to_idle": SubResource("Animation_jiejy")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jcdrv"]
+streams_count = 3
+stream_0/stream = ExtResource("3_ylhto")
+stream_1/stream = ExtResource("4_cwolq")
+stream_2/stream = ExtResource("5_2smqc")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hja65"]
+streams_count = 3
+stream_0/stream = ExtResource("6_rl62b")
+stream_1/stream = ExtResource("7_wlj80")
+stream_2/stream = ExtResource("8_6bm8s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5shm8"]
+streams_count = 3
+stream_0/stream = ExtResource("9_hrerp")
+stream_1/stream = ExtResource("10_oyld2")
+stream_2/stream = ExtResource("11_vwsmr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hrerp"]
+streams_count = 3
+stream_0/stream = ExtResource("12_rl62b")
+stream_1/stream = ExtResource("13_wlj80")
+stream_2/stream = ExtResource("14_6bm8s")
+
 [node name="Player" type="RigidBody2D"]
 collision_layer = 16
 gravity_scale = 0.05
@@ -321,5 +358,32 @@ texture = SubResource("GradientTexture2D_mf2ua")
 libraries = {
 &"": SubResource("AnimationLibrary_244u8")
 }
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="charge_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = SubResource("AudioStreamRandomizer_jcdrv")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="tap_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = SubResource("AudioStreamRandomizer_hja65")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="thrust_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = SubResource("AudioStreamRandomizer_5shm8")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="enter_current_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = SubResource("AudioStreamRandomizer_hrerp")
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="loop_current_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("15_wlj80")
+volume_db = -10.0
+bus = &"Sfx"
 
 [connection signal="timeout" from="ThrustTimer" to="." method="_on_thrust_timer_timeout"]

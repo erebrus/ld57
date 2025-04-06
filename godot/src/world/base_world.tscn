@@ -48,3 +48,5 @@ target_container = NodePath("../../Plancton")
 color = Color(0.972029, 0.604719, 0.466865, 1)
 energy = 1.5
 blend_mode = 1
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]

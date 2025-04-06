@@ -139,11 +139,13 @@ position = Vector2(609.82, 416.397)
 position = Vector2(426, 304)
 
 [node name="Angler4" type="Sprite2D" parent="." index="11"]
+visible = false
 position = Vector2(787, 264)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_maara")
 
 [node name="Angler5" type="Sprite2D" parent="." index="12"]
+visible = false
 position = Vector2(60, 401)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_maara")
