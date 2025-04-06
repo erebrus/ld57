@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lrsg716h2ai"
-path="res://.godot/imported/angler3.png-6b4d2526576b0479504f4b26fd72c59c.ctex"
+path="res://.godot/imported/angler3.png-0e485233198d11011a3801ba38b1111c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/angler3.png"
-dest_files=["res://.godot/imported/angler3.png-6b4d2526576b0479504f4b26fd72c59c.ctex"]
+source_file="res://assets/gfx/enemies/angler3.png"
+dest_files=["res://.godot/imported/angler3.png-0e485233198d11011a3801ba38b1111c.ctex"]
 
 [params]
 
