@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://de80n1av20gh6"]
+[gd_scene load_steps=13 format=3 uid="uid://de80n1av20gh6"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_r2k6j"]
 [ext_resource type="Script" uid="uid://demoblvs171nx" path="res://src/enemies/mooray.gd" id="2_ch0pn"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="3_2miu3"]
 [ext_resource type="Script" uid="uid://dhjspwps2m8om" path="res://src/enemies/xsm/trap_idle.gd" id="4_tjo2e"]
 [ext_resource type="Script" uid="uid://cdq6745ysid08" path="res://src/enemies/xsm/trap_attack.gd" id="5_bpsyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2miu3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2miu3"]
 radius = 150.0
@@ -74,34 +76,37 @@ script = ExtResource("2_ch0pn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 
-[node name="DetectionArea" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_2miu3")
+
+[node name="DetectionArea" parent="." index="2"]
 visible = false
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource("CircleShape2D_2miu3")
 
-[node name="HurtArea" parent="." index="2"]
+[node name="HurtArea" parent="." index="3"]
 position = Vector2(0, -72)
 
 [node name="CollisionShape2D" parent="HurtArea" index="0"]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_2miu3")
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="4"]
+[node name="Polygon2D" type="Polygon2D" parent="." index="5"]
 color = Color(0.260379, 0.432461, 0.685649, 1)
 polygon = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
 
-[node name="AttackPolygoin" type="Polygon2D" parent="." index="5"]
+[node name="AttackPolygoin" type="Polygon2D" parent="." index="6"]
 visible = false
 color = Color(0.260379, 0.432461, 0.685649, 1)
 polygon = PackedVector2Array(-24, -120, 24, -120, 16, 8, -16, 8)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
 &"": SubResource("AnimationLibrary_yq4i8")
 }
 
-[node name="XSM" type="Node" parent="." index="7"]
+[node name="XSM" type="Node" parent="." index="8"]
 script = ExtResource("3_2miu3")
 history_size = 0
 disabled = false

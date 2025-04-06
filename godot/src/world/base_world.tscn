@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=6 format=3 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
-[ext_resource type="PackedScene" uid="uid://bntes4nja72tf" path="res://src/world/tileset/blocks/block_01.tscn" id="2_5olu3"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_ckmdn"]
-[ext_resource type="PackedScene" uid="uid://2hysl4633ino" path="res://src/world/tileset/blocks/block_02.tscn" id="3_iheon"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
-[ext_resource type="PackedScene" uid="uid://cnndf1s7tlan8" path="res://src/world/tileset/blocks/block_03.tscn" id="4_ksan5"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_x0ey0"]
-[ext_resource type="PackedScene" uid="uid://dgoastca1xxh3" path="res://src/world/tileset/blocks/block_04.tscn" id="5_7k7oe"]
 
 [sub_resource type="Environment" id="Environment_l0av5"]
 background_mode = 3
@@ -23,25 +19,13 @@ environment = SubResource("Environment_l0av5")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 
-[node name="Plancton" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="NavigationRegion2D"]
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="Plancton" type="Node2D" parent="NavigationRegion2D"]
 
-[node name="BaseBlock" parent="Obstacles" instance=ExtResource("2_5olu3")]
-position = Vector2(1270, -750)
-
-[node name="BaseBlock2" parent="Obstacles" instance=ExtResource("3_iheon")]
-position = Vector2(-205, -649)
-
-[node name="BaseBlock3" parent="Obstacles" instance=ExtResource("4_ksan5")]
-position = Vector2(-535, 850)
-
-[node name="BaseBlock4" parent="Obstacles" instance=ExtResource("5_7k7oe")]
-position = Vector2(1309, 526)
+[node name="Enemies" type="Node2D" parent="NavigationRegion2D"]
 
 [node name="Currents" type="Node2D" parent="."]
-
-[node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_ckmdn")]
 position = Vector2(442, 276)
@@ -51,7 +35,7 @@ visible = false
 plancton_scene = ExtResource("4_x0ey0")
 size = Vector2(2000, 1200)
 max_count = 200
-target_container = NodePath("../../Plancton")
+target_container = NodePath("../../NavigationRegion2D/Plancton")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
