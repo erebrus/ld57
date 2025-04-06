@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_7snqw"]
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_ge01i"]
-[ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="3_mova3"]
+[ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="3_mova3"]
 [ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_7bnmx"]
 [ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="5_qjlo6"]
 [ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_xu0yo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="8_rfwcu"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="9_0l18y"]
 [ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="10_m7vrj"]
+
 
 [sub_resource type="Environment" id="Environment_l0av5"]
 background_mode = 3

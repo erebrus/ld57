@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://melef81c1ugk"]
+
+[ext_resource type="TileSet" uid="uid://cnjk1mun3f1mu" path="res://src/world/tileset/obstacle_tileset.tres" id="1_i3uc7"]
+[ext_resource type="Script" uid="uid://nmrprfm23h5k" path="res://src/world/tileset/base_block.gd" id="2_gmx5p"]
+
+[node name="BaseBlock" type="TileMapLayer"]
+tile_set = ExtResource("1_i3uc7")
+script = ExtResource("2_gmx5p")
