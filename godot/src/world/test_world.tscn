@@ -32,6 +32,9 @@ position = Vector2(376, 627)
 [node name="NavigationRegion2D" parent="." index="3"]
 navigation_polygon = SubResource("NavigationPolygon_eyewv")
 
+[node name="AnglerFish" parent="NavigationRegion2D" index="0" instance=ExtResource("7_c834t")]
+position = Vector2(-715, 445)
+
 [node name="Krill" parent="Plancton" index="0" instance=ExtResource("4_vjq7d")]
 position = Vector2(-124.865, 22.4368)
 
@@ -140,9 +143,6 @@ direction = Vector2(1, 0)
 position = Vector2(-192, 368)
 size = Vector2(400, 600)
 direction = Vector2(0, 1)
-
-[node name="AnglerFish" parent="Enemies" index="0" instance=ExtResource("7_c834t")]
-position = Vector2(-715, 445)
 
 [node name="ElditchLight" parent="." index="8" instance=ExtResource("8_eyewv")]
 position = Vector2(609.82, 416.397)
