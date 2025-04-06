@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_ckmdn"]
-[ext_resource type="TileSet" uid="uid://cnjk1mun3f1mu" path="res://src/world/blocks/obstacle_tileset.tres" id="2_m3x1u"]
+[ext_resource type="TileSet" uid="uid://c30ff8uj7stcq" path="res://src/world/blocks/obstacle_tileset.tres" id="2_m3x1u"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_x0ey0"]
 

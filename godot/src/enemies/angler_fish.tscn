@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://pmiou8r6dblj" path="res://src/enemies/angler_fish.gd" id="2_g1key"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="3_4cfmw"]
 [ext_resource type="Texture2D" uid="uid://dkvbw1508psys" path="res://assets/gfx/enemies/anglersheet.png" id="3_daflk"]
-[ext_resource type="Script" uid="uid://cnr4i1xiwfw14" path="res://addons/xsm/state.gd" id="4_wtdoh"]
+[ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="4_wtdoh"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="5_v23hx"]
 [ext_resource type="Script" uid="uid://c6tquf5jy74bu" path="res://src/enemies/xsm/follow.gd" id="6_v23hx"]
 [ext_resource type="Script" uid="uid://03jbhlg4opwu" path="res://src/enemies/attack.gd" id="7_wfifh"]
 [ext_resource type="Script" uid="uid://cossxko0rmudv" path="res://src/enemies/xsm/retreat.gd" id="8_wfifh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daflk"]
+size = Vector2(187, 116)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13xfw"]
 radius = 112.0
@@ -135,33 +138,44 @@ _data = {
 &"retreat": SubResource("Animation_wfifh")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_daflk"]
-size = Vector2(187, 116)
-
 [node name="AnglerFish" instance=ExtResource("1_2o0ra")]
 collision_layer = 32
 script = ExtResource("2_g1key")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="HurtArea" parent="." index="1"]
+position = Vector2(240, 24)
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(9, 27)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtArea" index="1"]
+visible = false
+position = Vector2(-83.5, 39)
+shape = SubResource("RectangleShape2D_daflk")
+
+[node name="NavigationAgent2D" parent="." index="2"]
+radius = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 visible = false
 position = Vector2(-8, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_13xfw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="6"]
 texture = ExtResource("3_daflk")
 hframes = 4
 
-[node name="LurePolygon" type="Polygon2D" parent="." index="2"]
+[node name="LurePolygon" type="Polygon2D" parent="." index="7"]
 material = SubResource("ShaderMaterial_wtdoh")
 position = Vector2(227, -84)
 polygon = PackedVector2Array(-6, -6, 0, -8, 6, -6, 8, 0, 6, 6, 0, 8, -6, 6, -8, 0)
 
-[node name="NavTimer" type="Timer" parent="." index="3"]
+[node name="NavTimer" type="Timer" parent="." index="8"]
 wait_time = 0.4
 autostart = true
 
-[node name="XSM" type="Node" parent="." index="4"]
+[node name="XSM" type="Node" parent="." index="9"]
 script = ExtResource("4_wtdoh")
 history_size = 0
 disabled = false
@@ -183,26 +197,9 @@ hurt_timebox = Vector2(0.4, 0.5)
 [node name="Retreat" type="Node" parent="XSM" index="3"]
 script = ExtResource("8_wfifh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
 libraries = {
 &"": SubResource("AnimationLibrary_daflk")
 }
-
-[node name="DetectionArea" parent="." index="6"]
-visible = false
-
-[node name="HurtArea" parent="." index="7"]
-position = Vector2(240, 24)
-
-[node name="CollisionShape2D" parent="HurtArea" index="0"]
-position = Vector2(9, 27)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtArea" index="1"]
-visible = false
-position = Vector2(-83.5, 39)
-shape = SubResource("RectangleShape2D_daflk")
-
-[node name="NavigationAgent2D" parent="." index="8"]
-radius = 40.0
 
 [connection signal="timeout" from="NavTimer" to="XSM/Follow" method="_on_nav_timer_timeout"]

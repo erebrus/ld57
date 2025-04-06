@@ -1,4 +1,5 @@
 extends StateAnimation
+@export var on_detection_state:String = "Follow"
 #  func _on_enter() -> void:
 #  func _after_enter() -> void:
 #  func _on_update(_delta) -> void:
@@ -21,4 +22,4 @@ func _before_exit(_args) -> void:
 func _on_update(_delta) -> void:
 	pass
 func _on_player_detected():
-	change_state("Follow")
+	change_state(on_detection_state)
