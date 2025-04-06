@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c12c6dmta6gxv"]
+[gd_scene load_steps=12 format=3 uid="uid://c12c6dmta6gxv"]
 
 [ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_e7n38"]
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_eyewv"]
@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_5i0kq"]
 [ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="7_c834t"]
 [ext_resource type="PackedScene" uid="uid://t52up6ldx28f" path="res://src/world/light/elditch_light.tscn" id="8_eyewv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eyewv"]
+vertices = PackedVector2Array(-272.781, -243.922, 2422.26, -689.938, 2251.68, 1730.82, -1449.14, 1661.18, -663.906, 318.07, -771.469, 259.508, -1483.84, -670.047, -382.867, -312.57)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 4, 3), PackedInt32Array(5, 3, 6), PackedInt32Array(7, 5, 6), PackedInt32Array(7, 6, 1), PackedInt32Array(7, 1, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1494, -680, 2433, -700, 2261, 1741, -1459, 1671), PackedVector2Array(-757, 256, -667, 305, -287, -241, -380, -299), PackedVector2Array(-229, -413, 458, -424, 448, -299, -222, -293), PackedVector2Array(538, -220, 1215, -220, 1208, -79, 541, -79), PackedVector2Array(1021, 173, 1553, -241, 1636, -130, 1101, 267, 1101, 267), PackedVector2Array(403, 488, 624, 374, 1056, 281, 1335, 305, 1480, 353, 1643, 225, 1801, 243, 1687, 602, 1045, 588, 1021, 750, -273, 750, -280, 619, 13, 595)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uat"]
 size = Vector2(1280, 80)
@@ -23,6 +28,9 @@ texture = ExtResource("2_eyewv")
 
 [node name="BaseBlock" parent="." index="2" instance=ExtResource("3_maara")]
 position = Vector2(376, 627)
+
+[node name="NavigationRegion2D" parent="." index="3"]
+navigation_polygon = SubResource("NavigationPolygon_eyewv")
 
 [node name="Krill" parent="Plancton" index="0" instance=ExtResource("4_vjq7d")]
 position = Vector2(-124.865, 22.4368)

@@ -4,9 +4,20 @@ signal player_detected
 signal player_on_target
 signal player_lost
 
+@export var damage:float=100
+@export var accel:float=5.0
+@export var max_speed:float=80
+@export var health:float=100.0
+
+
+
+
 var home:Vector2
 var target_position:Vector2
 var target:Player
+
+@onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+
 @onready var detection_area: Area2D = $DetectionArea
 @onready var hurt_area: Area2D = $HurtArea
 

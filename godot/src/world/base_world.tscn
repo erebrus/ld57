@@ -17,6 +17,8 @@ script = ExtResource("1_ilhj1")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l0av5")
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+
 [node name="Plancton" type="Node2D" parent="."]
 
 [node name="Obstacles" type="Node2D" parent="."]
