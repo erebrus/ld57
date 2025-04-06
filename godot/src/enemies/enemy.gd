@@ -51,7 +51,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	target=null
 
 func is_player_on_target():
-	return hurt_area.get_overlapping_bodies().has(target)
-
+	var ret:= hurt_area.get_overlapping_bodies().has(target)
+	return ret
+	
 func hurt_player():
 	target.hurt(100)

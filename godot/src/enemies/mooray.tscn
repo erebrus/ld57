@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://de80n1av20gh6"]
+
+[ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_r2k6j"]
+[ext_resource type="Script" uid="uid://demoblvs171nx" path="res://src/enemies/mooray.gd" id="2_ch0pn"]
+[ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="3_2miu3"]
+[ext_resource type="Script" uid="uid://dhjspwps2m8om" path="res://src/enemies/xsm/trap_idle.gd" id="4_tjo2e"]
+[ext_resource type="Script" uid="uid://cdq6745ysid08" path="res://src/enemies/xsm/trap_attack.gd" id="5_bpsyy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2miu3"]
+radius = 150.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2miu3"]
+radius = 32.0
+height = 112.0
+
+[sub_resource type="Animation" id="Animation_78jt7"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackPolygoin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_15hmu"]
+resource_name = "attack"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackPolygoin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_2miu3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackPolygoin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yq4i8"]
+_data = {
+&"RESET": SubResource("Animation_2miu3"),
+&"attack": SubResource("Animation_15hmu"),
+&"idle": SubResource("Animation_78jt7")
+}
+
+[node name="Mooray" instance=ExtResource("1_r2k6j")]
+script = ExtResource("2_ch0pn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+
+[node name="DetectionArea" parent="." index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_2miu3")
+
+[node name="HurtArea" parent="." index="2"]
+position = Vector2(0, -72)
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_2miu3")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="4"]
+color = Color(0.260379, 0.432461, 0.685649, 1)
+polygon = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
+
+[node name="AttackPolygoin" type="Polygon2D" parent="." index="5"]
+visible = false
+color = Color(0.260379, 0.432461, 0.685649, 1)
+polygon = PackedVector2Array(-24, -120, 24, -120, 16, 8, -16, 8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_yq4i8")
+}
+
+[node name="XSM" type="Node" parent="." index="7"]
+script = ExtResource("3_2miu3")
+history_size = 0
+disabled = false
+debug_mode = false
+target_path = NodePath("")
+timed = false
+next_state = NodePath("TrapIdle")
+metadata/_custom_type_script = "uid://byryw0ctc5ev8"
+
+[node name="TrapIdle" type="Node" parent="XSM" index="0"]
+script = ExtResource("4_tjo2e")
+metadata/_custom_type_script = "uid://dlsi2jauwupc1"
+
+[node name="TrapAttack" type="Node" parent="XSM" index="1"]
+script = ExtResource("5_bpsyy")
+hurt_timebox = Vector2(0.3, 0.4)
+metadata/_custom_type_script = "uid://dlsi2jauwupc1"
