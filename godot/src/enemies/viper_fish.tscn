@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bix5s1utrsmcx"]
+
+[ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_stgf7"]
+[ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="2_6yasc"]
+[ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="3_gcgnh"]
+[ext_resource type="Script" uid="uid://dlsi2jauwupc1" path="res://addons/xsm/state_animation.gd" id="3_gd62g"]
+[ext_resource type="Script" uid="uid://dbjekn3lw8dad" path="res://src/enemies/xsm/align.gd" id="4_uxved"]
+[ext_resource type="Script" uid="uid://bu0d5672mh751" path="res://src/enemies/xsm/charge_attack.gd" id="5_gcgnh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcgnh"]
+radius = 8.0
+
+[node name="ViperFish" instance=ExtResource("1_stgf7")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_gcgnh")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="4"]
+polygon = PackedVector2Array(-16, -8, 8, -8, 16, 0, 8, 8, -16, 8)
+
+[node name="XSM" type="Node" parent="." index="5"]
+script = ExtResource("2_6yasc")
+history_size = 0
+disabled = false
+debug_mode = false
+target_path = NodePath("")
+timed = false
+next_state = NodePath("")
+metadata/_custom_type_script = "uid://byryw0ctc5ev8"
+
+[node name="Idle" type="Node" parent="XSM" index="0"]
+script = ExtResource("3_gcgnh")
+on_detection_state = "Align"
+metadata/_custom_type_script = "uid://dlsi2jauwupc1"
+
+[node name="Align" type="Node" parent="XSM" index="1"]
+script = ExtResource("4_uxved")
+metadata/_custom_type_script = "uid://dlsi2jauwupc1"
+
+[node name="ChargeAttack" type="Node" parent="XSM" index="2"]
+script = ExtResource("5_gcgnh")
+metadata/_custom_type_script = "uid://dlsi2jauwupc1"
+
+[node name="Retreat" type="Node" parent="XSM" index="3"]
+script = ExtResource("3_gd62g")
+animation_player = NodePath("")
+disabled = false
+debug_mode = false
+target_path = NodePath("")
+timed = false
+next_state = NodePath("")
+metadata/_custom_type_script = "uid://dlsi2jauwupc1"

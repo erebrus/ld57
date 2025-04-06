@@ -36,9 +36,18 @@ var currents:int:
 			loop_current_sfx.stop()
 			loop_current_sfx.volume_db = vol
 		elif not has_current and currents > 0:
-			enter_current_sfx.play()
+			#enter_current_sfx.play()
+			#await enter_current_sfx.finished
+			
+			var vol=loop_current_sfx.volume_db
+			loop_current_sfx.volume_db = -40
+			loop_current_sfx.play()
+			var tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(loop_current_sfx,"volume_db",vol,.3)
+			await tween.finished
+			
 			Logger.debug("entering current %d" % currents)
-			await enter_current_sfx.finished
+			
 			if currents >0:
 				loop_current_sfx.play()
 				
@@ -146,15 +155,14 @@ func _on_thrust_timer_timeout() -> void:
 	can_thrust=true
 	$%ThrustState.color=Color("white")
 	Logger.debug("thrust available %d" % Time.get_ticks_msec())
-	match last_thrust_direction:
-		Vector2.LEFT:
-			animation_player.play("idle")
-		_:#Vector2.RIGHT:
+	match last_thrust_direction:		
+		Vector2.RIGHT:
 			if not Input.is_action_pressed("move_forward"):
 				animation_player.play("thrust_to_idle")
 				await animation_player.animation_finished
 				animation_player.play("idle")
-		
+		_:
+			animation_player.play("idle")
 
 	
 

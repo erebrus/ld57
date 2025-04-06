@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c12c6dmta6gxv"]
+[gd_scene load_steps=13 format=3 uid="uid://c12c6dmta6gxv"]
 
 [ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_e7n38"]
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_eyewv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
 [ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_5i0kq"]
 [ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="7_c834t"]
+[ext_resource type="PackedScene" uid="uid://de80n1av20gh6" path="res://src/enemies/mooray.tscn" id="7_maara"]
 [ext_resource type="PackedScene" uid="uid://t52up6ldx28f" path="res://src/world/light/elditch_light.tscn" id="8_eyewv"]
 [ext_resource type="Texture2D" uid="uid://ybh2clljdjt6" path="res://assets/gfx/enemies/angler4.png" id="8_maara"]
 
@@ -34,7 +35,7 @@ position = Vector2(376, 627)
 navigation_polygon = SubResource("NavigationPolygon_eyewv")
 
 [node name="AnglerFish" parent="NavigationRegion2D" index="0" instance=ExtResource("7_c834t")]
-position = Vector2(-715, 445)
+position = Vector2(-880, 672)
 
 [node name="Krill" parent="Plancton" index="0" instance=ExtResource("4_vjq7d")]
 position = Vector2(-124.865, 22.4368)
@@ -136,8 +137,12 @@ direction = Vector2(0, 1)
 [node name="ElditchLight" parent="." index="8" instance=ExtResource("8_eyewv")]
 position = Vector2(609.82, 416.397)
 
-[node name="Player" parent="." index="9"]
-position = Vector2(426, 304)
+[node name="Mooray" parent="Enemies" index="0" instance=ExtResource("7_maara")]
+position = Vector2(1201, 68.0001)
+rotation = -0.763727
+
+[node name="Player" parent="." index="10"]
+position = Vector2(1000, 64)
 
 [node name="Angler4" type="Sprite2D" parent="." index="11"]
 visible = false

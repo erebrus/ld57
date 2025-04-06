@@ -27,6 +27,14 @@ shape = SubResource("CircleShape2D_jg4ye")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
+[node name="DetectionRC" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+collision_mask = 17
+
+[node name="DetectionTimer" type="Timer" parent="."]
+wait_time = 0.3
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="timeout" from="DetectionTimer" to="." method="_on_detection_timer_timeout"]
