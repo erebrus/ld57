@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://pmiou8r6dblj" path="res://src/enemies/angler_fish.gd" id="2_g1key"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="3_4cfmw"]
 [ext_resource type="Texture2D" uid="uid://dkvbw1508psys" path="res://assets/gfx/enemies/anglersheet.png" id="3_daflk"]
-[ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="4_wtdoh"]
+[ext_resource type="Script" uid="uid://cnr4i1xiwfw14" path="res://addons/xsm/state.gd" id="4_wtdoh"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="5_v23hx"]
 [ext_resource type="Script" uid="uid://c6tquf5jy74bu" path="res://src/enemies/xsm/follow.gd" id="6_v23hx"]
 [ext_resource type="Script" uid="uid://03jbhlg4opwu" path="res://src/enemies/attack.gd" id="7_wfifh"]

@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_e7n38"]
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_eyewv"]
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="3_maara"]
-[ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
-[ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="5_rhl6c"]
+[ext_resource type="PackedScene" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
 [ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_5i0kq"]
 [ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="7_c834t"]
 [ext_resource type="PackedScene" uid="uid://t52up6ldx28f" path="res://src/world/light/elditch_light.tscn" id="8_eyewv"]
+[ext_resource type="Texture2D" uid="uid://ybh2clljdjt6" path="res://assets/gfx/enemies/angler4.png" id="8_maara"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eyewv"]
 vertices = PackedVector2Array(-272.781, -243.922, 2422.26, -689.938, 2251.68, 1730.82, -1449.14, 1661.18, -663.906, 318.07, -771.469, 259.508, -1483.84, -670.047, -382.867, -312.57)
@@ -118,18 +118,6 @@ position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_vq125")
 metadata/_edit_lock_ = true
 
-[node name="Obstacle" parent="Obstacles" index="6" instance=ExtResource("5_rhl6c")]
-position = Vector2(742, 122)
-
-[node name="Obstacle2" parent="Obstacles" index="7" instance=ExtResource("5_rhl6c")]
-position = Vector2(154, 384)
-
-[node name="Obstacle3" parent="Obstacles" index="8" instance=ExtResource("5_rhl6c")]
-position = Vector2(56, 82)
-
-[node name="Obstacle4" parent="Obstacles" index="9" instance=ExtResource("5_rhl6c")]
-position = Vector2(706, 470)
-
 [node name="Current" parent="Currents" index="0" instance=ExtResource("6_5i0kq")]
 position = Vector2(944, 384)
 size = Vector2(300, 200)
@@ -146,3 +134,16 @@ direction = Vector2(0, 1)
 
 [node name="ElditchLight" parent="." index="8" instance=ExtResource("8_eyewv")]
 position = Vector2(609.82, 416.397)
+
+[node name="Player" parent="." index="9"]
+position = Vector2(426, 304)
+
+[node name="Angler4" type="Sprite2D" parent="." index="11"]
+position = Vector2(787, 264)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_maara")
+
+[node name="Angler5" type="Sprite2D" parent="." index="12"]
+position = Vector2(60, 401)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_maara")
