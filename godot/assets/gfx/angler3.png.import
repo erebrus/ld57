@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u7ct75w54l0x"
-path="res://.godot/imported/jelly3.png-82b7f03f3e644d3bf47393e9b76adcaf.ctex"
+uid="uid://lrsg716h2ai"
+path="res://.godot/imported/angler3.png-6b4d2526576b0479504f4b26fd72c59c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/jelly3.png"
-dest_files=["res://.godot/imported/jelly3.png-82b7f03f3e644d3bf47393e9b76adcaf.ctex"]
+source_file="res://assets/gfx/angler3.png"
+dest_files=["res://.godot/imported/angler3.png-6b4d2526576b0479504f4b26fd72c59c.ctex"]
 
 [params]
 
