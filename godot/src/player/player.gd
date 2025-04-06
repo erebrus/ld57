@@ -90,10 +90,10 @@ func do_thrust(rotation_delta:float = 0):
 	$%ThrustState.color=Color("red")
 	match last_thrust_direction:
 		Vector2.LEFT:
-			Logger.info("thrust back")
+			Logger.debug("thrust back")
 			animation_player.play("back")
 		_:
-			Logger.info("thrust forward")
+			Logger.debug("thrust forward")
 			animation_player.play("thrust")
 
 			
@@ -104,7 +104,7 @@ func do_thrust(rotation_delta:float = 0):
 	thrust_factor=0
 	$ThrustTimer.start()
 	Logger.debug("thrust NOT available %d" % Time.get_ticks_msec())
-	Logger.info("light %.2f/%.2f" % [energy, light.energy])
+	Logger.debug("light %.2f/%.2f" % [energy, light.energy])
 
 func do_noise():
 	Events.player_noise_ping.emit(global_position, noise_range*thrust_factor)
@@ -128,4 +128,10 @@ func _on_thrust_timer_timeout() -> void:
 
 func consume(krill:Krill):
 	energy = min(max_energy, energy+krill.energy)
-	Logger.info("light %.2f/%.2f" % [energy, light.energy])
+	Logger.debug("light %.2f/%.2f" % [energy, light.energy])
+
+func hurt(dmg:float):
+	Logger.info("hurt")
+	visible=false
+	await get_tree().create_timer(1).timeout
+	get_tree().quit()

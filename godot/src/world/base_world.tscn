@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bidnwv4kin1iu"]
+
+[ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
+[ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_ckmdn"]
+[ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
+[ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_x0ey0"]
+
+[sub_resource type="Environment" id="Environment_l0av5"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.15
+glow_blend_mode = 0
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_ilhj1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l0av5")
+
+[node name="Plancton" type="Node2D" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Currents" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_ckmdn")]
+position = Vector2(442, 276)
+
+[node name="PlanctonGenerator" parent="Player" instance=ExtResource("3_m3x1u")]
+visible = false
+plancton_scene = ExtResource("4_x0ey0")
+size = Vector2(2000, 1200)
+max_count = 200
+target_container = NodePath("../../Plancton")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

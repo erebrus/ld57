@@ -1,20 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=14 format=3 uid="uid://tw6a68wpdv0"]
 
-[ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_5kmgb"]
-[ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="1_l0av5"]
-[ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="1_xlegt"]
-[ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_0qwtu"]
-[ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="2_5kmgb"]
-[ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_jte2u"]
-[ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="3_wg6dd"]
-[ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_bsf3i"]
-[ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="5_43c6p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fy3g"]
-size = Vector2(1280, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jte2u"]
-size = Vector2(647, 80)
+[ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_7snqw"]
+[ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_ge01i"]
+[ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="3_mova3"]
+[ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_7bnmx"]
+[ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="5_qjlo6"]
+[ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_xu0yo"]
+[ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="7_hk62b"]
+[ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="8_rfwcu"]
+[ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="9_0l18y"]
+[ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="10_m7vrj"]
 
 [sub_resource type="Environment" id="Environment_l0av5"]
 background_mode = 3
@@ -22,25 +17,34 @@ glow_enabled = true
 glow_bloom = 0.15
 glow_blend_mode = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fy3g"]
+size = Vector2(1280, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jte2u"]
+size = Vector2(647, 80)
+
 [node name="World" type="Node2D"]
-script = ExtResource("1_5kmgb")
+script = ExtResource("1_7snqw")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(424, 296)
-texture = ExtResource("1_l0av5")
+texture = ExtResource("2_ge01i")
 
-[node name="BaseBlock" parent="." instance=ExtResource("2_5kmgb")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l0av5")
+
+[node name="BaseBlock" parent="." instance=ExtResource("3_mova3")]
 position = Vector2(376, 627)
 
 [node name="Plancton" type="Node2D" parent="."]
 
-[node name="Krill" parent="Plancton" instance=ExtResource("3_wg6dd")]
+[node name="Krill" parent="Plancton" instance=ExtResource("4_7bnmx")]
 position = Vector2(-124.865, 22.4368)
 
-[node name="Krill2" parent="Plancton" instance=ExtResource("3_wg6dd")]
+[node name="Krill2" parent="Plancton" instance=ExtResource("4_7bnmx")]
 position = Vector2(151, 575)
 
-[node name="Krill3" parent="Plancton" instance=ExtResource("3_wg6dd")]
+[node name="Krill3" parent="Plancton" instance=ExtResource("4_7bnmx")]
 position = Vector2(967, 26)
 
 [node name="Obstacles" type="Node2D" parent="."]
@@ -119,45 +123,45 @@ position = Vector2(20.5, 30)
 shape = SubResource("RectangleShape2D_jte2u")
 metadata/_edit_lock_ = true
 
-[node name="Obstacle" parent="Obstacles" instance=ExtResource("1_xlegt")]
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("5_qjlo6")]
 position = Vector2(742, 122)
 
-[node name="Obstacle2" parent="Obstacles" instance=ExtResource("1_xlegt")]
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("5_qjlo6")]
 position = Vector2(154, 384)
 
-[node name="Obstacle3" parent="Obstacles" instance=ExtResource("1_xlegt")]
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("5_qjlo6")]
 position = Vector2(56, 82)
 
-[node name="Obstacle4" parent="Obstacles" instance=ExtResource("1_xlegt")]
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("5_qjlo6")]
 position = Vector2(706, 470)
 
 [node name="Currents" type="Node2D" parent="."]
 
-[node name="Current" parent="Currents" instance=ExtResource("5_43c6p")]
+[node name="Current" parent="Currents" instance=ExtResource("6_xu0yo")]
 position = Vector2(944, 384)
 size = Vector2(300, 200)
 
-[node name="Current2" parent="Currents" instance=ExtResource("5_43c6p")]
+[node name="Current2" parent="Currents" instance=ExtResource("6_xu0yo")]
 position = Vector2(384, 48)
 size = Vector2(400, 300)
 direction = Vector2(1, 0)
 
-[node name="Current3" parent="Currents" instance=ExtResource("5_43c6p")]
+[node name="Current3" parent="Currents" instance=ExtResource("6_xu0yo")]
 position = Vector2(-192, 368)
 size = Vector2(400, 600)
 direction = Vector2(0, 1)
 
-[node name="Player" parent="." instance=ExtResource("2_0qwtu")]
+[node name="Player" parent="." instance=ExtResource("7_hk62b")]
 position = Vector2(442, 276)
 
-[node name="PlanctonGenerator" parent="Player" instance=ExtResource("3_jte2u")]
+[node name="PlanctonGenerator" parent="Player" instance=ExtResource("8_rfwcu")]
 visible = false
-plancton_scene = ExtResource("4_bsf3i")
+plancton_scene = ExtResource("9_0l18y")
 size = Vector2(2000, 1200)
 max_count = 200
 target_container = NodePath("../../Plancton")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_l0av5")
+[node name="AnglerFish" parent="." instance=ExtResource("10_m7vrj")]
+position = Vector2(1371.56, -370.944)

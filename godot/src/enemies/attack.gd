@@ -5,6 +5,7 @@ var agent:Enemy
 var attack_success:=false
 func _on_enter(_args) -> void:
 	agent = target
+	Logger.info("%s %s" % [agent.name, self.name])
 	add_timer("attack", hurt_timebox.x)
 	
 func _on_anim_finished():

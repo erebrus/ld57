@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://c12c6dmta6gxv"]
+
+[ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_e7n38"]
+[ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_eyewv"]
+[ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="3_maara"]
+[ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
+[ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="5_rhl6c"]
+[ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_5i0kq"]
+[ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="7_c834t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uat"]
+size = Vector2(1280, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq125"]
+size = Vector2(647, 80)
+
+[node name="World" instance=ExtResource("1_e7n38")]
+
+[node name="BG" type="Sprite2D" parent="." index="1"]
+position = Vector2(424, 296)
+texture = ExtResource("2_eyewv")
+
+[node name="BaseBlock" parent="." index="2" instance=ExtResource("3_maara")]
+position = Vector2(376, 627)
+
+[node name="Krill" parent="Plancton" index="0" instance=ExtResource("4_vjq7d")]
+position = Vector2(-124.865, 22.4368)
+
+[node name="Krill2" parent="Plancton" index="1" instance=ExtResource("4_vjq7d")]
+position = Vector2(151, 575)
+
+[node name="Krill3" parent="Plancton" index="2" instance=ExtResource("4_vjq7d")]
+position = Vector2(967, 26)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Obstacles" index="0"]
+position = Vector2(40, 656)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 977, 70, 977, -10)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D" index="1"]
+position = Vector2(337, 30)
+shape = SubResource("RectangleShape2D_m1uat")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Obstacles" index="1"]
+position = Vector2(1288, 8.00006)
+rotation = -0.660799
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D2" index="0"]
+polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D2" index="1"]
+position = Vector2(20.5, 30)
+shape = SubResource("RectangleShape2D_vq125")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Obstacles" index="2"]
+position = Vector2(1344, 504)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D3" index="0"]
+polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D3" index="1"]
+position = Vector2(20.5, 30)
+shape = SubResource("RectangleShape2D_vq125")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Obstacles" index="3"]
+position = Vector2(856, -176)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D4" index="0"]
+polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D4" index="1"]
+position = Vector2(20.5, 30)
+shape = SubResource("RectangleShape2D_vq125")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Obstacles" index="4"]
+position = Vector2(96, -384)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D5" index="0"]
+polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D5" index="1"]
+position = Vector2(20.5, 30)
+shape = SubResource("RectangleShape2D_vq125")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Obstacles" index="5"]
+position = Vector2(-552, 8.00002)
+rotation = -0.982197
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/StaticBody2D6" index="0"]
+polygon = PackedVector2Array(-303, -10, -303, -10, -303, 70, 344, 72, 344, -8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D6" index="1"]
+position = Vector2(20.5, 30)
+shape = SubResource("RectangleShape2D_vq125")
+metadata/_edit_lock_ = true
+
+[node name="Obstacle" parent="Obstacles" index="6" instance=ExtResource("5_rhl6c")]
+position = Vector2(742, 122)
+
+[node name="Obstacle2" parent="Obstacles" index="7" instance=ExtResource("5_rhl6c")]
+position = Vector2(154, 384)
+
+[node name="Obstacle3" parent="Obstacles" index="8" instance=ExtResource("5_rhl6c")]
+position = Vector2(56, 82)
+
+[node name="Obstacle4" parent="Obstacles" index="9" instance=ExtResource("5_rhl6c")]
+position = Vector2(706, 470)
+
+[node name="Current" parent="Currents" index="0" instance=ExtResource("6_5i0kq")]
+position = Vector2(944, 384)
+size = Vector2(300, 200)
+
+[node name="Current2" parent="Currents" index="1" instance=ExtResource("6_5i0kq")]
+position = Vector2(384, 48)
+size = Vector2(400, 300)
+direction = Vector2(1, 0)
+
+[node name="Current3" parent="Currents" index="2" instance=ExtResource("6_5i0kq")]
+position = Vector2(-192, 368)
+size = Vector2(400, 600)
+direction = Vector2(0, 1)
+
+[node name="AnglerFish" parent="Enemies" index="0" instance=ExtResource("7_c834t")]
+position = Vector2(-715, 445)

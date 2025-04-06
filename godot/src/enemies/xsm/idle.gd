@@ -11,6 +11,7 @@ var agent:Enemy
 func _on_enter(_args) -> void:
 	agent = target
 	agent.player_detected.connect(_on_player_detected)
+	Logger.info("%s %s" % [agent.name, self.name])
 func _before_exit(_args) -> void:
 	agent.player_detected.disconnect(_on_player_detected)
 

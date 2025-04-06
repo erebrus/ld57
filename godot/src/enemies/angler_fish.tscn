@@ -94,9 +94,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_daflk")
 }
 
-[node name="DetectionArea" parent="." index="5"]
-visible = false
-
 [node name="HurtArea" parent="." index="6"]
-visible = false
 position = Vector2(240, 24)
