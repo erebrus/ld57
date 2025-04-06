@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c12c6dmta6gxv"]
 
-[ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_e7n38"]
+[ext_resource type="PackedScene" path="res://src/world/base_world.tscn" id="1_e7n38"]
 [ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_eyewv"]
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/blocks/base_block.tscn" id="3_maara"]
-[ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
+[ext_resource type="PackedScene" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
 [ext_resource type="PackedScene" uid="uid://c7swosedmcseb" path="res://src/world/obstacle.tscn" id="5_rhl6c"]
 [ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="6_5i0kq"]
 [ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="7_c834t"]
