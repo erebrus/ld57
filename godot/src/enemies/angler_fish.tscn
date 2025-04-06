@@ -37,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 0)]
+"values": [Vector2i(0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -50,6 +50,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LureAnchor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(220, -76)]
 }
 
 [sub_resource type="Animation" id="Animation_v23hx"]
@@ -83,6 +95,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2k0n5"]
 resource_name = "follow"
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -91,15 +104,29 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(3, 0)]
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LureAnchor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
 }
 
 [sub_resource type="Animation" id="Animation_wtdoh"]
 resource_name = "idle"
+length = 1.2
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -107,14 +134,27 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(3, 0)]
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LureAnchor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
 }
 
 [sub_resource type="Animation" id="Animation_wfifh"]
 resource_name = "retreat"
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -123,10 +163,22 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(3, 0)]
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LureAnchor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_daflk"]
@@ -140,9 +192,10 @@ _data = {
 
 [node name="AnglerFish" instance=ExtResource("1_2o0ra")]
 script = ExtResource("2_g1key")
+vision_range = 600.0
 
 [node name="HurtArea" parent="." index="1"]
-position = Vector2(240, 24)
+position = Vector2(218, 21)
 
 [node name="CollisionShape2D" parent="HurtArea" index="0"]
 position = Vector2(9, 27)
@@ -164,10 +217,14 @@ shape = SubResource("CapsuleShape2D_13xfw")
 [node name="Sprite2D" type="Sprite2D" parent="." index="6"]
 texture = ExtResource("3_daflk")
 hframes = 4
+vframes = 2
+frame = 4
 
-[node name="LurePolygon" type="Polygon2D" parent="." index="7"]
+[node name="LureAnchor" type="Marker2D" parent="." index="7"]
+position = Vector2(220, -76)
+
+[node name="LurePolygon" type="Polygon2D" parent="LureAnchor" index="0"]
 material = SubResource("ShaderMaterial_wtdoh")
-position = Vector2(227, -84)
 polygon = PackedVector2Array(-6, -6, 0, -8, 6, -6, 8, 0, 6, 6, 0, 8, -6, 6, -8, 0)
 
 [node name="NavTimer" type="Timer" parent="." index="8"]
