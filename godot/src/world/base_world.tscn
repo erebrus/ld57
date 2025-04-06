@@ -1,15 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=21 format=3 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_ckmdn"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_x0ey0"]
+[ext_resource type="AudioStream" uid="uid://cocs54hvb5y1y" path="res://assets/sfx/AMB_Deepsea_1.mp3" id="5_nh3aj"]
+[ext_resource type="AudioStream" uid="uid://c6a1uv5do502y" path="res://assets/sfx/AMB_Deepsea_2.mp3" id="6_1sjff"]
+[ext_resource type="AudioStream" uid="uid://cq4ejy4jqjfa6" path="res://assets/sfx/AMB_Deepsea_11.mp3" id="7_7osel"]
+[ext_resource type="AudioStream" uid="uid://x4gamj4njc0j" path="res://assets/sfx/AMB_Deepsea_12.mp3" id="8_3nirc"]
+[ext_resource type="AudioStream" uid="uid://cy210gjbokiik" path="res://assets/sfx/AMB_Deepsea_13.mp3" id="9_7manr"]
+[ext_resource type="AudioStream" uid="uid://c7fvsvcjd08f5" path="res://assets/sfx/AMB_Deepsea_3.mp3" id="10_sjpi6"]
+[ext_resource type="AudioStream" uid="uid://i6f0dmh47n27" path="res://assets/sfx/AMB_Deepsea_4.mp3" id="11_e8vvq"]
+[ext_resource type="AudioStream" uid="uid://c6ucmvvofehsd" path="res://assets/sfx/AMB_Deepsea_5.mp3" id="12_nm2p0"]
+[ext_resource type="AudioStream" uid="uid://dv3yxs37xxkl5" path="res://assets/sfx/AMB_Deepsea_6.mp3" id="13_1kyte"]
+[ext_resource type="AudioStream" uid="uid://4lg40al7m385" path="res://assets/sfx/AMB_Deepsea_7.mp3" id="14_4bl64"]
+[ext_resource type="AudioStream" uid="uid://73pcn26k0si" path="res://assets/sfx/AMB_Deepsea_8.mp3" id="15_42gjj"]
+[ext_resource type="AudioStream" uid="uid://cq0mh3xnn7odj" path="res://assets/sfx/AMB_Deepsea_9.mp3" id="16_lv245"]
+[ext_resource type="AudioStream" uid="uid://byn6csjknybod" path="res://assets/sfx/AMB_Deepsea_10.mp3" id="17_kucpv"]
+[ext_resource type="Script" uid="uid://dsanfc3iwqum4" path="res://addons/random_timer_plugin/random_timer.gd" id="18_1sjff"]
 
 [sub_resource type="Environment" id="Environment_l0av5"]
 background_mode = 3
 glow_enabled = true
 glow_bloom = 0.15
 glow_blend_mode = 0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xmkh1"]
+streams_count = 13
+stream_0/stream = ExtResource("5_nh3aj")
+stream_1/stream = ExtResource("6_1sjff")
+stream_2/stream = ExtResource("10_sjpi6")
+stream_3/stream = ExtResource("11_e8vvq")
+stream_4/stream = ExtResource("12_nm2p0")
+stream_5/stream = ExtResource("13_1kyte")
+stream_6/stream = ExtResource("14_4bl64")
+stream_7/stream = ExtResource("15_42gjj")
+stream_8/stream = ExtResource("16_lv245")
+stream_9/stream = ExtResource("17_kucpv")
+stream_10/stream = ExtResource("7_7osel")
+stream_11/stream = ExtResource("8_3nirc")
+stream_12/stream = ExtResource("9_7manr")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ilhj1")
@@ -44,4 +74,19 @@ color = Color(0.972029, 0.604719, 0.466865, 1)
 energy = 1.5
 blend_mode = 1
 
-[node name="Ambient" type="AudioStreamPlayer" parent="."]
+[node name="Ambient1" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xmkh1")
+bus = &"Sfx"
+
+[node name="Ambient2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xmkh1")
+bus = &"Sfx"
+
+[node name="AmbientTimer" type="Timer" parent="."]
+wait_time = 16.0
+autostart = true
+script = ExtResource("18_1sjff")
+variance = 4.0
+metadata/_custom_type_script = "uid://dsanfc3iwqum4"
+
+[connection signal="timeout" from="AmbientTimer" to="." method="_on_ambient_timer_timeout"]
