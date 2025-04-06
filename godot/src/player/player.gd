@@ -23,7 +23,25 @@ class_name Player extends RigidBody2D
 var can_thrust:=true
 var thrust_factor := 0.0
 var last_thrust_direction:=Vector2.RIGHT
-
+var currents:int:
+	set(_val):
+		var has_current = currents > 0
+		currents=_val
+		if has_current and currents ==0:
+			Logger.debug("leaving current %d" % currents)
+			var vol=loop_current_sfx.volume_db
+			var tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(loop_current_sfx,"volume_db",-40,.3)
+			await tween.finished
+			loop_current_sfx.stop()
+			loop_current_sfx.volume_db = vol
+		elif not has_current and currents > 0:
+			enter_current_sfx.play()
+			Logger.debug("entering current %d" % currents)
+			await enter_current_sfx.finished
+			if currents >0:
+				loop_current_sfx.play()
+				
 @onready var energy:float = max_energy:
 	set(_energy):
 		energy = _energy
@@ -34,6 +52,11 @@ var last_thrust_direction:=Vector2.RIGHT
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var light: PointLight2D = $PointLight2D
 
+@onready var charge_sfx: AudioStreamPlayer2D = $sfx/charge_sfx
+@onready var tap_sfx: AudioStreamPlayer2D = $sfx/tap_sfx
+@onready var thrust_sfx: AudioStreamPlayer2D = $sfx/thrust_sfx
+@onready var enter_current_sfx: AudioStreamPlayer2D = $sfx/enter_current_sfx
+@onready var loop_current_sfx: AudioStreamPlayer2D = $sfx/loop_current_sfx
 
 func _ready():
 	animation_player.play("idle")
@@ -45,7 +68,6 @@ func _physics_process(delta: float) -> void:
 	var rotate_input:float = Input.get_axis("rotate_left","rotate_right")
 	if rotate_input:
 		rotation += rotate_input * rotation_speed * delta
-		#apply_torque(rotate_input*torque)#*delta)
 
 	if can_thrust:
 		if Input.is_action_pressed("move_forward"):
@@ -71,6 +93,7 @@ func charge_thrust(delta:float):
 		thrust_factor = .2	
 		animation_player.play("charge")
 		Logger.debug("start charge %d" %  Time.get_ticks_msec())
+		charge_sfx.play()
 	else:
 		thrust_factor+=delta*thrust_charge_speed
 	if thrust_factor >=1.0:
@@ -80,6 +103,10 @@ func charge_thrust(delta:float):
 func do_thrust(rotation_delta:float = 0):
 	var thrust_direction=Vector2.RIGHT.rotated(rotation+rotation_delta)
 	Logger.debug("thrust %d" % Time.get_ticks_msec())
+	if thrust_factor > .5:
+		thrust_sfx.play()
+	else:
+		tap_sfx.play()
 	if not has_energy():
 		thrust_factor *= no_energy_factor
 	var intensity:float = thrust * thrust_factor * (full_thrust_bonus if thrust_factor>=1.0 else 1)
