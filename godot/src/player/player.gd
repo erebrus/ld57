@@ -70,7 +70,7 @@ func charge_thrust(delta:float):
 	if thrust_factor == 0:
 		thrust_factor = .2	
 		animation_player.play("charge")
-		Logger.trace("start charge %d" %  Time.get_ticks_msec())
+		Logger.debug("start charge %d" %  Time.get_ticks_msec())
 	else:
 		thrust_factor+=delta*thrust_charge_speed
 	if thrust_factor >=1.0:
@@ -92,6 +92,12 @@ func do_thrust(rotation_delta:float = 0):
 		Vector2.LEFT:
 			Logger.debug("thrust back")
 			animation_player.play("back")
+		Vector2.UP:
+			Logger.debug("strafe left")
+			animation_player.play("strafe_left")
+		Vector2.DOWN:
+			Logger.debug("strafe right")
+			animation_player.play("strafe_right")
 		_:
 			Logger.debug("thrust forward")
 			animation_player.play("thrust")
