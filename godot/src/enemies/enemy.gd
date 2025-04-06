@@ -35,6 +35,7 @@ func _ready() -> void:
 	detection_rc.target_position=Vector2(vision_range, 0)
 	await get_tree().process_frame
 	home=global_position
+	target_position = home
 	
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	target=body
@@ -65,18 +66,26 @@ func do_movement(wp:Vector2, delta:float)->void:
 	var direction := (wp-global_position).normalized()
 	var speed = velocity.length()
 	velocity=direction*current_speed
-	$Sprite2D.flip_h= wp.x < global_position.x		
+	face(wp)		
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		_on_collision()
 	
+func face(target_direction:Vector2 ):
+	$Sprite2D.flip_h= target_position.x < global_position.x
 
+func has_arrived()->bool:
+	if nav_enabled:
+		return nav_agent.is_navigation_finished()
+	else:
+		return target_position.distance_to(global_position)< 5.0
+			
 func is_player_on_target():
 	var ret:= hurt_area.get_overlapping_bodies().has(target)
 	return ret
 	
 func hurt_player():
-	target.hurt(100)
+	target.hurt(damage)
 
 func _on_collision():
 	pass

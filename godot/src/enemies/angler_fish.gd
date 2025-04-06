@@ -5,3 +5,6 @@ class_name AnglerFish extends Enemy
 func _ready():
 	super._ready()
 	nav_enabled=true
+
+func hurt_player():
+	target.kill()

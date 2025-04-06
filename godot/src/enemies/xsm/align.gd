@@ -15,11 +15,15 @@ func _before_exit(_args) -> void:
 	del_timer("charge")
 	
 func _on_update(_delta) -> void:
-	pass
+	if not agent.target_visible or not agent.target:
+		change_state("Idle")
+	else:
+		agent.face(agent.target.global_position)
+		
 	
 func _on_player_lost():
 	change_state("Idle")
 
 func _on_timeout(_name) -> void:
-	change_state("charge")
+	change_state("ChargeAttack")
 		

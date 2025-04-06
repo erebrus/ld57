@@ -34,7 +34,7 @@ polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
 shape = SubResource("CircleShape2D_2tyvq")
 
 [node name="RandomTimer" type="Timer" parent="."]
-wait_time = 4.56874
+wait_time = 3.71602
 script = ExtResource("1_pxc3u")
 variance = 2.0
 metadata/_custom_type_script = "uid://dsanfc3iwqum4"

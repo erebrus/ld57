@@ -139,7 +139,6 @@ _data = {
 }
 
 [node name="AnglerFish" instance=ExtResource("1_2o0ra")]
-collision_layer = 32
 script = ExtResource("2_g1key")
 
 [node name="HurtArea" parent="." index="1"]

@@ -141,12 +141,10 @@ func do_thrust(rotation_delta:float = 0):
 			
 	$ThrustTimer.wait_time = max(min_thrust_timeout, base_thrust_timeout*thrust_factor *( 1 if has_energy() else 1.15))
 	Logger.debug("wait time %.2f" % $ThrustTimer.wait_time )
-	energy = max(0, energy-energy_per_thrust*thrust_factor)
-
+	drain(energy_per_thrust*thrust_factor)
 	thrust_factor=0
 	$ThrustTimer.start()
 	Logger.debug("thrust NOT available %d" % Time.get_ticks_msec())
-	Logger.debug("light %.2f/%.2f" % [energy, light.energy])
 
 func do_noise():
 	Events.player_noise_ping.emit(global_position, noise_range*thrust_factor)
@@ -166,12 +164,20 @@ func _on_thrust_timer_timeout() -> void:
 
 	
 
+func drain(val:float):
+	energy = max(0, energy-val)
+	Logger.info("light %.2f/%.2f" % [energy, light.energy])
 
 func consume(krill:Krill):
 	energy = min(max_energy, energy+krill.energy)
-	Logger.debug("light %.2f/%.2f" % [energy, light.energy])
+	Logger.info("light %.2f/%.2f" % [energy, light.energy])
 
 func hurt(dmg:float):
+	drain(dmg)
+	#TODO sound
+	#TODO stop?
+
+func kill():
 	Logger.info("hurt")
 	visible=false
 	await get_tree().create_timer(1).timeout

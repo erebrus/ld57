@@ -1,25 +1,65 @@
-[gd_scene load_steps=8 format=3 uid="uid://bix5s1utrsmcx"]
+[gd_scene load_steps=16 format=3 uid="uid://bix5s1utrsmcx"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_stgf7"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="2_6yasc"]
+[ext_resource type="Script" uid="uid://xpoxsa4e6j1i" path="res://src/enemies/viper_fish.gd" id="2_uxved"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="3_gcgnh"]
 [ext_resource type="Script" uid="uid://dlsi2jauwupc1" path="res://addons/xsm/state_animation.gd" id="3_gd62g"]
+[ext_resource type="Texture2D" uid="uid://cfqiirufl4nks" path="res://assets/gfx/enemies/mock_viperfish.png" id="3_vjupr"]
 [ext_resource type="Script" uid="uid://dbjekn3lw8dad" path="res://src/enemies/xsm/align.gd" id="4_uxved"]
 [ext_resource type="Script" uid="uid://bu0d5672mh751" path="res://src/enemies/xsm/charge_attack.gd" id="5_gcgnh"]
+[ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="9_keu1t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjupr"]
+radius = 2.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcgnh"]
-radius = 8.0
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_vjupr"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_keu1t"]
+resource_name = "move"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8tqs"]
+_data = {
+&"idle": SubResource("Animation_vjupr"),
+&"move": SubResource("Animation_keu1t")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8tqs"]
+shader = ExtResource("9_keu1t")
+shader_parameter/light_color = Color(0.24, 1, 0.81, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 3.0
+shader_parameter/max_brightness = 1.0
 
 [node name="ViperFish" instance=ExtResource("1_stgf7")]
+script = ExtResource("2_uxved")
+damage = 5.0
+accel = 20.0
+max_speed = 750.0
+health = 5.0
+vision_range = 800.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vjupr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture_filter = 1
+texture = ExtResource("3_vjupr")
+
+[node name="DetectionArea" parent="." index="2"]
+visible = false
 
 [node name="CollisionShape2D" parent="HurtArea" index="0"]
-position = Vector2(8, 0)
+position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_gcgnh")
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="4"]
-polygon = PackedVector2Array(-16, -8, 8, -8, 16, 0, 8, 8, -16, 8)
 
 [node name="XSM" type="Node" parent="." index="5"]
 script = ExtResource("2_6yasc")
@@ -46,10 +86,22 @@ metadata/_custom_type_script = "uid://dlsi2jauwupc1"
 
 [node name="Retreat" type="Node" parent="XSM" index="3"]
 script = ExtResource("3_gd62g")
-animation_player = NodePath("")
+animation_player = NodePath("../../AnimationPlayer")
+anim_on_enter = ""
 disabled = false
 debug_mode = false
 target_path = NodePath("")
 timed = false
 next_state = NodePath("")
 metadata/_custom_type_script = "uid://dlsi2jauwupc1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_g8tqs")
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="9"]
+material = SubResource("ShaderMaterial_g8tqs")
+position = Vector2(6, 0)
+color = Color(1, 1, 0.360784, 1)
+polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
