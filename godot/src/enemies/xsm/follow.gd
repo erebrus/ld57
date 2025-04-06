@@ -2,6 +2,7 @@ extends StateAnimation
 var agent:Enemy
 func _on_enter(_args) -> void:
 	agent = target
+	agent.nav_enabled = false
 	Logger.info("%s %s" % [agent.name, self.name])
 	agent.player_on_target.connect(_on_player_on_target)
 	agent.player_lost.connect(_on_player_lost)
