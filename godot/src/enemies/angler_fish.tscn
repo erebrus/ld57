@@ -53,6 +53,7 @@ color = Color(0.230315, 0.230315, 0.230315, 1)
 polygon = PackedVector2Array(0, -128, -128, -128, -160, -64, -192, -88, -192, 96, -160, 64, -128, 128, -128, 128, 96, 128, 192, 0, 146.961, -60.0527, 184, -120, 126.044, -87.9415, 96, -128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2(-8, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_13xfw")
@@ -93,5 +94,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_daflk")
 }
 
+[node name="DetectionArea" parent="." index="5"]
+visible = false
+
 [node name="HurtArea" parent="." index="6"]
+visible = false
 position = Vector2(240, 24)
