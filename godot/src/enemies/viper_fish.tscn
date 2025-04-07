@@ -1,13 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://bix5s1utrsmcx"]
+[gd_scene load_steps=27 format=3 uid="uid://bix5s1utrsmcx"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_stgf7"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="2_6yasc"]
 [ext_resource type="Script" uid="uid://xpoxsa4e6j1i" path="res://src/enemies/viper_fish.gd" id="2_uxved"]
 [ext_resource type="Texture2D" uid="uid://vdgscb21m3nl" path="res://assets/gfx/enemies/viperfish_sheet.png" id="3_5k4ec"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="3_gcgnh"]
-[ext_resource type="Script" uid="uid://dlsi2jauwupc1" path="res://addons/xsm/state_animation.gd" id="3_gd62g"]
 [ext_resource type="Script" uid="uid://dbjekn3lw8dad" path="res://src/enemies/xsm/align.gd" id="4_uxved"]
 [ext_resource type="Script" uid="uid://bu0d5672mh751" path="res://src/enemies/xsm/charge_attack.gd" id="5_gcgnh"]
+[ext_resource type="Script" uid="uid://cossxko0rmudv" path="res://src/enemies/xsm/retreat.gd" id="9_5k4ec"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="9_keu1t"]
 [ext_resource type="AudioStream" uid="uid://mofxvh2jsk2t" path="res://assets/sfx/NPC_ViperFish_Swim_1.wav" id="10_5k4ec"]
 [ext_resource type="AudioStream" uid="uid://yas6wofbifxq" path="res://assets/sfx/NPC_ViperFish_Swim_2.wav" id="11_haewh"]
@@ -112,12 +112,31 @@ tracks/1/keys = {
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_sppm5"]
+resource_name = "retreat"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8tqs"]
 _data = {
 &"RESET": SubResource("Animation_5k4ec"),
 &"attack": SubResource("Animation_haewh"),
 &"idle": SubResource("Animation_vjupr"),
-&"move": SubResource("Animation_keu1t")
+&"move": SubResource("Animation_keu1t"),
+&"retreat": SubResource("Animation_sppm5")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ioba"]
@@ -190,14 +209,8 @@ script = ExtResource("5_gcgnh")
 metadata/_custom_type_script = "uid://dlsi2jauwupc1"
 
 [node name="Retreat" type="Node" parent="XSM" index="3"]
-script = ExtResource("3_gd62g")
-animation_player = NodePath("../../AnimationPlayer")
-anim_on_enter = ""
-disabled = false
-debug_mode = false
-target_path = NodePath("")
-timed = false
-next_state = NodePath("")
+script = ExtResource("9_5k4ec")
+action_state = "Align"
 metadata/_custom_type_script = "uid://dlsi2jauwupc1"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]

@@ -1,5 +1,10 @@
 extends StateAnimation
 var agent:Enemy
+@export var use_stinger:=true
+@export var refollow_range:=1000.0
+@export var action_state="Follow"
+var detection_pending:=false
+
 func _on_enter(_args) -> void:
 	agent = target
 	agent.nav_enabled = true
@@ -8,10 +13,30 @@ func _on_enter(_args) -> void:
 	agent.target_position = agent.home
 	agent.current_speed = agent.cruise_speed
 	$"../../AnimationPlayer".play("retreat")
+	if agent.target:
+		Events.retreat_stinger.emit()
+
 
 func _before_exit(_args) -> void:
+	del_timer("check")
 	agent.player_detected.disconnect(_on_player_detected)
 
 
 func _on_player_detected():
-	change_state("Follow")
+	if agent.global_position.distance_to(agent.home)>refollow_range:
+		Logger.info("%s detection pending " % agent.name)
+		detection_pending=true
+		add_timer("check",1.0)
+	else:
+		change_state(action_state)
+
+func _on_timeout(_name) -> void:
+	if agent.target:
+		if agent.global_position.distance_to(agent.home)>refollow_range:
+			add_timer("check",1.0)
+			Logger.info("%s detection pending " % agent.name)
+		else:
+			change_state(action_state)
+
+
+		

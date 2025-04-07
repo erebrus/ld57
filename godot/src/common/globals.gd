@@ -1,7 +1,7 @@
 extends Node
 
 const START_SCENE_PATH = "res://src/start_screen/start_screen.tscn"
-const GAME_SCENE_PATH = "res://src/world/test_world.tscn"
+const GAME_SCENE_PATH = "res://src/world/base_world.tscn"
 
 const GameDataPath = "user://conf.cfg"
 var config:ConfigFile
@@ -17,10 +17,15 @@ var in_dialogue:=false
 
 @export var krill_probability:= 0.5
 @export var lamp_probability:= 0.2
+@export var min_difficulty:=.4
+@export var difficulty=1:
+	set(_val):
+		difficulty=clampf(_val,min_difficulty,1)
 
 @onready var music_manager: MusicManager = $MusicManager
 @onready var ui_sfx: UiSfx = $UiSfx
 
+var use_stinger:=false 
 
 func _ready():
 	_init_logger()

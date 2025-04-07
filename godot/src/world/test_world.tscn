@@ -114,8 +114,8 @@ position = Vector2(609.82, 416.397)
 position = Vector2(376, 627)
 
 [node name="EldritchLamp" parent="NavigationRegion2D/World" index="8" instance=ExtResource("5_rhl6c")]
-visible = false
 position = Vector2(440, 400)
+enabled = true
 lit = 0.658418
 
 [node name="Kelp" parent="NavigationRegion2D/World" index="10" instance=ExtResource("6_rhl6c")]
@@ -162,7 +162,7 @@ size = Vector2(400, 600)
 direction = Vector2(0, 1)
 
 [node name="Player" parent="." index="6"]
-position = Vector2(-152, 528)
+position = Vector2(1003, 436)
 
 [node name="AmbientTimer" parent="." index="10"]
-wait_time = 44.7782
+wait_time = 43.7823

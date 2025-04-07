@@ -17,10 +17,16 @@ class_name Player extends RigidBody2D
 @export var no_energy_factor:=.5
 @export var min_intensity:=.2
 @export var max_intensity:=1.2
-
+@export_category("sanity")
+@export var min_energy_with_lamp:= 40
+@export var min_energy_without_lamp:= 60
+@export var sanity_loss:= 2.0
+@export var sanity_recovery:= 5.0
+@export var lamp_distance:=3000.0
 #@export_category("noise")
 #@export var noise_range:float = 600.0
 #@export var thrust_noise_curve:Curve
+
 
 var lamp:EldritchLamp
 var in_animation:=false
@@ -54,7 +60,8 @@ var currents:int:
 			
 			if currents >0:
 				loop_current_sfx.play()
-				
+	
+@onready var sanity:float = 100			
 @onready var energy:float = max_energy:
 	set(_energy):
 		energy = _energy
@@ -74,11 +81,13 @@ var currents:int:
 @onready var hurt_sfx: AudioStreamPlayer2D = $sfx/hurt_sfx
 @onready var krill_sfx: AudioStreamPlayer2D = $sfx/krill_sfx
 @onready var ruffle_sfx: AudioStreamPlayer2D = $sfx/ruffle_sfx
+var stingers:=0
 
 func _ready():
 	energy=max_energy
 	animation_player.play("idle")
 	Events.eldrith_death_requested.connect(func():energy=0)
+	Events.retreat_stinger.connect(func():stingers-=1)
 func has_energy():
 	return energy > 0 
 	
@@ -140,7 +149,6 @@ func do_thrust(rotation_delta:float = 0):
 	apply_impulse(thrust_direction * intensity,Vector2.ZERO)
 	#do_noise()
 	can_thrust=false
-	$%ThrustState.color=Color("red")
 	match last_thrust_direction:
 		Vector2.LEFT:
 			Logger.debug("thrust back")
@@ -168,7 +176,6 @@ func do_thrust(rotation_delta:float = 0):
 	
 func _on_thrust_timer_timeout() -> void:
 	can_thrust=true
-	$%ThrustState.color=Color("white")
 	Logger.debug("thrust available %d" % Time.get_ticks_msec())
 	match last_thrust_direction:		
 		Vector2.RIGHT:
@@ -228,3 +235,38 @@ func attach():
 	thrust_factor=.6
 	last_thrust_direction = Vector2.RIGHT
 	do_thrust()
+
+
+func _on_sanity_timer_timeout() -> void:
+	var has_lamp:=false
+	for lamp in get_tree().get_nodes_in_group("lamp"):
+		if global_position.distance_to(lamp.global_position) and lamp.is_activated():
+			has_lamp=true
+			break
+	if has_lamp:
+		if energy>min_energy_with_lamp:
+			recover_sanity(energy>min_energy_without_lamp)
+		else:
+			lose_sanity()
+	else:
+		if energy>min_energy_without_lamp:
+			recover_sanity()
+		else:
+			lose_sanity(energy<min_energy_with_lamp)
+	Globals.difficulty=1-sanity/100.0
+	if sanity <60 and energy <50:
+		Globals.use_stinger=false
+		Globals.music_manager.change_game_music_to(Types.GameMusic.HARD)
+	elif stingers==0:
+		Globals.music_manager.change_game_music_to(Types.GameMusic.NORMAL)
+		
+	Logger.info("sanity:%d" % sanity)
+	
+	
+func lose_sanity(bonus:bool=false):
+	var delta = sanity_loss*1 if not bonus else 2
+	sanity = max(sanity-delta, 0)
+func recover_sanity(bonus:bool=false):
+	var delta = sanity_recovery*1 if not bonus else 2
+	sanity = min(sanity+delta, 100)
+	

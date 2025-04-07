@@ -16,13 +16,13 @@ func _before_exit(_args) -> void:
 	
 func _on_update(_delta) -> void:
 	if not agent.target_visible or not agent.target:
-		change_state("Idle")
+		change_state("Retreat")
 	else:
 		agent.face(agent.target.global_position)
 		
 	
 func _on_player_lost():
-	change_state("Idle")
+	change_state("Retreat")
 
 func _on_timeout(_name) -> void:
 	change_state("ChargeAttack")

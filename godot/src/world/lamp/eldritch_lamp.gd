@@ -34,6 +34,9 @@ func _process(_delta: float) -> void:
 	#lit=(abs(sin(Time.get_ticks_msec()/1000.0)))
 	pass
 
+func is_activated()->bool:
+	return lit == 1.0
+	
 func activate()->void:
 	if not enabled:
 		return

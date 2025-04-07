@@ -44,18 +44,17 @@ stream_0/stream = ExtResource("5_cnjye")
 stream_1/stream = ExtResource("6_ijqbg")
 stream_2/stream = ExtResource("7_wwug4")
 
-[node name="EldritchLamp" type="StaticBody2D"]
+[node name="EldritchLamp" type="StaticBody2D" groups=["lamp"]]
 collision_mask = 49
 script = ExtResource("1_yy7ge")
 base_energy = 2.0
-lit = 0.0250489
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b24f8")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2DLit" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.0250489)
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_yy7ge")
 metadata/_edit_lock_ = true
 
@@ -67,7 +66,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-27, -84)
 scale = Vector2(1.81641, 1.67969)
 color = Color(0.752754, 0.697004, 0.828886, 1)
-energy = 0.0500979
+energy = 0.0
 texture = SubResource("GradientTexture2D_hdfth")
 texture_scale = 3.0
 metadata/_edit_lock_ = true
