@@ -209,7 +209,6 @@ scale = Vector2(1, -1)
 [node name="Kelp5" parent="Folliage" index="41" instance=ExtResource("10_x5fu7")]
 position = Vector2(334, 263)
 rotation = 2.50282
-scale = Vector2(1, 1)
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("16_gy40c")]
 position = Vector2(-50, 419)
@@ -247,3 +246,18 @@ flip_h = true
 [node name="EnemyMarker5" parent="Enemies" index="7" instance=ExtResource("16_gy40c")]
 position = Vector2(261, -148)
 enemy_type = 1
+
+[node name="NavigationPolygon" parent="Navigation" index="0"]
+polygon = PackedVector2Array(-102, -46, -34, 110, -6, 237, -79, 405, -69, 504, -33, 620, 76, 591, 190, 493, 362, 436, 452, 358, 587, 355, 665, 495, 735, 464, 745, 345, 852, 337, 945, 329, 1199, 322, 1155, 174, 1111, 23, 1119, -34, 1215, -65, 1119, -163, 953, -228, 810, -239, 808, -130, 782, -49, 618, -67, 587, -179, 551, -275, 489, -361, 406, -241, 336, -88, 271, -39, 188, -96, 79, -215, -25, -182)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(-255, 328)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(1174, 523)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(635, -419)
+
+[node name="EldritchLamp" parent="." index="4"]
+visible = false

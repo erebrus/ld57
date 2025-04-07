@@ -477,4 +477,28 @@ position = Vector2(-540, 941)
 enemy_type = 2
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
-polygon = PackedVector2Array(-55, -149, 29, -370, 100, -525, 200, -541, 255, -333, 380, -282, 484, -333, 522, -470, 635, -399, 660, -224, 773, -220, 814, -349, 935, -333, 1036, -228, 1044, 68, 998, 160, 768, 152, 706, 231, 413, 269, 380, 419, 221, 561, 113, 444, 0, 273, -88, 386, -284, 436, -309, 611, -301, 749, -418, 808, -522, 1029, -598, 1175, -731, 1042, -786, 770, -781, 637, -677, 574, -677, 411, -614, 281, -564, 165, -543, 102, -673, 6, -836, -90, -953, -149, -844, -295, -694, -299, -451, -337, -192, -303)
+polygon = PackedVector2Array(-55, -149, 29, -370, 100, -525, 200, -541, 255, -333, 380, -282, 484, -333, 536, -492, 635, -399, 660, -224, 773, -220, 782, -357, 935, -333, 1036, -228, 1044, 68, 998, 160, 768, 152, 706, 231, 413, 269, 380, 419, 221, 561, 113, 444, 0, 273, -88, 386, -284, 436, -309, 611, -301, 749, -418, 808, -522, 1029, -598, 1175, -731, 1042, -786, 770, -781, 637, -677, 574, -677, 411, -614, 281, -564, 165, -543, 102, -673, 6, -836, -90, -953, -149, -844, -295, -694, -299, -451, -337, -192, -303)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(-988, 363)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(-756, 1146)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(-173, 840)
+
+[node name="Marker2D6" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(607, 645)
+
+[node name="Marker2D7" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(1069, 168)
+
+[node name="Marker2D9" type="Marker2D" parent="Krill" index="5"]
+position = Vector2(963, -473)
+
+[node name="Marker2D12" type="Marker2D" parent="Krill" index="6"]
+position = Vector2(-598, -493)
+
+[node name="EldritchLamp" parent="." index="4"]
+visible = false
