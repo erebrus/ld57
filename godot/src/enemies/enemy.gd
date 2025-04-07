@@ -24,7 +24,7 @@ var target_visible:=false
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 @onready var detection_area: Area2D = $DetectionArea
-@onready var hurt_area: Area2D = $HurtArea
+@onready var hurt_area: Area2D = $HurtAreaPivot/HurtArea
 @onready var detection_rc: RayCast2D = $DetectionRC
 @onready var detection_timer: Timer = $DetectionTimer
 
@@ -73,6 +73,7 @@ func do_movement(wp:Vector2, delta:float)->void:
 	
 func face(target_direction:Vector2 ):
 	$Sprite2D.flip_h= target_position.x < global_position.x
+	hurt_area.position.x=abs(hurt_area.position.x)*(-1 if $Sprite2D.flip_h else 1)
 
 func has_arrived()->bool:
 	if nav_enabled:
