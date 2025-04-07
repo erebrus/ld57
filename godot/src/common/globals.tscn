@@ -1,21 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://rumvotveqal5"]
+[gd_scene load_steps=10 format=3 uid="uid://rumvotveqal5"]
 
 [ext_resource type="Script" uid="uid://dodm85vhrwagf" path="res://src/common/globals.gd" id="1_noqpm"]
-[ext_resource type="AudioStream" uid="uid://bjfe8j08byxx4" path="res://assets/music/kennys/Cheerful Annoyance.ogg" id="3_gfpot"]
+[ext_resource type="AudioStream" uid="uid://djfr1whqbgl56" path="res://assets/music/TRACK2_F#min_80BPM_BaseGameplay.mp3" id="3_2nufq"]
 [ext_resource type="Script" uid="uid://c3gbbvoifoygf" path="res://src/common/music_manager.gd" id="3_h14hn"]
-[ext_resource type="AudioStream" uid="uid://bxrc4c7inujhh" path="res://assets/music/kennys/Farm Frolics.ogg" id="4_v6ulc"]
+[ext_resource type="AudioStream" uid="uid://dbk5ssmekjb58" path="res://assets/music/TRACK3_F MIN_140BPM_PANIC_MP3.mp3" id="4_0o1u7"]
+[ext_resource type="AudioStream" uid="uid://c4estv0x4iwn5" path="res://assets/music/TRACK1_F min_66BPM_MENU.mp3" id="4_2nufq"]
 [ext_resource type="Script" uid="uid://04681mljvxoh" path="res://src/common/ui_sfx.gd" id="5_fmvy8"]
 [ext_resource type="AudioStream" uid="uid://vdr7ewrp5m01" path="res://assets/sfx/kenneys/select_001.ogg" id="5_kyxtr"]
+[ext_resource type="AudioStream" uid="uid://pd768hel8a3f" path="res://assets/music/STINGER.mp3" id="5_q26s1"]
 [ext_resource type="AudioStream" uid="uid://dcowjg8y0gyjd" path="res://assets/sfx/kenneys/select_002.ogg" id="6_7sypx"]
-
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q1nu8"]
-stream_count = 3
-stream_0/stream = ExtResource("3_gfpot")
-stream_0/volume = 0.0
-stream_1/stream = ExtResource("3_gfpot")
-stream_1/volume = -60.0
-stream_2/stream = ExtResource("3_gfpot")
-stream_2/volume = 0.0
 
 [node name="Globals" type="Node"]
 process_mode = 3
@@ -26,12 +19,25 @@ script = ExtResource("3_h14hn")
 
 [node name="game_music" type="AudioStreamPlayer" parent="MusicManager"]
 process_mode = 3
-stream = SubResource("AudioStreamSynchronized_q1nu8")
+stream = ExtResource("3_2nufq")
+volume_db = -8.0
+bus = &"Music"
+
+[node name="panic_music" type="AudioStreamPlayer" parent="MusicManager"]
+process_mode = 3
+stream = ExtResource("4_0o1u7")
+volume_db = -8.0
+bus = &"Music"
+
+[node name="stinger" type="AudioStreamPlayer" parent="MusicManager"]
+process_mode = 3
+stream = ExtResource("5_q26s1")
+volume_db = -8.0
 bus = &"Music"
 
 [node name="menu_music" type="AudioStreamPlayer" parent="MusicManager"]
 process_mode = 3
-stream = ExtResource("4_v6ulc")
+stream = ExtResource("4_2nufq")
 bus = &"Music"
 
 [node name="UiSfx" type="Node" parent="."]

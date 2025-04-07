@@ -21,7 +21,7 @@ func open() -> void:
 
 func _on_music_tension_toggle_pressed() -> void:
 	if Globals.music_manager.current_game_music_id==Types.GameMusic.HARD:
-		Globals.music_manager.change_game_music_to(Types.GameMusic.EASY)
+		Globals.music_manager.change_game_music_to(Types.GameMusic.NORMAL)
 	else:
 		Globals.music_manager.change_game_music_to(Globals.music_manager.current_game_music_id+1)
 	

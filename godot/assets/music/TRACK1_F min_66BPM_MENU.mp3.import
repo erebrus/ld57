@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://dn5ax7o826407"
+uid="uid://c4estv0x4iwn5"
 path="res://.godot/imported/TRACK1_F min_66BPM_MENU.mp3-7ab43c7ac9f80c59ed7d9e55b77fee61.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/TRACK1_F min_66BPM_MENU.mp3-7ab43c7ac9f80c59e
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
