@@ -243,24 +243,25 @@ func _on_sanity_timer_timeout() -> void:
 		if global_position.distance_to(lamp.global_position) and lamp.is_activated():
 			has_lamp=true
 			break
-	if has_lamp:
-		if energy>min_energy_with_lamp:
-			recover_sanity(energy>min_energy_without_lamp)
-		else:
-			lose_sanity()
-	else:
-		if energy>min_energy_without_lamp:
-			recover_sanity()
-		else:
-			lose_sanity(energy<min_energy_with_lamp)
-	Globals.difficulty=1-sanity/100.0
-	if sanity <60 and energy <50:
+	#if has_lamp:
+		#if energy>min_energy_with_lamp:
+			#recover_sanity(energy>min_energy_without_lamp)
+		#else:
+			#lose_sanity()
+	#else:
+		#if energy>min_energy_without_lamp:
+			#recover_sanity()
+		#else:
+			#lose_sanity(energy<min_energy_with_lamp)
+	#Globals.difficulty=1-sanity/100.0
+	#if sanity <60 and energy <50:
+	if energy < 40 and not has_lamp:
 		Globals.use_stinger=false
 		Globals.music_manager.change_game_music_to(Types.GameMusic.HARD)
 	elif stingers==0:
 		Globals.music_manager.change_game_music_to(Types.GameMusic.NORMAL)
 		
-	Logger.info("sanity:%d" % sanity)
+	#Logger.info("sanity:%d" % sanity)
 	
 	
 func lose_sanity(bonus:bool=false):
