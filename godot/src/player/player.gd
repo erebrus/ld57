@@ -128,7 +128,7 @@ func _physics_process(delta: float) -> void:
 			last_thrust_direction = Vector2.DOWN
 			thrust_factor=strafe_thrust_factor
 			do_thrust(PI/2)
-		elif Input.is_action_just_pressed("interact"):
+		elif Input.is_action_pressed("interact"):
 			attach()
 			
 func charge_thrust(delta:float):
