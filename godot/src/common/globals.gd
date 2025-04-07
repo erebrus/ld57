@@ -70,6 +70,8 @@ func _init_logger():
 
 func do_lose():
 	Logger.info("You lost")
+	music_manager.fade_game_music()
+	music_manager.fade_stream(music_manager.panic_music)
 	go_to_main_menu()
 
 func do_win():

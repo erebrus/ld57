@@ -21,6 +21,8 @@ func _physics_process(_delta: float) -> void:
 		return
 	var list = get_overlapping_bodies()
 	for body in list:
+		if body is Player and (body as Player).in_animation:
+			continue
 		if body is RigidBody2D:
 			body.apply_force(direction*intensity*body.mass)
 			
