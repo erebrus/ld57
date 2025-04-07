@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx8q2k3ukco25"]
+[gd_scene load_steps=27 format=3 uid="uid://dx8q2k3ukco25"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_2o0ra"]
 [ext_resource type="Script" uid="uid://pmiou8r6dblj" path="res://src/enemies/angler_fish.gd" id="2_g1key"]
@@ -9,6 +9,13 @@
 [ext_resource type="Script" uid="uid://c6tquf5jy74bu" path="res://src/enemies/xsm/follow.gd" id="6_v23hx"]
 [ext_resource type="Script" uid="uid://03jbhlg4opwu" path="res://src/enemies/attack.gd" id="7_wfifh"]
 [ext_resource type="Script" uid="uid://cossxko0rmudv" path="res://src/enemies/xsm/retreat.gd" id="8_wfifh"]
+[ext_resource type="AudioStream" uid="uid://dtdegj6r81l7s" path="res://assets/sfx/NPC_AnglerFish_Swim_1.wav" id="10_dlk8d"]
+[ext_resource type="AudioStream" uid="uid://b5nmukj212smx" path="res://assets/sfx/NPC_AnglerFish_Swim_2.wav" id="11_m3oua"]
+[ext_resource type="AudioStream" uid="uid://dwrr5fqe16qi4" path="res://assets/sfx/NPC_AnglerFish_Swim_3.wav" id="12_2g57b"]
+[ext_resource type="AudioStream" uid="uid://b8aft05c2msa1" path="res://assets/sfx/NPC_AnglerFish_Swim_4.wav" id="13_d5shf"]
+[ext_resource type="AudioStream" uid="uid://ygpash1ri7hu" path="res://assets/sfx/NPC_AnglerFish_Attack_1.wav" id="14_7yl7u"]
+[ext_resource type="AudioStream" uid="uid://bmv6roxmiqhfa" path="res://assets/sfx/NPC_AnglerFish_Attack_2.wav" id="15_8vvf6"]
+[ext_resource type="AudioStream" uid="uid://7dwarpwadg6n" path="res://assets/sfx/NPC_AnglerFish_Attack_3.wav" id="16_bpby7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13xfw"]
 radius = 112.0
@@ -91,6 +98,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [Vector2(214, -70), Vector2(206, -85), Vector2(206, -90), Vector2(224, -88)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sfx/attack_sfx")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2k0n5"]
 resource_name = "follow"
@@ -119,6 +140,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sfx/move_sfx")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wtdoh"]
@@ -189,6 +224,19 @@ _data = {
 &"retreat": SubResource("Animation_wfifh")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i8pw5"]
+streams_count = 4
+stream_0/stream = ExtResource("10_dlk8d")
+stream_1/stream = ExtResource("11_m3oua")
+stream_2/stream = ExtResource("12_2g57b")
+stream_3/stream = ExtResource("13_d5shf")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_u3tbg"]
+streams_count = 3
+stream_0/stream = ExtResource("14_7yl7u")
+stream_1/stream = ExtResource("15_8vvf6")
+stream_2/stream = ExtResource("16_bpby7")
+
 [node name="AnglerFish" instance=ExtResource("1_2o0ra")]
 script = ExtResource("2_g1key")
 vision_range = 600.0
@@ -248,5 +296,15 @@ script = ExtResource("8_wfifh")
 libraries = {
 &"": SubResource("AnimationLibrary_daflk")
 }
+
+[node name="sfx" type="Node2D" parent="." index="11"]
+
+[node name="move_sfx" type="AudioStreamPlayer2D" parent="sfx" index="0"]
+stream = SubResource("AudioStreamRandomizer_i8pw5")
+bus = &"Sfx"
+
+[node name="attack_sfx" type="AudioStreamPlayer2D" parent="sfx" index="1"]
+stream = SubResource("AudioStreamRandomizer_u3tbg")
+bus = &"Sfx"
 
 [connection signal="timeout" from="NavTimer" to="XSM/Follow" method="_on_nav_timer_timeout"]
