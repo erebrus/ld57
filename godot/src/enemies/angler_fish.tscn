@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dx8q2k3ukco25"]
+[gd_scene load_steps=29 format=3 uid="uid://dx8q2k3ukco25"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_2o0ra"]
 [ext_resource type="Script" uid="uid://pmiou8r6dblj" path="res://src/enemies/angler_fish.gd" id="2_g1key"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="3_4cfmw"]
 [ext_resource type="Texture2D" uid="uid://dkvbw1508psys" path="res://assets/gfx/enemies/anglersheet.png" id="3_daflk"]
-[ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="4_wtdoh"]
+[ext_resource type="Script" uid="uid://cnr4i1xiwfw14" path="res://addons/xsm/state.gd" id="4_wtdoh"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="5_v23hx"]
 [ext_resource type="Script" uid="uid://c6tquf5jy74bu" path="res://src/enemies/xsm/follow.gd" id="6_v23hx"]
 [ext_resource type="Script" uid="uid://03jbhlg4opwu" path="res://src/enemies/attack.gd" id="7_wfifh"]
@@ -21,9 +21,20 @@
 radius = 112.0
 height = 352.0
 
+[sub_resource type="Gradient" id="Gradient_dlk8d"]
+offsets = PackedFloat32Array(0, 0.330918, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.839216, 0.423529, 0.807843, 0.576471, 0.541176, 0.305882, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m3oua"]
+gradient = SubResource("Gradient_dlk8d")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wtdoh"]
 shader = ExtResource("3_4cfmw")
-shader_parameter/light_color = Color(0.7905, 0.85, 0.34, 1)
+shader_parameter/light_texture = SubResource("GradientTexture2D_m3oua")
+shader_parameter/light_color = Color(0.764706, 0.937255, 0.541176, 1)
 shader_parameter/brightness = 0.5
 shader_parameter/attenuation_strength = 0.5
 shader_parameter/intensity = 3.0
