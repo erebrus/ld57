@@ -247,6 +247,8 @@ func attach():
 	await animation_player.animation_finished
 	lamp.activate()
 	energy = min(max_energy, energy+25)
+	Logger.info("light %.2f/%.2f" % [energy, light.energy])
+
 	await get_tree().create_timer(.4).timeout
 	animation_player.play("dettach")
 	await animation_player.animation_finished
