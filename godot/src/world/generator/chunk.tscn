@@ -9,6 +9,7 @@
 [node name="Chunk" type="Node2D"]
 script = ExtResource("1_vtr5h")
 current_scene = ExtResource("2_aimtw")
+min_currents = 5
 enemy_scenes = Dictionary[int, PackedScene]({
 0: ExtResource("2_dkph3"),
 1: ExtResource("3_aimtw"),
