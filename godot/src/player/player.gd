@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	if energy == 0.0:
 		await eldritch_death.trigger()
 		await get_tree().create_timer(1).timeout
-		get_tree().quit()
+		Globals.do_lose()
 	var rotate_input:float = Input.get_axis("rotate_left","rotate_right")
 	if rotate_input:
 		rotation += rotate_input * rotation_speed * delta
@@ -207,7 +207,7 @@ func kill():
 	visible=false
 	hurt_sfx.play()
 	await get_tree().create_timer(1).timeout
-	get_tree().quit()
+	Globals.do_lose()
 
 func on_ruffle():
 	if not ruffle_sfx.playing:

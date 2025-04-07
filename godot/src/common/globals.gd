@@ -69,7 +69,9 @@ func _init_logger():
 
 
 func do_lose():
-	get_tree().quit()
+	Logger.info("You lost")
+	go_to_main_menu()
 
 func do_win():
+	Logger.info("You won")
 	get_tree().quit()
