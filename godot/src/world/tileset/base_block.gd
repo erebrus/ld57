@@ -1,6 +1,8 @@
 class_name BaseBlock extends TileMapLayer
 
 @onready var enemy_container = $Enemies
+@onready var krill_container = $Krill
+
 
 func _ready():
 	$Navigation.hide()
@@ -15,4 +17,12 @@ func enemy_markers() -> Dictionary[Types.EnemyType, Array]:
 			array.append(node as EnemyMarker)
 	
 	return dict
+	
+
+func krill_markers() -> Array[Marker2D]:
+	var array: Array[Marker2D]
+	for node in krill_container.get_children():
+		if node is Marker2D:
+			array.append(node as Marker2D)
+	return array
 	

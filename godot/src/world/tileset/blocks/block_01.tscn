@@ -162,3 +162,18 @@ enemy_type = 2
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(68, -237, -97, -65, 17, 164, -62, 403, -78, 595, 145, 582, 346, 416, 352, 240)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(-53, 193)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(29, -157)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(173, -40)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(303, 330)
+
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(130, 435)

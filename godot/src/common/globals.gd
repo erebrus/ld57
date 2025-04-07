@@ -15,6 +15,8 @@ var in_dialogue:=false
 	Types.EnemyType.EEL: 0.2
 }
 
+@export var krill_probability:= 0.5
+
 @onready var music_manager: MusicManager = $MusicManager
 @onready var ui_sfx: UiSfx = $UiSfx
 

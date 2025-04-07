@@ -2,6 +2,8 @@ class_name Chunk extends Node2D
 
 
 @export var show_borders:= true
+@export var krill_scene: PackedScene 
+
 
 @export_category("Currents")
 @export var current_scene: PackedScene
@@ -28,6 +30,7 @@ var block: BaseBlock
 func _ready():
 	_place_enemies()
 	_place_currents()
+	_place_krill()
 	
 
 func _draw() -> void:
@@ -47,10 +50,7 @@ func _place_enemies() -> void:
 			continue
 		
 		var markers = markers_by_type[type]
-		var min_enemies = Globals.enemy_probabilities[type] * markers.size()
-		var num_enemies = floor(min_enemies)
-		if rng.randf() < min_enemies - num_enemies:
-			num_enemies += 1
+		var num_enemies = _random_number(Globals.enemy_probabilities[type], markers.size())
 		
 		for i in num_enemies:
 			var random_marker = rng.randi() % markers.size()
@@ -89,6 +89,25 @@ func _place_current() -> void:
 	Logger.warn("Failed to place current")
 	
 
+func _place_krill() -> void:
+	var markers = block.krill_markers()
+	var num_krill = _random_number(Globals.krill_probability, markers.size())
+	for i in num_krill:
+		var random_marker = rng.randi() % markers.size()
+		var marker = markers.pop_at(random_marker)
+		var krill: Krill = krill_scene.instantiate()
+		marker.add_child(krill)
+	
+
 func _is_position_free(point: Vector2) -> bool:
 	return true
 	
+
+func _random_number(probability: float, quantity: int) -> int:
+	var random = probability * quantity
+	var min = floor(random)
+	if rng.randf() < random - min:
+		return min + 1
+	else:
+		return min
+		

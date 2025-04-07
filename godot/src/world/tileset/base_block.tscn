@@ -15,3 +15,5 @@ script = ExtResource("2_gmx5p")
 
 [node name="NavigationPolygon" type="Polygon2D" parent="Navigation"]
 color = Color(1, 1, 1, 0.392157)
+
+[node name="Krill" type="Node2D" parent="."]
