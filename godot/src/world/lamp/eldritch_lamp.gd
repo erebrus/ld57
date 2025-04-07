@@ -42,6 +42,8 @@ func is_activated()->bool:
 func activate()->void:
 	if not enabled:
 		return
+	if is_activated():
+		return
 	
 	var tween=create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self,"lit",1,.3)
