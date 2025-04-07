@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cqct84efgpgya"]
+[gd_scene load_steps=22 format=3 uid="uid://cqct84efgpgya"]
 
 [ext_resource type="Texture2D" uid="uid://cj4nej684jr1k" path="res://assets/gfx/environment/objects/lamp_vertical.png" id="1_b24f8"]
 [ext_resource type="Script" uid="uid://dlb52lrrhch3d" path="res://src/world/lamp/eldritch_lamp.gd" id="1_yy7ge"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bd6no0dthd5lq" path="res://assets/sfx/ENV_Lightpost_TurnsOn_2.wav" id="6_ijqbg"]
 [ext_resource type="AudioStream" uid="uid://clwsrharw5vkx" path="res://assets/sfx/ENV_Lightpost_TurnsOn_3.wav" id="7_wwug4"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="8_cnjye"]
+[ext_resource type="FontFile" uid="uid://cjje5m105me0i" path="res://assets/fonts/Monolith.ttf" id="9_ijqbg"]
 
 [sub_resource type="Gradient" id="Gradient_cnjye"]
 offsets = PackedFloat32Array(0.0495169, 0.434783, 1)
@@ -146,6 +147,21 @@ bus = &"Sfx"
 wait_time = 10.0
 autostart = true
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-36, -98)
+rect = Rect2(0, 0, 30, 30)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -177.0
+offset_top = -196.0
+offset_right = 187.0
+offset_bottom = -157.0
+theme_override_fonts/font = ExtResource("9_ijqbg")
+text = "Press \"space\" or the A button to light this lamp."
+
 [connection signal="body_entered" from="AttachArea2D" to="." method="_on_attach_area_2d_body_entered"]
 [connection signal="body_exited" from="AttachArea2D" to="." method="_on_attach_area_2d_body_exited"]
 [connection signal="timeout" from="PingTimer" to="." method="_on_ping_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

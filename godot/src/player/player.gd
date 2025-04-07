@@ -88,6 +88,14 @@ func _ready():
 	animation_player.play("idle")
 	Events.eldrith_death_requested.connect(func():energy=0)
 	Events.retreat_stinger.connect(func():stingers-=1)
+	Events.ping.connect(_on_ping)
+
+func _on_ping(lamp:EldritchLamp):
+	var dist := global_position.distance_to(lamp.global_position)
+	var angle := global_position.angle_to_point(lamp.global_position)
+	if not lamp.is_on_screen():
+		Events.indicador_requested.emit(angle, dist)
+		
 func has_energy():
 	return energy > 0 
 	
