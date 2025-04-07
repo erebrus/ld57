@@ -1,5 +1,6 @@
 extends StateAnimation
 var agent:Enemy
+@export var trigger_stinger:=true
 func _on_enter(_args) -> void:
 	agent = target
 	agent.nav_enabled = false
@@ -8,6 +9,12 @@ func _on_enter(_args) -> void:
 	agent.player_lost.connect(_on_player_lost)
 	agent.current_speed = agent.max_speed
 	$"../../AnimationPlayer".play("follow")
+	
+	if agent.target:
+		agent.target.stingers+=1
+		Globals.use_stinger=true
+		Globals.music_manager.change_game_music_to(Types.GameMusic.HARD)
+		
 func _before_exit(_args) -> void:
 	agent.player_on_target.disconnect(_on_player_on_target)
 	agent.player_lost.disconnect(_on_player_lost)

@@ -445,6 +445,7 @@ linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_lowyb")
 thrust = 300.0
+sanity_loss = 0.5
 
 [node name="EldritchDeath" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_a4vah")]
 position = Vector2(0, 13)
@@ -464,15 +465,6 @@ shape = SubResource("CapsuleShape2D_mf2ua")
 [node name="ThrustTimer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
-
-[node name="ThrustState" type="ColorRect" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = -5.0
-offset_top = -4.0
-offset_right = 5.0
-offset_bottom = 6.0
-metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.865036, 0.777754, 0.805672, 1)
@@ -525,4 +517,8 @@ bus = &"Sfx"
 stream = SubResource("AudioStreamRandomizer_j2873")
 bus = &"Sfx"
 
+[node name="SanityTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="ThrustTimer" to="." method="_on_thrust_timer_timeout"]
+[connection signal="timeout" from="SanityTimer" to="." method="_on_sanity_timer_timeout"]

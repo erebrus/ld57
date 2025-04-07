@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjg5fxym60h67"]
 
 [ext_resource type="Script" uid="uid://c85omw5x505sr" path="res://src/player/eldritch_death.gd" id="1_7nrn6"]
-[ext_resource type="Texture2D" uid="uid://djrfomrf83231" path="res://assets/gfx/enemies/end-animation.png" id="1_xp0rc"]
+[ext_resource type="Texture2D" uid="uid://bgcvs3ggh4ir3" path="res://assets/gfx/enemies/end-animation-v2.png" id="2_7nrn6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7nrn6"]
 light_mode = 1
@@ -113,7 +113,7 @@ script = ExtResource("1_7nrn6")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_7nrn6")
 position = Vector2(-1, -58)
-texture = ExtResource("1_xp0rc")
+texture = ExtResource("2_7nrn6")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
