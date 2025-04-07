@@ -47,7 +47,6 @@ stream_2/stream = ExtResource("7_wwug4")
 [node name="EldritchLamp" type="StaticBody2D"]
 collision_mask = 49
 script = ExtResource("1_yy7ge")
-enabled = null
 base_energy = 2.0
 lit = 0.0250489
 
