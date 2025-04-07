@@ -2,7 +2,7 @@ extends StateAnimation
 var agent:Enemy
 @export var use_stinger:=true
 @export var refollow_range:=1000.0
-
+@export var action_state="Follow"
 var detection_pending:=false
 
 func _on_enter(_args) -> void:
@@ -28,7 +28,7 @@ func _on_player_detected():
 		detection_pending=true
 		add_timer("check",1.0)
 	else:
-		change_state("Follow")
+		change_state(action_state)
 
 func _on_timeout(_name) -> void:
 	if agent.target:
@@ -36,7 +36,7 @@ func _on_timeout(_name) -> void:
 			add_timer("check",1.0)
 			Logger.info("%s detection pending " % agent.name)
 		else:
-			change_state("Follow")
+			change_state(action_state)
 
 
 		

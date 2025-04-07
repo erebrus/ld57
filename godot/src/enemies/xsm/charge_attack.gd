@@ -17,7 +17,10 @@ func _before_exit(_args) -> void:
 	
 func _on_update(_delta) -> void:
 	if agent.has_arrived() or agent.current_speed == 0:
-		change_state("Idle")
+		if agent.target:
+			change_state("Align")
+		else:
+			change_state("Retreat")
 
 func _on_player_on_target():
 	if agent.is_player_on_target():
