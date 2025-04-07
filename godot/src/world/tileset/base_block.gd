@@ -1,5 +1,8 @@
 class_name BaseBlock extends TileMapLayer
 
+
+@export var is_tutorial:= false
+
 var lamp_enabled: bool:
 	set(value):
 		lamp_enabled = value

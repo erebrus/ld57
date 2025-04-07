@@ -14,6 +14,7 @@ const CHUNK_MARGIN = 4 * CELL_SIZE
 
 @export_tool_button("Calculate Cell Size", "Callable") var calculate_cell_size = _calculate_cell_size
 @export var ChunkScene: PackedScene
+@export var start_block: PackedScene
 @export var blocks: Array[PackedScene]
 @export var enemies: Dictionary[Types.EnemyType, PackedScene]
 @export var enabled:=true
@@ -33,8 +34,10 @@ func _ready():
 	
 	Logger.info("Seed: %d" % seed)
 	assert(player)
-	assert(chunk_container)
+	assert(chunk_container)	
 	init_map()
+	await get_tree().process_frame
+	Events.map_updated.emit()
 	
 
 func get_surrounding_cells(radius:int=1)->Array[Vector2i]:
@@ -55,6 +58,7 @@ func get_player_cell()->Vector2i:
 
 func check_for_creation():
 	var pcell := get_player_cell()
+	var map_needs_update:=false
 	for cell in get_surrounding_cells(load_radius):
 		if not cell in seed_matrix:
 			seed_matrix[cell]=rng.randi()
@@ -62,6 +66,10 @@ func check_for_creation():
 
 		if not cell in chunk_matrix:
 			load_chunk(cell)
+			map_needs_update=true
+			
+	if map_needs_update:
+		Events.map_updated.emit()
 	
 
 func load_chunk(cell:Vector2i):
@@ -75,22 +83,28 @@ func load_chunk(cell:Vector2i):
 	chunk.global_position = chunk_pos
 	Logger.info("Generating chunk %s at %s" % [cell, chunk_pos])
 	
-	var block_scene = blocks[chunk_rng.randi() % blocks.size()]
+	var block_scene = start_block if cell == Vector2i.ZERO else blocks[chunk_rng.randi() % blocks.size()]
 	var block: BaseBlock = block_scene.instantiate()
 	var block_rect = block.get_used_rect()
 	
 	var max_offset = cell_size / 2 - block_rect.size * CELL_SIZE / 2.0 - CHUNK_MARGIN / 2 * Vector2.ONE
 	
-	var x = chunk_rng.randi_range(-max_offset.x, max_offset.x)
-	var y = chunk_rng.randi_range(-max_offset.y, max_offset.y)
+	var offset: Vector2
 	
-	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + Vector2(x, y)
+	if cell == Vector2i.ZERO:
+		offset.x = CELL_SIZE * -5
+		offset.y = CELL_SIZE * -4
+	else:
+		offset.x = chunk_rng.randi_range(-max_offset.x, max_offset.x)
+		offset.y = chunk_rng.randi_range(-max_offset.y, max_offset.y)
+	
+	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + offset
 	chunk.block = block
 	chunk.add_child(block) 
 	
 	chunk_matrix[cell] = chunk
 	chunk_container.add_child(chunk)
-	Logger.info("Loaded chunk at %s with seed %d at %s" % [cell,seed_matrix[cell], chunk_pos])
+	Logger.info("Loaded chunk (%s) at %s with seed %d at %s" % [block.name,cell,seed_matrix[cell], chunk_pos])
 	
 	
 

@@ -88,6 +88,14 @@ func _ready():
 	animation_player.play("idle")
 	Events.eldrith_death_requested.connect(func():energy=0)
 	Events.retreat_stinger.connect(func():stingers-=1)
+	Events.ping.connect(_on_ping)
+
+func _on_ping(lamp:EldritchLamp):
+	var dist := global_position.distance_to(lamp.global_position)
+	var angle := global_position.angle_to_point(lamp.global_position)
+	if not lamp.is_on_screen():
+		Events.indicador_requested.emit(angle, dist)
+		
 func has_energy():
 	return energy > 0 
 	
@@ -97,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	if energy == 0.0:
 		await eldritch_death.trigger()
 		await get_tree().create_timer(1).timeout
-		get_tree().quit()
+		Globals.do_lose()
 	var rotate_input:float = Input.get_axis("rotate_left","rotate_right")
 	if rotate_input:
 		rotation += rotate_input * rotation_speed * delta
@@ -207,7 +215,7 @@ func kill():
 	visible=false
 	hurt_sfx.play()
 	await get_tree().create_timer(1).timeout
-	get_tree().quit()
+	Globals.do_lose()
 
 func on_ruffle():
 	if not ruffle_sfx.playing:
@@ -243,24 +251,25 @@ func _on_sanity_timer_timeout() -> void:
 		if global_position.distance_to(lamp.global_position) and lamp.is_activated():
 			has_lamp=true
 			break
-	if has_lamp:
-		if energy>min_energy_with_lamp:
-			recover_sanity(energy>min_energy_without_lamp)
-		else:
-			lose_sanity()
-	else:
-		if energy>min_energy_without_lamp:
-			recover_sanity()
-		else:
-			lose_sanity(energy<min_energy_with_lamp)
-	Globals.difficulty=1-sanity/100.0
-	if sanity <60 and energy <50:
+	#if has_lamp:
+		#if energy>min_energy_with_lamp:
+			#recover_sanity(energy>min_energy_without_lamp)
+		#else:
+			#lose_sanity()
+	#else:
+		#if energy>min_energy_without_lamp:
+			#recover_sanity()
+		#else:
+			#lose_sanity(energy<min_energy_with_lamp)
+	#Globals.difficulty=1-sanity/100.0
+	#if sanity <60 and energy <50:
+	if energy < 40 and not has_lamp:
 		Globals.use_stinger=false
 		Globals.music_manager.change_game_music_to(Types.GameMusic.HARD)
 	elif stingers==0:
 		Globals.music_manager.change_game_music_to(Types.GameMusic.NORMAL)
 		
-	Logger.info("sanity:%d" % sanity)
+	#Logger.info("sanity:%d" % sanity)
 	
 	
 func lose_sanity(bonus:bool=false):

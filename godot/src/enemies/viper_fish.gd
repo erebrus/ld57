@@ -5,7 +5,7 @@ extends Enemy
 @onready var sfx_move: AudioStreamPlayer2D = $sfx/sfx_move
 @onready var sfx_attack: AudioStreamPlayer2D = $sfx/sfx_attack
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var eye: Polygon2D = $Sprite2D/Polygon2D
+@onready var eye: Sprite2D = $Sprite2D/Core
 
 func _on_collision():
 	target_position=global_position

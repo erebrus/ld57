@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://da0feelu0pc5r"]
+
+[ext_resource type="Script" uid="uid://c58t7lsn8janc" path="res://src/ui/off_screen_indicator.gd" id="1_s20bw"]
+[ext_resource type="Texture2D" uid="uid://crdh5jey3vasb" path="res://assets/gfx/UI/signal_sheet.png" id="2_s20bw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lynm2"]
+atlas = ExtResource("2_s20bw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxc06"]
+atlas = ExtResource("2_s20bw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0di64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lynm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxc06")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="OffScreenIndicador" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s20bw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0di64")

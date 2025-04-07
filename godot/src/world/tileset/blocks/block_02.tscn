@@ -435,45 +435,109 @@ rotation = -1.58663
 scale = Vector2(1, -1)
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("17_hlwqw")]
-position = Vector2(-581, 444)
+position = Vector2(-537, 442)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("17_hlwqw")]
-position = Vector2(-1031, -51)
+position = Vector2(-1000, -68)
 
-[node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker11" parent="Enemies" index="2" instance=ExtResource("17_hlwqw")]
+position = Vector2(-1093, 441)
+
+[node name="EnemyMarker3" parent="Enemies" index="3" instance=ExtResource("17_hlwqw")]
 position = Vector2(380, 482)
 enemy_type = 1
 
-[node name="EnemyMarker4" parent="Enemies" index="3" instance=ExtResource("17_hlwqw")]
-position = Vector2(1369, -355)
+[node name="EnemyMarker12" parent="Enemies" index="4" instance=ExtResource("17_hlwqw")]
+position = Vector2(2, 338)
+enemy_type = 1
+
+[node name="EnemyMarker13" parent="Enemies" index="5" instance=ExtResource("17_hlwqw")]
+position = Vector2(-255, 668)
+enemy_type = 1
+
+[node name="EnemyMarker14" parent="Enemies" index="6" instance=ExtResource("17_hlwqw")]
+position = Vector2(801, 204)
+enemy_type = 1
+
+[node name="EnemyMarker15" parent="Enemies" index="7" instance=ExtResource("17_hlwqw")]
+position = Vector2(1109, -142)
+enemy_type = 1
+
+[node name="EnemyMarker16" parent="Enemies" index="8" instance=ExtResource("17_hlwqw")]
+position = Vector2(681, -345)
+enemy_type = 1
+
+[node name="EnemyMarker17" parent="Enemies" index="9" instance=ExtResource("17_hlwqw")]
+position = Vector2(402, -414)
+enemy_type = 1
 flip_h = true
 
-[node name="EnemyMarker10" parent="Enemies" index="4" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker18" parent="Enemies" index="10" instance=ExtResource("17_hlwqw")]
+position = Vector2(-14, -416)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker19" parent="Enemies" index="11" instance=ExtResource("17_hlwqw")]
+position = Vector2(-256, -363)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker20" parent="Enemies" index="12" instance=ExtResource("17_hlwqw")]
+position = Vector2(-897, -310)
+enemy_type = 1
+
+[node name="EnemyMarker4" parent="Enemies" index="13" instance=ExtResource("17_hlwqw")]
+position = Vector2(1249, -333)
+flip_h = true
+
+[node name="EnemyMarker10" parent="Enemies" index="14" instance=ExtResource("17_hlwqw")]
 position = Vector2(713, 423)
 
-[node name="EnemyMarker5" parent="Enemies" index="5" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker5" parent="Enemies" index="15" instance=ExtResource("17_hlwqw")]
 position = Vector2(339, -591)
 enemy_type = 1
 flip_h = true
 
-[node name="EnemyMarker8" parent="Enemies" index="6" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker8" parent="Enemies" index="16" instance=ExtResource("17_hlwqw")]
 position = Vector2(-218, 509)
 enemy_type = 1
 
-[node name="EnemyMarker9" parent="Enemies" index="7" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker9" parent="Enemies" index="17" instance=ExtResource("17_hlwqw")]
 position = Vector2(-916, 720)
 enemy_type = 1
 flip_h = true
 
-[node name="EnemyMarker6" parent="Enemies" index="8" instance=ExtResource("17_hlwqw")]
-position = Vector2(-501, -262)
+[node name="EnemyMarker6" parent="Enemies" index="18" instance=ExtResource("17_hlwqw")]
+position = Vector2(16, -220)
 enemy_type = 2
 flip_h = true
 
-[node name="EnemyMarker7" parent="Enemies" index="9" instance=ExtResource("17_hlwqw")]
-position = Vector2(-540, 941)
+[node name="EnemyMarker7" parent="Enemies" index="19" instance=ExtResource("17_hlwqw")]
+position = Vector2(-583, 962)
+enemy_type = 2
+
+[node name="EnemyMarker21" parent="Enemies" index="20" instance=ExtResource("17_hlwqw")]
+position = Vector2(-363, 415)
+enemy_type = 2
+
+[node name="EnemyMarker22" parent="Enemies" index="21" instance=ExtResource("17_hlwqw")]
+position = Vector2(-473, 230)
+enemy_type = 2
+flip_h = true
+
+[node name="EnemyMarker23" parent="Enemies" index="22" instance=ExtResource("17_hlwqw")]
+position = Vector2(-611, -57)
+enemy_type = 2
+flip_h = true
+
+[node name="EnemyMarker24" parent="Enemies" index="23" instance=ExtResource("17_hlwqw")]
+position = Vector2(991, -21)
+enemy_type = 2
+
+[node name="EnemyMarker25" parent="Enemies" index="24" instance=ExtResource("17_hlwqw")]
+position = Vector2(243, 421)
 enemy_type = 2
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
@@ -502,3 +566,4 @@ position = Vector2(-598, -493)
 
 [node name="EldritchLamp" parent="." index="4"]
 visible = false
+position = Vector2(861, -332)

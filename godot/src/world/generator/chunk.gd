@@ -32,7 +32,8 @@ func _ready():
 	_place_enemies()
 	_place_currents()
 	_place_krill()
-	block.lamp_enabled = rng.randf() < Globals.lamp_probability
+	
+	block.lamp_enabled = block.is_tutorial or rng.randf() < Globals.lamp_probability
 	
 
 func _draw() -> void:
@@ -61,14 +62,19 @@ func _place_enemies() -> void:
 			var enemy: Enemy = enemy_scenes[type].instantiate()
 			marker.add_child(enemy)
 			
-			if marker.flip_h:
-				enemy.face(Vector2.LEFT)
-				
 			if type == Types.EnemyType.EEL:
 				enemy.rotate(PI/2)
+				if marker.flip_h:
+					enemy.rotate(PI)
+			else:
+				if marker.flip_h:
+					enemy.face(Vector2.LEFT)
+				
 	
 
 func _place_currents() -> void:
+	if block.is_tutorial:
+		return
 	for i in rng.randi_range(min_currents, max_currents):
 		_place_current()
 	
@@ -106,6 +112,9 @@ func _is_position_free(point: Vector2) -> bool:
 	
 
 func _random_number(probability: float, quantity: int) -> int:
+	if block.is_tutorial:
+		return quantity
+	
 	var random = probability * quantity
 	var min = floor(random)
 	if rng.randf() < random - min:

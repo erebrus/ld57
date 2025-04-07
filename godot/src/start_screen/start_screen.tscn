@@ -1,7 +1,135 @@
-[gd_scene load_steps=3 format=3 uid="uid://tew5nggvlbv0"]
+[gd_scene load_steps=26 format=3 uid="uid://tew5nggvlbv0"]
 
+[ext_resource type="Texture2D" uid="uid://mdoh2yonlfr4" path="res://assets/gfx/title.png" id="1_1wl0k"]
 [ext_resource type="Script" uid="uid://d0qhvgualhiwk" path="res://src/start_screen/start_screen.gd" id="1_yk0mb"]
+[ext_resource type="FontFile" uid="uid://cjje5m105me0i" path="res://assets/fonts/Monolith.ttf" id="3_1wl0k"]
+[ext_resource type="Texture2D" uid="uid://l5naf8twdfxt" path="res://assets/gfx/UI/grabber.png" id="3_r3fr1"]
+[ext_resource type="Texture2D" uid="uid://vsuunt5rol26" path="res://assets/gfx/UI/grabber_highlight.png" id="4_axy6j"]
 [ext_resource type="PackedScene" uid="uid://to3p8qv7p8yo" path="res://addons/sj/components/ui/settings/volume_slider.tscn" id="4_h2rxl"]
+[ext_resource type="Texture2D" uid="uid://cmxrrxyhhs022" path="res://assets/gfx/Title/title_text.png" id="5_8hc8o"]
+[ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="6_1wl0k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1wl0k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.654902, 0.211765, 0.372549, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hc8o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.882353, 0.6, 0.705882, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3fr1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.52549, 0.6, 0.603922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_1wl0k"]
+default_font = ExtResource("3_1wl0k")
+default_font_size = 32
+HSlider/icons/grabber = ExtResource("3_r3fr1")
+HSlider/icons/grabber_highlight = ExtResource("4_axy6j")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1wl0k")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_8hc8o")
+HSlider/styles/slider = SubResource("StyleBoxFlat_r3fr1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esdhr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wl0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hc8o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3fr1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axy6j"]
+
+[sub_resource type="Gradient" id="Gradient_8hc8o"]
+offsets = PackedFloat32Array(0.0495169, 0.434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.838273, 0.422575, 0.807035, 0.574667, 0.540086, 0.304552, 9.62615e-08, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nk44s"]
+gradient = SubResource("Gradient_8hc8o")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3fr1"]
+shader = ExtResource("6_1wl0k")
+shader_parameter/light_texture = SubResource("GradientTexture2D_nk44s")
+shader_parameter/light_color = Color(0.764365, 0.938654, 0.542639, 1)
+shader_parameter/brightness = 0.16
+shader_parameter/attenuation_strength = 0.308
+shader_parameter/intensity = 5.24
+shader_parameter/max_brightness = 1.48
+
+[sub_resource type="Gradient" id="Gradient_ithag"]
+offsets = PackedFloat32Array(0, 0.990698)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_axy6j"]
+gradient = SubResource("Gradient_ithag")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
+
+[sub_resource type="Animation" id="Animation_8hc8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lure:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1wl0k"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lure:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hc8o"]
+_data = {
+&"RESET": SubResource("Animation_8hc8o"),
+&"default": SubResource("Animation_1wl0k")
+}
 
 [node name="StartScreen" type="TextureRect"]
 anchors_preset = 15
@@ -9,34 +137,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_1wl0k")
 script = ExtResource("1_yk0mb")
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 1
-offset_left = 649.0
-offset_top = 200.0
-offset_right = 1089.0
-offset_bottom = 435.0
-theme_override_font_sizes/font_size = 96
-text = "START"
-
 [node name="VBoxContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -50.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 0
+offset_left = 629.0
+offset_top = 400.0
+offset_right = 829.0
+offset_bottom = 500.0
+theme = SubResource("Theme_1wl0k")
 columns = 2
 
 [node name="SoundLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1wl0k")
 text = "SFX"
 
 [node name="SoundSlider" parent="VBoxContainer" instance=ExtResource("4_h2rxl")]
 layout_mode = 2
+size_flags_vertical = 4
 bus_name = "Sfx"
 
 [node name="MusicLabel" type="Label" parent="VBoxContainer"]
@@ -45,8 +165,55 @@ text = "MUSIC"
 
 [node name="MusicSlider" parent="VBoxContainer" instance=ExtResource("4_h2rxl")]
 layout_mode = 2
+size_flags_vertical = 4
 bus_name = "Music"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("5_8hc8o")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -75.0
+offset_right = 227.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_1wl0k")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxEmpty_esdhr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1wl0k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8hc8o")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_r3fr1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_axy6j")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_r3fr1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r3fr1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_r3fr1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r3fr1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_r3fr1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r3fr1")
+text = "START"
+
+[node name="Lure" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r3fr1")
+position = Vector2(744, 101)
+scale = Vector2(8, 8)
+texture = SubResource("GradientTexture2D_axy6j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8hc8o")
+}
+
 [connection signal="value_changed" from="VBoxContainer/SoundSlider" to="." method="_on_volume_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_volume_changed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://iab6i78fljla"]
+[gd_scene load_steps=10 format=3 uid="uid://iab6i78fljla"]
 
 [ext_resource type="Script" uid="uid://dax3xkfee7704" path="res://src/world/plancton/plancton.gd" id="1_5cp07"]
 [ext_resource type="Script" uid="uid://dsanfc3iwqum4" path="res://addons/random_timer_plugin/random_timer.gd" id="1_pxc3u"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="2_857ka"]
+[ext_resource type="Texture2D" uid="uid://dn63hm8w68032" path="res://assets/gfx/environment/plankton.png" id="2_kv1uu"]
 [ext_resource type="Texture2D" uid="uid://be0xvrixrkar2" path="res://src/world/light/round_light_16.tres" id="3_7y42s"]
 
 [sub_resource type="Gradient" id="Gradient_857ka"]
@@ -37,10 +38,8 @@ gravity_scale = 0.0
 linear_damp = 5.0
 script = ExtResource("1_5cp07")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0, -7)
-color = Color(0.3036, 0.69, 0.50324, 1)
-polygon = PackedVector2Array(0, 5, -2, 7, 0, 9, 2, 7)
+[node name="Core" type="Sprite2D" parent="."]
+texture = ExtResource("2_kv1uu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7y42s")
@@ -51,7 +50,7 @@ visible = false
 shape = SubResource("CircleShape2D_2tyvq")
 
 [node name="RandomTimer" type="Timer" parent="."]
-wait_time = 5.77972
+wait_time = 5.24224
 script = ExtResource("1_pxc3u")
 variance = 2.0
 metadata/_custom_type_script = "uid://dsanfc3iwqum4"
