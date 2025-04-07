@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqct84efgpgya"]
+[gd_scene load_steps=21 format=3 uid="uid://cqct84efgpgya"]
 
 [ext_resource type="Texture2D" uid="uid://cj4nej684jr1k" path="res://assets/gfx/environment/objects/lamp_vertical.png" id="1_b24f8"]
 [ext_resource type="Script" uid="uid://dlb52lrrhch3d" path="res://src/world/lamp/eldritch_lamp.gd" id="1_yy7ge"]
@@ -7,6 +7,40 @@
 [ext_resource type="AudioStream" uid="uid://c6jopq4ysq1mx" path="res://assets/sfx/ENV_Lightpost_TurnsOn_1.wav" id="5_cnjye"]
 [ext_resource type="AudioStream" uid="uid://bd6no0dthd5lq" path="res://assets/sfx/ENV_Lightpost_TurnsOn_2.wav" id="6_ijqbg"]
 [ext_resource type="AudioStream" uid="uid://clwsrharw5vkx" path="res://assets/sfx/ENV_Lightpost_TurnsOn_3.wav" id="7_wwug4"]
+[ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="8_cnjye"]
+
+[sub_resource type="Gradient" id="Gradient_cnjye"]
+offsets = PackedFloat32Array(0.0495169, 0.434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.838273, 0.422575, 0.807035, 0.574667, 0.540086, 0.304552, 9.62615e-08, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ijqbg"]
+gradient = SubResource("Gradient_cnjye")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwug4"]
+shader = ExtResource("8_cnjye")
+shader_parameter/light_texture = SubResource("GradientTexture2D_ijqbg")
+shader_parameter/light_color = Color(0.607843, 0.72549, 0.788235, 1)
+shader_parameter/brightness = 0.7
+shader_parameter/attenuation_strength = 0.308
+shader_parameter/intensity = 0.0
+shader_parameter/max_brightness = 1.48
+
+[sub_resource type="Gradient" id="Gradient_oqn42"]
+offsets = PackedFloat32Array(0, 0.990698)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ty53r"]
+gradient = SubResource("Gradient_oqn42")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_rlaii"]
 offsets = PackedFloat32Array(0, 0.993506)
@@ -58,6 +92,12 @@ modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_yy7ge")
 metadata/_edit_lock_ = true
 
+[node name="Sparkle" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wwug4")
+position = Vector2(-24, -83)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("GradientTexture2D_ty53r")
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = SubResource("GradientTexture2D_3mwbl")
 metadata/_edit_lock_ = true
@@ -108,3 +148,4 @@ autostart = true
 
 [connection signal="body_entered" from="AttachArea2D" to="." method="_on_attach_area_2d_body_entered"]
 [connection signal="body_exited" from="AttachArea2D" to="." method="_on_attach_area_2d_body_exited"]
+[connection signal="timeout" from="PingTimer" to="." method="_on_ping_timer_timeout"]
