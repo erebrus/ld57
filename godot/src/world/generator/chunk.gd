@@ -5,8 +5,8 @@ class_name Chunk extends Node2D
 
 @export_category("Currents")
 @export var current_scene: PackedScene
-@export var min_current_intensity:= 5
-@export var max_current_intensity:= 20
+@export var min_current_intensity:= 20
+@export var max_current_intensity:= 100
 @export var min_currents:=2
 @export var max_currents:=10
 @export var min_width:=100
@@ -71,10 +71,10 @@ func _place_current() -> void:
 			current.position = point
 			current.size = Vector2(rng.randf_range(min_width, max_width), rng.randf_range(min_length, max_length))
 			current.direction = Vector2.RIGHT.rotated(rng.randf() * PI * 2)
-			current.intensity = rng.randi_range(min_current_intensity, max_current_intensity)
+			current.intensity = rng.randf_range(min_current_intensity, max_current_intensity)
 			
 			add_child(current)
-			Logger.info("Placed current at %s facing %s at intensity %s" % [current.position, current.direction, current.intensity])
+			Logger.info("Placed current at %s facing %s at intensity %s" % [current.global_position, current.direction, current.intensity])
 			
 			return
 	

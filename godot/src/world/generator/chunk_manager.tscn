@@ -15,7 +15,7 @@
 [node name="ChunkManager" type="Node"]
 script = ExtResource("1_e7etq")
 seed = 6153192280923182575
-cell_size = Vector2(2176, 1856)
+cell_size = Vector2(2624, 2432)
 ChunkScene = ExtResource("2_1uugb")
 blocks = Array[PackedScene]([ExtResource("2_6q00v"), ExtResource("4_c20dk"), ExtResource("5_e3pmd"), ExtResource("6_puah4"), ExtResource("7_g7o3c"), ExtResource("8_7x5a0")])
 enemies = Dictionary[int, PackedScene]({
