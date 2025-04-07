@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://cnjk1mun3f1mu"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://cnjk1mun3f1mu"]
 
 [ext_resource type="Texture2D" uid="uid://b0i0n124dst23" path="res://assets/gfx/environment/tileset.png" id="1_oq77q"]
 
@@ -28,6 +28,15 @@ tile_data = PackedInt32Array(0, 327683, 3, 65536, 262147, 3, 131072, 327683, 268
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7xyf8"]
 tile_data = PackedInt32Array(0, 65539, 1342177280, 65536, 196611, 2, 65537, 65539, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_tyhqn"]
+tile_data = PackedInt32Array(0, 393219, 0, 65536, 458755, 1, 131072, 327683, 2, 196608, 196611, 1, 131073, 393219, 0, 196609, 458755, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_sqcba"]
+tile_data = PackedInt32Array(131072, 393219, 268435456, 196608, 458755, 268435456, 1, 393219, 268435456, 65537, 458755, 268435456, 131073, 327683, 2, 196609, 196611, 1610612737)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_stsal"]
+tile_data = PackedInt32Array(0, 3, 1610612736, 65536, 131075, 1610612736, 131072, 65539, 1610612736, 196608, 3, 1610612736, 262144, 3, 1610612736, 327680, 65539, 1610612736, 393216, 3, 1610612736, 458752, 65539, 1610612736, 1, 3, 1610612737, 65537, 131075, 1610612737, 131073, 65539, 1610612737, 196609, 3, 1610612737, 262145, 3, 1610612737, 327681, 65539, 1610612737, 393217, 3, 1610612737, 458753, 65539, 1610612737, 2, 3, 1610612738, 65538, 131075, 1610612738, 131074, 65539, 1610612738, 196610, 3, 1610612738, 262146, 3, 1610612738, 327682, 65539, 1610612738, 393218, 3, 1610612738, 458754, 65539, 1610612738, 3, 3, 1342177281, 65539, 65539, 1342177281, 131075, 131075, 1342177281, 196611, 65539, 1342177281, 262147, 131075, 1342177281, 327683, 3, 1342177281, 393219, 65539, 1342177281, 458755, 131075, 1342177281, 4, 131075, 1610612739, 65540, 65539, 1610612739, 131076, 3, 1610612739, 196612, 3, 1610612739, 262148, 131075, 1610612739, 327684, 65539, 1610612739, 393220, 3, 1610612739, 458756, 3, 1610612739)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2q24d"]
 tile_data = PackedInt32Array(0, 393219, 0, 65536, 458755, 1)
@@ -143,3 +152,6 @@ pattern_13 = SubResource("TileMapPattern_iy8uo")
 pattern_14 = SubResource("TileMapPattern_t5sl5")
 pattern_15 = SubResource("TileMapPattern_shx4f")
 pattern_16 = SubResource("TileMapPattern_7xyf8")
+pattern_17 = SubResource("TileMapPattern_tyhqn")
+pattern_18 = SubResource("TileMapPattern_sqcba")
+pattern_19 = SubResource("TileMapPattern_stsal")
