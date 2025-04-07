@@ -1,1 +1,2 @@
 extends Node
+signal eldrith_death_requested
