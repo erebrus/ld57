@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cmkw356psbjxw" path="res://assets/gfx/lamp.png" id="1_tm78i"]
 
-[sub_resource type="Gradient" id="Gradient_5a7e0"]
+[sub_resource type="Gradient" id="Gradient_tm78i"]
 offsets = PackedFloat32Array(0.0714286, 0.175325, 1)
 colors = PackedColorArray(1, 1, 0.72549, 1, 1, 1, 0.690741, 0.923611, 1, 0.360784, 0.270588, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yfw4i"]
-gradient = SubResource("Gradient_5a7e0")
+gradient = SubResource("Gradient_tm78i")
 width = 256
 height = 256
 fill = 1

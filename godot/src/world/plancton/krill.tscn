@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://buvf4edhusbci"]
+[gd_scene load_steps=18 format=3 uid="uid://buvf4edhusbci"]
 
 [ext_resource type="Script" uid="uid://c5fwj1dtbjhjw" path="res://src/world/plancton/krill.gd" id="1_c3vik"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="1_ya2oo"]
@@ -10,7 +10,7 @@ radius = 7.0
 offsets = PackedFloat32Array(0, 0.993506)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_c3vik"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nk44s"]
 gradient = SubResource("Gradient_rlaii")
 width = 24
 height = 24
@@ -20,12 +20,24 @@ fill_to = Vector2(0.01, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ithag"]
 shader = ExtResource("1_ya2oo")
-shader_parameter/light_texture = SubResource("GradientTexture2D_c3vik")
+shader_parameter/light_texture = SubResource("GradientTexture2D_nk44s")
 shader_parameter/light_color = Color(0.752941, 0.823529, 0.454902, 1)
 shader_parameter/brightness = 0.15
 shader_parameter/attenuation_strength = 0.5
 shader_parameter/intensity = 8.0
 shader_parameter/max_brightness = 1.48
+
+[sub_resource type="Gradient" id="Gradient_ithag"]
+offsets = PackedFloat32Array(0, 0.993506)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c3vik"]
+gradient = SubResource("Gradient_ithag")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c3vik"]
 shader = ExtResource("1_ya2oo")
