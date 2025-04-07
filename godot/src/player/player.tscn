@@ -445,6 +445,7 @@ linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_lowyb")
 thrust = 300.0
+energy_per_thrust = 2.0
 sanity_loss = 0.5
 
 [node name="EldritchDeath" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_a4vah")]
