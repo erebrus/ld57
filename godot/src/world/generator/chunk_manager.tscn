@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2s0lpgauu5w2"]
+[gd_scene load_steps=12 format=3 uid="uid://b2s0lpgauu5w2"]
 
 [ext_resource type="Script" uid="uid://c78k52yb4lhtp" path="res://src/world/generator/chunk_manager.gd" id="1_e7etq"]
 [ext_resource type="PackedScene" uid="uid://el0drl0p6rxf" path="res://src/world/generator/chunk.tscn" id="2_1uugb"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dgoastca1xxh3" path="res://src/world/tileset/blocks/block_04.tscn" id="6_puah4"]
 [ext_resource type="PackedScene" uid="uid://b0b10bx17fdvi" path="res://src/world/tileset/blocks/block_06.tscn" id="7_g7o3c"]
 [ext_resource type="PackedScene" uid="uid://ce2p5gwb5yks" path="res://src/world/tileset/blocks/block_07.tscn" id="8_7x5a0"]
+[ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="9_g7o3c"]
+[ext_resource type="PackedScene" uid="uid://bix5s1utrsmcx" path="res://src/enemies/viper_fish.tscn" id="10_7x5a0"]
+[ext_resource type="PackedScene" uid="uid://de80n1av20gh6" path="res://src/enemies/mooray.tscn" id="11_7x5a0"]
 
 [node name="ChunkManager" type="Node"]
 script = ExtResource("1_e7etq")
@@ -15,6 +18,11 @@ seed = 6153192280923182575
 cell_size = Vector2(2176, 1856)
 ChunkScene = ExtResource("2_1uugb")
 blocks = Array[PackedScene]([ExtResource("2_6q00v"), ExtResource("4_c20dk"), ExtResource("5_e3pmd"), ExtResource("6_puah4"), ExtResource("7_g7o3c"), ExtResource("8_7x5a0")])
+enemies = Dictionary[int, PackedScene]({
+0: ExtResource("9_g7o3c"),
+1: ExtResource("10_7x5a0"),
+2: ExtResource("11_7x5a0")
+})
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
