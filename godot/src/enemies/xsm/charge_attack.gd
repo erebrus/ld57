@@ -22,4 +22,5 @@ func _on_update(_delta) -> void:
 func _on_player_on_target():
 	if agent.is_player_on_target():
 		agent.hurt_player()
+
 		

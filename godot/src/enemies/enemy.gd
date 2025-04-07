@@ -59,8 +59,12 @@ func _process(delta: float) -> void:
 		var wp = nav_agent.get_next_path_position()
 		if not nav_agent.is_navigation_finished():
 			do_movement(wp,delta)
+		else:
+			current_speed=0
 	elif target_position.distance_to(global_position)> 5.0:
 			do_movement(target_position, delta)
+	else:
+		current_speed=0
 
 func do_movement(wp:Vector2, delta:float)->void:
 	var direction := (wp-global_position).normalized()

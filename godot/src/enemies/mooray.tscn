@@ -1,24 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://de80n1av20gh6"]
+[gd_scene load_steps=17 format=3 uid="uid://de80n1av20gh6"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_r2k6j"]
 [ext_resource type="Script" uid="uid://demoblvs171nx" path="res://src/enemies/mooray.gd" id="2_ch0pn"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="3_2miu3"]
+[ext_resource type="Texture2D" uid="uid://0gnv05xjguud" path="res://assets/gfx/enemies/eelsheet.png" id="3_15hmu"]
 [ext_resource type="Script" uid="uid://dhjspwps2m8om" path="res://src/enemies/xsm/trap_idle.gd" id="4_tjo2e"]
 [ext_resource type="Script" uid="uid://cdq6745ysid08" path="res://src/enemies/xsm/trap_attack.gd" id="5_bpsyy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2miu3"]
+[ext_resource type="AudioStream" uid="uid://c40qh6erpv2qh" path="res://assets/sfx/NPC_MorayEel_Snap_1.wav" id="6_78jt7"]
+[ext_resource type="AudioStream" uid="uid://btnt8mdcoqewm" path="res://assets/sfx/NPC_MorayEel_Snap_2.wav" id="7_15hmu"]
+[ext_resource type="AudioStream" uid="uid://n1y2cyo6krnt" path="res://assets/sfx/NPC_MorayEel_Snap_3.wav" id="8_yq4i8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2miu3"]
 radius = 150.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2miu3"]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_78jt7"]
+radius = 24.0
 height = 112.0
 
-[sub_resource type="Animation" id="Animation_78jt7"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_2miu3"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,26 +31,54 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_15hmu"]
 resource_name = "attack"
 length = 0.6
-step = 0.1
-tracks/0/type = "value"
+step = 0.05
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AttackPolygoin:visible")
+tracks/0/path = NodePath("sfx_attack")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0), Vector2i(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2miu3"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_78jt7"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -71,42 +99,46 @@ _data = {
 &"idle": SubResource("Animation_78jt7")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cjtwh"]
+streams_count = 3
+stream_0/stream = ExtResource("6_78jt7")
+stream_1/stream = ExtResource("7_15hmu")
+stream_2/stream = ExtResource("8_yq4i8")
+
 [node name="Mooray" instance=ExtResource("1_r2k6j")]
 script = ExtResource("2_ch0pn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -96)
+texture = ExtResource("3_15hmu")
+hframes = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-shape = SubResource("RectangleShape2D_2miu3")
-
-[node name="DetectionArea" parent="." index="2"]
+[node name="DetectionArea" parent="." index="1"]
 visible = false
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource("CircleShape2D_2miu3")
 
-[node name="HurtArea" parent="." index="3"]
-position = Vector2(0, -72)
+[node name="CollisionShape2D" parent="HurtAreaPivot/HurtArea" index="0"]
+position = Vector2(0, -56)
+shape = SubResource("CapsuleShape2D_78jt7")
 
-[node name="CollisionShape2D" parent="HurtArea" index="0"]
-position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_2miu3")
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="5"]
+[node name="Polygon2D" type="Polygon2D" parent="." index="4"]
+visible = false
 color = Color(0.260379, 0.432461, 0.685649, 1)
 polygon = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
 
-[node name="AttackPolygoin" type="Polygon2D" parent="." index="6"]
+[node name="AttackPolygoin" type="Polygon2D" parent="." index="5"]
 visible = false
 color = Color(0.260379, 0.432461, 0.685649, 1)
 polygon = PackedVector2Array(-24, -120, 24, -120, 16, 8, -16, 8)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
 &"": SubResource("AnimationLibrary_yq4i8")
 }
 
-[node name="XSM" type="Node" parent="." index="8"]
+[node name="XSM" type="Node" parent="." index="7"]
 script = ExtResource("3_2miu3")
 history_size = 0
 disabled = false
@@ -122,5 +154,9 @@ metadata/_custom_type_script = "uid://dlsi2jauwupc1"
 
 [node name="TrapAttack" type="Node" parent="XSM" index="1"]
 script = ExtResource("5_bpsyy")
-hurt_timebox = Vector2(0.3, 0.4)
+hurt_timebox = Vector2(0.2, 0.4)
 metadata/_custom_type_script = "uid://dlsi2jauwupc1"
+
+[node name="sfx_attack" type="AudioStreamPlayer2D" parent="." index="10"]
+stream = SubResource("AudioStreamRandomizer_cjtwh")
+bus = &"Sfx"
