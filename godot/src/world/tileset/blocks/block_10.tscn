@@ -325,16 +325,16 @@ position = Vector2(-207, -48)
 texture = ExtResource("7_28hux")
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("11_dyys5")]
-position = Vector2(712, -77)
+position = Vector2(706, -76)
 enemy_type = 2
 
 [node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("11_dyys5")]
-position = Vector2(-185, -99)
+position = Vector2(-178, -100)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("11_dyys5")]
-position = Vector2(677, -582)
+position = Vector2(667, -586)
 enemy_type = 2
 
 [node name="EnemyMarker4" parent="Enemies" index="3" instance=ExtResource("11_dyys5")]
@@ -414,4 +414,5 @@ position = Vector2(733, 55)
 position = Vector2(-34, -689)
 
 [node name="EldritchLamp" parent="." index="4"]
+visible = false
 position = Vector2(348, 35)

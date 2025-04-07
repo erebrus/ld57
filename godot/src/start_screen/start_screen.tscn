@@ -1,11 +1,55 @@
-[gd_scene load_steps=20 format=3 uid="uid://tew5nggvlbv0"]
+[gd_scene load_steps=26 format=3 uid="uid://tew5nggvlbv0"]
 
 [ext_resource type="Texture2D" uid="uid://mdoh2yonlfr4" path="res://assets/gfx/title.png" id="1_1wl0k"]
 [ext_resource type="Script" uid="uid://d0qhvgualhiwk" path="res://src/start_screen/start_screen.gd" id="1_yk0mb"]
 [ext_resource type="FontFile" uid="uid://cjje5m105me0i" path="res://assets/fonts/Monolith.ttf" id="3_1wl0k"]
+[ext_resource type="Texture2D" uid="uid://l5naf8twdfxt" path="res://assets/gfx/UI/grabber.png" id="3_r3fr1"]
+[ext_resource type="Texture2D" uid="uid://vsuunt5rol26" path="res://assets/gfx/UI/grabber_highlight.png" id="4_axy6j"]
 [ext_resource type="PackedScene" uid="uid://to3p8qv7p8yo" path="res://addons/sj/components/ui/settings/volume_slider.tscn" id="4_h2rxl"]
 [ext_resource type="Texture2D" uid="uid://cmxrrxyhhs022" path="res://assets/gfx/Title/title_text.png" id="5_8hc8o"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="6_1wl0k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1wl0k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.654902, 0.211765, 0.372549, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hc8o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.882353, 0.6, 0.705882, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3fr1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.52549, 0.6, 0.603922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_1wl0k"]
+default_font = ExtResource("3_1wl0k")
+default_font_size = 32
+HSlider/icons/grabber = ExtResource("3_r3fr1")
+HSlider/icons/grabber_highlight = ExtResource("4_axy6j")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1wl0k")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_8hc8o")
+HSlider/styles/slider = SubResource("StyleBoxFlat_r3fr1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esdhr"]
 
@@ -50,6 +94,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.01, 0.5)
 
+[sub_resource type="Animation" id="Animation_8hc8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lure:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1wl0k"]
 resource_name = "default"
 loop_mode = 1
@@ -64,21 +123,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8hc8o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Lure:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hc8o"]
@@ -97,20 +141,22 @@ texture = ExtResource("1_1wl0k")
 script = ExtResource("1_yk0mb")
 
 [node name="VBoxContainer" type="GridContainer" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 164.0
-offset_top = 534.0
-offset_right = 364.0
-offset_bottom = 634.0
+offset_left = 629.0
+offset_top = 400.0
+offset_right = 829.0
+offset_bottom = 500.0
+theme = SubResource("Theme_1wl0k")
 columns = 2
 
 [node name="SoundLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1wl0k")
 text = "SFX"
 
 [node name="SoundSlider" parent="VBoxContainer" instance=ExtResource("4_h2rxl")]
 layout_mode = 2
+size_flags_vertical = 4
 bus_name = "Sfx"
 
 [node name="MusicLabel" type="Label" parent="VBoxContainer"]
@@ -119,20 +165,29 @@ text = "MUSIC"
 
 [node name="MusicSlider" parent="VBoxContainer" instance=ExtResource("4_h2rxl")]
 layout_mode = 2
+size_flags_vertical = 4
 bus_name = "Music"
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("5_8hc8o")
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
-offset_left = 489.0
-offset_top = 229.0
-offset_right = 929.0
-offset_bottom = 464.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -75.0
+offset_right = 227.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_1wl0k")
 theme_override_font_sizes/font_size = 96
 theme_override_styles/focus = SubResource("StyleBoxEmpty_esdhr")
