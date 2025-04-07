@@ -368,3 +368,21 @@ enemy_type = 1
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(-723, -662, -172, -649, -165, -394, -7, -358, -208, -175, -101, -122, -103, 247, 6, 236, 118, 431, -382, 459, -376, 339, -501, 312, -510, 421, -507, 499, -595, 615, -829, 495, -842, 260, -1058, 213, -1107, -189, -983, -360, -874, -147, -644, -142)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(141, 160)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(-776, -279)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(-917, -656)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(47, -592)
+
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(-1101, 582)
+
+[node name="EldritchLamp" parent="." index="4"]
+visible = false
