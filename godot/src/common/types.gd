@@ -1,3 +1,3 @@
 extends Node
 
-enum GameMusic {EASY, NORMAL, HARD}
+enum GameMusic {NORMAL, HARD}

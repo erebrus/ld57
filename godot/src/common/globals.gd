@@ -1,7 +1,7 @@
 extends Node
 
 const START_SCENE_PATH = "res://src/start_screen/start_screen.tscn"
-const GAME_SCENE_PATH = "res://src/main.tscn"
+const GAME_SCENE_PATH = "res://src/world/test_world.tscn"
 
 const GameDataPath = "user://conf.cfg"
 var config:ConfigFile
@@ -19,6 +19,8 @@ func _ready():
 	
 	if get_tree().current_scene.scene_file_path == GAME_SCENE_PATH:
 		start_game()
+	else:
+		Logger.warn("%s is not main scene." % get_tree().current_scene.scene_file_path)
 	
 
 func go_to_main_menu():
@@ -29,9 +31,10 @@ func start_game():
 	Logger.info("Starting Game")
 	in_game=true
 	
-	music_manager.fade_menu_music()
-	await get_tree().create_timer(1).timeout
-	music_manager.reset_synchronized_stream()
+	if music_manager.menu_music.playing:
+		music_manager.fade_menu_music()
+		await get_tree().create_timer(1).timeout
+	#music_manager.reset_synchronized_stream()
 	
 	if get_tree().current_scene.scene_file_path != GAME_SCENE_PATH:
 		get_tree().change_scene_to_file(GAME_SCENE_PATH)
