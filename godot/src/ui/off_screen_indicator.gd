@@ -1,8 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	Events.indicador_requested.connect(display_at_angle)
 	$AnimatedSprite2D.play("default")
+	
 func display_at_angle(angle:float, dist:float):
 	var screen_size = get_viewport_rect().size
 	var screen_center = screen_size / 2
@@ -18,8 +18,9 @@ func display_at_angle(angle:float, dist:float):
 	
 	global_position = position_on_screen
 	visible = true
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(1).timeout
 	visible = false
+	queue_free()
 	
 func get_position_on_edge(center: Vector2, point: Vector2, screen_size: Vector2, padding: float) -> Vector2:
 	var bounds = Rect2(Vector2(padding, padding), screen_size - Vector2(padding * 2, padding * 2))

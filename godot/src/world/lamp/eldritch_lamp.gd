@@ -28,7 +28,7 @@ class_name EldritchLamp extends Node2D
 @onready var sfx_ping: AudioStreamPlayer2D = $sfx/sfx_ping
 @onready var sfx_on: AudioStreamPlayer2D = $sfx/sfx_on
 @onready var visibility_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
-
+var activated:=false
 var on_screen:=false
 func _ready() -> void:
 	lit=0
@@ -37,12 +37,16 @@ func _process(_delta: float) -> void:
 	pass
 
 func is_activated()->bool:
-	return lit == 1.0
+	return activated
 	
 func activate()->void:
 	if not enabled:
 		return
-	
+	if is_activated():
+		return
+	activated=true
+	$Label.visible=false
+
 	var tween=create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self,"lit",1,.3)
 	sfx_on.play()
@@ -50,6 +54,7 @@ func activate()->void:
 	ping_timer.stop()
 	
 func is_on_screen()->bool:
+	
 	#return visibility_notifier.is_on_screen()
 	return on_screen
 func _on_ping_timer_timeout() -> void:
@@ -63,14 +68,13 @@ func _on_ping_timer_timeout() -> void:
 		tween.parallel().tween_property($Sparkle.material,"shader_parameter/intensity",0,.3)
 
 func _on_attach_area_2d_body_entered(body: Node2D) -> void:
-	if enabled:
+	if enabled and not is_activated():
 		body.lamp=self
 		$Label.visible=true
 
 func _on_attach_area_2d_body_exited(body: Node2D) -> void:
-	if enabled:
-		body.lamp=null
-		$Label.visible=false
+	body.lamp=null
+	$Label.visible=false
 		
 func get_attach_position()->Vector2:
 	return marker_2d.global_position

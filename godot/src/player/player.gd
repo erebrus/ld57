@@ -82,6 +82,7 @@ var currents:int:
 @onready var krill_sfx: AudioStreamPlayer2D = $sfx/krill_sfx
 @onready var ruffle_sfx: AudioStreamPlayer2D = $sfx/ruffle_sfx
 var stingers:=0
+var has_lamp:=false
 
 func _ready():
 	energy=max_energy
@@ -89,12 +90,23 @@ func _ready():
 	Events.eldrith_death_requested.connect(func():energy=0)
 	Events.retreat_stinger.connect(func():stingers-=1)
 	Events.ping.connect(_on_ping)
+	
 
 func _on_ping(lamp:EldritchLamp):
+	if lamp.is_activated():
+		return
 	var dist := global_position.distance_to(lamp.global_position)
 	var angle := global_position.angle_to_point(lamp.global_position)
-	if not lamp.is_on_screen():
-		Events.indicador_requested.emit(angle, dist)
+	#if not lamp.is_on_screen():
+	Logger.info("player: trying to display indicator %.2f %.2f" % [angle, dist])
+	var closest_lamp=null
+	#for _lamp in get_tree().get_nodes_in_group("lamp"):
+		#if _lamp.is_activated():
+			#continue
+		#if closest_lamp == null or _lamp.global_position.distance_to(global_position)<closest_lamp.global_position.distance_to(global_position):
+			#closest_lamp = _lamp
+	#if lamp == closest_lamp:
+	Events.indicador_requested.emit(angle, dist)
 		
 func has_energy():
 	return energy > 0 
@@ -102,7 +114,7 @@ func has_energy():
 func _physics_process(delta: float) -> void:
 	if in_animation or eldritch_death.triggered:
 		return
-	if energy == 0.0:
+	if energy == 0.0 and not has_lamp:
 		await eldritch_death.trigger()
 		await get_tree().create_timer(1).timeout
 		Globals.do_lose()
@@ -128,7 +140,7 @@ func _physics_process(delta: float) -> void:
 			last_thrust_direction = Vector2.DOWN
 			thrust_factor=strafe_thrust_factor
 			do_thrust(PI/2)
-		elif Input.is_action_just_pressed("interact"):
+		elif Input.is_action_pressed("interact"):
 			attach()
 			
 func charge_thrust(delta:float):
@@ -234,6 +246,9 @@ func attach():
 	charge_sfx.play()
 	await animation_player.animation_finished
 	lamp.activate()
+	energy = min(max_energy, energy+25)
+	Logger.info("light %.2f/%.2f" % [energy, light.energy])
+
 	await get_tree().create_timer(.4).timeout
 	animation_player.play("dettach")
 	await animation_player.animation_finished
@@ -246,11 +261,12 @@ func attach():
 
 
 func _on_sanity_timer_timeout() -> void:
-	var has_lamp:=false
+	var tmp_has_lamp = false
 	for lamp in get_tree().get_nodes_in_group("lamp"):
-		if global_position.distance_to(lamp.global_position) and lamp.is_activated():
-			has_lamp=true
+		if global_position.distance_to(lamp.global_position)<1000 and lamp.is_activated():
+			tmp_has_lamp=true
 			break
+	has_lamp = tmp_has_lamp
 	#if has_lamp:
 		#if energy>min_energy_with_lamp:
 			#recover_sanity(energy>min_energy_without_lamp)
