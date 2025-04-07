@@ -14,6 +14,7 @@ const CHUNK_MARGIN = 4 * CELL_SIZE
 
 @export_tool_button("Calculate Cell Size", "Callable") var calculate_cell_size = _calculate_cell_size
 @export var ChunkScene: PackedScene
+@export var start_block: PackedScene
 @export var blocks: Array[PackedScene]
 @export var enemies: Dictionary[Types.EnemyType, PackedScene]
 @export var enabled:=true

@@ -22,7 +22,6 @@ class_name EldritchLamp extends Node2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sprite_2d_lit: Sprite2D = $Sprite2DLit
 @onready var light: PointLight2D = $PointLight2D
-@onready var sfx_light: AudioStreamPlayer2D = $sfx/sfx_light
 @onready var ping_timer: Timer = $PingTimer
 @onready var attach_area_2d: Area2D = $AttachArea2D
 @onready var marker_2d: Marker2D = $Marker2D

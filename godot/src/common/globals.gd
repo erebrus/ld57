@@ -11,12 +11,13 @@ var in_dialogue:=false
 
 @export var enemy_probabilities: Dictionary[Types.EnemyType, float] = {
 	Types.EnemyType.ANGLER: 0.2,
-	Types.EnemyType.VIPERFISH: 0.2,
-	Types.EnemyType.EEL: 0.2
+	Types.EnemyType.VIPERFISH: 0.8,
+	Types.EnemyType.EEL: 0.5
 }
 
-@export var krill_probability:= 0.5
-@export var lamp_probability:= 0.2
+@export var krill_probability:= 0.8
+@export var lamp_probability:= 0.4
+
 @export var min_difficulty:=.4
 @export var difficulty=1:
 	set(_val):

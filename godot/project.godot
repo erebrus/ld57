@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Ludum Dare 57"
-config/version="0.1.0"
-run/main_scene="uid://bidnwv4kin1iu"
+config/version="0.1.2"
+run/main_scene="uid://tew5nggvlbv0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

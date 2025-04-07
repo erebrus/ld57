@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://04681mljvxoh" path="res://src/common/ui_sfx.gd" id="5_fmvy8"]
 [ext_resource type="AudioStream" uid="uid://vdr7ewrp5m01" path="res://assets/sfx/kenneys/select_001.ogg" id="5_kyxtr"]
 [ext_resource type="AudioStream" uid="uid://pd768hel8a3f" path="res://assets/music/STINGER.mp3" id="5_q26s1"]
-[ext_resource type="AudioStream" uid="uid://dcowjg8y0gyjd" path="res://assets/sfx/kenneys/select_002.ogg" id="6_7sypx"]
+[ext_resource type="AudioStream" uid="uid://0gj6c4dh7026" path="res://assets/sfx/UI_click_1.wav" id="8_q26s1"]
 
 [node name="Globals" type="Node"]
 process_mode = 3
@@ -45,7 +45,7 @@ script = ExtResource("5_fmvy8")
 
 [node name="click_sfx" type="AudioStreamPlayer" parent="UiSfx"]
 process_mode = 3
-stream = ExtResource("6_7sypx")
+stream = ExtResource("8_q26s1")
 bus = &"Sfx"
 
 [node name="hover_sfx" type="AudioStreamPlayer" parent="UiSfx"]

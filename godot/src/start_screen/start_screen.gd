@@ -1,10 +1,11 @@
 extends TextureRect
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	Globals.in_game=false
 	Globals.music_manager.fade_in_menu_music()
-	
+	animation_player.play("default")
 
 func _exit_tree() -> void:
 	Globals.music_manager.fade_menu_music()

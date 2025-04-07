@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bxbtv2w5iwenk"]
+[gd_scene load_steps=12 format=4 uid="uid://balrrqeap3uae"]
 
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="1_2pmto"]
 [ext_resource type="PackedScene" uid="uid://b10qxle1elc1p" path="res://src/world/plants/anemone.tscn" id="2_dwuse"]
