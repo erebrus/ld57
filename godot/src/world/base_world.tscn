@@ -97,7 +97,7 @@ target_container = NodePath("../../NavigationRegion2D/Plancton")
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.711132, 0.52839, 0.467895, 1)
-energy = 1.5
+energy = 2.0
 blend_mode = 1
 
 [node name="Ambient1" type="AudioStreamPlayer" parent="."]
@@ -109,7 +109,7 @@ stream = SubResource("AudioStreamRandomizer_xmkh1")
 bus = &"Sfx"
 
 [node name="AmbientTimer" type="Timer" parent="."]
-wait_time = 20.9936
+wait_time = 26.3232
 autostart = true
 script = ExtResource("18_1sjff")
 variance = 4.0

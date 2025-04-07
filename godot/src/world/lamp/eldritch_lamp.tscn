@@ -69,6 +69,7 @@ scale = Vector2(1.81641, 1.67969)
 color = Color(0.752754, 0.697004, 0.828886, 1)
 energy = 0.0500979
 texture = SubResource("GradientTexture2D_hdfth")
+texture_scale = 3.0
 metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
