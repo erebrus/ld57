@@ -82,6 +82,7 @@ var currents:int:
 @onready var krill_sfx: AudioStreamPlayer2D = $sfx/krill_sfx
 @onready var ruffle_sfx: AudioStreamPlayer2D = $sfx/ruffle_sfx
 var stingers:=0
+var has_lamp:=false
 
 func _ready():
 	energy=max_energy
@@ -89,6 +90,7 @@ func _ready():
 	Events.eldrith_death_requested.connect(func():energy=0)
 	Events.retreat_stinger.connect(func():stingers-=1)
 	Events.ping.connect(_on_ping)
+	
 
 func _on_ping(lamp:EldritchLamp):
 	if lamp.is_activated():
@@ -112,7 +114,7 @@ func has_energy():
 func _physics_process(delta: float) -> void:
 	if in_animation or eldritch_death.triggered:
 		return
-	if energy == 0.0:
+	if energy == 0.0 and not has_lamp:
 		await eldritch_death.trigger()
 		await get_tree().create_timer(1).timeout
 		Globals.do_lose()
@@ -244,6 +246,7 @@ func attach():
 	charge_sfx.play()
 	await animation_player.animation_finished
 	lamp.activate()
+	energy = min(max_energy, energy+25)
 	await get_tree().create_timer(.4).timeout
 	animation_player.play("dettach")
 	await animation_player.animation_finished
@@ -256,11 +259,12 @@ func attach():
 
 
 func _on_sanity_timer_timeout() -> void:
-	var has_lamp:=false
+	var tmp_has_lamp = false
 	for lamp in get_tree().get_nodes_in_group("lamp"):
-		if global_position.distance_to(lamp.global_position) and lamp.is_activated():
-			has_lamp=true
+		if global_position.distance_to(lamp.global_position)<1000 and lamp.is_activated():
+			tmp_has_lamp=true
 			break
+	has_lamp = tmp_has_lamp
 	#if has_lamp:
 		#if energy>min_energy_with_lamp:
 			#recover_sanity(energy>min_energy_without_lamp)
