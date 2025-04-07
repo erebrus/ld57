@@ -266,7 +266,6 @@ scale = Vector2(1, -1)
 [node name="Kelp5" parent="Folliage" index="54" instance=ExtResource("10_htbhk")]
 position = Vector2(377, 489)
 rotation = -1.11674
-scale = Vector2(1, 1)
 
 [node name="Kelp6" parent="Folliage" index="55" instance=ExtResource("10_htbhk")]
 position = Vector2(858, 85)
@@ -289,7 +288,6 @@ scale = Vector2(1, -1)
 [node name="Kelp10" parent="Folliage" index="59" instance=ExtResource("10_htbhk")]
 position = Vector2(935, 84)
 rotation = 0.00473702
-scale = Vector2(1, 1)
 
 [node name="Kelp11" parent="Folliage" index="60" instance=ExtResource("10_htbhk")]
 position = Vector2(48, 1063)
@@ -312,7 +310,6 @@ scale = Vector2(1, -1)
 [node name="Kelp15" parent="Folliage" index="64" instance=ExtResource("10_htbhk")]
 position = Vector2(68, 1056)
 rotation = 3.1144
-scale = Vector2(1, 1)
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("16_scovq")]
 position = Vector2(503, 705)
@@ -352,3 +349,18 @@ enemy_type = 1
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(-85, -77, 15, -156, 81, -253, 157, -118, 222, 41, 284, 130, 467, 127, 602, -115, 671, -329, 757, -180, 861, 20, 1099, 75, 1104, 145, 957, 148, 840, 168, 792, 237, 757, 343, 633, 307, 529, 379, 533, 483, 546, 942, 509, 993, 453, 1069, 457, 1211, 436, 1328, 353, 1460, 308, 1576, 205, 1501, 163, 1387, 150, 1225, 125, 1142, 49, 1197, 18, 1301, -92, 1294, -120, 1158, -146, 1027, -171, 914, -64, 876, 112, 828, 201, 800, 215, 690, 219, 559, 115, 572, -75, 586, -82, 448, -61, 272, 10, 180, -92, 10)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(374, 35)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(58, 719)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(63, 1426)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(644, 477)
+
+[node name="EldritchLamp" parent="." index="4"]
+visible = false
