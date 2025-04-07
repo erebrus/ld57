@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqct84efgpgya"]
+[gd_scene load_steps=15 format=3 uid="uid://cqct84efgpgya"]
 
 [ext_resource type="Texture2D" uid="uid://cj4nej684jr1k" path="res://assets/gfx/environment/objects/lamp_vertical.png" id="1_b24f8"]
 [ext_resource type="Script" uid="uid://dlb52lrrhch3d" path="res://src/world/lamp/eldritch_lamp.gd" id="1_yy7ge"]
 [ext_resource type="Texture2D" uid="uid://bpi8mgw5m5bhe" path="res://assets/gfx/environment/objects/lamp_v_on.png" id="2_yy7ge"]
+[ext_resource type="AudioStream" uid="uid://dvmxnyffcv370" path="res://assets/sfx/ENV_Lightpost_ping.wav" id="4_tttps"]
+[ext_resource type="AudioStream" uid="uid://c6jopq4ysq1mx" path="res://assets/sfx/ENV_Lightpost_TurnsOn_1.wav" id="5_cnjye"]
+[ext_resource type="AudioStream" uid="uid://bd6no0dthd5lq" path="res://assets/sfx/ENV_Lightpost_TurnsOn_2.wav" id="6_ijqbg"]
+[ext_resource type="AudioStream" uid="uid://clwsrharw5vkx" path="res://assets/sfx/ENV_Lightpost_TurnsOn_3.wav" id="7_wwug4"]
 
 [sub_resource type="Gradient" id="Gradient_rlaii"]
 offsets = PackedFloat32Array(0, 0.993506)
@@ -28,24 +32,79 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="EldritchLamp" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy7ge"]
+size = Vector2(39, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yy7ge"]
+radius = 19.105
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oqn42"]
+streams_count = 3
+stream_0/stream = ExtResource("5_cnjye")
+stream_1/stream = ExtResource("6_ijqbg")
+stream_2/stream = ExtResource("7_wwug4")
+
+[node name="EldritchLamp" type="StaticBody2D"]
+collision_mask = 49
 script = ExtResource("1_yy7ge")
 base_energy = 2.0
-lit = 0.44804
+lit = 0.0250489
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b24f8")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2DLit" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.44804)
+modulate = Color(1, 1, 1, 0.0250489)
 texture = ExtResource("2_yy7ge")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = SubResource("GradientTexture2D_3mwbl")
+metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-27, -84)
 scale = Vector2(1.81641, 1.67969)
 color = Color(0.752754, 0.697004, 0.828886, 1)
-energy = 0.89608
+energy = 0.0500979
 texture = SubResource("GradientTexture2D_hdfth")
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-21, -116)
+
+[node name="AttachArea2D" type="Area2D" parent="."]
+position = Vector2(-21, -112)
+collision_layer = 0
+collision_mask = 16
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttachArea2D"]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_yy7ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-22, -81)
+shape = SubResource("CircleShape2D_yy7ge")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-54, 55, -33, -1, -48, -81, 7, -85, 3, -6, 38, 16, 68, 79, 2, 109, -62, 85)
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="sfx_ping" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("4_tttps")
+max_distance = 5000.0
+bus = &"Sfx"
+
+[node name="sfx_on" type="AudioStreamPlayer2D" parent="sfx"]
+stream = SubResource("AudioStreamRandomizer_oqn42")
+bus = &"Sfx"
+
+[node name="PingTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="AttachArea2D" to="." method="_on_attach_area_2d_body_entered"]
+[connection signal="body_exited" from="AttachArea2D" to="." method="_on_attach_area_2d_body_exited"]

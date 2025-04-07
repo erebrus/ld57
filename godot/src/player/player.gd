@@ -20,6 +20,8 @@ class_name Player extends RigidBody2D
 #@export var noise_range:float = 600.0
 #@export var thrust_noise_curve:Curve
 
+var lamp:EldritchLamp
+var in_animation:=false
 var can_thrust:=true
 var thrust_factor := 0.0
 var last_thrust_direction:=Vector2.RIGHT
@@ -77,6 +79,8 @@ func has_energy():
 	return energy > 0 
 	
 func _physics_process(delta: float) -> void:
+	if in_animation:
+		return
 	var rotate_input:float = Input.get_axis("rotate_left","rotate_right")
 	if rotate_input:
 		rotation += rotate_input * rotation_speed * delta
@@ -99,7 +103,9 @@ func _physics_process(delta: float) -> void:
 			last_thrust_direction = Vector2.DOWN
 			thrust_factor=strafe_thrust_factor
 			do_thrust(PI/2)
-	
+		elif Input.is_action_just_pressed("interact"):
+			attach()
+			
 func charge_thrust(delta:float):
 	if thrust_factor == 0:
 		thrust_factor = .2	
@@ -190,3 +196,26 @@ func kill():
 func on_ruffle():
 	if not ruffle_sfx.playing:
 		ruffle_sfx.play()
+
+func attach():
+	if not lamp:
+		return
+	in_animation=true
+	sleeping=true
+	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self,"global_position", lamp.get_attach_position(),.4)
+	tween.parallel().tween_property(self,"global_rotation",-PI/2,.4)
+	await tween.finished
+	animation_player.play("attach")
+	charge_sfx.play()
+	await animation_player.animation_finished
+	lamp.activate()
+	await get_tree().create_timer(.4).timeout
+	animation_player.play("dettach")
+	await animation_player.animation_finished
+	in_animation=false
+	sleeping=false
+	#await get_tree().create_timer(.1).timeout
+	thrust_factor=.6
+	last_thrust_direction = Vector2.RIGHT
+	do_thrust()

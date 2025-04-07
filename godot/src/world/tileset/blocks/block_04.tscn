@@ -1,13 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://dgoastca1xxh3"]
+[gd_scene load_steps=12 format=4 uid="uid://dgoastca1xxh3"]
 
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="1_y7a03"]
-[ext_resource type="Texture2D" uid="uid://cjjk8b1kuiluw" path="res://assets/gfx/environment/plants/seaweed/seaweed1.png" id="2_qa340"]
-[ext_resource type="Texture2D" uid="uid://djvlh0fgxae3y" path="res://assets/gfx/environment/plants/seaweed/seaweed2.png" id="3_ir1fr"]
-[ext_resource type="Texture2D" uid="uid://dmmlge5wy68lk" path="res://assets/gfx/environment/plants/seaweed/seaweed3.png" id="4_24svh"]
-[ext_resource type="Texture2D" uid="uid://bmhv2ldhoiepo" path="res://assets/gfx/environment/plants/seaweed/seaweed4.png" id="5_7oc33"]
-[ext_resource type="Texture2D" uid="uid://cnlxwv0g1mogf" path="res://assets/gfx/environment/plants/seaweed/seaweed5.png" id="6_jlee4"]
-[ext_resource type="Texture2D" uid="uid://cg3sehoutau3k" path="res://assets/gfx/environment/plants/anemone_animated/anemone12.png" id="7_1cccc"]
-[ext_resource type="Texture2D" uid="uid://dqhl6oe7lgebt" path="res://assets/gfx/environment/plants/anemone_animated/anemone10.png" id="8_2ofqf"]
+[ext_resource type="PackedScene" uid="uid://b10qxle1elc1p" path="res://src/world/plants/anemone.tscn" id="2_q5v38"]
+[ext_resource type="PackedScene" uid="uid://dt0sp1m51x6qh" path="res://src/world/plants/kelp.tscn" id="3_6hqb5"]
 [ext_resource type="Texture2D" uid="uid://b7qfjky71huyi" path="res://assets/gfx/environment/plants/plants7.png" id="9_ip6wc"]
 [ext_resource type="Texture2D" uid="uid://cnhwdikdesp2q" path="res://assets/gfx/environment/plants/plants6.png" id="10_1e7k0"]
 [ext_resource type="Texture2D" uid="uid://xul5v5l0org6" path="res://assets/gfx/environment/plants/plants2.png" id="11_jsr2p"]
@@ -20,61 +15,56 @@
 [node name="BaseBlock" instance=ExtResource("1_y7a03")]
 tile_map_data = PackedByteArray("AAACAP//AwABAAMAAGACAAAAAwAHAAAAAAADAAEAAwAGAAAAAAADAAIAAwAHAAEAAAABAP3/AwADAAIAAGABAP7/AwADAAEAAAABAP//AwABAAEAAFACAAEAAwAFAAIAAAABAAAAAwABAAEAAFAAAP//AwAAAAEAAAACAAIAAwADAAEAAAAAAP7/AwADAAIAAGAAAP3/AwAEAAAAABD///7/AwABAAAAAAD/////AwAAAAEAAAD//wAAAwAAAAEAADAAAAEAAwADAAIAADAAAAIAAwAGAAAAADAAAAAAAwABAAEAADABAAEAAwABAAEAAFABAAIAAwABAAEAAGAAAAMAAwAGAAEAABAAAAQAAwAHAAEAABD//wUAAwAGAAAAABD//wYAAwABAAAAAGD//wgAAwAEAAAAADD//wcAAwAEAAEAADAAAAgAAwADAAAAADAAAAcAAwADAAEAADABAAcAAwADAAAAAFABAAgAAwAEAAAAAFABAAYAAwADAAIAAFACAAYAAwABAAAAADADAAYAAwAEAAEAAFADAAUAAwADAAEAAFAEAAYAAwAEAAAAAFAEAAUAAwADAAAAAFAEAAQAAwACAAAAAFAEAAMAAwAGAAAAAAADAAQAAwABAAEAAFADAAMAAwADAAEAAAAAAAUAAwADAAEAAGAAAAYAAwABAAEAAGACAAUAAwABAAEAADABAAUAAwABAAEAADABAAQAAwACAAEAAGABAAMAAwACAAEAAGACAAMAAwAAAAIAAAACAAQAAwAAAAIAAAD7//7/AwAEAAAAAGD7////AwADAAAAAGD7/wAAAwABAAAAAGD7/wEAAwAGAAAAADD8//7/AwABAAAAAAD8////AwACAAEAAAD8/wAAAwAAAAEAADD8/wEAAwAFAAEAADD8/wIAAwAFAAAAADD9//7/AwABAAAAAAD9////AwABAAEAAAD9/wAAAwACAAEAADD9/wEAAwAGAAAAAED+//7/AwACAAAAAAD+////AwABAAEAAAD+/wAAAwAAAAEAADD+/wEAAwACAAAAADD///v/AwAFAAAAAGD//wEAAwABAAAAADAAAPr/AwAGAAEAAGAAAPv/AwAFAAEAAGABAPr/AwAHAAIAAEABAPv/AwAFAAIAAAABAPz/AwAHAAIAACACAPn/AwAGAAAAAGACAPr/AwAFAAIAAAACAPv/AwAHAAMAADACAPz/AwAGAAAAAAACAP3/AwACAAMAAGACAP7/AwACAAMAAGADAPn/AwAGAAEAAHADAPr/AwAFAAEAAHAEAPr/AwAEAAMAAFAFAPr/AwAFAAMAAHA=")
 
-[node name="NavigationPolygon" parent="Navigation" index="0"]
-visible = false
-polygon = PackedVector2Array(375, -400, 236, -438, 61, -388, -80, -308, -33, -230, -59, -150, -205, -131, -318, -120, -337, 1, -302, 140, -252, 232, -170, 161, -52, 144, 2, 213, -26, 295, -54, 387, -68, 529, -38, 578, 141, 567, 144, 465, 283, 458, 351, 411, 337, 274, 276, 111, 217, -23, 191, -167, 200, -259, 299, -301, 382, -329)
+[node name="Anemone" parent="Folliage" index="0" instance=ExtResource("2_q5v38")]
+position = Vector2(206, -225)
+rotation = 1.83234
+frame_progress = 0.192327
 
-[node name="Seaweed1" type="Sprite2D" parent="Folliage" index="0"]
-position = Vector2(86, -233)
-rotation = -0.0137711
-texture = ExtResource("2_qa340")
+[node name="Anemone2" parent="Folliage" index="1" instance=ExtResource("2_q5v38")]
+position = Vector2(-29, 156)
+rotation = -1.89537
+frame_progress = 0.192327
 
-[node name="Seaweed2" type="Sprite2D" parent="Folliage" index="1"]
-position = Vector2(56, -241)
-texture = ExtResource("3_ir1fr")
+[node name="Kelp" parent="Folliage" index="2" instance=ExtResource("3_6hqb5")]
+position = Vector2(81, -174)
+rotation = -0.365869
 
-[node name="Seaweed3" type="Sprite2D" parent="Folliage" index="2"]
-position = Vector2(37, -225)
-texture = ExtResource("4_24svh")
+[node name="Kelp2" parent="Folliage" index="3" instance=ExtResource("3_6hqb5")]
+position = Vector2(58, -174)
+rotation = -0.49532
 
-[node name="Seaweed4" type="Sprite2D" parent="Folliage" index="3"]
-position = Vector2(19, -174)
-texture = ExtResource("5_7oc33")
+[node name="Kelp3" parent="Folliage" index="4" instance=ExtResource("3_6hqb5")]
+position = Vector2(35, -166)
+rotation = 2.60432
+scale = Vector2(1, -1)
 
-[node name="Seaweed5" type="Sprite2D" parent="Folliage" index="4"]
-position = Vector2(165, 477)
-rotation = 2.26488
-texture = ExtResource("2_qa340")
+[node name="Kelp4" parent="Folliage" index="5" instance=ExtResource("3_6hqb5")]
+position = Vector2(21, -149)
+rotation = 2.55212
+scale = Vector2(1, -1)
 
-[node name="Seaweed6" type="Sprite2D" parent="Folliage" index="5"]
-position = Vector2(151, 492)
-rotation = 2.2753
-texture = ExtResource("6_jlee4")
+[node name="Kelp5" parent="Folliage" index="6" instance=ExtResource("3_6hqb5")]
+position = Vector2(14, -131)
+rotation = -0.76062
+scale = Vector2(1, 1)
 
-[node name="Seaweed7" type="Sprite2D" parent="Folliage" index="6"]
-position = Vector2(135, 505)
-rotation = 2.33561
-texture = ExtResource("4_24svh")
+[node name="Kelp6" parent="Folliage" index="7" instance=ExtResource("3_6hqb5")]
+position = Vector2(95, 449)
+rotation = 1.99649
 
-[node name="Seaweed8" type="Sprite2D" parent="Folliage" index="7"]
-position = Vector2(188, 478)
-rotation = 2.4082
-texture = ExtResource("2_qa340")
+[node name="Kelp7" parent="Folliage" index="8" instance=ExtResource("3_6hqb5")]
+position = Vector2(95, 470)
+rotation = 2.00998
 
-[node name="Seaweed9" type="Sprite2D" parent="Folliage" index="8"]
-position = Vector2(138, 530)
-rotation = 2.20521
-texture = ExtResource("5_7oc33")
+[node name="Kelp8" parent="Folliage" index="9" instance=ExtResource("3_6hqb5")]
+position = Vector2(108, 434)
+rotation = 5.05432
+scale = Vector2(1, -1)
 
-[node name="Anemone12" type="Sprite2D" parent="Folliage" index="9"]
-position = Vector2(207, -233)
-rotation = 1.68802
-texture = ExtResource("7_1cccc")
-
-[node name="Anemone10" type="Sprite2D" parent="Folliage" index="10"]
-position = Vector2(-31, 167)
-rotation = -2.06415
-texture = ExtResource("8_2ofqf")
+[node name="Kelp9" parent="Folliage" index="10" instance=ExtResource("3_6hqb5")]
+position = Vector2(122, 422)
+rotation = 5.03809
+scale = Vector2(1, -1)
 
 [node name="Plants7" type="Sprite2D" parent="Folliage" index="11"]
 position = Vector2(251, -389)
@@ -207,26 +197,30 @@ position = Vector2(335, -330)
 rotation = -2.24677
 texture = ExtResource("13_nmaf6")
 
-[node name="EnemyMarker8" parent="." index="3" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker8" parent="Enemies" index="0" instance=ExtResource("16_ir1fr")]
 position = Vector2(185, -75)
 enemy_type = 2
 
-[node name="EnemyMarker9" parent="." index="4" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker9" parent="Enemies" index="1" instance=ExtResource("16_ir1fr")]
 position = Vector2(-49, 449)
 enemy_type = 2
 flip_h = true
 
-[node name="EnemyMarker10" parent="." index="5" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker10" parent="Enemies" index="2" instance=ExtResource("16_ir1fr")]
 position = Vector2(483, 482)
 flip_h = true
 
-[node name="EnemyMarker11" parent="." index="6" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker11" parent="Enemies" index="3" instance=ExtResource("16_ir1fr")]
 position = Vector2(-474, -130)
 
-[node name="EnemyMarker12" parent="." index="7" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker12" parent="Enemies" index="4" instance=ExtResource("16_ir1fr")]
 position = Vector2(138, -479)
 enemy_type = 1
 
-[node name="EnemyMarker13" parent="." index="8" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker13" parent="Enemies" index="5" instance=ExtResource("16_ir1fr")]
 position = Vector2(-228, 291)
 enemy_type = 1
+
+[node name="NavigationPolygon" parent="Navigation" index="0"]
+visible = false
+polygon = PackedVector2Array(375, -400, 236, -438, 61, -388, -80, -308, -33, -230, -59, -150, -205, -131, -318, -120, -337, 1, -302, 140, -252, 232, -170, 161, -52, 144, 2, 213, -26, 295, -54, 387, -68, 529, -38, 578, 141, 567, 144, 465, 283, 458, 351, 411, 337, 274, 276, 111, 217, -23, 191, -167, 200, -259, 299, -301, 382, -329)
