@@ -1,6 +1,8 @@
 extends StateAnimation
 var agent:Enemy
 @export var trigger_stinger:=true
+@export var retreat_range:=1750.0
+
 func _on_enter(_args) -> void:
 	agent = target
 	agent.nav_enabled = false
@@ -22,6 +24,9 @@ func _before_exit(_args) -> void:
 func _on_update(_delta) -> void:
 	agent.current_speed = agent.max_speed
 	track_player()
+	if agent.global_position.distance_to(agent.home)> retreat_range:
+		change_state("Retreat")
+
 	
 func _on_player_lost():
 	change_state("Retreat")
