@@ -7,15 +7,14 @@ tile_map_data = PackedByteArray("AAD9//7/AwAEAAAAAGD9////AwADAAAAAGD+//7/AwAEAAE
 
 [node name="Node2D" type="Node2D" parent="." index="0"]
 metadata/_edit_group_ = true
-
-[node name="NavigationPolygon" parent="." index="1"]
+[node name="NavigationPolygon" parent="Navigation" index="1"]
 polygon = PackedVector2Array(398, 28, 540, -51, 667, 178, 683, 269, 854, 283, 885, 358, 762, 363, 817, 489, 805, 627, 706, 402, 579, 434, 423, 424, 394, 320, 543, 271, 515, 63)
 
-[node name="NavigationPolygon2" type="Polygon2D" parent="." index="2"]
+[node name="NavigationPolygon2" type="Polygon2D" parent="Navigation" index="1"]
 polygon = PackedVector2Array(106, -35, 90, -116, -153, -98, -147, -16, -242, 68, -179, 100, -16, 97, 4, -17)
 
-[node name="NavigationPolygon3" type="Polygon2D" parent="." index="3"]
+[node name="NavigationPolygon3" type="Polygon2D" parent="Navigation" index="2"]
 polygon = PackedVector2Array(-164, 344, -258, 320, -384, 378, -128, 635, 50, 554, 39, 479, 57, 395, 45, 268, -86, 418)
 
-[node name="NavigationPolygon4" type="Polygon2D" parent="." index="4"]
+[node name="NavigationPolygon4" type="Polygon2D" parent="Navigation" index="3"]
 polygon = PackedVector2Array(349, 585, 306, 745, 242, 791, 143, 864, 192, 1021, 237, 923, 478, 929, 560, 763)
