@@ -70,7 +70,7 @@ func _place_current() -> void:
 		if _is_position_free(point):
 			current.position = point
 			current.size = Vector2(rng.randf_range(min_width, max_width), rng.randf_range(min_length, max_length))
-			current.direction = rng.randf() * PI * 2 * Vector2.RIGHT
+			current.direction = Vector2.RIGHT.rotated(rng.randf() * PI * 2)
 			current.intensity = rng.randi_range(min_current_intensity, max_current_intensity)
 			
 			add_child(current)
