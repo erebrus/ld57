@@ -197,43 +197,78 @@ rotation = -2.24677
 texture = ExtResource("13_nmaf6")
 
 [node name="EnemyMarker8" parent="Enemies" index="0" instance=ExtResource("16_ir1fr")]
-position = Vector2(185, -75)
+position = Vector2(174, -77)
 enemy_type = 2
 
 [node name="EnemyMarker9" parent="Enemies" index="1" instance=ExtResource("16_ir1fr")]
-position = Vector2(-49, 449)
+position = Vector2(-33, 454)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker10" parent="Enemies" index="2" instance=ExtResource("16_ir1fr")]
-position = Vector2(483, 482)
+position = Vector2(407, 474)
 flip_h = true
 
 [node name="EnemyMarker11" parent="Enemies" index="3" instance=ExtResource("16_ir1fr")]
-position = Vector2(-474, -130)
+position = Vector2(-451, -226)
 
 [node name="EnemyMarker12" parent="Enemies" index="4" instance=ExtResource("16_ir1fr")]
-position = Vector2(138, -479)
+position = Vector2(-156, -423)
 enemy_type = 1
 
-[node name="EnemyMarker13" parent="Enemies" index="5" instance=ExtResource("16_ir1fr")]
+[node name="EnemyMarker14" parent="Enemies" index="5" instance=ExtResource("16_ir1fr")]
+position = Vector2(355, -463)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker15" parent="Enemies" index="6" instance=ExtResource("16_ir1fr")]
+position = Vector2(480, -66)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker16" parent="Enemies" index="7" instance=ExtResource("16_ir1fr")]
+position = Vector2(469, 293)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker17" parent="Enemies" index="8" instance=ExtResource("16_ir1fr")]
+position = Vector2(-208, 495)
+enemy_type = 1
+
+[node name="EnemyMarker13" parent="Enemies" index="9" instance=ExtResource("16_ir1fr")]
 position = Vector2(-228, 291)
+enemy_type = 1
+
+[node name="EnemyMarker18" parent="Enemies" index="10" instance=ExtResource("16_ir1fr")]
+position = Vector2(-534, -32)
 enemy_type = 1
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(375, -400, 236, -438, 61, -388, -80, -308, -33, -230, -59, -150, -205, -131, -318, -120, -337, 1, -302, 140, -252, 232, -170, 161, -52, 144, 2, 213, -26, 295, -54, 387, -68, 529, -38, 578, 141, 567, 144, 465, 283, 458, 351, 411, 337, 274, 276, 111, 217, -23, 191, -167, 200, -259, 299, -301, 382, -329)
 
-[node name="EldritchLamp" parent="." index="4"]
-visible = false
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(-412, 157)
 
-[node name="Marker2D" type="Marker2D" parent="." index="5"]
-position = Vector2(-441, 225)
+[node name="Marker2D8" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(-102, -366)
 
-[node name="Marker2D2" type="Marker2D" parent="." index="6"]
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(-107, 176)
+
+[node name="Marker2D6" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(330, 116)
+
+[node name="Marker2D7" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(67, 613)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="5"]
 position = Vector2(372, -174)
 
-[node name="Marker2D3" type="Marker2D" parent="." index="7"]
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="6"]
 position = Vector2(-214, -521)
 
-[node name="Marker2D4" type="Marker2D" parent="." index="8"]
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="7"]
 position = Vector2(342, 677)
+
+[node name="EldritchLamp" parent="." index="4"]
+position = Vector2(-191, -158)
