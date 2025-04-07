@@ -47,8 +47,6 @@ func get_surrounding_cells(radius:int=1)->Array[Vector2i]:
 	
 
 func init_map():
-	seed_matrix[Vector2i.ZERO]=rng.randi()
-	load_chunk(Vector2i.ZERO, start_block)
 	check_for_creation()
 	
 
@@ -67,7 +65,7 @@ func check_for_creation():
 			load_chunk(cell)
 	
 
-func load_chunk(cell:Vector2i, selected_block:PackedScene=null):
+func load_chunk(cell:Vector2i):
 	var chunk_rng = RandomNumberGenerator.new()
 	chunk_rng.seed = seed_matrix[cell]
 	
@@ -78,16 +76,22 @@ func load_chunk(cell:Vector2i, selected_block:PackedScene=null):
 	chunk.global_position = chunk_pos
 	Logger.info("Generating chunk %s at %s" % [cell, chunk_pos])
 	
-	var block_scene = selected_block if selected_block else blocks[chunk_rng.randi() % blocks.size()]
+	var block_scene = start_block if cell == Vector2i.ZERO else blocks[chunk_rng.randi() % blocks.size()]
 	var block: BaseBlock = block_scene.instantiate()
 	var block_rect = block.get_used_rect()
 	
 	var max_offset = cell_size / 2 - block_rect.size * CELL_SIZE / 2.0 - CHUNK_MARGIN / 2 * Vector2.ONE
 	
-	var x = chunk_rng.randi_range(-max_offset.x, max_offset.x)
-	var y = chunk_rng.randi_range(-max_offset.y, max_offset.y)
+	var offset: Vector2
 	
-	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + Vector2(x, y)
+	if cell == Vector2i.ZERO:
+		offset.x = CELL_SIZE * -5
+		offset.y = CELL_SIZE * -4
+	else:
+		offset.x = chunk_rng.randi_range(-max_offset.x, max_offset.x)
+		offset.y = chunk_rng.randi_range(-max_offset.y, max_offset.y)
+	
+	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + offset
 	chunk.block = block
 	chunk.add_child(block) 
 	
