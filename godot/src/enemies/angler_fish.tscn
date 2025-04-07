@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dx8q2k3ukco25"]
+[gd_scene load_steps=31 format=3 uid="uid://dx8q2k3ukco25"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_2o0ra"]
 [ext_resource type="Script" uid="uid://pmiou8r6dblj" path="res://src/enemies/angler_fish.gd" id="2_g1key"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="3_4cfmw"]
 [ext_resource type="Texture2D" uid="uid://dkvbw1508psys" path="res://assets/gfx/enemies/anglersheet.png" id="3_daflk"]
-[ext_resource type="Script" uid="uid://cnr4i1xiwfw14" path="res://addons/xsm/state.gd" id="4_wtdoh"]
+[ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="4_wtdoh"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="5_v23hx"]
 [ext_resource type="Script" uid="uid://c6tquf5jy74bu" path="res://src/enemies/xsm/follow.gd" id="6_v23hx"]
 [ext_resource type="Script" uid="uid://03jbhlg4opwu" path="res://src/enemies/attack.gd" id="7_wfifh"]
@@ -22,23 +22,37 @@ radius = 112.0
 height = 352.0
 
 [sub_resource type="Gradient" id="Gradient_dlk8d"]
-offsets = PackedFloat32Array(0, 0.330918, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.839216, 0.423529, 0.807843, 0.576471, 0.541176, 0.305882, 0, 0)
+offsets = PackedFloat32Array(0.0495169, 0.434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.838273, 0.422575, 0.807035, 0.574667, 0.540086, 0.304552, 9.62615e-08, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m3oua"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nk44s"]
 gradient = SubResource("Gradient_dlk8d")
+width = 24
+height = 24
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
+fill_to = Vector2(0.01, 0.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtdoh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3oua"]
 shader = ExtResource("3_4cfmw")
-shader_parameter/light_texture = SubResource("GradientTexture2D_m3oua")
-shader_parameter/light_color = Color(0.764706, 0.937255, 0.541176, 1)
-shader_parameter/brightness = 0.5
-shader_parameter/attenuation_strength = 0.5
-shader_parameter/intensity = 3.0
-shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = SubResource("GradientTexture2D_nk44s")
+shader_parameter/light_color = Color(0.764365, 0.938654, 0.542639, 1)
+shader_parameter/brightness = 0.16
+shader_parameter/attenuation_strength = 0.308
+shader_parameter/intensity = 5.24
+shader_parameter/max_brightness = 1.48
+
+[sub_resource type="Gradient" id="Gradient_ithag"]
+offsets = PackedFloat32Array(0, 0.990698)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2g57b"]
+gradient = SubResource("Gradient_ithag")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
 
 [sub_resource type="Animation" id="Animation_daflk"]
 length = 0.001
@@ -273,9 +287,11 @@ frame = 4
 [node name="LureAnchor" type="Marker2D" parent="." index="7"]
 position = Vector2(220, -76)
 
-[node name="LurePolygon" type="Polygon2D" parent="LureAnchor" index="0"]
-material = SubResource("ShaderMaterial_wtdoh")
-polygon = PackedVector2Array(-6, -6, 0, -8, 6, -6, 8, 0, 6, 6, 0, 8, -6, 6, -8, 0)
+[node name="Sprite2D" type="Sprite2D" parent="LureAnchor" index="0"]
+material = SubResource("ShaderMaterial_m3oua")
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(1.77083, 1.77083)
+texture = SubResource("GradientTexture2D_2g57b")
 
 [node name="NavTimer" type="Timer" parent="." index="8"]
 wait_time = 0.4

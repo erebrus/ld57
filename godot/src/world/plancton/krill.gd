@@ -13,7 +13,6 @@ const OUTER_ROTATION_SPEED = 2 * PI / 15
 var energy:float
 func _ready():
 	energy = base_energy-energy_variance+2*energy_variance*randf()
-	var intensity = $Polygon2D.material.get("shader_parameter/intensity")
 	#$Polygon2D.material.set("shader_parameter/intensity", intensity*energy/base_energy)
 
 func _physics_process(delta):
