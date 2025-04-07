@@ -1,5 +1,5 @@
 @tool 
-extends Marker2D
+class_name EnemyMarker extends Marker2D
 
 @export var enemy_type: Types.EnemyType
 

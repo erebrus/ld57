@@ -15,6 +15,8 @@ const CHUNK_MARGIN = 4 * CELL_SIZE
 @export_tool_button("Calculate Cell Size", "Callable") var calculate_cell_size = _calculate_cell_size
 @export var ChunkScene: PackedScene
 @export var blocks: Array[PackedScene]
+@export var enemies: Dictionary[Types.EnemyType, PackedScene]
+
 
 var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -22,6 +24,9 @@ var seed_matrix:Dictionary[Vector2i, int] = {}
 var chunk_matrix:Dictionary[Vector2i, Node2D] = {}
 
 func _ready():
+	if Engine.is_editor_hint():
+		return
+	
 	if seed==0:
 		rng.randomize()
 		seed = rng.seed
@@ -79,11 +84,12 @@ func load_chunk(cell:Vector2i):
 	var y = chunk_rng.randi_range(-max_offset.y, max_offset.y)
 	
 	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + Vector2(x, y)
+	block.rng = chunk_rng
+	block.enemy_scenes = enemies
 	
-	Logger.info("Added block %s with rect %s at %s" % [block_scene.resource_path.get_file(), block_rect, block.position])
 	chunk.add_child(block) 
 	
-	#TODO hide navigation, replace enemies, place currents
+	#TODO place currents
 	
 	chunk_matrix[cell] = chunk
 	chunk_container.add_child(chunk)
