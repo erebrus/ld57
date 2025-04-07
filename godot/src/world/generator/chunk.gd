@@ -40,22 +40,30 @@ func _draw() -> void:
 	
 
 func _place_enemies() -> void:
-	for node in block.enemy_markers():
-		if not node is EnemyMarker:
+	var markers_by_type = block.enemy_markers()
+	for type in markers_by_type:
+		if not type in enemy_scenes:
+			Logger.warn("Could not find scene for enemy marker of type %s" % Types.EnemyType.keys()[type])
 			continue
 		
-		var marker: EnemyMarker = node
+		var markers = markers_by_type[type]
+		var min_enemies = Globals.enemy_probabilities[type] * markers.size()
+		var num_enemies = floor(min_enemies)
+		if rng.randf() < min_enemies - num_enemies:
+			num_enemies += 1
 		
-		if not marker.enemy_type in enemy_scenes:
-			Logger.warn("Could not find scene for enemy marker of type %s" % Types.EnemyType.keys()[marker.enemy_type])
-			continue
-		
-		if rng.randf() < Globals.enemy_probability:
-			var enemy: Enemy = enemy_scenes[marker.enemy_type].instantiate()
-			add_child(enemy)
+		for i in num_enemies:
+			var random_marker = rng.randi() % markers.size()
+			var marker = markers.pop_at(random_marker)
+			
+			var enemy: Enemy = enemy_scenes[type].instantiate()
+			marker.add_child(enemy)
 			
 			if marker.flip_h:
 				enemy.face(Vector2.LEFT)
+				
+			if type == Types.EnemyType.EEL:
+				enemy.rotate(PI/2)
 	
 
 func _place_currents() -> void:
