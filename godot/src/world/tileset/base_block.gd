@@ -1,5 +1,11 @@
 class_name BaseBlock extends TileMapLayer
 
+var lamp_enabled: bool:
+	set(value):
+		lamp_enabled = value
+		$EldritchLamp.enabled = value
+	
+
 @onready var enemy_container = $Enemies
 @onready var krill_container = $Krill
 

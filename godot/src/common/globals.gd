@@ -16,6 +16,7 @@ var in_dialogue:=false
 }
 
 @export var krill_probability:= 0.5
+@export var lamp_probability:= 0.2
 
 @onready var music_manager: MusicManager = $MusicManager
 @onready var ui_sfx: UiSfx = $UiSfx

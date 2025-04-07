@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://melef81c1ugk"]
+[gd_scene load_steps=4 format=3 uid="uid://melef81c1ugk"]
 
 [ext_resource type="TileSet" uid="uid://cnjk1mun3f1mu" path="res://src/world/tileset/obstacle_tileset.tres" id="1_i3uc7"]
 [ext_resource type="Script" uid="uid://nmrprfm23h5k" path="res://src/world/tileset/base_block.gd" id="2_gmx5p"]
+[ext_resource type="PackedScene" uid="uid://cqct84efgpgya" path="res://src/world/lamp/eldritch_lamp.tscn" id="3_dei8p"]
 
 [node name="BaseBlock" type="TileMapLayer"]
 tile_set = ExtResource("1_i3uc7")
@@ -17,3 +18,6 @@ script = ExtResource("2_gmx5p")
 color = Color(1, 1, 1, 0.392157)
 
 [node name="Krill" type="Node2D" parent="."]
+
+[node name="EldritchLamp" parent="." instance=ExtResource("3_dei8p")]
+enabled = false

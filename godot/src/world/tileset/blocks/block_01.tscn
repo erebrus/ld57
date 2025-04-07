@@ -177,3 +177,7 @@ position = Vector2(303, 330)
 
 [node name="Marker2D5" type="Marker2D" parent="Krill" index="4"]
 position = Vector2(130, 435)
+
+[node name="EldritchLamp" parent="." index="4"]
+position = Vector2(23, -155)
+enabled = true

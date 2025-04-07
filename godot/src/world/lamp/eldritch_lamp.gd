@@ -1,6 +1,12 @@
 @tool
 class_name EldritchLamp extends Node2D
 
+@export var enabled: bool:
+	set(value):
+		enabled = value
+		visible = enabled
+	
+
 @export var base_energy:=1.0
 @export var lit:float = 0.0:
 	set(_val):
@@ -29,21 +35,27 @@ func _process(_delta: float) -> void:
 	pass
 
 func activate()->void:
+	if not enabled:
+		return
+	
 	var tween=create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self,"lit",1,.3)
 	sfx_on.play()
 	ping_timer.stop()
 	
 func _on_ping_timer_timeout() -> void:
-	sfx_ping.play()
+	if enabled:
+		sfx_ping.play()
 
 
 func _on_attach_area_2d_body_entered(body: Node2D) -> void:
-	body.lamp=self
+	if enabled:
+		body.lamp=self
 
 
 func _on_attach_area_2d_body_exited(body: Node2D) -> void:
-	body.lamp=null
+	if enabled:
+		body.lamp=null
 	
 func get_attach_position()->Vector2:
 	return marker_2d.global_position

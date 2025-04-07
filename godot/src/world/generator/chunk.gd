@@ -2,6 +2,7 @@ class_name Chunk extends Node2D
 
 
 @export var show_borders:= true
+
 @export var krill_scene: PackedScene 
 
 
@@ -31,6 +32,7 @@ func _ready():
 	_place_enemies()
 	_place_currents()
 	_place_krill()
+	block.lamp_enabled = rng.randf() < Globals.lamp_probability
 	
 
 func _draw() -> void:
