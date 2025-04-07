@@ -109,7 +109,7 @@ stream = SubResource("AudioStreamRandomizer_xmkh1")
 bus = &"Sfx"
 
 [node name="AmbientTimer" type="Timer" parent="."]
-wait_time = 28.2348
+wait_time = 28.662
 autostart = true
 script = ExtResource("18_1sjff")
 variance = 4.0
