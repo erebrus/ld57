@@ -81,7 +81,6 @@ func load_chunk(cell:Vector2i):
 	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + Vector2(x, y)
 	
 	Logger.info("Added block %s with rect %s at %s" % [block_scene.resource_path.get_file(), block_rect, block.position])
-	
 	chunk.add_child(block) 
 	
 	#TODO hide navigation, replace enemies, place currents

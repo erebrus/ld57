@@ -7,4 +7,3 @@ tile_map_data = PackedByteArray("AAD9//7/AwAEAAIAAAD8//7/AwAHAAIAAFD9////AwAEAAE
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(-679, -592, -254, -612, -226, -364, -61, -347, -302, -205, -171, -105, -168, 292, -23, 278, 60, 389, -344, 423, -358, 95, -606, 95, -620, 358, -530, 344, -561, 472, -796, 489, -800, 213, -1058, 213, -1058, -157, -989, -316, -882, -112, -606, -88)
-
