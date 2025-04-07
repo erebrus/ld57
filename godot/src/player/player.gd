@@ -68,6 +68,7 @@ var currents:int:
 @onready var loop_current_sfx: AudioStreamPlayer2D = $sfx/loop_current_sfx
 @onready var hurt_sfx: AudioStreamPlayer2D = $sfx/hurt_sfx
 @onready var krill_sfx: AudioStreamPlayer2D = $sfx/krill_sfx
+@onready var ruffle_sfx: AudioStreamPlayer2D = $sfx/ruffle_sfx
 
 func _ready():
 	animation_player.play("idle")
@@ -185,3 +186,7 @@ func kill():
 	visible=false
 	await get_tree().create_timer(1).timeout
 	get_tree().quit()
+
+func on_ruffle():
+	if not ruffle_sfx.playing:
+		ruffle_sfx.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://buvf4edhusbci"]
+[gd_scene load_steps=17 format=3 uid="uid://buvf4edhusbci"]
 
 [ext_resource type="Script" uid="uid://c5fwj1dtbjhjw" path="res://src/world/plancton/krill.gd" id="1_c3vik"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="1_ya2oo"]
@@ -38,14 +38,6 @@ height = 24
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.01, 0.5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3vik"]
-shader = ExtResource("1_ya2oo")
-shader_parameter/light_color = Color(0.7905, 0.85, 0.34, 1)
-shader_parameter/brightness = 0.5
-shader_parameter/attenuation_strength = 0.5
-shader_parameter/intensity = 3.0
-shader_parameter/max_brightness = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3vik"]
 radius = 15.0333
@@ -130,11 +122,6 @@ material = SubResource("ShaderMaterial_ithag")
 position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(1.77083, 1.77083)
 texture = SubResource("GradientTexture2D_c3vik")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_c3vik")
-polygon = PackedVector2Array(-6, -6, 0, -8, 6, -6, 8, 0, 6, 6, 0, 8, -6, 6, -8, 0)
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
 visible = false
