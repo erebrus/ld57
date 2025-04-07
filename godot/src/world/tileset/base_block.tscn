@@ -7,8 +7,11 @@
 tile_set = ExtResource("1_i3uc7")
 script = ExtResource("2_gmx5p")
 
-[node name="NavigationPolygon" type="Polygon2D" parent="."]
-
 [node name="Folliage" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationPolygon" type="Polygon2D" parent="Navigation"]
+color = Color(1, 1, 1, 0.392157)

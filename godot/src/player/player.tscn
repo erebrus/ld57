@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=46 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
@@ -21,6 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://d01l0dvnsr6re" path="res://assets/sfx/MC_Hurt_3.wav" id="14_5efpn"]
 [ext_resource type="AudioStream" uid="uid://o6qrpmknil7w" path="res://assets/sfx/ENV_Current_enterring_3.wav" id="14_6bm8s"]
 [ext_resource type="AudioStream" uid="uid://b3a5mv2nbu5k8" path="res://assets/sfx/ENV_Current_loop.wav" id="15_wlj80"]
+[ext_resource type="AudioStream" uid="uid://bnexensd3tygu" path="res://assets/sfx/MC_KelpRuffle_1.wav" id="22_k60ra"]
+[ext_resource type="AudioStream" uid="uid://3c2obxmbdal5" path="res://assets/sfx/MC_KelpRuffle_2.wav" id="23_a4vah"]
+[ext_resource type="AudioStream" uid="uid://wfadk5flsjb0" path="res://assets/sfx/MC_KelpRuffle_3.wav" id="24_vwi60"]
+[ext_resource type="AudioStream" uid="uid://041vtj4u3ftv" path="res://assets/sfx/MC_KelpRuffle_4.wav" id="25_o04tx"]
 
 [sub_resource type="Curve" id="Curve_rxibo"]
 _data = [Vector2(0, 0.0224719), 0.0, 0.0, 0, 0, Vector2(0.340426, 0.382023), 0.0, 0.0, 0, 0, Vector2(0.542553, 0.606742), 0.0, 0.0, 0, 0, Vector2(0.787234, 0.707865), 0.0, 0.0, 0, 0, Vector2(0.994681, 1), 0.0, 0.0, 0, 0]
@@ -332,6 +336,13 @@ stream_0/stream = ExtResource("12_rl62b")
 stream_1/stream = ExtResource("13_wlj80")
 stream_2/stream = ExtResource("14_6bm8s")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j2873"]
+streams_count = 4
+stream_0/stream = ExtResource("22_k60ra")
+stream_1/stream = ExtResource("23_a4vah")
+stream_2/stream = ExtResource("24_vwi60")
+stream_3/stream = ExtResource("25_o04tx")
+
 [node name="Player" type="RigidBody2D"]
 collision_layer = 16
 gravity_scale = 0.05
@@ -412,6 +423,10 @@ bus = &"Sfx"
 [node name="loop_current_sfx" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("15_wlj80")
 volume_db = -10.0
+bus = &"Sfx"
+
+[node name="ruffle_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+stream = SubResource("AudioStreamRandomizer_j2873")
 bus = &"Sfx"
 
 [connection signal="timeout" from="ThrustTimer" to="." method="_on_thrust_timer_timeout"]

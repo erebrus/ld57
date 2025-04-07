@@ -3,6 +3,8 @@ class_name Enemy extends CharacterBody2D
 signal player_detected
 signal player_on_target
 signal player_lost
+signal arrived
+
 
 @export var damage:float=100
 @export var accel:float=5.0
@@ -52,19 +54,24 @@ func _on_hurt_area_body_entered(body: Node2D) -> void:
 	player_on_target.emit()
 	
 func _process(delta: float) -> void:
+	var was_moving = current_speed != 0
 	if target:
 		detection_rc.target_position=Vector2(vision_range,0).rotated(global_position.angle_to_point(target.global_position))
-
+	var dist_to_target_position := target_position.distance_to(global_position)
 	if nav_enabled:
 		var wp = nav_agent.get_next_path_position()
 		if not nav_agent.is_navigation_finished():
 			do_movement(wp,delta)
 		else:
 			current_speed=0
-	elif target_position.distance_to(global_position)> 5.0:
+			if was_moving:
+				arrived.emit()
+	elif dist_to_target_position > current_speed*delta:
 			do_movement(target_position, delta)
-	else:
+	else:		
 		current_speed=0
+		if was_moving:
+			arrived.emit()
 
 func do_movement(wp:Vector2, delta:float)->void:
 	var direction := (wp-global_position).normalized()
