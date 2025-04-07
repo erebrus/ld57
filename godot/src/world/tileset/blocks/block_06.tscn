@@ -244,7 +244,6 @@ frame_progress = 0.192327
 [node name="Kelp6" parent="Folliage" index="48" instance=ExtResource("10_8fi1u")]
 position = Vector2(721, 283)
 rotation = -0.0301056
-scale = Vector2(1, 1)
 
 [node name="Kelp7" parent="Folliage" index="49" instance=ExtResource("10_8fi1u")]
 position = Vector2(739, 271)
@@ -263,7 +262,6 @@ scale = Vector2(1, -1)
 [node name="Kelp10" parent="Folliage" index="52" instance=ExtResource("10_8fi1u")]
 position = Vector2(801, 290)
 rotation = 0.016542
-scale = Vector2(1, 1)
 
 [node name="Kelp11" parent="Folliage" index="53" instance=ExtResource("10_8fi1u")]
 position = Vector2(-116, 411)
@@ -278,7 +276,6 @@ scale = Vector2(1, -1)
 [node name="Kelp13" parent="Folliage" index="55" instance=ExtResource("10_8fi1u")]
 position = Vector2(-72, 411)
 rotation = 0.0888264
-scale = Vector2(1, 1)
 
 [node name="Kelp14" parent="Folliage" index="56" instance=ExtResource("10_8fi1u")]
 position = Vector2(-47, 410)
@@ -337,3 +334,21 @@ polygon = PackedVector2Array(-153, 304.13, -278, 275, -418, 397, -143, 653.065, 
 [node name="NavigationPolygon4" type="Polygon2D" parent="Navigation" index="3"]
 color = Color(1, 1, 1, 0.286275)
 polygon = PackedVector2Array(346, 544, 256, 733, 178, 808, 91, 884, 205, 1089, 261, 967, 504, 971, 600, 742)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(261, 487)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(752, -81)
+
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(-363, -173)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(758, 913)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(-478, 531)
+
+[node name="EldritchLamp" parent="." index="5"]
+visible = false
