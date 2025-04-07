@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=48 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
+[ext_resource type="PackedScene" uid="uid://bjg5fxym60h67" path="res://src/player/eldritch_death.tscn" id="2_a4vah"]
 [ext_resource type="Texture2D" uid="uid://c4yn0dqln41ym" path="res://assets/gfx/enemies/jellysheet v3.png" id="2_k60ra"]
 [ext_resource type="AudioStream" uid="uid://dvd6t5087bqgt" path="res://assets/sfx/MC_Charge_1.wav" id="3_ylhto"]
 [ext_resource type="AudioStream" uid="uid://c1pcjv13bug0u" path="res://assets/sfx/MC_Charge_2.wav" id="4_cwolq"]
@@ -444,6 +445,10 @@ linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_lowyb")
 thrust = 300.0
+
+[node name="EldritchDeath" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_a4vah")]
+position = Vector2(0, 13)
+player = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

@@ -36,4 +36,6 @@ func _on_game_over_pressed():
 
 func _on_win_game_pressed():
 	Globals.do_win()
-	
+
+func _on_no_energy_pressed() -> void:
+	Events.eldrith_death_requested.emit()
