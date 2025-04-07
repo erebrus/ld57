@@ -13,10 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dra641rpsgd0q" path="res://src/enemies/marker/enemy_marker.tscn" id="11_qlrd3"]
 
 [node name="BaseBlock" instance=ExtResource("1_2pmto")]
-tile_map_data = PackedByteArray("AAD9//7/AwADAAAAAAD9////AwADAAEAAAD+//7/AwAEAAAAAAD+////AwAEAAEAAAD+/wAAAwACAAAAAFD+/wEAAwABAAAAAFD+/wIAAwAAAAAAAFD+/wMAAwADAAIAAAD//wMAAwACAAAAAAABAAMAAwAAAAAAAAAAAAMAAwAAAAAAAAACAAMAAwAAAAAAAAADAAMAAwAAAAAAAAAEAAMAAwADAAIAAGAFAAMAAwADAAIAAAAGAAMAAwAAAAAAAAAFAAIAAwAGAAEAAAAEAAIAAwAGAAAAABAHAAQAAwAHAAEAAAAHAAMAAwAEAAIAAAAIAAUAAwAGAAEAAAAIAAYAAwACAAAAAFAIAAcAAwABAAAAAFD//wUAAwABAAEAADAAAAUAAwABAAEAADABAAUAAwAAAAEAADACAAYAAwADAAEAADADAAYAAwACAAEAADAEAAYAAwABAAEAADAFAAcAAwAAAAEAAGAFAAgAAwADAAEAADAGAAgAAwABAAIAAAAGAAkAAwADAAEAADAHAAkAAwABAAIAAAAHAAoAAwABAAIAAAAHAAsAAwADAAEAADAIAAsAAwABAAEAAFAIAAwAAwADAAEAADAJAAwAAwAAAAEAAFAKAA0AAwADAAEAAAALAA0AAwADAAIAAAAMAA0AAwAAAAAAAAANAA0AAwABAAAAAAAOAA0AAwACAAAAAAAPAA0AAwADAAAAAAAQAA0AAwADAAIAAGARAA0AAwABAAEAAFARAAwAAwAAAAEAAFARAAsAAwADAAEAAGASAAsAAwAAAAEAAAATAAsAAwACAAEAAAAUAAoAAwAAAAEAAGAUAAkAAwAAAAEAAGAVAAkAAwABAAIAAAAVAAgAAwABAAIAAAAUAAgAAwAAAAEAAGAUAAcAAwACAAEAAGAUAAYAAwACAAEAAGATAAUAAwADAAEAADASAAQAAwADAAEAADARAAMAAwADAAIAADAQAAMAAwAEAAEAAFAPAAMAAwABAAAAADAPAAIAAwAAAAEAAAAOAAIAAwACAAEAAAAIAAgAAwADAAIAAAAJAAgAAwAEAAAAAAAJAAkAAwAEAAEAAAAJAAoAAwACAAAAAFAJAAsAAwAHAAAAAAAKAAwAAwAHAAMAAFAQAAwAAwADAAAAAGAQAAsAAwAEAAEAADAQAAoAAwAEAAAAAGARAAoAAwAEAAEAAGASAAoAAwABAAAAAAATAAoAAwAHAAEAAGATAAkAAwAGAAAAADATAAgAAwACAAAAAGATAAcAAwABAAAAAGATAAYAAwADAAIAADASAAUAAwAHAAAAADASAAYAAwAEAAIAADARAAQAAwAGAAEAADAOAAMAAwAAAAAAADANAAIAAwADAAEAADANAAMAAwADAAAAADAMAAIAAwAHAAEAADAMAAMAAwAEAAAAADAMAAEAAwAFAAEAAAANAAEAAwAHAAIAAFAMAAAAAwAFAAAAAAAOAAEAAwABAAAAAAAPAAEAAwAAAAAAAAAQAAEAAwACAAAAAAARAAEAAwAAAAAAAAASAAEAAwAHAAIAAEATAAEAAwAGAAEAAAATAAIAAwAEAAEAAAATAAMAAwADAAIAAAAUAAMAAwACAAAAAAAVAAQAAwAHAAEAAAAVAAMAAwAEAAIAAAAWAAUAAwAHAAMAAFAXAAYAAwAGAAAAAAAXAAcAAwACAAAAAFAXAAgAAwABAAAAAFAXAAkAAwAAAAAAAFAWAAoAAwADAAIAAFAXAAoAAwAEAAIAACAWAAsAAwAHAAEAAAAWAAwAAwAHAAMAADAVAAwAAwAHAAEAAEAUAAwAAwAEAAEAAFATAAwAAwABAAAAADASAA0AAwACAAAAAFASAAwAAwADAAIAAFASAA4AAwABAAAAAFASAA8AAwAAAAAAAFASABAAAwAGAAAAACARABEAAwADAAMAADARABIAAwAEAAMAAAARABMAAwAEAAMAACARABQAAwAGAAMAADAQABAAAwAHAAMAAGAQAA8AAwAHAAEAABAQAA4AAwADAAIAADAPAA4AAwACAAMAAAAOAA4AAwAAAAMAAAANAA4AAwACAAMAAAAMAA4AAwAAAAMAAAALAA4AAwAAAAMAAAAKAA4AAwADAAIAAFAKAA8AAwAGAAAAACAJAA8AAwAHAAMAAGAJAA4AAwAHAAEAABAJAA0AAwADAAIAADAIAA0AAwAEAAEAAFAHAAwAAwADAAIAADAHAA0AAwAEAAIAADAGAAwAAwAEAAAAADAGAAsAAwACAAAAAGAGAAoAAwAHAAEAADAFAAkAAwADAAAAAGAFAAoAAwAEAAIAADAEAAgAAwAGAAAAADAEAAcAAwADAAIAADADAAcAAwACAAAAADACAAcAAwAAAAAAADABAAYAAwADAAIAADABAAcAAwAEAAIAAEAAAAYAAwACAAAAADD//wYAAwAAAAAAADD+/wYAAwADAAIAAFD+/wcAAwACAAAAAFD+/wgAAwAEAAEAAAD9/wkAAwADAAIAAFD+/wkAAwAEAAIAAFD8/wkAAwAFAAEAAAD8/woAAwAHAAMAAGD9/woAAwAGAAAAACD8/wgAAwADAAAAAED8/wcAAwACAAAAAGD8/wYAAwAAAAAAAGD8/wUAAwABAAAAAGD8/wQAAwADAAAAAGD8/wMAAwADAAIAADD7/wMAAwACAAAAADD6/wMAAwAEAAAAADD6/wIAAwACAAAAAGD6/wEAAwABAAAAAGD6/wAAAwAAAAAAAGD6////AwACAAAAAGD6//7/AwAEAAIAAGD7//7/AwACAAAAAAD8//7/AwABAAAAAAD7////AwADAAEAAGD7/wIAAwADAAEAADD9/wgAAwADAAEAADD8/wIAAwACAAEAADAVAAsAAwADAAEAAFAWAAkAAwADAAEAAFAVAAUAAwADAAEAAAAUAAQAAwADAAEAAAAWAAYAAwADAAEAAAASAAIAAwADAAEAAAARABAAAwADAAEAADAGAAQAAwADAAEAAAAHAAUAAwADAAEAAAD8////AwACAAEAAAD7/wAAAwACAAEAAGD7/wEAAwABAAEAAGD9/wAAAwABAAEAAFD9/wEAAwACAAEAAFD9/wIAAwAAAAEAAFD9/wMAAwAAAAEAAFD+/wQAAwAAAAEAAAD//wQAAwAAAAEAAAAAAAQAAwABAAEAAAABAAQAAwABAAEAAAACAAQAAwABAAEAAAADAAQAAwAAAAEAAAAEAAQAAwAAAAEAAAAFAAQAAwACAAEAAAD9/wQAAwACAAEAAGD9/wUAAwABAAEAAGD9/wYAAwACAAEAAGD9/wcAAwACAAEAAGD+/wUAAwACAAEAADACAAUAAwACAAIAAAAFAAYAAwABAAEAADAHAAYAAwAAAAEAAFAHAAcAAwABAAEAAFAHAAgAAwABAAEAAFAIAAoAAwABAAEAAFARAA8AAwABAAEAAFARAA4AAwABAAEAAFAUAAsAAwACAAEAADAVAAoAAwAAAAEAAFAWAAgAAwAAAAEAAFAWAAcAAwABAAEAAFAQAAIAAwABAAEAAAARAAIAAwAAAAEAAAASAAMAAwACAAEAAGATAAQAAwABAAEAAAAUAAUAAwACAAIAAAAVAAYAAwABAAIAAAAVAAcAAwABAAIAAAAIAAkAAwADAAEAAAADAAUAAwACAAIAAAAEAAUAAwACAAIAAAAFAAUAAwAAAAIAAAAGAAUAAwACAAIAAAAGAAYAAwACAAIAAAAGAAcAAwABAAIAAAD8/wAAAwACAAIAAAD8/wEAAwABAAIAAAA=")
+tile_map_data = PackedByteArray("AAD9//7/AwADAAAAAAD9////AwADAAEAAAD+//7/AwACAAAAAAD+////AwADAAIAAFD+/wAAAwACAAAAAFD+/wEAAwABAAAAAFD+/wIAAwAAAAAAAFD+/wMAAwADAAIAAAD//wMAAwACAAAAAAABAAMAAwAAAAAAAAAAAAMAAwAAAAAAAAACAAMAAwAAAAAAAAADAAMAAwAAAAAAAAAEAAMAAwADAAIAAGAFAAMAAwADAAIAAAAGAAMAAwAAAAAAAAAFAAIAAwAGAAEAAAAEAAIAAwAGAAAAABAHAAQAAwAHAAEAAAAHAAMAAwAEAAIAAAAIAAUAAwAGAAEAAAAIAAYAAwACAAAAAFAIAAcAAwABAAAAAFD//wUAAwABAAEAADAAAAUAAwABAAEAADABAAUAAwAAAAEAADACAAYAAwADAAEAADADAAYAAwACAAEAADAEAAYAAwABAAEAADAFAAcAAwAAAAEAAGAFAAgAAwADAAEAADAGAAgAAwABAAIAAAAGAAkAAwADAAEAADAHAAkAAwABAAIAAAAHAAoAAwABAAIAAAAHAAsAAwADAAEAADAIAAsAAwABAAEAAFAIAAwAAwADAAEAADAJAAwAAwAAAAEAAFAKAA0AAwADAAEAAAALAA0AAwADAAIAAAAPAA0AAwADAAAAAAAQAA0AAwADAAIAAGARAA0AAwABAAEAAFARAAwAAwAAAAEAAFARAAsAAwADAAEAAGASAAsAAwAAAAEAAAATAAsAAwACAAEAAAAUAAoAAwAAAAEAAGAUAAkAAwAAAAEAAGAVAAkAAwABAAIAAAAVAAgAAwABAAIAAAAUAAgAAwAAAAEAAGAUAAcAAwACAAEAAGAUAAYAAwACAAEAAGATAAUAAwADAAEAADASAAQAAwADAAEAADARAAMAAwADAAIAADAQAAMAAwAEAAEAAFAPAAMAAwABAAAAADAPAAIAAwAAAAEAAAAOAAIAAwACAAEAAAAIAAgAAwADAAIAAAAJAAgAAwAEAAAAAAAJAAkAAwAEAAEAAAAJAAoAAwACAAAAAFAJAAsAAwAHAAAAAAAKAAwAAwAHAAMAAFAQAAwAAwADAAAAAGAQAAsAAwAEAAEAADAQAAoAAwAEAAAAAGARAAoAAwAEAAEAAGASAAoAAwABAAAAAAATAAoAAwAHAAEAAGATAAkAAwAGAAAAADATAAgAAwACAAAAAGATAAcAAwABAAAAAGATAAYAAwADAAIAADASAAUAAwAHAAAAADASAAYAAwAEAAIAADARAAQAAwAGAAEAADAOAAMAAwAAAAAAADANAAIAAwADAAEAADANAAMAAwADAAAAADAMAAIAAwAHAAEAADAMAAMAAwAEAAAAADAMAAEAAwAFAAEAAAANAAEAAwACAAEAAGAMAAAAAwAHAAIAAAAOAAEAAwADAAEAAAAPAAEAAwAHAAMAAFAQAAEAAwAGAAAAAGARAAEAAwAAAAAAAAASAAEAAwAHAAIAAEATAAEAAwAGAAEAAAATAAIAAwAEAAEAAAATAAMAAwADAAIAAAAUAAMAAwACAAAAAAAVAAQAAwAHAAEAAAAVAAMAAwAEAAIAAAAWAAUAAwAHAAMAAFAXAAYAAwAGAAAAAAAXAAcAAwACAAAAAFAXAAgAAwABAAAAAFAXAAkAAwAAAAAAAFAWAAoAAwADAAIAAFAXAAoAAwAEAAIAACAWAAsAAwAHAAEAAAAWAAwAAwAHAAMAADAVAAwAAwAHAAEAAEAUAAwAAwAEAAEAAFATAAwAAwABAAAAADASAA0AAwACAAAAAFASAAwAAwADAAIAAFASAA4AAwABAAAAAFASAA8AAwAAAAAAAFAQAA8AAwAHAAEAABAQAA4AAwADAAIAADAPAA4AAwAHAAMAADAMAA4AAwAEAAAAAFALAA4AAwAAAAMAAAAKAA4AAwADAAIAAFAKAA8AAwAGAAAAACAJAA8AAwAHAAMAAGAJAA4AAwAHAAEAABAJAA0AAwADAAIAADAIAA0AAwAEAAEAAFAHAAwAAwADAAIAADAHAA0AAwAEAAIAADAGAAwAAwAEAAAAADAGAAsAAwACAAAAAGAGAAoAAwAHAAEAADAFAAkAAwADAAAAAGAFAAoAAwAEAAIAADAEAAgAAwAGAAAAADAEAAcAAwADAAIAADADAAcAAwACAAAAADACAAcAAwAAAAAAADABAAYAAwADAAIAADABAAcAAwAEAAIAAEAAAAYAAwACAAAAADD//wYAAwAAAAAAADD+/wYAAwADAAIAAFD+/wcAAwACAAAAAFD+/wgAAwAEAAEAAAD9/wkAAwADAAIAAFD+/wkAAwAEAAIAAFD8/wkAAwAFAAEAAAD8/woAAwAHAAMAAGD9/woAAwAGAAAAACD8/wgAAwADAAAAAED8/wcAAwACAAAAAGD8/wYAAwAAAAAAAGD8/wUAAwABAAAAAGD8/wQAAwADAAAAAGD8/wMAAwADAAIAADD7/wMAAwACAAAAADD6/wMAAwAEAAAAADD6/wIAAwACAAAAAGD6/wEAAwABAAAAAGD6/wAAAwAAAAAAAGD6////AwACAAAAAGD6//7/AwAEAAIAAGD7//7/AwACAAAAAAD8//7/AwABAAAAAAD7////AwADAAEAAGD7/wIAAwADAAEAADD9/wgAAwADAAEAADD8/wIAAwACAAEAADAVAAsAAwADAAEAAFAWAAkAAwADAAEAAFAVAAUAAwADAAEAAAAUAAQAAwADAAEAAAAWAAYAAwADAAEAAAASAAIAAwADAAEAAAAGAAQAAwADAAEAAAAHAAUAAwADAAEAAAD8////AwACAAEAAAD7/wAAAwACAAEAAGD7/wEAAwABAAEAAGD9/wAAAwABAAEAAFD9/wEAAwACAAEAAFD9/wIAAwAAAAEAAFD9/wMAAwAAAAEAAFD+/wQAAwAAAAEAAAD//wQAAwAAAAEAAAAAAAQAAwABAAEAAAABAAQAAwABAAEAAAACAAQAAwABAAEAAAADAAQAAwAAAAEAAAAEAAQAAwAAAAEAAAAFAAQAAwACAAEAAAD9/wQAAwACAAEAAGD9/wUAAwABAAEAAGD9/wYAAwACAAEAAGD9/wcAAwACAAEAAGD+/wUAAwACAAEAADACAAUAAwACAAIAAAAFAAYAAwABAAEAADAHAAYAAwAAAAEAAFAHAAcAAwABAAEAAFAHAAgAAwABAAEAAFAIAAoAAwABAAEAAFARAA8AAwABAAEAAFARAA4AAwABAAEAAFAUAAsAAwACAAEAADAVAAoAAwAAAAEAAFAWAAgAAwAAAAEAAFAWAAcAAwABAAEAAFAQAAIAAwABAAEAAAARAAIAAwAAAAEAAAASAAMAAwACAAEAAGATAAQAAwABAAEAAAAUAAUAAwACAAIAAAAVAAYAAwABAAIAAAAVAAcAAwABAAIAAAAIAAkAAwADAAEAAAADAAUAAwACAAIAAAAEAAUAAwACAAIAAAAFAAUAAwAAAAIAAAAGAAUAAwACAAIAAAAGAAYAAwACAAIAAAAGAAcAAwABAAIAAAD8/wAAAwACAAIAAAD8/wEAAwABAAIAAAD/////AwACAAAAADAAAP//AwABAAAAADABAP//AwAAAAAAADACAP//AwABAAAAADADAP//AwACAAAAADAEAP//AwAGAAEAAFAFAP//AwADAAMAADAMAP//AwADAAIAADALAP//AwACAAAAADAKAP//AwABAAAAADAFAAAAAwAGAAMAADAGAP//AwAGAAAAAEAHAP//AwACAAAAADAIAP//AwABAAAAADAJAP//AwAAAAAAADAMAA0AAwAEAAAAAAAOAA0AAwAEAAIAAGAOAA4AAwAGAAAAADD///7/AwAAAAAAAAAAAP7/AwADAAAAAAABAP7/AwAEAAEAAGACAP7/AwAAAAAAAAADAP7/AwABAAAAAAAEAP7/AwAAAAAAAAAFAP7/AwACAAAAAAAGAP7/AwABAAAAAAAHAP7/AwAAAAAAAAAIAP7/AwABAAAAAAAJAP7/AwAAAAAAAAAKAP7/AwABAAAAAAALAP7/AwACAAAAAAANAP3/AwADAAAAAAANAP7/AwADAAEAAAAOAP3/AwAEAAAAAAAOAP7/AwAEAAEAAAAMAP7/AwADAAIAAGAMAP3/AwAEAAIAAGAOAP//AwAEAAEAAAAOAAAAAwAHAAEAAAANAP//AwACAAEAAFANAAAAAwACAAEAAFD5/xQAAwADAAEAAGD5/xUAAwAAAAEAAGD6/xUAAwACAAIAAAD7/xUAAwABAAIAAAD7/xYAAwAAAAEAADD8/xYAAwAAAAIAAAD9/xYAAwABAAIAAAD+/xcAAwABAAEAADD//xcAAwABAAEAADAAABcAAwABAAEAADABABcAAwACAAEAADACABcAAwACAAEAADADABcAAwACAAEAADAEABcAAwACAAEAADAFABcAAwABAAEAADAGABcAAwACAAEAADAHABcAAwAAAAEAADAIABcAAwACAAEAADAJABcAAwACAAEAADAKABcAAwACAAEAADALABcAAwACAAEAADAMABcAAwADAAEAAFAMABYAAwABAAEAAAANABYAAwABAAEAAAAOABYAAwACAAEAAAAPABYAAwADAAEAAFAPABUAAwADAAIAAGAQABUAAwAAAAEAAGARABUAAwADAAEAAFAQABAAAwAHAAEAADASABAAAwAHAAIAABAQABEAAwACAAAAAGAQABIAAwABAAAAAGAPABQAAwAGAAEAABAQABMAAwADAAIAAGASABEAAwACAAAAAFASABIAAwABAAAAAFASABMAAwAAAAAAAFASABQAAwAEAAEAAAASABUAAwADAAAAAFASABYAAwAEAAAAAFARABYAAwAEAAEAAFAQABYAAwADAAIAAFAPABcAAwACAAAAADAQABcAAwAEAAIAAFAOABcAAwABAAAAADANABcAAwADAAIAAFANABgAAwAEAAIAACAMABgAAwACAAMAAAALABgAAwABAAMAAAAKABgAAwACAAMAAAAJABgAAwAAAAMAAAAIABgAAwAAAAMAAAAHABgAAwABAAMAAAAGABgAAwABAAMAAAAFABgAAwACAAMAAAAEABgAAwACAAMAAAD+/xgAAwAAAAMAAAD//xgAAwAAAAMAAAAAABgAAwAAAAMAAAABABgAAwACAAMAAAACABgAAwAAAAMAAAADABgAAwAAAAMAAAAOABUAAwABAAAAAAANABUAAwAAAAAAAAAMABUAAwACAAAAAAALABYAAwACAAEAAAALABUAAwADAAIAAAAKABQAAwACAAAAAAALABQAAwAEAAIAAAAJABQAAwACAAAAAAAIABQAAwABAAAAAAAHABQAAwAAAAAAAAAGABQAAwAEAAEAAGAFABQAAwADAAIAAAAFABMAAwAGAAEAAAAEABMAAwAHAAIAAAAEABIAAwAEAAIAAGADABQAAwAHAAAAAGAEABQAAwADAAEAAGACABQAAwABAAAAAAABABQAAwAAAAAAAAAAABQAAwACAAAAAAD//xQAAwABAAAAAAD+/xQAAwADAAIAAAD+/xMAAwAGAAAAAAD9/xMAAwAHAAEAAGD8/xMAAwAGAAAAAGD7/xMAAwAHAAMAAFD6/xMAAwAFAAEAAAD6/xIAAwAFAAAAAAD5/xMAAwAGAAAAAHD4/xQAAwAHAAAAABD4/xMAAwAEAAIAABD4/xUAAwAHAAEAADD4/xYAAwACAAAAAGD4/xcAAwAAAAAAAGD4/xgAAwAGAAAAADD5/xgAAwAHAAMAADD6/xcAAwAHAAEAAFD7/xcAAwADAAIAADD7/xgAAwAEAAIAADD8/xgAAwABAAMAAAD9/xgAAwACAAMAAAAKABUAAwADAAEAAAD9/xQAAwADAAEAAAD5/xcAAwADAAEAADD8/xcAAwADAAEAADAQABQAAwADAAEAAGAJABUAAwAAAAEAAAAIABUAAwABAAEAAAAHABUAAwABAAEAAAAGABUAAwABAAEAAAAFABUAAwAAAAEAAAAEABUAAwAAAAEAAAADABUAAwAAAAEAAAACABUAAwAAAAEAAAABABUAAwABAAEAAAAAABUAAwACAAEAAAD//xUAAwABAAEAAAD+/xUAAwAAAAEAAAD9/xUAAwACAAIAAAD8/xQAAwACAAEAAAD7/xQAAwAAAAEAAAD6/xQAAwAAAAEAAAD5/xYAAwABAAEAAGD9/xcAAwACAAEAADARABQAAwAAAAEAAFARABMAAwAAAAEAAFARABIAAwACAAEAAFARABEAAwAAAAEAAFARABAAAwABAAEAAFD6/xYAAwAAAAEAADD8/xUAAwACAAIAAAD+/xYAAwACAAIAAAD//xYAAwABAAIAAAAAABYAAwAAAAIAAAABABYAAwAAAAIAAAACABYAAwAAAAIAAAADABYAAwABAAIAAAAEABYAAwABAAIAAAAFABYAAwABAAIAAAAGABYAAwAAAAIAAAAHABYAAwAAAAIAAAAIABYAAwAAAAIAAAAJABYAAwACAAIAAAAKABYAAwAAAAIAAAA=")
 
 [node name="Anemone" parent="Folliage" index="0" instance=ExtResource("2_dwuse")]
-position = Vector2(-202, -170)
+position = Vector2(506, 41)
+rotation = 3.15507
 frame_progress = 0.192327
 
 [node name="Anemone2" parent="Folliage" index="1" instance=ExtResource("2_dwuse")]
@@ -29,434 +30,587 @@ position = Vector2(616, 484)
 rotation = 0.825235
 frame_progress = 0.192327
 
-[node name="Anemone4" parent="Folliage" index="3" instance=ExtResource("2_dwuse")]
+[node name="Anemone6" parent="Folliage" index="3" instance=ExtResource("2_dwuse")]
+position = Vector2(1011, 286)
+rotation = 3.58201
+frame_progress = 0.192327
+
+[node name="Anemone4" parent="Folliage" index="4" instance=ExtResource("2_dwuse")]
 position = Vector2(710, 1022)
 rotation = 2.35944
 frame_progress = 0.192327
 
-[node name="Anemone5" parent="Folliage" index="4" instance=ExtResource("2_dwuse")]
+[node name="Anemone5" parent="Folliage" index="5" instance=ExtResource("2_dwuse")]
 position = Vector2(1484, 304)
 rotation = 0.776217
 frame_progress = 0.192327
 
-[node name="Kelp" parent="Folliage" index="5" instance=ExtResource("10_cy65u")]
-position = Vector2(1237, 662)
+[node name="Kelp" parent="Folliage" index="6" instance=ExtResource("10_cy65u")]
+position = Vector2(559, 867)
+rotation = -3.12582
 
-[node name="Kelp2" parent="Folliage" index="6" instance=ExtResource("10_cy65u")]
-position = Vector2(1218, 673)
+[node name="Kelp2" parent="Folliage" index="7" instance=ExtResource("10_cy65u")]
+position = Vector2(537, 862)
+rotation = -3.12582
 
-[node name="Kelp9" parent="Folliage" index="7" instance=ExtResource("10_cy65u")]
-position = Vector2(1157, 673)
+[node name="Kelp9" parent="Folliage" index="8" instance=ExtResource("10_cy65u")]
+position = Vector2(476, 890)
+rotation = -3.12582
 
-[node name="Kelp3" parent="Folliage" index="8" instance=ExtResource("10_cy65u")]
-position = Vector2(1191, 673)
+[node name="Kelp3" parent="Folliage" index="9" instance=ExtResource("10_cy65u")]
+position = Vector2(516, 867)
+rotation = -3.12582
 scale = Vector2(-1, 1)
 
-[node name="Kelp4" parent="Folliage" index="9" instance=ExtResource("10_cy65u")]
-position = Vector2(1174, 672)
+[node name="Kelp4" parent="Folliage" index="10" instance=ExtResource("10_cy65u")]
+position = Vector2(496, 884)
+rotation = -3.12582
 scale = Vector2(-1, 1)
 
-[node name="Kelp5" parent="Folliage" index="10" instance=ExtResource("10_cy65u")]
+[node name="Kelp5" parent="Folliage" index="11" instance=ExtResource("10_cy65u")]
 position = Vector2(376, 223)
 rotation = -0.0155454
 
-[node name="Kelp6" parent="Folliage" index="11" instance=ExtResource("10_cy65u")]
+[node name="Kelp6" parent="Folliage" index="12" instance=ExtResource("10_cy65u")]
 position = Vector2(420, 221)
 rotation = -0.0116898
 
-[node name="Kelp7" parent="Folliage" index="12" instance=ExtResource("10_cy65u")]
+[node name="Kelp7" parent="Folliage" index="13" instance=ExtResource("10_cy65u")]
 position = Vector2(396, 220)
 rotation = -0.0248289
 scale = Vector2(-1, 1)
 
-[node name="Kelp8" parent="Folliage" index="13" instance=ExtResource("10_cy65u")]
+[node name="Kelp8" parent="Folliage" index="14" instance=ExtResource("10_cy65u")]
 position = Vector2(441, 220)
 rotation = 0.017578
 scale = Vector2(-1, 1)
 
-[node name="Kelp10" parent="Folliage" index="14" instance=ExtResource("10_cy65u")]
+[node name="Kelp17" parent="Folliage" index="15" instance=ExtResource("10_cy65u")]
+position = Vector2(1156, 671)
+rotation = -0.0155454
+
+[node name="Kelp18" parent="Folliage" index="16" instance=ExtResource("10_cy65u")]
+position = Vector2(1232, 665)
+rotation = -0.0116898
+
+[node name="Kelp19" parent="Folliage" index="17" instance=ExtResource("10_cy65u")]
+position = Vector2(1181, 676)
+rotation = -0.0248289
+scale = Vector2(-1, 1)
+
+[node name="Kelp21" parent="Folliage" index="18" instance=ExtResource("10_cy65u")]
+position = Vector2(1206, 671)
+rotation = -0.0248289
+scale = Vector2(-1, 1)
+
+[node name="Kelp20" parent="Folliage" index="19" instance=ExtResource("10_cy65u")]
+position = Vector2(1106, 670)
+rotation = 0.017578
+scale = Vector2(-1, 1)
+
+[node name="Kelp22" parent="Folliage" index="20" instance=ExtResource("10_cy65u")]
+position = Vector2(1131, 671)
+rotation = 0.017578
+scale = Vector2(-1, 1)
+
+[node name="Kelp10" parent="Folliage" index="21" instance=ExtResource("10_cy65u")]
 position = Vector2(-68, 423)
 rotation = -3.1543
 
-[node name="Kelp11" parent="Folliage" index="15" instance=ExtResource("10_cy65u")]
+[node name="Kelp11" parent="Folliage" index="22" instance=ExtResource("10_cy65u")]
 position = Vector2(-24, 421)
 rotation = -3.15045
 
-[node name="Kelp12" parent="Folliage" index="16" instance=ExtResource("10_cy65u")]
+[node name="Kelp12" parent="Folliage" index="23" instance=ExtResource("10_cy65u")]
 position = Vector2(-48, 420)
 rotation = -3.16359
 scale = Vector2(-1, 1)
 
-[node name="Kelp15" parent="Folliage" index="17" instance=ExtResource("10_cy65u")]
+[node name="Kelp15" parent="Folliage" index="24" instance=ExtResource("10_cy65u")]
 position = Vector2(38, 420)
 rotation = -3.16359
 scale = Vector2(-1, 1)
 
-[node name="Kelp14" parent="Folliage" index="18" instance=ExtResource("10_cy65u")]
+[node name="Kelp14" parent="Folliage" index="25" instance=ExtResource("10_cy65u")]
 position = Vector2(15, 423)
 rotation = -3.16359
 scale = Vector2(-1, 1)
 
-[node name="Kelp13" parent="Folliage" index="19" instance=ExtResource("10_cy65u")]
+[node name="Kelp13" parent="Folliage" index="26" instance=ExtResource("10_cy65u")]
 position = Vector2(-3.00012, 420)
 rotation = -3.12118
 scale = Vector2(-1, 1)
 
-[node name="Kelp16" parent="Folliage" index="20" instance=ExtResource("10_cy65u")]
+[node name="Kelp16" parent="Folliage" index="27" instance=ExtResource("10_cy65u")]
 position = Vector2(59, 420)
 rotation = -3.12118
 scale = Vector2(-1, 1)
 
-[node name="Plants2" type="Sprite2D" parent="Folliage" index="21"]
+[node name="Plants2" type="Sprite2D" parent="Folliage" index="28"]
 position = Vector2(-120, -112)
 texture = ExtResource("3_xk703")
 
-[node name="Plants3" type="Sprite2D" parent="Folliage" index="22"]
+[node name="Plants3" type="Sprite2D" parent="Folliage" index="29"]
 position = Vector2(-95, 68)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants6" type="Sprite2D" parent="Folliage" index="23"]
+[node name="Plants6" type="Sprite2D" parent="Folliage" index="30"]
 position = Vector2(-76, 234)
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants8" type="Sprite2D" parent="Folliage" index="24"]
+[node name="Plants8" type="Sprite2D" parent="Folliage" index="31"]
 position = Vector2(122, 207)
 texture = ExtResource("9_unmly")
 
-[node name="Plants7" type="Sprite2D" parent="Folliage" index="25"]
+[node name="Plants7" type="Sprite2D" parent="Folliage" index="32"]
 position = Vector2(334, 153)
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants9" type="Sprite2D" parent="Folliage" index="26"]
+[node name="Plants9" type="Sprite2D" parent="Folliage" index="33"]
 position = Vector2(471, 262)
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants4" type="Sprite2D" parent="Folliage" index="27"]
+[node name="Plants4" type="Sprite2D" parent="Folliage" index="34"]
 position = Vector2(521, 325)
 rotation = 1.99157
 texture = ExtResource("4_4xq35")
 
-[node name="Plants10" type="Sprite2D" parent="Folliage" index="28"]
+[node name="Plants10" type="Sprite2D" parent="Folliage" index="35"]
 position = Vector2(545, 366)
 rotation = 2.34265
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants11" type="Sprite2D" parent="Folliage" index="29"]
+[node name="Plants11" type="Sprite2D" parent="Folliage" index="36"]
 position = Vector2(610, 616)
 rotation = 0.34437
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants5" type="Sprite2D" parent="Folliage" index="30"]
+[node name="Plants5" type="Sprite2D" parent="Folliage" index="37"]
 position = Vector2(606, 709)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants12" type="Sprite2D" parent="Folliage" index="31"]
+[node name="Plants12" type="Sprite2D" parent="Folliage" index="38"]
 position = Vector2(701, 841)
 rotation = -1.51829
 texture = ExtResource("9_unmly")
 
-[node name="Plants13" type="Sprite2D" parent="Folliage" index="32"]
+[node name="Plants13" type="Sprite2D" parent="Folliage" index="39"]
 position = Vector2(733, 814)
 rotation = 2.17469
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants14" type="Sprite2D" parent="Folliage" index="33"]
+[node name="Plants14" type="Sprite2D" parent="Folliage" index="40"]
 position = Vector2(1019, 861)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants15" type="Sprite2D" parent="Folliage" index="34"]
+[node name="Plants15" type="Sprite2D" parent="Folliage" index="41"]
 position = Vector2(1045, 756)
 texture = ExtResource("4_4xq35")
 
-[node name="Plants16" type="Sprite2D" parent="Folliage" index="35"]
+[node name="Plants16" type="Sprite2D" parent="Folliage" index="42"]
 position = Vector2(1037, 691)
 rotation = -1.75757
 texture = ExtResource("6_16ryl")
 
-[node name="Plants17" type="Sprite2D" parent="Folliage" index="36"]
+[node name="Plants17" type="Sprite2D" parent="Folliage" index="43"]
 position = Vector2(1265, 628)
 rotation = 0.626456
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants18" type="Sprite2D" parent="Folliage" index="37"]
+[node name="Plants18" type="Sprite2D" parent="Folliage" index="44"]
 position = Vector2(1263, 445)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants19" type="Sprite2D" parent="Folliage" index="38"]
+[node name="Plants19" type="Sprite2D" parent="Folliage" index="45"]
 position = Vector2(1170, 397)
 rotation = 0.56882
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants20" type="Sprite2D" parent="Folliage" index="39"]
+[node name="Plants20" type="Sprite2D" parent="Folliage" index="46"]
 position = Vector2(1140, 312)
 rotation = 2.98193
 texture = ExtResource("9_unmly")
 
-[node name="Plants21" type="Sprite2D" parent="Folliage" index="40"]
+[node name="Plants21" type="Sprite2D" parent="Folliage" index="47"]
 position = Vector2(1081, 236)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants22" type="Sprite2D" parent="Folliage" index="41"]
+[node name="Plants22" type="Sprite2D" parent="Folliage" index="48"]
 position = Vector2(972, 218)
 rotation = 1.9443
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants23" type="Sprite2D" parent="Folliage" index="42"]
+[node name="Plants23" type="Sprite2D" parent="Folliage" index="49"]
 position = Vector2(885, 224)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants24" type="Sprite2D" parent="Folliage" index="43"]
+[node name="Plants24" type="Sprite2D" parent="Folliage" index="50"]
 position = Vector2(808, 197)
 rotation = 2.82107
 texture = ExtResource("9_unmly")
 
-[node name="Plants25" type="Sprite2D" parent="Folliage" index="44"]
+[node name="Plants25" type="Sprite2D" parent="Folliage" index="51"]
 position = Vector2(822, 10)
 texture = ExtResource("3_xk703")
 
-[node name="Plants26" type="Sprite2D" parent="Folliage" index="45"]
+[node name="Plants26" type="Sprite2D" parent="Folliage" index="52"]
 position = Vector2(845, 64)
 rotation = 1.57644
 texture = ExtResource("4_4xq35")
 
-[node name="Plants27" type="Sprite2D" parent="Folliage" index="46"]
+[node name="Plants27" type="Sprite2D" parent="Folliage" index="53"]
 position = Vector2(958, 108)
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants28" type="Sprite2D" parent="Folliage" index="47"]
+[node name="Plants28" type="Sprite2D" parent="Folliage" index="54"]
 position = Vector2(1194, 77)
 rotation = 1.79789
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants29" type="Sprite2D" parent="Folliage" index="48"]
+[node name="Plants29" type="Sprite2D" parent="Folliage" index="55"]
 position = Vector2(1267, 122)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants30" type="Sprite2D" parent="Folliage" index="49"]
+[node name="Plants30" type="Sprite2D" parent="Folliage" index="56"]
 position = Vector2(1289, 219)
 rotation = -1.45641
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants31" type="Sprite2D" parent="Folliage" index="50"]
+[node name="Plants31" type="Sprite2D" parent="Folliage" index="57"]
 position = Vector2(1353, 222)
 texture = ExtResource("3_xk703")
 
-[node name="Plants32" type="Sprite2D" parent="Folliage" index="51"]
+[node name="Plants32" type="Sprite2D" parent="Folliage" index="58"]
 position = Vector2(1481, 381)
 rotation = -2.34048
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants33" type="Sprite2D" parent="Folliage" index="52"]
+[node name="Plants33" type="Sprite2D" parent="Folliage" index="59"]
 position = Vector2(1513, 526)
 rotation = 2.42401
 texture = ExtResource("4_4xq35")
 
-[node name="Plants34" type="Sprite2D" parent="Folliage" index="53"]
+[node name="Plants34" type="Sprite2D" parent="Folliage" index="60"]
 position = Vector2(1525, 635)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants35" type="Sprite2D" parent="Folliage" index="54"]
+[node name="Plants35" type="Sprite2D" parent="Folliage" index="61"]
 position = Vector2(1471, 683)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants36" type="Sprite2D" parent="Folliage" index="55"]
+[node name="Plants36" type="Sprite2D" parent="Folliage" index="62"]
 position = Vector2(1460, 752)
 texture = ExtResource("9_unmly")
 
-[node name="Plants37" type="Sprite2D" parent="Folliage" index="56"]
+[node name="Plants37" type="Sprite2D" parent="Folliage" index="63"]
 position = Vector2(1334, 793)
 rotation = -1.84728
 texture = ExtResource("6_16ryl")
 
-[node name="Plants38" type="Sprite2D" parent="Folliage" index="57"]
+[node name="Plants38" type="Sprite2D" parent="Folliage" index="64"]
 position = Vector2(1217, 805)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants39" type="Sprite2D" parent="Folliage" index="58"]
+[node name="Plants39" type="Sprite2D" parent="Folliage" index="65"]
 position = Vector2(1172, 878)
 texture = ExtResource("9_unmly")
 
-[node name="Plants40" type="Sprite2D" parent="Folliage" index="59"]
+[node name="Plants40" type="Sprite2D" parent="Folliage" index="66"]
 position = Vector2(1194, 828)
 texture = ExtResource("3_xk703")
 
-[node name="Plants41" type="Sprite2D" parent="Folliage" index="60"]
+[node name="Plants41" type="Sprite2D" parent="Folliage" index="67"]
 position = Vector2(1194, 967)
 rotation = 1.857
 texture = ExtResource("4_4xq35")
 
-[node name="Plants42" type="Sprite2D" parent="Folliage" index="61"]
-position = Vector2(1158, 1071)
-rotation = 0.778123
+[node name="Plants42" type="Sprite2D" parent="Folliage" index="68"]
+position = Vector2(1196, 1074)
+rotation = -0.250158
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants43" type="Sprite2D" parent="Folliage" index="62"]
-position = Vector2(1147, 1175)
+[node name="Plants43" type="Sprite2D" parent="Folliage" index="69"]
+position = Vector2(1043, 1043)
 texture = ExtResource("3_xk703")
 
-[node name="Plants44" type="Sprite2D" parent="Folliage" index="63"]
-position = Vector2(1152, 1276)
+[node name="Plants44" type="Sprite2D" parent="Folliage" index="70"]
+position = Vector2(1199, 1276)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants45" type="Sprite2D" parent="Folliage" index="64"]
-position = Vector2(1098, 1269)
+[node name="Plants45" type="Sprite2D" parent="Folliage" index="71"]
+position = Vector2(1019, 1260)
 rotation = -0.559464
 texture = ExtResource("4_4xq35")
 
-[node name="Plants46" type="Sprite2D" parent="Folliage" index="65"]
-position = Vector2(1089, 1171)
+[node name="Plants46" type="Sprite2D" parent="Folliage" index="72"]
+position = Vector2(1044, 1196)
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants47" type="Sprite2D" parent="Folliage" index="66"]
-position = Vector2(1041, 933)
+[node name="Plants47" type="Sprite2D" parent="Folliage" index="73"]
+position = Vector2(1038, 911)
 rotation = 2.0542
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants48" type="Sprite2D" parent="Folliage" index="67"]
-position = Vector2(1077, 1082)
-rotation = -1.49396
+[node name="Plants48" type="Sprite2D" parent="Folliage" index="74"]
+position = Vector2(976, 1351)
+rotation = 0.618271
 texture = ExtResource("4_4xq35")
 
-[node name="Plants49" type="Sprite2D" parent="Folliage" index="68"]
-position = Vector2(894, 953)
+[node name="Plants49" type="Sprite2D" parent="Folliage" index="75"]
+position = Vector2(938, 912)
 rotation = -1.44599
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants50" type="Sprite2D" parent="Folliage" index="69"]
-position = Vector2(696, 943)
+[node name="Plants50" type="Sprite2D" parent="Folliage" index="76"]
+position = Vector2(693, 943)
 rotation = -1.47589
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants51" type="Sprite2D" parent="Folliage" index="70"]
+[node name="Plants51" type="Sprite2D" parent="Folliage" index="77"]
 position = Vector2(589, 961)
 rotation = -2.75888
 texture = ExtResource("9_unmly")
 
-[node name="Plants52" type="Sprite2D" parent="Folliage" index="71"]
+[node name="Plants52" type="Sprite2D" parent="Folliage" index="78"]
 position = Vector2(566, 874)
 rotation = -2.22748
 texture = ExtResource("4_4xq35")
 
-[node name="Plants53" type="Sprite2D" parent="Folliage" index="72"]
+[node name="Plants53" type="Sprite2D" parent="Folliage" index="79"]
 position = Vector2(437, 797)
 rotation = -1.85678
 texture = ExtResource("6_16ryl")
 
-[node name="Plants54" type="Sprite2D" parent="Folliage" index="73"]
+[node name="Plants54" type="Sprite2D" parent="Folliage" index="80"]
 position = Vector2(408, 753)
 rotation = -0.560393
 texture = ExtResource("4_4xq35")
 
-[node name="Plants55" type="Sprite2D" parent="Folliage" index="74"]
+[node name="Plants55" type="Sprite2D" parent="Folliage" index="81"]
 position = Vector2(380, 641)
 rotation = 0.645371
 texture = ExtResource("9_unmly")
 
-[node name="Plants56" type="Sprite2D" parent="Folliage" index="75"]
+[node name="Plants56" type="Sprite2D" parent="Folliage" index="82"]
 position = Vector2(411, 667)
 rotation = -0.612605
 texture = ExtResource("6_16ryl")
 
-[node name="Plants57" type="Sprite2D" parent="Folliage" index="76"]
+[node name="Plants57" type="Sprite2D" parent="Folliage" index="83"]
 position = Vector2(336, 645)
 rotation = 0.622136
 texture = ExtResource("7_kuf3d")
 
-[node name="Plants58" type="Sprite2D" parent="Folliage" index="77"]
+[node name="Plants58" type="Sprite2D" parent="Folliage" index="84"]
 position = Vector2(341, 566)
 rotation = 1.57074
 texture = ExtResource("9_unmly")
 
-[node name="Plants59" type="Sprite2D" parent="Folliage" index="78"]
+[node name="Plants59" type="Sprite2D" parent="Folliage" index="85"]
 position = Vector2(273, 476)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants60" type="Sprite2D" parent="Folliage" index="79"]
+[node name="Plants60" type="Sprite2D" parent="Folliage" index="86"]
 position = Vector2(101, 468)
 rotation = -0.246513
 texture = ExtResource("8_uxj5k")
 
-[node name="Plants61" type="Sprite2D" parent="Folliage" index="80"]
+[node name="Plants61" type="Sprite2D" parent="Folliage" index="87"]
 position = Vector2(-83, 446)
 texture = ExtResource("3_xk703")
 
-[node name="Plants62" type="Sprite2D" parent="Folliage" index="81"]
+[node name="Plants62" type="Sprite2D" parent="Folliage" index="88"]
 position = Vector2(-97, 523)
 texture = ExtResource("5_6j0fl")
 
-[node name="Plants63" type="Sprite2D" parent="Folliage" index="82"]
+[node name="Plants63" type="Sprite2D" parent="Folliage" index="89"]
 position = Vector2(-76, 571)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants64" type="Sprite2D" parent="Folliage" index="83"]
+[node name="Plants64" type="Sprite2D" parent="Folliage" index="90"]
 position = Vector2(-156, 610)
 texture = ExtResource("9_unmly")
 
-[node name="Plants65" type="Sprite2D" parent="Folliage" index="84"]
+[node name="Plants65" type="Sprite2D" parent="Folliage" index="91"]
 position = Vector2(-240, 637)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants66" type="Sprite2D" parent="Folliage" index="85"]
+[node name="Plants66" type="Sprite2D" parent="Folliage" index="92"]
 position = Vector2(-213, 514)
 texture = ExtResource("3_xk703")
 
-[node name="Plants67" type="Sprite2D" parent="Folliage" index="86"]
+[node name="Plants67" type="Sprite2D" parent="Folliage" index="93"]
 position = Vector2(-239, 388)
 rotation = -0.418607
 texture = ExtResource("4_4xq35")
 
-[node name="Plants68" type="Sprite2D" parent="Folliage" index="87"]
+[node name="Plants68" type="Sprite2D" parent="Folliage" index="94"]
 position = Vector2(-224, 254)
 texture = ExtResource("3_xk703")
 
-[node name="Plants69" type="Sprite2D" parent="Folliage" index="88"]
+[node name="Plants69" type="Sprite2D" parent="Folliage" index="95"]
 position = Vector2(-336, 218)
 texture = ExtResource("9_unmly")
 
-[node name="Plants70" type="Sprite2D" parent="Folliage" index="89"]
+[node name="Plants70" type="Sprite2D" parent="Folliage" index="96"]
 position = Vector2(-343, 186)
 texture = ExtResource("6_16ryl")
 
-[node name="Plants71" type="Sprite2D" parent="Folliage" index="90"]
+[node name="Plants71" type="Sprite2D" parent="Folliage" index="97"]
 position = Vector2(-334, 74)
 rotation = 2.77757
 texture = ExtResource("9_unmly")
 
-[node name="Plants72" type="Sprite2D" parent="Folliage" index="91"]
+[node name="Plants72" type="Sprite2D" parent="Folliage" index="98"]
 position = Vector2(-340, -60)
 texture = ExtResource("3_xk703")
 
-[node name="Plants73" type="Sprite2D" parent="Folliage" index="92"]
+[node name="Plants73" type="Sprite2D" parent="Folliage" index="99"]
 position = Vector2(-302, -96)
 texture = ExtResource("7_kuf3d")
 
-[node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("11_qlrd3")]
-position = Vector2(1025, -32)
-enemy_type = 1
+[node name="Plants74" type="Sprite2D" parent="Folliage" index="100"]
+position = Vector2(750, 1329)
+rotation = 2.84008
+texture = ExtResource("4_4xq35")
 
-[node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("11_qlrd3")]
-position = Vector2(1544, 595)
+[node name="Plants75" type="Sprite2D" parent="Folliage" index="101"]
+position = Vector2(717, 1302)
+texture = ExtResource("6_16ryl")
+
+[node name="Plants76" type="Sprite2D" parent="Folliage" index="102"]
+position = Vector2(381, 1289)
+rotation = 2.36322
+texture = ExtResource("7_kuf3d")
+
+[node name="Plants77" type="Sprite2D" parent="Folliage" index="103"]
+position = Vector2(306, 1203)
+rotation = -1.07084
+texture = ExtResource("8_uxj5k")
+
+[node name="Plants78" type="Sprite2D" parent="Folliage" index="104"]
+position = Vector2(256, 1296)
+rotation = -2.30372
+texture = ExtResource("9_unmly")
+
+[node name="Plants79" type="Sprite2D" parent="Folliage" index="105"]
+position = Vector2(202, 1314)
+texture = ExtResource("3_xk703")
+
+[node name="Plants80" type="Sprite2D" parent="Folliage" index="106"]
+position = Vector2(-71, 1288)
+rotation = 2.20319
+texture = ExtResource("7_kuf3d")
+
+[node name="Plants81" type="Sprite2D" parent="Folliage" index="107"]
+position = Vector2(-133, 1218)
+texture = ExtResource("3_xk703")
+
+[node name="Plants82" type="Sprite2D" parent="Folliage" index="108"]
+position = Vector2(-318, 1214)
+texture = ExtResource("9_unmly")
+
+[node name="Plants83" type="Sprite2D" parent="Folliage" index="109"]
+position = Vector2(-393, 1266)
+rotation = 1.7898
+texture = ExtResource("5_6j0fl")
+
+[node name="Plants84" type="Sprite2D" parent="Folliage" index="110"]
+position = Vector2(-512, 1363)
+rotation = -0.788236
+texture = ExtResource("4_4xq35")
+
+[node name="Plants85" type="Sprite2D" parent="Folliage" index="111"]
+position = Vector2(-497, 1427)
+texture = ExtResource("7_kuf3d")
+
+[node name="Plants86" type="Sprite2D" parent="Folliage" index="112"]
+position = Vector2(-439, 1576)
+rotation = -1.13768
+texture = ExtResource("8_uxj5k")
+
+[node name="Plants87" type="Sprite2D" parent="Folliage" index="113"]
+position = Vector2(-305, 1504)
+texture = ExtResource("6_16ryl")
+
+[node name="Plants88" type="Sprite2D" parent="Folliage" index="114"]
+position = Vector2(-152, 1587)
+texture = ExtResource("5_6j0fl")
+
+[node name="Plants89" type="Sprite2D" parent="Folliage" index="115"]
+position = Vector2(9, 1573)
+texture = ExtResource("6_16ryl")
+
+[node name="Plants90" type="Sprite2D" parent="Folliage" index="116"]
+position = Vector2(184, 1589)
+texture = ExtResource("5_6j0fl")
+
+[node name="Plants91" type="Sprite2D" parent="Folliage" index="117"]
+position = Vector2(418, 1599)
+rotation = -1.04655
+texture = ExtResource("7_kuf3d")
+
+[node name="Plants92" type="Sprite2D" parent="Folliage" index="118"]
+position = Vector2(820, 1583)
+rotation = -2.34048
+texture = ExtResource("4_4xq35")
+
+[node name="Plants93" type="Sprite2D" parent="Folliage" index="119"]
+position = Vector2(918, 1506)
+rotation = -2.18597
+texture = ExtResource("7_kuf3d")
+
+[node name="Plants94" type="Sprite2D" parent="Folliage" index="120"]
+position = Vector2(1058, 1477)
+texture = ExtResource("5_6j0fl")
+
+[node name="Plants95" type="Sprite2D" parent="Folliage" index="121"]
+position = Vector2(1177, 1341)
+rotation = 0.604598
+texture = ExtResource("8_uxj5k")
+
+[node name="Plants96" type="Sprite2D" parent="Folliage" index="122"]
+position = Vector2(1197, 1442)
+texture = ExtResource("3_xk703")
+
+[node name="Plants97" type="Sprite2D" parent="Folliage" index="123"]
+position = Vector2(1189, 1220)
+rotation = -0.819817
+texture = ExtResource("5_6j0fl")
+
+[node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("11_qlrd3")]
+position = Vector2(710, 611)
 enemy_type = 2
 
+[node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("11_qlrd3")]
+position = Vector2(768, 88)
+enemy_type = 2
+flip_h = true
+
 [node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("11_qlrd3")]
-position = Vector2(-364, 1012)
+position = Vector2(-353, 926)
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
+visible = false
 position = Vector2(-186, -150)
-polygon = PackedVector2Array(-232, -14, 123, -18, 136, 329, 403, 312, 507, 249, 624, 258, 729, 404, 858, 659, 892, 918, 1138, 960, 1192, 784, 1355, 746, 1238, 437, 942, 433, 833, 162, 1009, 95, 1092, 191, 1464, 183, 1727, 421, 1790, 780, 1710, 1001, 1460, 1035, 1397, 1285, 1393, 1494, 1201, 1515, 1188, 1219, 1025, 1173, 783, 1269, 386, 751, 219, 717, 69, 918, -73, 914, -140, 525, -253, 387)
+polygon = PackedVector2Array(990, 1103, 1026, 1028, 918, 912, 820, 692, 735, 398, 686, 298, 712, 275, 748, 244, 855, 187, 937, 372, 1156, 427, 1253, 438, 1356, 627, 1358, 764, 1218, 797, 1185, 935, 1080, 992, 1087, 1120, 1167, 1148, 1150, 1452, 836, 1378, 580, 1361, 428, 1255, 172, 1341, -94, 1298, -336, 1327, -333, 1752, -88, 1795, 1039, 1783, 1416, 1649, 1441, 1007, 1724, 996, 1744, 496, 1430, 180, 1187, 188, 1167, -54, 959, -66, 868, -12, -205, 14, -202, 405, -82, 436, -97, 804, 9, 924, 140, 782, 223, 702, 443, 705, 554, 979, 614, 1130, 719, 1170, 893, 1195)
 
 [node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
-position = Vector2(191, 40)
+position = Vector2(144, 100)
 
 [node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
-position = Vector2(960, 377)
+position = Vector2(699, 364)
 
-[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
-position = Vector2(778, 1275)
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(869, 1013)
 
-[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
-position = Vector2(172, 780)
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(411, 1092)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(58, 621)
 
 [node name="EldritchLamp" parent="." index="4"]
-position = Vector2(951, 795)
+visible = false
+position = Vector2(977, 776)
 enabled = true
