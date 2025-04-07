@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=29 format=4 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
 [ext_resource type="PackedScene" uid="uid://b2s0lpgauu5w2" path="res://src/world/generator/chunk_manager.tscn" id="2_7osel"]
@@ -31,6 +31,11 @@ background_mode = 3
 glow_enabled = true
 glow_bloom = 0.15
 glow_blend_mode = 0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1kyte"]
+vertices = PackedVector2Array(-47379.9, -37833.2, 40791.8, -39496.8, 40478, -25261.1, -46740.1, 41250.9, 41047.9, 40611.1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-47390, -37843, 40802, -39507, 40488, -25261, 41058, 40621, -46750, 41261)])
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xmkh1"]
 streams_count = 13
@@ -93,6 +98,7 @@ tile_set = ExtResource("4_7manr")
 collision_enabled = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_1kyte")
 
 [node name="World" type="Node2D" parent="NavigationRegion2D"]
 
@@ -130,7 +136,7 @@ stream = SubResource("AudioStreamRandomizer_xmkh1")
 bus = &"Sfx"
 
 [node name="AmbientTimer" type="Timer" parent="."]
-wait_time = 29.5878
+wait_time = 30.6507
 autostart = true
 script = ExtResource("18_1sjff")
 variance = 4.0
