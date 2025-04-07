@@ -718,39 +718,39 @@ position = Vector2(970, -427)
 frame_progress = 0.192327
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("16_4tctq")]
-position = Vector2(1002, 1365)
+position = Vector2(990, 1366)
 enemy_type = 2
 
 [node name="EnemyMarker16" parent="Enemies" index="1" instance=ExtResource("16_4tctq")]
-position = Vector2(749, 990)
+position = Vector2(727, 994)
 enemy_type = 2
 
 [node name="EnemyMarker17" parent="Enemies" index="2" instance=ExtResource("16_4tctq")]
-position = Vector2(944, 743)
+position = Vector2(960, 742)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker2" parent="Enemies" index="3" instance=ExtResource("16_4tctq")]
-position = Vector2(1888, -91)
+position = Vector2(1879, -88)
 enemy_type = 2
 
 [node name="EnemyMarker3" parent="Enemies" index="4" instance=ExtResource("16_4tctq")]
-position = Vector2(993, -39)
+position = Vector2(1005, -43)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker4" parent="Enemies" index="5" instance=ExtResource("16_4tctq")]
-position = Vector2(-165, 200)
+position = Vector2(-150, 205)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker18" parent="Enemies" index="6" instance=ExtResource("16_4tctq")]
-position = Vector2(-103, -68)
+position = Vector2(-93, -69)
 enemy_type = 2
 flip_h = true
 
 [node name="EnemyMarker5" parent="Enemies" index="7" instance=ExtResource("16_4tctq")]
-position = Vector2(-167, 1158)
+position = Vector2(-156, 1158)
 enemy_type = 2
 flip_h = true
 
@@ -884,4 +884,5 @@ position = Vector2(604, 1570)
 position = Vector2(-391, 1160)
 
 [node name="EldritchLamp" parent="." index="4"]
+visible = false
 position = Vector2(842, 1113)

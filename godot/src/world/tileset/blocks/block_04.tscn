@@ -197,11 +197,11 @@ rotation = -2.24677
 texture = ExtResource("13_nmaf6")
 
 [node name="EnemyMarker8" parent="Enemies" index="0" instance=ExtResource("16_ir1fr")]
-position = Vector2(174, -77)
+position = Vector2(164, -77)
 enemy_type = 2
 
 [node name="EnemyMarker9" parent="Enemies" index="1" instance=ExtResource("16_ir1fr")]
-position = Vector2(-33, 454)
+position = Vector2(-24, 454)
 enemy_type = 2
 flip_h = true
 
@@ -271,4 +271,5 @@ position = Vector2(-214, -521)
 position = Vector2(342, 677)
 
 [node name="EldritchLamp" parent="." index="4"]
+visible = false
 position = Vector2(-191, -158)
