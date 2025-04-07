@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=26 format=4 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
 [ext_resource type="PackedScene" uid="uid://b2s0lpgauu5w2" path="res://src/world/generator/chunk_manager.tscn" id="2_7osel"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
 [ext_resource type="TileSet" uid="uid://cnjk1mun3f1mu" path="res://src/world/tileset/obstacle_tileset.tres" id="4_7manr"]
 [ext_resource type="PackedScene" uid="uid://iab6i78fljla" path="res://src/world/plancton/plancton.tscn" id="4_x0ey0"]
+[ext_resource type="Texture2D" uid="uid://dghh1ieh15xyw" path="res://assets/gfx/environment/tiles/background_tile1.png" id="5_e8vvq"]
 [ext_resource type="AudioStream" uid="uid://cocs54hvb5y1y" path="res://assets/sfx/AMB_Deepsea_1.mp3" id="5_nh3aj"]
 [ext_resource type="AudioStream" uid="uid://c6a1uv5do502y" path="res://assets/sfx/AMB_Deepsea_2.mp3" id="6_1sjff"]
+[ext_resource type="Texture2D" uid="uid://o4eiev7mhgtd" path="res://assets/gfx/environment/tiles/background_tile2.png" id="6_nm2p0"]
 [ext_resource type="AudioStream" uid="uid://cq4ejy4jqjfa6" path="res://assets/sfx/AMB_Deepsea_11.mp3" id="7_7osel"]
 [ext_resource type="AudioStream" uid="uid://x4gamj4njc0j" path="res://assets/sfx/AMB_Deepsea_12.mp3" id="8_3nirc"]
 [ext_resource type="AudioStream" uid="uid://cy210gjbokiik" path="res://assets/sfx/AMB_Deepsea_13.mp3" id="9_7manr"]
@@ -21,7 +23,6 @@
 [ext_resource type="AudioStream" uid="uid://cq0mh3xnn7odj" path="res://assets/sfx/AMB_Deepsea_9.mp3" id="16_lv245"]
 [ext_resource type="AudioStream" uid="uid://byn6csjknybod" path="res://assets/sfx/AMB_Deepsea_10.mp3" id="17_kucpv"]
 [ext_resource type="Script" uid="uid://dsanfc3iwqum4" path="res://addons/random_timer_plugin/random_timer.gd" id="18_1sjff"]
-[ext_resource type="PackedScene" uid="uid://c3iod7h0uuoav" path="res://src/ui/hud.tscn" id="22_sjpi6"]
 
 [sub_resource type="Environment" id="Environment_l0av5"]
 background_mode = 3
@@ -62,7 +63,24 @@ scroll_scale = Vector2(0, 0)
 position = Vector2(640, 360)
 texture = ExtResource("3_3nirc")
 
+[node name="BG2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(1280, 720)
+
+[node name="BackgroundTile1" type="Sprite2D" parent="BG2"]
+position = Vector2(640, 360)
+texture = ExtResource("5_e8vvq")
+
+[node name="BG3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(1280, 720)
+
+[node name="BackgroundTile2" type="Sprite2D" parent="BG3"]
+position = Vector2(640, 360)
+texture = ExtResource("6_nm2p0")
+
 [node name="MG" type="Parallax2D" parent="."]
+visible = false
 scroll_scale = Vector2(0.9, 0.9)
 repeat_size = Vector2(4800, 3200)
 
@@ -98,7 +116,7 @@ target_container = NodePath("../../NavigationRegion2D/Plancton")
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.631388, 0.561746, 0.521776, 1)
-energy = 2.0
+energy = 1.8
 blend_mode = 1
 
 [node name="Ambient1" type="AudioStreamPlayer" parent="."]
@@ -110,14 +128,10 @@ stream = SubResource("AudioStreamRandomizer_xmkh1")
 bus = &"Sfx"
 
 [node name="AmbientTimer" type="Timer" parent="."]
-wait_time = 33.0948
+wait_time = 26.569
 autostart = true
 script = ExtResource("18_1sjff")
 variance = 4.0
 metadata/_custom_type_script = "uid://dsanfc3iwqum4"
-
-[node name="HUDLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="HUDLayer" instance=ExtResource("22_sjpi6")]
 
 [connection signal="timeout" from="AmbientTimer" to="." method="_on_ambient_timer_timeout"]
