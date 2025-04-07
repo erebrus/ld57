@@ -19,6 +19,50 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5k4ec"]
 radius = 4.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haewh"]
+radius = 4.0
+height = 26.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8tqs"]
+shader = ExtResource("9_keu1t")
+shader_parameter/light_color = Color(0.24, 1, 0.81, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 3.0
+shader_parameter/max_brightness = 1.0
+
+[sub_resource type="Animation" id="Animation_5k4ec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_haewh"]
+resource_name = "attack"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_vjupr"]
 resource_name = "idle"
 length = 0.6
@@ -68,38 +112,6 @@ tracks/1/keys = {
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_5k4ec"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_haewh"]
-resource_name = "attack"
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8tqs"]
 _data = {
 &"RESET": SubResource("Animation_5k4ec"),
@@ -107,14 +119,6 @@ _data = {
 &"idle": SubResource("Animation_vjupr"),
 &"move": SubResource("Animation_keu1t")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8tqs"]
-shader = ExtResource("9_keu1t")
-shader_parameter/light_color = Color(0.24, 1, 0.81, 1)
-shader_parameter/brightness = 0.5
-shader_parameter/attenuation_strength = 0.5
-shader_parameter/intensity = 3.0
-shader_parameter/max_brightness = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ioba"]
 streams_count = 3
@@ -128,10 +132,6 @@ stream_0/stream = ExtResource("13_ltu8b")
 stream_1/stream = ExtResource("14_gdthb")
 stream_2/stream = ExtResource("15_1j0t1")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haewh"]
-radius = 4.0
-height = 26.0
-
 [node name="ViperFish" instance=ExtResource("1_stgf7")]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 script = ExtResource("2_uxved")
@@ -142,19 +142,30 @@ max_speed = 750.0
 health = 5.0
 vision_range = 350.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-texture_filter = 1
-texture = ExtResource("3_5k4ec")
-hframes = 3
-vframes = 2
-
 [node name="HurtArea" parent="HurtAreaPivot" index="0"]
 position = Vector2(10, 0)
 
 [node name="CollisionShape2D" parent="HurtAreaPivot/HurtArea" index="0"]
 shape = SubResource("CircleShape2D_5k4ec")
 
-[node name="XSM" type="Node" parent="." index="4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_haewh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
+texture_filter = 1
+texture = ExtResource("3_5k4ec")
+hframes = 3
+vframes = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D" index="0"]
+material = SubResource("ShaderMaterial_g8tqs")
+position = Vector2(8, -1)
+color = Color(1, 1, 0.360784, 1)
+polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
+
+[node name="XSM" type="Node" parent="." index="5"]
 script = ExtResource("2_6yasc")
 history_size = 0
 disabled = false
@@ -189,16 +200,10 @@ timed = false
 next_state = NodePath("")
 metadata/_custom_type_script = "uid://dlsi2jauwupc1"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
 &"": SubResource("AnimationLibrary_g8tqs")
 }
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="8"]
-material = SubResource("ShaderMaterial_g8tqs")
-position = Vector2(8, -1)
-color = Color(1, 1, 0.360784, 1)
-polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
 
 [node name="sfx" type="Node2D" parent="." index="9"]
 
@@ -209,8 +214,3 @@ bus = &"Sfx"
 [node name="sfx_attack" type="AudioStreamPlayer2D" parent="sfx" index="1"]
 stream = SubResource("AudioStreamRandomizer_3edqd")
 bus = &"Sfx"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="10"]
-visible = false
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_haewh")

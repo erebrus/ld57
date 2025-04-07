@@ -16,7 +16,7 @@ func refresh_shape():
 	if $CollisionShape2D.shape:
 		($CollisionShape2D.shape as RectangleShape2D).size=size
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	var list = get_overlapping_bodies()

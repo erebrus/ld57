@@ -46,4 +46,4 @@ func _on_arrived():
 	agent.face(wp_vect)
 	agent.current_speed=agent.cruise_speed
 	agent.target_position=agent.global_position + wp_vect
-	Logger.info("%s hovering from %s to %s (%s)" % [agent.name, agent.global_position, agent.target_position, wp_vect])
+	Logger.debug("%s hovering from %s to %s (%s)" % [agent.name, agent.global_position, agent.target_position, wp_vect])

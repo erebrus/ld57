@@ -13,6 +13,7 @@ func _before_exit(_args) -> void:
 	agent.player_lost.disconnect(_on_player_lost)
 
 func _on_update(_delta) -> void:
+	agent.current_speed = agent.max_speed
 	track_player()
 	
 func _on_player_lost():
