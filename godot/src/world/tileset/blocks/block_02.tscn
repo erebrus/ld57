@@ -452,15 +452,31 @@ enemy_type = 1
 position = Vector2(1369, -355)
 flip_h = true
 
-[node name="EnemyMarker5" parent="Enemies" index="4" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker10" parent="Enemies" index="4" instance=ExtResource("17_hlwqw")]
+position = Vector2(713, 423)
+
+[node name="EnemyMarker5" parent="Enemies" index="5" instance=ExtResource("17_hlwqw")]
 position = Vector2(339, -591)
 enemy_type = 1
 flip_h = true
 
-[node name="EnemyMarker6" parent="Enemies" index="5" instance=ExtResource("17_hlwqw")]
+[node name="EnemyMarker8" parent="Enemies" index="6" instance=ExtResource("17_hlwqw")]
+position = Vector2(-218, 509)
+enemy_type = 1
+
+[node name="EnemyMarker9" parent="Enemies" index="7" instance=ExtResource("17_hlwqw")]
+position = Vector2(-916, 720)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker6" parent="Enemies" index="8" instance=ExtResource("17_hlwqw")]
 position = Vector2(-501, -262)
 enemy_type = 2
 flip_h = true
+
+[node name="EnemyMarker7" parent="Enemies" index="9" instance=ExtResource("17_hlwqw")]
+position = Vector2(-540, 941)
+enemy_type = 2
 
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(-55, -149, 29, -370, 100, -525, 200, -541, 255, -333, 380, -282, 484, -333, 522, -470, 635, -399, 660, -224, 773, -220, 814, -349, 935, -333, 1036, -228, 1044, 68, 998, 160, 768, 152, 706, 231, 413, 269, 380, 419, 221, 561, 113, 444, 0, 273, -88, 386, -284, 436, -309, 611, -301, 749, -418, 808, -522, 1029, -598, 1175, -731, 1042, -786, 770, -781, 637, -677, 574, -677, 411, -614, 281, -564, 165, -543, 102, -673, 6, -836, -90, -953, -149, -844, -295, -694, -299, -451, -337, -192, -303)

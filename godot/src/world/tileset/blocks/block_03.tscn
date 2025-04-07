@@ -188,25 +188,25 @@ position = Vector2(-40, 134)
 rotation = -2.0742
 frame_progress = 0.192327
 
-[node name="Kelp" parent="." index="1" instance=ExtResource("10_x5fu7")]
+[node name="Kelp" parent="Folliage" index="37" instance=ExtResource("10_x5fu7")]
 position = Vector2(294, 273)
 rotation = 2.43106
 
-[node name="Kelp2" parent="." index="2" instance=ExtResource("10_x5fu7")]
+[node name="Kelp2" parent="Folliage" index="38" instance=ExtResource("10_x5fu7")]
 position = Vector2(276, 288)
 rotation = 2.28354
 
-[node name="Kelp3" parent="." index="3" instance=ExtResource("10_x5fu7")]
+[node name="Kelp3" parent="Folliage" index="39" instance=ExtResource("10_x5fu7")]
 position = Vector2(265, 304)
 rotation = -0.86977
 scale = Vector2(1, -1)
 
-[node name="Kelp4" parent="." index="4" instance=ExtResource("10_x5fu7")]
+[node name="Kelp4" parent="Folliage" index="40" instance=ExtResource("10_x5fu7")]
 position = Vector2(310, 263)
 rotation = -0.661703
 scale = Vector2(1, -1)
 
-[node name="Kelp5" parent="." index="5" instance=ExtResource("10_x5fu7")]
+[node name="Kelp5" parent="Folliage" index="41" instance=ExtResource("10_x5fu7")]
 position = Vector2(334, 263)
 rotation = 2.50282
 scale = Vector2(1, 1)
