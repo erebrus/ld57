@@ -299,7 +299,7 @@ script = ExtResource("2_g1key")
 vision_range = 600.0
 
 [node name="HurtArea" parent="HurtAreaPivot" index="0"]
-position = Vector2(271, 50)
+position = Vector2(208, 44)
 
 [node name="NavigationAgent2D" parent="." index="2"]
 radius = 40.0

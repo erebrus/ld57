@@ -16,7 +16,7 @@ const CHUNK_MARGIN = 4 * CELL_SIZE
 @export var ChunkScene: PackedScene
 @export var blocks: Array[PackedScene]
 @export var enemies: Dictionary[Types.EnemyType, PackedScene]
-
+@export var enabled:=true
 
 var rng:RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -24,7 +24,7 @@ var seed_matrix:Dictionary[Vector2i, int] = {}
 var chunk_matrix:Dictionary[Vector2i, Node2D] = {}
 
 func _ready():
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or not enabled:
 		return
 	
 	if seed==0:
@@ -122,5 +122,7 @@ func _calculate_cell_size() -> void:
 	
 
 func _on_timer_timeout() -> void:
+	if not enabled:
+		return 
 	check_for_creation()
 	check_for_unload()

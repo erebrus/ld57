@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://c12c6dmta6gxv"]
+[gd_scene load_steps=14 format=3 uid="uid://c12c6dmta6gxv"]
 
 [ext_resource type="PackedScene" uid="uid://bidnwv4kin1iu" path="res://src/world/base_world.tscn" id="1_e7n38"]
-[ext_resource type="Texture2D" uid="uid://cxswglbeiotco" path="res://assets/gfx/mocks/mock.png" id="2_eyewv"]
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="3_maara"]
 [ext_resource type="PackedScene" uid="uid://buvf4edhusbci" path="res://src/world/plancton/krill.tscn" id="4_vjq7d"]
 [ext_resource type="PackedScene" uid="uid://cqct84efgpgya" path="res://src/world/lamp/eldritch_lamp.tscn" id="5_rhl6c"]
@@ -25,11 +24,10 @@ size = Vector2(647, 80)
 
 [node name="World" instance=ExtResource("1_e7n38")]
 
-[node name="BG" type="Sprite2D" parent="." index="1"]
-position = Vector2(424, 296)
-texture = ExtResource("2_eyewv")
+[node name="ChunkManager" parent="." index="0"]
+enabled = false
 
-[node name="NavigationRegion2D" parent="." index="3"]
+[node name="NavigationRegion2D" parent="." index="4"]
 navigation_polygon = SubResource("NavigationPolygon_eyewv")
 
 [node name="NavigationRegion2D_Obstacles#StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D/World" index="0"]
@@ -114,7 +112,7 @@ position = Vector2(376, 627)
 
 [node name="EldritchLamp" parent="NavigationRegion2D/World" index="8" instance=ExtResource("5_rhl6c")]
 position = Vector2(440, 400)
-lit = 0.924562
+lit = 0.374442
 
 [node name="Kelp" parent="NavigationRegion2D/World" index="10" instance=ExtResource("6_rhl6c")]
 position = Vector2(708.559, 576.693)
@@ -138,11 +136,9 @@ position = Vector2(967, 26)
 position = Vector2(-880, 672)
 
 [node name="ViperFish" parent="NavigationRegion2D/Enemies" index="1" instance=ExtResource("5_vjq7d")]
-process_mode = 4
 position = Vector2(1896, 120)
 
 [node name="Enemies#Mooray" parent="NavigationRegion2D/Enemies" index="2" instance=ExtResource("7_maara")]
-process_mode = 4
 position = Vector2(563, 152)
 rotation = -0.0253553
 collision_layer = 1
@@ -161,8 +157,8 @@ position = Vector2(-192, 368)
 size = Vector2(400, 600)
 direction = Vector2(0, 1)
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2(-152, 528)
 
-[node name="AmbientTimer" parent="." index="9"]
-wait_time = 39.09
+[node name="AmbientTimer" parent="." index="10"]
+wait_time = 44.0989

@@ -13,7 +13,8 @@ func hurt_player():
 
 func face(target_direction:Vector2 ):
 	super.face(target_direction)
-	
+	lure.position.x = abs(lure.position.x) * (-1 if sprite.flip_h else 1)
+
 	#lure.position.x =abs(lure.position.x) * (-1 if sprite.flip_h else 1)
 
 func pounce():
