@@ -45,18 +45,18 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	_on_detection_timer_timeout()
 	detection_timer.start()
 
-func _on_detection_area_body_exited(body: Node2D) -> void:
+func _on_detection_area_body_exited(_body: Node2D) -> void:
 	player_lost.emit()
 	detection_rc.enabled=false
 	target=null
 
-func _on_hurt_area_body_entered(body: Node2D) -> void:
+func _on_hurt_area_body_entered(_body: Node2D) -> void:
 	player_on_target.emit()
 	
 func _process(delta: float) -> void:
 	var was_moving = current_speed != 0
 	if target:
-		detection_rc.target_position=Vector2(vision_range,0).rotated(global_position.angle_to_point(target.global_position))
+		detection_rc.target_position=Vector2(vision_range,0).rotated(global_position.angle_to_point(target.global_position)-rotation)
 	var dist_to_target_position := target_position.distance_to(global_position)
 	if nav_enabled:
 		var wp = nav_agent.get_next_path_position()
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 			current_speed=0
 			if was_moving:
 				arrived.emit()
-	elif dist_to_target_position > current_speed*delta:
+	elif dist_to_target_position > 5.0:#current_speed*delta:
 			do_movement(target_position, delta)
 	else:		
 		current_speed=0
@@ -75,17 +75,41 @@ func _process(delta: float) -> void:
 
 func do_movement(wp:Vector2, delta:float)->void:
 	var direction := (wp-global_position).normalized()
-	var speed = velocity.length()
+	#var speed = velocity.length()
 	velocity=direction*current_speed
 	face(wp)		
+	#var angle_to := global_position.angle_to_point(target_position)
+	#angle_to = wrapf(angle_to, -PI, PI)
+	#var current_rotation = wrapf(rotation, -PI, PI)
+	#var angle_diff = angle_difference(current_rotation, angle_to)
+	#rotation += angle_diff*2*delta
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		_on_collision()
 	
 func face(target_direction:Vector2 ):
-	$Sprite2D.flip_h= target_position.x < global_position.x
+	$Sprite2D.flip_h= target_direction.x < global_position.x
 	hurt_area.position.x=abs(hurt_area.position.x)*(-1 if $Sprite2D.flip_h else 1)
-
+	
+	var angle_to := global_position.angle_to_point(target_direction)
+	angle_to = angle_to if not $Sprite2D.flip_h else PI + angle_to
+	##if abs(PI/2 - rotation) < deg_to_rad(2.0) and angle_to:
+	var current_rotation = rotation
+	#var new_rotation = lerp_angle( $Sprite2D.rotation,angle_to if not $Sprite2D.flip_h else PI + angle_to, .20)
+	var new_rotation = lerp_angle( current_rotation,angle_to, .20)
+	#var angle_diff = angle_difference(current_rotation, angle_to)
+	#if current_rotation >PI/2 and angle_to < -PI/2:
+		#new_rotation = current_rotation+deg_to_rad(1)
+	#elif current_rotation <-PI/2 and angle_to > PI/2:
+		#new_rotation = current_rotation-deg_to_rad(1)
+	#Logger.info("lerp %.2f diff %.2f" % [new_rotation-current_rotation, angle_diff])
+	#if abs(new_rotation-current_rotation) > abs(angle_diff):
+		#$Sprite2D.rotation+=angle_diff
+		#print("DIFF")
+	#else:	 
+	rotation = new_rotation
+	rotation = new_rotation
+	
 func has_arrived()->bool:
 	if nav_enabled:
 		return nav_agent.is_navigation_finished()

@@ -5,6 +5,7 @@ extends Enemy
 @onready var sfx_move: AudioStreamPlayer2D = $sfx/sfx_move
 @onready var sfx_attack: AudioStreamPlayer2D = $sfx/sfx_attack
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var eye: Polygon2D = $Sprite2D/Polygon2D
 
 func _on_collision():
 	target_position=global_position
@@ -23,4 +24,4 @@ func hurt_player():
 
 func face(target_direction:Vector2 ):
 	super.face(target_direction)
-	$Polygon2D.position.x =abs($Polygon2D.position.x) * (-1 if sprite.flip_h else 1)
+	eye.position.x =abs(eye.position.x) * (-1 if sprite.flip_h else 1)

@@ -1,5 +1,5 @@
 @tool 
-extends Marker2D
+class_name EnemyMarker extends Marker2D
 
 @export var enemy_type: Types.EnemyType
 
@@ -7,7 +7,6 @@ extends Marker2D
 	set(value):
 		flip_h = value
 		queue_redraw()
-
 
 func _draw():
 	if Engine.is_editor_hint():

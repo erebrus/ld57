@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bntes4nja72tf"]
+[gd_scene load_steps=12 format=4 uid="uid://bntes4nja72tf"]
 
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="1_n15q6"]
 [ext_resource type="PackedScene" uid="uid://b10qxle1elc1p" path="res://src/world/plants/anemone.tscn" id="2_petle"]
@@ -10,12 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cnhwdikdesp2q" path="res://assets/gfx/environment/plants/plants6.png" id="7_gfv7s"]
 [ext_resource type="Texture2D" uid="uid://b7qfjky71huyi" path="res://assets/gfx/environment/plants/plants7.png" id="8_5os84"]
 [ext_resource type="Texture2D" uid="uid://c07tscn6pim1s" path="res://assets/gfx/environment/plants/plants8.png" id="9_a60hl"]
+[ext_resource type="PackedScene" uid="uid://dt0sp1m51x6qh" path="res://src/world/plants/kelp.tscn" id="10_qxlnj"]
 
 [node name="BaseBlock" instance=ExtResource("1_n15q6")]
 tile_map_data = PackedByteArray("AAACAP//AwAGAAEAAAACAAAAAwAHAAAAAAADAAEAAwAGAAAAAAADAAIAAwAHAAEAAAABAP3/AwAGAAAAAAABAP7/AwAHAAAAAAABAP//AwAGAAIAAAACAAEAAwAFAAIAAAABAAAAAwADAAEAAAAAAP//AwADAAEAAAACAAIAAwADAAEAAAAAAP7/AwADAAIAAGAAAP3/AwAGAAAAABD///7/AwAGAAAAAGD/////AwAHAAAAADD//wAAAwAGAAEAADAAAAEAAwAHAAEAADAAAAIAAwAGAAAAADAAAAAAAwADAAEAADABAAEAAwADAAEAADABAAIAAwADAAEAAGAAAAMAAwAGAAEAABAAAAQAAwAHAAEAABD//wUAAwAGAAAAABD//wYAAwABAAAAAGD//wgAAwAEAAAAADD//wcAAwAEAAEAADAAAAgAAwADAAAAADAAAAcAAwADAAEAADABAAcAAwADAAAAAFABAAgAAwAEAAAAAFABAAYAAwADAAIAAFACAAYAAwABAAAAADADAAYAAwAEAAEAAFADAAUAAwADAAEAAFAEAAYAAwAEAAAAAFAEAAUAAwADAAAAAFAEAAQAAwACAAAAAFAEAAMAAwAGAAAAAAADAAQAAwABAAEAAFADAAMAAwADAAEAAAAAAAUAAwADAAEAAGAAAAYAAwABAAEAAGACAAUAAwABAAEAADABAAUAAwABAAEAADABAAQAAwACAAEAAGABAAMAAwACAAEAAGACAAMAAwAAAAIAAAACAAQAAwAAAAIAAAA=")
 
 [node name="Anemone" parent="Folliage" index="0" instance=ExtResource("2_petle")]
 position = Vector2(-11, -153)
+frame_progress = 0.192327
 
 [node name="Plants2" type="Sprite2D" parent="Folliage" index="1"]
 position = Vector2(139, -73)
@@ -44,6 +46,38 @@ texture = ExtResource("8_5os84")
 [node name="Plants8" type="Sprite2D" parent="Folliage" index="7"]
 position = Vector2(2, 280)
 texture = ExtResource("9_a60hl")
+
+[node name="Kelp" parent="Folliage" index="8" instance=ExtResource("10_qxlnj")]
+position = Vector2(199, 95)
+
+[node name="Kelp2" parent="Folliage" index="9" instance=ExtResource("10_qxlnj")]
+position = Vector2(213, 111)
+
+[node name="Kelp3" parent="Folliage" index="10" instance=ExtResource("10_qxlnj")]
+position = Vector2(225, 132)
+scale = Vector2(-1, 1)
+
+[node name="Kelp4" parent="Folliage" index="11" instance=ExtResource("10_qxlnj")]
+position = Vector2(182, 79)
+scale = Vector2(-1, 1)
+
+[node name="Kelp5" parent="Folliage" index="12" instance=ExtResource("10_qxlnj")]
+position = Vector2(96, 508)
+rotation = 1.5708
+
+[node name="Kelp6" parent="Folliage" index="13" instance=ExtResource("10_qxlnj")]
+position = Vector2(97, 491)
+rotation = 1.5708
+
+[node name="Kelp7" parent="Folliage" index="14" instance=ExtResource("10_qxlnj")]
+position = Vector2(96, 474)
+rotation = 1.5708
+scale = Vector2(-1, 1)
+
+[node name="Kelp8" parent="Folliage" index="15" instance=ExtResource("10_qxlnj")]
+position = Vector2(88, 453)
+rotation = 1.5708
+scale = Vector2(-1, 1)
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("2_wocir")]
 position = Vector2(225, 513)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_r2k6j"]
 [ext_resource type="Script" uid="uid://demoblvs171nx" path="res://src/enemies/mooray.gd" id="2_ch0pn"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="3_2miu3"]
-[ext_resource type="Texture2D" uid="uid://0gnv05xjguud" path="res://assets/gfx/enemies/eelsheet.png" id="3_15hmu"]
+[ext_resource type="Texture2D" uid="uid://cfkx7wefvvt38" path="res://assets/gfx/enemies/eelsheet-v2.png" id="3_15hmu"]
 [ext_resource type="Script" uid="uid://dhjspwps2m8om" path="res://src/enemies/xsm/trap_idle.gd" id="4_tjo2e"]
 [ext_resource type="Script" uid="uid://cdq6745ysid08" path="res://src/enemies/xsm/trap_attack.gd" id="5_bpsyy"]
 [ext_resource type="AudioStream" uid="uid://c40qh6erpv2qh" path="res://assets/sfx/NPC_MorayEel_Snap_1.wav" id="6_78jt7"]

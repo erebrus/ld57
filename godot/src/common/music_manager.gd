@@ -60,8 +60,8 @@ func change_game_music_to(new_id:Types.GameMusic, time:=1.0):
 		return
 	var current = panic_music if new_id==Types.GameMusic.NORMAL else game_music
 	var next = game_music if new_id==Types.GameMusic.NORMAL else panic_music
-	fade_in_stream(next)
-	fade_stream(current)
+	fade_in_stream(next, time)
+	fade_stream(current, time)
 	if new_id == Types.GameMusic.HARD:
 		stinger.play()
 	current_game_music_id = new_id
