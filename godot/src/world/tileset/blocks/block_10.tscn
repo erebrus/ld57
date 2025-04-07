@@ -367,5 +367,17 @@ flip_h = true
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(-87, -563, 60, -384, 154, -306, 321, -359, 506, -284, 462, -105, 183, -171, 0, -114, -141, -218, -266, -189, -169, 59, -109, 209, -31, 354, 48, 429, 104, 589, 336, 639, 509, 558, 547, 426, 427, 316, 490, 228, 612, 181, 656, 74, 804, -80, 942, -177, 999, -277, 933, -437, 835, -566, 716, -663, 499, -685, 208, -651, -50, -619)
 
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(-466, -137)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(407, -203)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(618, 681)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(778, -843)
+
 [node name="EldritchLamp" parent="." index="4"]
 position = Vector2(348, 35)
