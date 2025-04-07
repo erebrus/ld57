@@ -188,27 +188,27 @@ position = Vector2(-40, 134)
 rotation = -2.0742
 frame_progress = 0.192327
 
-[node name="Kelp" parent="Folliage/Anemone2" index="0" instance=ExtResource("10_x5fu7")]
-position = Vector2(-282.88, 225.512)
-rotation = -1.77793
+[node name="Kelp" parent="." index="1" instance=ExtResource("10_x5fu7")]
+position = Vector2(294, 273)
+rotation = 2.43106
 
-[node name="Kelp2" parent="Folliage/Anemone2" index="1" instance=ExtResource("10_x5fu7")]
-position = Vector2(-287.336, 202.509)
-rotation = -1.92545
+[node name="Kelp2" parent="." index="2" instance=ExtResource("10_x5fu7")]
+position = Vector2(276, 288)
+rotation = 2.28354
 
-[node name="Kelp3" parent="Folliage/Anemone2" index="2" instance=ExtResource("10_x5fu7")]
-position = Vector2(-296.045, 185.155)
-rotation = 1.20443
+[node name="Kelp3" parent="." index="3" instance=ExtResource("10_x5fu7")]
+position = Vector2(265, 304)
+rotation = -0.86977
 scale = Vector2(1, -1)
 
-[node name="Kelp4" parent="Folliage/Anemone2" index="3" instance=ExtResource("10_x5fu7")]
-position = Vector2(-281.839, 244.351)
-rotation = 1.41249
+[node name="Kelp4" parent="." index="4" instance=ExtResource("10_x5fu7")]
+position = Vector2(310, 263)
+rotation = -0.661703
 scale = Vector2(1, -1)
 
-[node name="Kelp5" parent="Folliage/Anemone2" index="4" instance=ExtResource("10_x5fu7")]
-position = Vector2(-293.417, 265.374)
-rotation = -1.70617
+[node name="Kelp5" parent="." index="5" instance=ExtResource("10_x5fu7")]
+position = Vector2(334, 263)
+rotation = 2.50282
 scale = Vector2(1, 1)
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("16_gy40c")]
@@ -220,16 +220,30 @@ flip_h = true
 position = Vector2(910, 600)
 flip_h = true
 
-[node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("16_gy40c")]
+[node name="EnemyMarker8" parent="Enemies" index="2" instance=ExtResource("16_gy40c")]
+position = Vector2(1089, -332)
+flip_h = true
+
+[node name="EnemyMarker3" parent="Enemies" index="3" instance=ExtResource("16_gy40c")]
 position = Vector2(1266, 93)
 enemy_type = 1
 flip_h = true
 
-[node name="EnemyMarker4" parent="Enemies" index="3" instance=ExtResource("16_gy40c")]
+[node name="EnemyMarker6" parent="Enemies" index="4" instance=ExtResource("16_gy40c")]
+position = Vector2(419, 452)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker7" parent="Enemies" index="5" instance=ExtResource("16_gy40c")]
+position = Vector2(-203, -78)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker4" parent="Enemies" index="6" instance=ExtResource("16_gy40c")]
 position = Vector2(841, -80)
 enemy_type = 2
 flip_h = true
 
-[node name="EnemyMarker5" parent="Enemies" index="4" instance=ExtResource("16_gy40c")]
+[node name="EnemyMarker5" parent="Enemies" index="7" instance=ExtResource("16_gy40c")]
 position = Vector2(261, -148)
 enemy_type = 1
