@@ -1,6 +1,96 @@
-[gd_scene load_steps=2 format=4 uid="uid://bntes4nja72tf"]
+[gd_scene load_steps=11 format=4 uid="uid://bntes4nja72tf"]
 
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="1_n15q6"]
+[ext_resource type="PackedScene" uid="uid://b10qxle1elc1p" path="res://src/world/plants/anemone.tscn" id="2_petle"]
+[ext_resource type="PackedScene" uid="uid://dra641rpsgd0q" path="res://src/enemies/marker/enemy_marker.tscn" id="2_wocir"]
+[ext_resource type="Texture2D" uid="uid://xul5v5l0org6" path="res://assets/gfx/environment/plants/plants2.png" id="3_0ruk0"]
+[ext_resource type="Texture2D" uid="uid://5qikfhj5xyts" path="res://assets/gfx/environment/plants/plants4.png" id="4_qxlnj"]
+[ext_resource type="Texture2D" uid="uid://cdtoqthreblm3" path="res://assets/gfx/environment/plants/plants3.png" id="5_1eitq"]
+[ext_resource type="Texture2D" uid="uid://cfffi5gfgnjuj" path="res://assets/gfx/environment/plants/plants5.png" id="6_33qhu"]
+[ext_resource type="Texture2D" uid="uid://cnhwdikdesp2q" path="res://assets/gfx/environment/plants/plants6.png" id="7_gfv7s"]
+[ext_resource type="Texture2D" uid="uid://b7qfjky71huyi" path="res://assets/gfx/environment/plants/plants7.png" id="8_5os84"]
+[ext_resource type="Texture2D" uid="uid://c07tscn6pim1s" path="res://assets/gfx/environment/plants/plants8.png" id="9_a60hl"]
 
 [node name="BaseBlock" instance=ExtResource("1_n15q6")]
 tile_map_data = PackedByteArray("AAACAP//AwAGAAEAAAACAAAAAwAHAAAAAAADAAEAAwAGAAAAAAADAAIAAwAHAAEAAAABAP3/AwAGAAAAAAABAP7/AwAHAAAAAAABAP//AwAGAAIAAAACAAEAAwAFAAIAAAABAAAAAwADAAEAAAAAAP//AwADAAEAAAACAAIAAwADAAEAAAAAAP7/AwADAAIAAGAAAP3/AwAGAAAAABD///7/AwAGAAAAAGD/////AwAHAAAAADD//wAAAwAGAAEAADAAAAEAAwAHAAEAADAAAAIAAwAGAAAAADAAAAAAAwADAAEAADABAAEAAwADAAEAADABAAIAAwADAAEAAGAAAAMAAwAGAAEAABAAAAQAAwAHAAEAABD//wUAAwAGAAAAABD//wYAAwABAAAAAGD//wgAAwAEAAAAADD//wcAAwAEAAEAADAAAAgAAwADAAAAADAAAAcAAwADAAEAADABAAcAAwADAAAAAFABAAgAAwAEAAAAAFABAAYAAwADAAIAAFACAAYAAwABAAAAADADAAYAAwAEAAEAAFADAAUAAwADAAEAAFAEAAYAAwAEAAAAAFAEAAUAAwADAAAAAFAEAAQAAwACAAAAAFAEAAMAAwAGAAAAAAADAAQAAwABAAEAAFADAAMAAwADAAEAAAAAAAUAAwADAAEAAGAAAAYAAwABAAEAAGACAAUAAwABAAEAADABAAUAAwABAAEAADABAAQAAwACAAEAAGABAAMAAwACAAEAAGACAAMAAwAAAAIAAAACAAQAAwAAAAIAAAA=")
+
+[node name="NavigationPolygon" parent="." index="0"]
+visible = false
+polygon = PackedVector2Array(58, -216, -66, -53, 46, 188, -36, 408, -49, 552, 118, 556, 111, 430, 300, 425, 313, 290)
+
+[node name="Anemone" parent="Folliage" index="0" instance=ExtResource("2_petle")]
+position = Vector2(-11, -153)
+
+[node name="Plants2" type="Sprite2D" parent="Folliage" index="1"]
+position = Vector2(139, -73)
+texture = ExtResource("3_0ruk0")
+
+[node name="Plants4" type="Sprite2D" parent="Folliage" index="2"]
+position = Vector2(51, -182)
+texture = ExtResource("4_qxlnj")
+
+[node name="Plants3" type="Sprite2D" parent="Folliage" index="3"]
+position = Vector2(-22, 39)
+texture = ExtResource("5_1eitq")
+
+[node name="Plants5" type="Sprite2D" parent="Folliage" index="4"]
+position = Vector2(-11, 2)
+texture = ExtResource("6_33qhu")
+
+[node name="Plants6" type="Sprite2D" parent="Folliage" index="5"]
+position = Vector2(-43, 39)
+texture = ExtResource("7_gfv7s")
+
+[node name="Plants7" type="Sprite2D" parent="Folliage" index="6"]
+position = Vector2(62, 182)
+texture = ExtResource("8_5os84")
+
+[node name="Plants8" type="Sprite2D" parent="Folliage" index="7"]
+position = Vector2(2, 280)
+texture = ExtResource("9_a60hl")
+
+[node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("2_wocir")]
+position = Vector2(225, 513)
+
+[node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("2_wocir")]
+position = Vector2(8, 183)
+flip_h = true
+
+[node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("2_wocir")]
+position = Vector2(-74, 476)
+flip_h = true
+
+[node name="EnemyMarker4" parent="Enemies" index="3" instance=ExtResource("2_wocir")]
+position = Vector2(-51, -96)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker5" parent="Enemies" index="4" instance=ExtResource("2_wocir")]
+position = Vector2(-13, -142)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker6" parent="Enemies" index="5" instance=ExtResource("2_wocir")]
+position = Vector2(31, -209)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker7" parent="Enemies" index="6" instance=ExtResource("2_wocir")]
+position = Vector2(335, 308)
+enemy_type = 1
+
+[node name="EnemyMarker8" parent="Enemies" index="7" instance=ExtResource("2_wocir")]
+position = Vector2(368, 338)
+enemy_type = 1
+
+[node name="EnemyMarker9" parent="Enemies" index="8" instance=ExtResource("2_wocir")]
+position = Vector2(170, -88)
+enemy_type = 1
+
+[node name="EnemyMarker10" parent="Enemies" index="9" instance=ExtResource("2_wocir")]
+position = Vector2(199, -37)
+enemy_type = 1
+
+[node name="EnemyMarker11" parent="Enemies" index="10" instance=ExtResource("2_wocir")]
+position = Vector2(273, 158)
+enemy_type = 1

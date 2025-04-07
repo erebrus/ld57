@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b10qxle1elc1p"]
+
+[ext_resource type="Texture2D" uid="uid://c7cs7188ginfw" path="res://assets/gfx/environment/plants/anemone_animated/anemone9.png" id="1_s0pnv"]
+[ext_resource type="Texture2D" uid="uid://dqhl6oe7lgebt" path="res://assets/gfx/environment/plants/anemone_animated/anemone10.png" id="2_4pje1"]
+[ext_resource type="Texture2D" uid="uid://dudbl3r4vlnq2" path="res://assets/gfx/environment/plants/anemone_animated/anemone11.png" id="3_at303"]
+[ext_resource type="Texture2D" uid="uid://cg3sehoutau3k" path="res://assets/gfx/environment/plants/anemone_animated/anemone12.png" id="4_jgykl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo8k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s0pnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4pje1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_at303")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jgykl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Anemone" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xo8k7")
+autoplay = "default"
+frame_progress = 0.131264
