@@ -65,12 +65,13 @@ func _on_ping_timer_timeout() -> void:
 func _on_attach_area_2d_body_entered(body: Node2D) -> void:
 	if enabled:
 		body.lamp=self
-
+		$Label.visible=true
 
 func _on_attach_area_2d_body_exited(body: Node2D) -> void:
 	if enabled:
 		body.lamp=null
-	
+		$Label.visible=false
+		
 func get_attach_position()->Vector2:
 	return marker_2d.global_position
 
