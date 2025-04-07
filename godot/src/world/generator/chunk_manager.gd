@@ -47,6 +47,8 @@ func get_surrounding_cells(radius:int=1)->Array[Vector2i]:
 	
 
 func init_map():
+	seed_matrix[Vector2i.ZERO]=rng.randi()
+	load_chunk(Vector2i.ZERO, start_block)
 	check_for_creation()
 	
 
@@ -65,7 +67,7 @@ func check_for_creation():
 			load_chunk(cell)
 	
 
-func load_chunk(cell:Vector2i):
+func load_chunk(cell:Vector2i, selected_block:PackedScene=null):
 	var chunk_rng = RandomNumberGenerator.new()
 	chunk_rng.seed = seed_matrix[cell]
 	
@@ -76,7 +78,7 @@ func load_chunk(cell:Vector2i):
 	chunk.global_position = chunk_pos
 	Logger.info("Generating chunk %s at %s" % [cell, chunk_pos])
 	
-	var block_scene = blocks[chunk_rng.randi() % blocks.size()]
+	var block_scene = selected_block if selected_block else blocks[chunk_rng.randi() % blocks.size()]
 	var block: BaseBlock = block_scene.instantiate()
 	var block_rect = block.get_used_rect()
 	
@@ -91,7 +93,7 @@ func load_chunk(cell:Vector2i):
 	
 	chunk_matrix[cell] = chunk
 	chunk_container.add_child(chunk)
-	Logger.info("Loaded chunk at %s with seed %d at %s" % [cell,seed_matrix[cell], chunk_pos])
+	Logger.info("Loaded chunk (%s) at %s with seed %d at %s" % [block.name,cell,seed_matrix[cell], chunk_pos])
 	
 	
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=4 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=28 format=4 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
 [ext_resource type="PackedScene" uid="uid://b2s0lpgauu5w2" path="res://src/world/generator/chunk_manager.tscn" id="2_7osel"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_ckmdn"]
+[ext_resource type="PackedScene" uid="uid://balrrqeap3uae" path="res://src/world/tileset/blocks/block_11_tut.tscn" id="3_1kyte"]
 [ext_resource type="Texture2D" uid="uid://cx05qajx6nm8c" path="res://assets/gfx/environment/back_color.png" id="3_3nirc"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
 [ext_resource type="TileSet" uid="uid://cnjk1mun3f1mu" path="res://src/world/tileset/obstacle_tileset.tres" id="4_7manr"]
@@ -53,6 +54,7 @@ script = ExtResource("1_ilhj1")
 [node name="ChunkManager" parent="." node_paths=PackedStringArray("player", "chunk_container") instance=ExtResource("2_7osel")]
 player = NodePath("../Player")
 chunk_container = NodePath("../NavigationRegion2D/World/Chunks")
+start_block = ExtResource("3_1kyte")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l0av5")
