@@ -70,6 +70,7 @@ func load_chunk(cell:Vector2i):
 	
 	var chunk: Chunk = ChunkScene.instantiate()
 	chunk.size = cell_size
+	chunk.rng = chunk_rng
 	var chunk_pos := Vector2(cell_size.x*cell.x, cell_size.y*cell.y)
 	chunk.global_position = chunk_pos
 	Logger.info("Generating chunk %s at %s" % [cell, chunk_pos])
@@ -84,12 +85,8 @@ func load_chunk(cell:Vector2i):
 	var y = chunk_rng.randi_range(-max_offset.y, max_offset.y)
 	
 	block.position = cell_size / 2 - block_rect.get_center() * float(CELL_SIZE) + Vector2(x, y)
-	block.rng = chunk_rng
-	block.enemy_scenes = enemies
-	
+	chunk.block = block
 	chunk.add_child(block) 
-	
-	#TODO place currents
 	
 	chunk_matrix[cell] = chunk
 	chunk_container.add_child(chunk)

@@ -8,7 +8,6 @@ class_name EnemyMarker extends Marker2D
 		flip_h = value
 		queue_redraw()
 
-
 func _draw():
 	if Engine.is_editor_hint():
 		var direction = 1

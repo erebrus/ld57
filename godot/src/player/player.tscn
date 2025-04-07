@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
-[ext_resource type="Texture2D" uid="uid://dpl3raqdjsolt" path="res://assets/gfx/enemies/jellysheet v2.png" id="2_k60ra"]
+[ext_resource type="Texture2D" uid="uid://c4yn0dqln41ym" path="res://assets/gfx/enemies/jellysheet v3.png" id="2_k60ra"]
 [ext_resource type="AudioStream" uid="uid://dvd6t5087bqgt" path="res://assets/sfx/MC_Charge_1.wav" id="3_ylhto"]
 [ext_resource type="AudioStream" uid="uid://c1pcjv13bug0u" path="res://assets/sfx/MC_Charge_2.wav" id="4_cwolq"]
 [ext_resource type="AudioStream" uid="uid://ccddkymj467au" path="res://assets/sfx/MC_Charge_3.wav" id="5_2smqc"]
