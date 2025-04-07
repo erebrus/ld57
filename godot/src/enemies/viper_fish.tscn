@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bix5s1utrsmcx"]
+[gd_scene load_steps=23 format=3 uid="uid://bix5s1utrsmcx"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_stgf7"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="2_6yasc"]
@@ -9,10 +9,12 @@
 [ext_resource type="Script" uid="uid://dbjekn3lw8dad" path="res://src/enemies/xsm/align.gd" id="4_uxved"]
 [ext_resource type="Script" uid="uid://bu0d5672mh751" path="res://src/enemies/xsm/charge_attack.gd" id="5_gcgnh"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="9_keu1t"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjupr"]
-radius = 2.0
-height = 14.0
+[ext_resource type="AudioStream" uid="uid://mofxvh2jsk2t" path="res://assets/sfx/NPC_ViperFish_Swim_1.wav" id="10_5k4ec"]
+[ext_resource type="AudioStream" uid="uid://yas6wofbifxq" path="res://assets/sfx/NPC_ViperFish_Swim_2.wav" id="11_haewh"]
+[ext_resource type="AudioStream" uid="uid://df10ad45155wr" path="res://assets/sfx/NPC_ViperFish_Swim_3.wav" id="12_sppm5"]
+[ext_resource type="AudioStream" uid="uid://b8eh8m1ieg7l3" path="res://assets/sfx/NPC_ViperFish_Bite_1.wav" id="13_ltu8b"]
+[ext_resource type="AudioStream" uid="uid://byh5v71cjnc3h" path="res://assets/sfx/NPC_ViperFish_Bite_2.wav" id="14_gdthb"]
+[ext_resource type="AudioStream" uid="uid://cpuwpoaqm5jk2" path="res://assets/sfx/NPC_ViperFish_Bite_3.wav" id="15_1j0t1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcgnh"]
 radius = 2.0
@@ -22,6 +24,20 @@ resource_name = "idle"
 
 [sub_resource type="Animation" id="Animation_keu1t"]
 resource_name = "move"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sfx/sfx_move")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8tqs"]
 _data = {
@@ -37,6 +53,18 @@ shader_parameter/attenuation_strength = 0.5
 shader_parameter/intensity = 3.0
 shader_parameter/max_brightness = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ioba"]
+streams_count = 3
+stream_0/stream = ExtResource("10_5k4ec")
+stream_1/stream = ExtResource("11_haewh")
+stream_2/stream = ExtResource("12_sppm5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3edqd"]
+streams_count = 3
+stream_0/stream = ExtResource("13_ltu8b")
+stream_1/stream = ExtResource("14_gdthb")
+stream_2/stream = ExtResource("15_1j0t1")
+
 [node name="ViperFish" instance=ExtResource("1_stgf7")]
 script = ExtResource("2_uxved")
 damage = 5.0
@@ -45,10 +73,10 @@ max_speed = 750.0
 health = 5.0
 vision_range = 800.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-position = Vector2(-1, 0)
+[node name="HurtArea#CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2(6, 0)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_vjupr")
+shape = SubResource("CircleShape2D_gcgnh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture_filter = 1
@@ -57,9 +85,8 @@ texture = ExtResource("3_vjupr")
 [node name="DetectionArea" parent="." index="2"]
 visible = false
 
-[node name="CollisionShape2D" parent="HurtArea" index="0"]
-position = Vector2(6, 0)
-shape = SubResource("CircleShape2D_gcgnh")
+[node name="CollisionShape2D" parent="HurtAreaPivot/HurtArea" index="0"]
+position = Vector2(16, 14)
 
 [node name="XSM" type="Node" parent="." index="5"]
 script = ExtResource("2_6yasc")
@@ -105,3 +132,13 @@ material = SubResource("ShaderMaterial_g8tqs")
 position = Vector2(6, 0)
 color = Color(1, 1, 0.360784, 1)
 polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
+
+[node name="sfx" type="Node2D" parent="." index="10"]
+
+[node name="sfx_move" type="AudioStreamPlayer2D" parent="sfx" index="0"]
+stream = SubResource("AudioStreamRandomizer_8ioba")
+bus = &"Sfx"
+
+[node name="sfx_attack" type="AudioStreamPlayer2D" parent="sfx" index="1"]
+stream = SubResource("AudioStreamRandomizer_3edqd")
+bus = &"Sfx"

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqct84efgpgya"]
+
+[ext_resource type="Texture2D" uid="uid://cj4nej684jr1k" path="res://assets/gfx/environment/objects/lamp_vertical.png" id="1_b24f8"]
+[ext_resource type="Script" uid="uid://dlb52lrrhch3d" path="res://src/world/lamp/eldritch_lamp.gd" id="1_yy7ge"]
+[ext_resource type="Texture2D" uid="uid://bpi8mgw5m5bhe" path="res://assets/gfx/environment/objects/lamp_v_on.png" id="2_yy7ge"]
+
+[sub_resource type="Gradient" id="Gradient_rlaii"]
+offsets = PackedFloat32Array(0, 0.993506)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3mwbl"]
+gradient = SubResource("Gradient_rlaii")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.01, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_yy7ge"]
+offsets = PackedFloat32Array(0.0714286, 0.175325, 1)
+colors = PackedColorArray(1, 1, 0.72549, 1, 1, 1, 0.690741, 0.923611, 1, 0.360784, 0.270588, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hdfth"]
+gradient = SubResource("Gradient_yy7ge")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="EldritchLamp" type="Node2D"]
+script = ExtResource("1_yy7ge")
+base_energy = 2.0
+lit = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b24f8")
+
+[node name="Sprite2DLit" type="Sprite2D" parent="."]
+texture = ExtResource("2_yy7ge")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = SubResource("GradientTexture2D_3mwbl")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-18, -77)
+color = Color(1, 0.625, 0.25, 1)
+texture = SubResource("GradientTexture2D_hdfth")
