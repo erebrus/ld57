@@ -91,10 +91,20 @@ func _ready():
 	Events.ping.connect(_on_ping)
 
 func _on_ping(lamp:EldritchLamp):
+	if lamp.is_activated():
+		return
 	var dist := global_position.distance_to(lamp.global_position)
 	var angle := global_position.angle_to_point(lamp.global_position)
-	if not lamp.is_on_screen():
-		Events.indicador_requested.emit(angle, dist)
+	#if not lamp.is_on_screen():
+	Logger.info("player: trying to display indicator %.2f %.2f" % [angle, dist])
+	var closest_lamp=null
+	#for _lamp in get_tree().get_nodes_in_group("lamp"):
+		#if _lamp.is_activated():
+			#continue
+		#if closest_lamp == null or _lamp.global_position.distance_to(global_position)<closest_lamp.global_position.distance_to(global_position):
+			#closest_lamp = _lamp
+	#if lamp == closest_lamp:
+	Events.indicador_requested.emit(angle, dist)
 		
 func has_energy():
 	return energy > 0 

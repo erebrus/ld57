@@ -52,6 +52,7 @@ func activate()->void:
 	ping_timer.stop()
 	
 func is_on_screen()->bool:
+	
 	#return visibility_notifier.is_on_screen()
 	return on_screen
 func _on_ping_timer_timeout() -> void:
