@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2s0lpgauu5w2"]
+[gd_scene load_steps=5 format=3 uid="uid://b2s0lpgauu5w2"]
 
 [ext_resource type="Script" uid="uid://c78k52yb4lhtp" path="res://src/world/generator/chunk_manager.gd" id="1_e7etq"]
+[ext_resource type="PackedScene" uid="uid://el0drl0p6rxf" path="res://src/world/generator/chunk.tscn" id="2_1uugb"]
+[ext_resource type="PackedScene" uid="uid://bntes4nja72tf" path="res://src/world/tileset/blocks/block_01.tscn" id="2_6q00v"]
+[ext_resource type="PackedScene" uid="uid://cnndf1s7tlan8" path="res://src/world/tileset/blocks/block_03.tscn" id="5_e3pmd"]
 
 [node name="ChunkManager" type="Node"]
 script = ExtResource("1_e7etq")
+seed = 6153192280923182575
+cell_size = Vector2(2176, 1856)
+ChunkScene = ExtResource("2_1uugb")
+blocks = Array[PackedScene]([ExtResource("2_6q00v"), ExtResource("5_e3pmd")])
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
