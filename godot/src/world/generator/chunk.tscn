@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://el0drl0p6rxf"]
+[gd_scene load_steps=6 format=3 uid="uid://el0drl0p6rxf"]
 
 [ext_resource type="Script" uid="uid://br4nyjq18tl0n" path="res://src/world/generator/chunk.gd" id="1_vtr5h"]
+[ext_resource type="PackedScene" uid="uid://c016ikvbfpb8e" path="res://src/world/currents/current.tscn" id="2_aimtw"]
+[ext_resource type="PackedScene" uid="uid://dx8q2k3ukco25" path="res://src/enemies/angler_fish.tscn" id="2_dkph3"]
+[ext_resource type="PackedScene" uid="uid://bix5s1utrsmcx" path="res://src/enemies/viper_fish.tscn" id="3_aimtw"]
+[ext_resource type="PackedScene" uid="uid://de80n1av20gh6" path="res://src/enemies/mooray.tscn" id="4_xhaqt"]
 
 [node name="Chunk" type="Node2D"]
 script = ExtResource("1_vtr5h")
+current_scene = ExtResource("2_aimtw")
+enemy_scenes = Dictionary[int, PackedScene]({
+0: ExtResource("2_dkph3"),
+1: ExtResource("3_aimtw"),
+2: ExtResource("4_xhaqt")
+})
