@@ -7,8 +7,8 @@
 radius = 7.0
 
 [sub_resource type="Gradient" id="Gradient_rlaii"]
-offsets = PackedFloat32Array(0, 0.993506)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.0495169, 0.434783, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.838273, 0.422575, 0.807035, 0.574667, 0.540086, 0.304552, 9.62615e-08, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nk44s"]
 gradient = SubResource("Gradient_rlaii")
@@ -21,14 +21,14 @@ fill_to = Vector2(0.01, 0.5)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ithag"]
 shader = ExtResource("1_ya2oo")
 shader_parameter/light_texture = SubResource("GradientTexture2D_nk44s")
-shader_parameter/light_color = Color(0.752941, 0.823529, 0.454902, 1)
-shader_parameter/brightness = 0.15
-shader_parameter/attenuation_strength = 0.5
-shader_parameter/intensity = 8.0
+shader_parameter/light_color = Color(0.764365, 0.938654, 0.542639, 1)
+shader_parameter/brightness = 0.16
+shader_parameter/attenuation_strength = 0.308
+shader_parameter/intensity = 5.24
 shader_parameter/max_brightness = 1.48
 
 [sub_resource type="Gradient" id="Gradient_ithag"]
-offsets = PackedFloat32Array(0, 0.993506)
+offsets = PackedFloat32Array(0, 0.990698)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c3vik"]
@@ -102,7 +102,7 @@ fill_to = Vector2(1, 0.5)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1h4c8"]
 shader = ExtResource("1_ya2oo")
 shader_parameter/light_texture = SubResource("GradientTexture2D_ithag")
-shader_parameter/light_color = Color(0.617279, 0.859386, 0.523901, 1)
+shader_parameter/light_color = Color(0.643137, 0.843137, 0.921569, 1)
 shader_parameter/brightness = 0.23
 shader_parameter/attenuation_strength = 0.336
 shader_parameter/intensity = 4.16
@@ -127,6 +127,8 @@ shape = SubResource("CircleShape2D_ya2oo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ithag")
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(1.77083, 1.77083)
 texture = SubResource("GradientTexture2D_c3vik")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -164,7 +166,7 @@ rotation = 2.0944
 
 [node name="Sprite2D" type="Sprite2D" parent="FloatyBits/PivotPoint2"]
 material = SubResource("ShaderMaterial_1h4c8")
-position = Vector2(5, 0)
+position = Vector2(4.9641, 0.598052)
 texture = SubResource("GradientTexture2D_rfg61")
 
 [node name="PivotPoint3" type="Node2D" parent="FloatyBits"]
@@ -173,7 +175,7 @@ rotation = 2.0944
 
 [node name="Sprite2D" type="Sprite2D" parent="FloatyBits/PivotPoint3"]
 material = SubResource("ShaderMaterial_1h4c8")
-position = Vector2(5, 0)
+position = Vector2(4.9641, 0.598052)
 texture = SubResource("GradientTexture2D_rfg61")
 
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

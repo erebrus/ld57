@@ -17,8 +17,8 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.01, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_yy7ge"]
-offsets = PackedFloat32Array(0.0714286, 0.175325, 1)
-colors = PackedColorArray(1, 1, 0.72549, 1, 1, 1, 0.690741, 0.923611, 1, 0.360784, 0.270588, 0)
+offsets = PackedFloat32Array(0.0209302, 0.118605, 0.57907, 1)
+colors = PackedColorArray(0.607138, 0.725046, 0.787542, 1, 0.807, 0.495389, 0.417311, 0.92549, 0.745098, 0.470588, 0.592157, 0.388235, 0.505882, 0.615686, 0.607843, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hdfth"]
 gradient = SubResource("Gradient_yy7ge")
@@ -31,18 +31,21 @@ fill_to = Vector2(1, 0.5)
 [node name="EldritchLamp" type="Node2D"]
 script = ExtResource("1_yy7ge")
 base_energy = 2.0
-lit = 1.0
+lit = 0.44804
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b24f8")
 
 [node name="Sprite2DLit" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.44804)
 texture = ExtResource("2_yy7ge")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = SubResource("GradientTexture2D_3mwbl")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-18, -77)
-color = Color(1, 0.625, 0.25, 1)
+position = Vector2(-27, -84)
+scale = Vector2(1.81641, 1.67969)
+color = Color(0.752754, 0.697004, 0.828886, 1)
+energy = 0.89608
 texture = SubResource("GradientTexture2D_hdfth")

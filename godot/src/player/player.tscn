@@ -31,8 +31,8 @@ radius = 15.0
 height = 42.0
 
 [sub_resource type="Gradient" id="Gradient_rxibo"]
-offsets = PackedFloat32Array(0.194805, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.130233, 0.573256, 1)
+colors = PackedColorArray(0.91391, 0.799839, 0.744868, 1, 0.913549, 0.669266, 0.920077, 0.488636, 0.627283, 0.654825, 0.857961, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mf2ua"]
 gradient = SubResource("Gradient_rxibo")
@@ -369,7 +369,7 @@ offset_bottom = 6.0
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.741026, 0.672275, 0.633681, 1)
+color = Color(0.865036, 0.777754, 0.805672, 1)
 texture = SubResource("GradientTexture2D_mf2ua")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
