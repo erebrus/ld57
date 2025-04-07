@@ -1,6 +1,356 @@
-[gd_scene load_steps=2 format=4 uid="uid://c52qak1nanrrj"]
+[gd_scene load_steps=17 format=4 uid="uid://c52qak1nanrrj"]
 
 [ext_resource type="PackedScene" uid="uid://melef81c1ugk" path="res://src/world/tileset/base_block.tscn" id="1_sdyse"]
+[ext_resource type="Texture2D" uid="uid://cjjk8b1kuiluw" path="res://assets/gfx/environment/plants/seaweed/seaweed1.png" id="2_mwdpt"]
+[ext_resource type="Texture2D" uid="uid://djvlh0fgxae3y" path="res://assets/gfx/environment/plants/seaweed/seaweed2.png" id="3_lqhie"]
+[ext_resource type="Texture2D" uid="uid://dmmlge5wy68lk" path="res://assets/gfx/environment/plants/seaweed/seaweed3.png" id="4_hcqr8"]
+[ext_resource type="Texture2D" uid="uid://bmhv2ldhoiepo" path="res://assets/gfx/environment/plants/seaweed/seaweed4.png" id="5_4hif6"]
+[ext_resource type="Texture2D" uid="uid://cnlxwv0g1mogf" path="res://assets/gfx/environment/plants/seaweed/seaweed5.png" id="6_htbhk"]
+[ext_resource type="Texture2D" uid="uid://dqhl6oe7lgebt" path="res://assets/gfx/environment/plants/anemone_animated/anemone10.png" id="7_4uncd"]
+[ext_resource type="Texture2D" uid="uid://c7cs7188ginfw" path="res://assets/gfx/environment/plants/anemone_animated/anemone9.png" id="8_lqhie"]
+[ext_resource type="Texture2D" uid="uid://5qikfhj5xyts" path="res://assets/gfx/environment/plants/plants4.png" id="9_4synb"]
+[ext_resource type="Texture2D" uid="uid://cfffi5gfgnjuj" path="res://assets/gfx/environment/plants/plants5.png" id="10_scovq"]
+[ext_resource type="Texture2D" uid="uid://xul5v5l0org6" path="res://assets/gfx/environment/plants/plants2.png" id="11_vey46"]
+[ext_resource type="Texture2D" uid="uid://c07tscn6pim1s" path="res://assets/gfx/environment/plants/plants8.png" id="12_nn1e3"]
+[ext_resource type="Texture2D" uid="uid://cnhwdikdesp2q" path="res://assets/gfx/environment/plants/plants6.png" id="13_bnapv"]
+[ext_resource type="Texture2D" uid="uid://b7qfjky71huyi" path="res://assets/gfx/environment/plants/plants7.png" id="14_b781e"]
+[ext_resource type="Texture2D" uid="uid://cdtoqthreblm3" path="res://assets/gfx/environment/plants/plants3.png" id="15_f3td0"]
+[ext_resource type="PackedScene" uid="uid://dra641rpsgd0q" path="res://src/enemies/marker/enemy_marker.tscn" id="16_scovq"]
 
 [node name="BaseBlock" instance=ExtResource("1_sdyse")]
-tile_map_data = PackedByteArray("AAACAP//AwAGAAEAAAACAAAAAwAHAAAAAAADAAEAAwAGAAAAAAADAAIAAwAHAAEAAAABAP3/AwAGAAAAAAABAP7/AwAHAAAAAAABAP//AwAGAAIAAAACAAEAAwAFAAIAAAABAAAAAwADAAEAAAAAAP//AwADAAEAAAACAAIAAwADAAEAAAAAAP7/AwADAAIAAGAAAP3/AwAGAAAAABD///7/AwAGAAAAAGD/////AwAHAAAAADD//wAAAwAGAAEAADAAAAEAAwAHAAEAADAAAAIAAwAGAAAAADAAAAAAAwADAAEAADABAAEAAwADAAEAADABAAIAAwADAAEAAGAAAAMAAwAGAAEAABAAAAQAAwAHAAEAABD//wUAAwAGAAAAABD//wYAAwABAAAAAGD//wgAAwAEAAAAADD//wcAAwAEAAEAADAAAAgAAwADAAAAADAAAAcAAwADAAEAADABAAcAAwADAAAAAFABAAgAAwAEAAAAAFABAAYAAwADAAIAAFACAAYAAwABAAAAADADAAYAAwAEAAEAAFADAAUAAwADAAEAAFAEAAYAAwAEAAAAAFAEAAUAAwADAAAAAFAEAAQAAwACAAAAAFAEAAMAAwAAAAIAAAADAAQAAwABAAEAAFADAAMAAwABAAIAAAAAAAUAAwADAAEAAGAAAAYAAwABAAEAAGACAAUAAwABAAEAADABAAUAAwABAAEAADABAAQAAwACAAEAAGABAAMAAwACAAEAAGACAAMAAwAAAAIAAAACAAQAAwAAAAIAAAAFAAMAAwAAAAIAAAAGAAMAAwAAAAIAAAAHAAIAAwACAAIAAAAIAAIAAwABAAIAAAAJAAIAAwACAAIAAAAKAAIAAwABAAIAAAALAAIAAwAAAAIAAAAMAAIAAwACAAIAAAANAAIAAwAAAAIAAAANAAEAAwACAAIAAAAMAAEAAwABAAIAAAAMAAAAAwACAAIAAAALAAAAAwABAAIAAAALAP//AwAAAAIAAAAKAP//AwAAAAIAAAAKAP7/AwAAAAIAAAAJAAMAAwAAAAIAAAAIAAMAAwAAAAIAAAAIAAQAAwABAAIAAAAHAAUAAwAAAAIAAAAHAAYAAwACAAIAAAAGAAcAAwACAAIAAAAGAAgAAwAAAAIAAAAGAAkAAwAAAAIAAAAGAAoAAwACAAIAAAAGAAsAAwABAAIAAAAGAAwAAwACAAIAAAAFAA0AAwACAAIAAAAEAA4AAwACAAIAAAADAA8AAwACAAIAAAACABAAAwABAAIAAAABABAAAwACAAIAAAAAABAAAwABAAIAAAAAABEAAwABAAIAAAAAABIAAwACAAIAAAAFAA8AAwACAAIAAAAFABAAAwACAAIAAAAFABEAAwAAAAIAAAAFABIAAwACAAIAAAAEABMAAwAAAAIAAAAEABQAAwACAAIAAAAEABUAAwABAAIAAAAEAAoAAwACAAAAAGAEAAkAAwABAAAAAGAEAAgAAwACAAAAAGAFAAoAAwACAAEAAGAFAAkAAwABAAEAAGAFAAgAAwACAAEAAGAEAAwAAwAAAAAAAGAEAAsAAwABAAAAAGAFAAwAAwAAAAEAAGAFAAsAAwABAAEAAGAEAA0AAwADAAIAAGADAA0AAwAEAAAAAGADAA4AAwAEAAEAADAKAPz/AwAFAAAAAAAKAP3/AwAFAAEAAAALAP3/AwAGAAEAAAALAP7/AwAHAAAAAAAMAP//AwAGAAAAAAAJAP7/AwAGAAAAABAJAP//AwAHAAEAABAJAAAAAwAHAAIAAAA=")
+position = Vector2(116, 368)
+tile_map_data = PackedByteArray("AAACAP//AwAGAAEAAAACAAAAAwAHAAAAAAADAAEAAwAGAAAAAAADAAIAAwADAAIAAAABAP3/AwAGAAAAAAABAP7/AwAHAAAAAAABAP//AwAGAAIAAAACAAEAAwAFAAIAAAABAAAAAwADAAEAAAAAAP//AwADAAEAAAACAAIAAwADAAEAAAAAAP7/AwADAAIAAGAAAP3/AwAGAAAAABD///7/AwAGAAAAAGD/////AwAHAAAAADD//wAAAwAGAAEAADAAAAEAAwAHAAEAADAAAAIAAwAGAAAAADAAAAAAAwADAAEAADABAAEAAwADAAEAADABAAIAAwADAAEAAGAAAAMAAwAGAAEAABAAAAQAAwAHAAEAABD//wUAAwAGAAAAABD//wYAAwABAAAAAGD//wgAAwAEAAAAADD//wcAAwAEAAEAADAAAAgAAwADAAAAADAAAAcAAwADAAEAADABAAcAAwADAAAAAFABAAgAAwAEAAAAAFABAAYAAwADAAIAAFACAAYAAwABAAAAADADAAYAAwAEAAEAAFADAAUAAwADAAEAAFAEAAYAAwAEAAAAAFAEAAUAAwADAAAAAFAEAAQAAwADAAIAAFAEAAMAAwACAAEAAAADAAQAAwABAAEAAFADAAMAAwACAAEAAAAAAAUAAwADAAEAAGAAAAYAAwABAAEAAGACAAUAAwABAAEAADABAAUAAwABAAEAADABAAQAAwACAAEAAGABAAMAAwACAAEAAGACAAMAAwAAAAIAAAACAAQAAwAAAAIAAAAFAAMAAwAAAAEAAAAGAAMAAwABAAEAAAAHAAIAAwACAAAAAAAIAAIAAwADAAIAAGAJAAIAAwADAAEAAGAKAAIAAwABAAEAADALAAIAAwADAAEAAFAMAAIAAwAHAAMAADANAAEAAwADAAMAAFAMAAEAAwADAAEAAAAMAAAAAwAHAAAAAAALAAAAAwACAAEAAFALAP//AwADAAEAAAAKAP//AwABAAEAAGAKAP7/AwADAAEAAGAJAAMAAwADAAIAAFAIAAMAAwADAAEAAFAIAAQAAwAHAAMAADAHAAUAAwAHAAMAADAHAAYAAwAHAAMAAFAGAAcAAwADAAIAAGAGAAgAAwADAAEAAAAGAAkAAwAAAAEAAFAGAAoAAwACAAEAAFAGAAsAAwABAAEAAFAGAAwAAwAAAAEAAFAFAA0AAwADAAEAAGAEAA4AAwADAAEAAGADAA8AAwADAAIAAFACABAAAwACAAAAADABABAAAwABAAAAADAAABAAAwADAAIAAFAAABEAAwAGAAAAACAFAA8AAwACAAEAAGAFABAAAwAAAAEAAFAFABEAAwABAAEAAFAFABIAAwACAAEAAFAEABMAAwADAAEAAGAEABQAAwACAAEAAGAEABUAAwADAAEAAFAEAAoAAwACAAAAAGAEAAkAAwABAAAAAGAEAAgAAwAGAAAAABAFAAoAAwACAAEAAGAFAAkAAwABAAEAAGAFAAgAAwADAAEAAGAEAAwAAwAAAAAAAGAEAAsAAwABAAAAAGAFAAwAAwAAAAEAAGAFAAsAAwABAAEAAGAEAA0AAwADAAIAAGADAA0AAwAEAAAAAGADAA4AAwADAAIAAGAKAPz/AwAFAAAAAAAKAP3/AwAFAAEAAAALAP3/AwAGAAEAAAALAP7/AwAHAAAAAAAMAP//AwAGAAAAAAAJAP7/AwAGAAAAABAJAP//AwAHAAEAABAJAAAAAwADAAAAAGAJAAEAAwADAAIAAGAIAAEAAwAEAAIAAGAGAAIAAwABAAAAAAAFAAIAAwAAAAAAAAAEAAIAAwABAAAAAAAOAAEAAwAEAAMAAGAPAAEAAwAEAAMAAHAQAAEAAwAFAAMAAFALAAMAAwADAAMAADAKAAMAAwADAAAAADAFAAQAAwABAAAAADAGAAQAAwADAAIAADAGAAUAAwAGAAAAADAGAAYAAwAGAAAAABAHAAQAAwADAAEAAFAHAAMAAwACAAEAAAAKAAAAAwAAAAEAAGAKAAEAAwACAAEAAGALAAEAAwACAAIAAAALAAQAAwAGAAMAADAFAAcAAwAGAAAAAGAHAAcAAwAFAAEAADAHAAgAAwADAAAAAHAHAAkAAwACAAAAAFAHAAoAAwABAAAAAFAHAAsAAwAAAAAAAFAHAAwAAwAEAAEAAAAHAA0AAwABAAAAAFAGAA4AAwADAAIAAFAHAA4AAwAEAAIAAFAGAA8AAwACAAAAAFAGABAAAwABAAAAAFAGABEAAwAAAAAAAFAGABIAAwACAAAAAFAFABMAAwADAAIAAFAGABMAAwAEAAIAACAFABQAAwAHAAIAABAFABUAAwAHAAMAADAEABYAAwADAAMAADAEABcAAwAGAAMAADADABUAAwAHAAMAAGADABQAAwAHAAAAABADABMAAwADAAAAAGAEABIAAwADAAIAAGADABIAAwAEAAIAAGAEABEAAwAEAAEAADAEABAAAwACAAAAAGAEAA8AAwADAAIAADADABAAAwAEAAIAACD//xIAAwADAAMAADD//xMAAwAFAAMAADD+/xEAAwAGAAAAADD+/xAAAwAEAAEAADD+/w8AAwADAAAAAGD+/w4AAwAEAAAAAGD//w8AAwADAAEAAGD//w4AAwAEAAEAAGAAAA4AAwACAAAAAAABAA4AAwABAAAAAAACAA4AAwAAAAAAAAD//xEAAwADAAEAADD//xAAAwACAAEAAGAAAA8AAwABAAEAAAABAA8AAwAAAAEAAAACAA8AAwACAAEAAAAFAA4AAwACAAEAAFAGAA0AAwABAAEAAFA=")
+
+[node name="Seaweed1" type="Sprite2D" parent="Folliage" index="0"]
+position = Vector2(350, 436)
+texture = ExtResource("2_mwdpt")
+
+[node name="Seaweed2" type="Sprite2D" parent="Folliage" index="1"]
+position = Vector2(372, 426)
+texture = ExtResource("3_lqhie")
+
+[node name="Seaweed3" type="Sprite2D" parent="Folliage" index="2"]
+position = Vector2(397, 412)
+texture = ExtResource("4_hcqr8")
+
+[node name="Seaweed4" type="Sprite2D" parent="Folliage" index="3"]
+position = Vector2(420, 391)
+texture = ExtResource("5_4hif6")
+
+[node name="Seaweed5" type="Sprite2D" parent="Folliage" index="4"]
+position = Vector2(324, 451)
+texture = ExtResource("6_htbhk")
+
+[node name="Anemone10" type="Sprite2D" parent="Folliage" index="5"]
+position = Vector2(337, 362)
+rotation = -3.12299
+texture = ExtResource("7_4uncd")
+
+[node name="Seaweed6" type="Sprite2D" parent="Folliage" index="6"]
+position = Vector2(111, 1124)
+rotation = 3.18748
+texture = ExtResource("2_mwdpt")
+
+[node name="Seaweed7" type="Sprite2D" parent="Folliage" index="7"]
+position = Vector2(77, 1117)
+rotation = -3.10708
+texture = ExtResource("3_lqhie")
+
+[node name="Seaweed8" type="Sprite2D" parent="Folliage" index="8"]
+position = Vector2(98, 1132)
+rotation = -3.13054
+texture = ExtResource("4_hcqr8")
+
+[node name="Seaweed9" type="Sprite2D" parent="Folliage" index="9"]
+position = Vector2(56, 1122)
+rotation = 3.12487
+texture = ExtResource("5_4hif6")
+
+[node name="Seaweed10" type="Sprite2D" parent="Folliage" index="10"]
+position = Vector2(43, 1134)
+rotation = 3.04274
+texture = ExtResource("6_htbhk")
+
+[node name="Seaweed11" type="Sprite2D" parent="Folliage" index="11"]
+position = Vector2(873, 14)
+texture = ExtResource("2_mwdpt")
+
+[node name="Seaweed12" type="Sprite2D" parent="Folliage" index="12"]
+position = Vector2(894, 14)
+texture = ExtResource("3_lqhie")
+
+[node name="Seaweed13" type="Sprite2D" parent="Folliage" index="13"]
+position = Vector2(916, 11)
+texture = ExtResource("5_4hif6")
+
+[node name="Seaweed14" type="Sprite2D" parent="Folliage" index="14"]
+position = Vector2(935, 15)
+texture = ExtResource("6_htbhk")
+
+[node name="Seaweed15" type="Sprite2D" parent="Folliage" index="15"]
+position = Vector2(956, 12)
+texture = ExtResource("4_hcqr8")
+
+[node name="Anemone9" type="Sprite2D" parent="Folliage" index="16"]
+position = Vector2(819, -126)
+rotation = 1.11381
+texture = ExtResource("8_lqhie")
+
+[node name="Anemone11" type="Sprite2D" parent="Folliage" index="17"]
+position = Vector2(472, 1006)
+rotation = 2.45771
+texture = ExtResource("7_4uncd")
+
+[node name="Anemone12" type="Sprite2D" parent="Folliage" index="18"]
+position = Vector2(-27, -158)
+rotation = -0.285039
+texture = ExtResource("8_lqhie")
+
+[node name="Plants4" type="Sprite2D" parent="Folliage" index="19"]
+position = Vector2(707, -209)
+rotation = 2.11559
+texture = ExtResource("9_4synb")
+
+[node name="Plants5" type="Sprite2D" parent="Folliage" index="20"]
+position = Vector2(600, -1)
+texture = ExtResource("10_scovq")
+
+[node name="Plants2" type="Sprite2D" parent="Folliage" index="21"]
+position = Vector2(522, 153)
+texture = ExtResource("11_vey46")
+
+[node name="Plants8" type="Sprite2D" parent="Folliage" index="22"]
+position = Vector2(226, 130)
+texture = ExtResource("12_nn1e3")
+
+[node name="Plants6" type="Sprite2D" parent="Folliage" index="23"]
+position = Vector2(196, 39)
+rotation = 2.52696
+texture = ExtResource("13_bnapv")
+
+[node name="Plants7" type="Sprite2D" parent="Folliage" index="24"]
+position = Vector2(117, -92)
+texture = ExtResource("14_b781e")
+
+[node name="Plants9" type="Sprite2D" parent="Folliage" index="25"]
+position = Vector2(75, -197)
+texture = ExtResource("10_scovq")
+
+[node name="Plants3" type="Sprite2D" parent="Folliage" index="26"]
+position = Vector2(-14, 36)
+texture = ExtResource("11_vey46")
+
+[node name="Plants10" type="Sprite2D" parent="Folliage" index="27"]
+position = Vector2(45, 189)
+texture = ExtResource("9_4synb")
+
+[node name="Plants11" type="Sprite2D" parent="Folliage" index="28"]
+position = Vector2(-4, 346)
+texture = ExtResource("10_scovq")
+
+[node name="Plants12" type="Sprite2D" parent="Folliage" index="29"]
+position = Vector2(-43, 503)
+rotation = 0.773212
+texture = ExtResource("14_b781e")
+
+[node name="Plants13" type="Sprite2D" parent="Folliage" index="30"]
+position = Vector2(63, 533)
+rotation = -1.13644
+texture = ExtResource("10_scovq")
+
+[node name="Plants14" type="Sprite2D" parent="Folliage" index="31"]
+position = Vector2(156, 441)
+rotation = -1.40263
+texture = ExtResource("13_bnapv")
+
+[node name="Plants15" type="Sprite2D" parent="Folliage" index="32"]
+position = Vector2(433, 398)
+rotation = -0.22015
+texture = ExtResource("9_4synb")
+
+[node name="Plants16" type="Sprite2D" parent="Folliage" index="33"]
+position = Vector2(275, 612)
+rotation = 0.851389
+texture = ExtResource("14_b781e")
+
+[node name="Plants17" type="Sprite2D" parent="Folliage" index="34"]
+position = Vector2(290, 767)
+rotation = 3.07278
+texture = ExtResource("12_nn1e3")
+
+[node name="Plants18" type="Sprite2D" parent="Folliage" index="35"]
+position = Vector2(260, 848)
+rotation = -3.31812
+texture = ExtResource("15_f3td0")
+
+[node name="Plants19" type="Sprite2D" parent="Folliage" index="36"]
+position = Vector2(203, 924)
+texture = ExtResource("11_vey46")
+
+[node name="Plants20" type="Sprite2D" parent="Folliage" index="37"]
+position = Vector2(143, 925)
+texture = ExtResource("10_scovq")
+
+[node name="Plants21" type="Sprite2D" parent="Folliage" index="38"]
+position = Vector2(-6, 925)
+texture = ExtResource("11_vey46")
+
+[node name="Plants22" type="Sprite2D" parent="Folliage" index="39"]
+position = Vector2(-86, 1083)
+texture = ExtResource("10_scovq")
+
+[node name="Plants23" type="Sprite2D" parent="Folliage" index="40"]
+position = Vector2(-19, 1226)
+rotation = 0.434439
+texture = ExtResource("14_b781e")
+
+[node name="Plants24" type="Sprite2D" parent="Folliage" index="41"]
+position = Vector2(181, 1061)
+texture = ExtResource("10_scovq")
+
+[node name="Plants25" type="Sprite2D" parent="Folliage" index="42"]
+position = Vector2(252, 1044)
+rotation = 2.23737
+texture = ExtResource("14_b781e")
+
+[node name="Plants26" type="Sprite2D" parent="Folliage" index="43"]
+position = Vector2(276, 1147)
+rotation = 1.93127
+texture = ExtResource("15_f3td0")
+
+[node name="Plants27" type="Sprite2D" parent="Folliage" index="44"]
+position = Vector2(206, 1208)
+rotation = -0.019187
+texture = ExtResource("14_b781e")
+
+[node name="Plants28" type="Sprite2D" parent="Folliage" index="45"]
+position = Vector2(244, 1366)
+rotation = 2.34876
+texture = ExtResource("12_nn1e3")
+
+[node name="Plants29" type="Sprite2D" parent="Folliage" index="46"]
+position = Vector2(273, 1405)
+texture = ExtResource("10_scovq")
+
+[node name="Plants30" type="Sprite2D" parent="Folliage" index="47"]
+position = Vector2(314, 1414)
+rotation = 0.670059
+texture = ExtResource("15_f3td0")
+
+[node name="Plants31" type="Sprite2D" parent="Folliage" index="48"]
+position = Vector2(312, 1512)
+texture = ExtResource("10_scovq")
+
+[node name="Plants32" type="Sprite2D" parent="Folliage" index="49"]
+position = Vector2(373, 1336)
+texture = ExtResource("14_b781e")
+
+[node name="Plants33" type="Sprite2D" parent="Folliage" index="50"]
+position = Vector2(433, 1124)
+rotation = 2.85593
+texture = ExtResource("9_4synb")
+
+[node name="Plants34" type="Sprite2D" parent="Folliage" index="51"]
+position = Vector2(523, 911)
+rotation = 3.116
+texture = ExtResource("13_bnapv")
+
+[node name="Plants35" type="Sprite2D" parent="Folliage" index="52"]
+position = Vector2(482, 763)
+rotation = 0.537898
+texture = ExtResource("14_b781e")
+
+[node name="Plants36" type="Sprite2D" parent="Folliage" index="53"]
+position = Vector2(502, 628)
+texture = ExtResource("11_vey46")
+
+[node name="Plants37" type="Sprite2D" parent="Folliage" index="54"]
+position = Vector2(516, 506)
+texture = ExtResource("10_scovq")
+
+[node name="Plants38" type="Sprite2D" parent="Folliage" index="55"]
+position = Vector2(516, 440)
+rotation = -2.4214
+texture = ExtResource("15_f3td0")
+
+[node name="Plants39" type="Sprite2D" parent="Folliage" index="56"]
+position = Vector2(503, 341)
+rotation = -2.90568
+texture = ExtResource("9_4synb")
+
+[node name="Plants40" type="Sprite2D" parent="Folliage" index="57"]
+position = Vector2(602, 244)
+rotation = 1.40471
+texture = ExtResource("12_nn1e3")
+
+[node name="Plants41" type="Sprite2D" parent="Folliage" index="58"]
+position = Vector2(623, 247)
+rotation = -2.92855
+texture = ExtResource("9_4synb")
+
+[node name="Plants42" type="Sprite2D" parent="Folliage" index="59"]
+position = Vector2(657, 254)
+rotation = -1.15527
+texture = ExtResource("13_bnapv")
+
+[node name="Plants43" type="Sprite2D" parent="Folliage" index="60"]
+position = Vector2(702, 193)
+rotation = 0.56637
+texture = ExtResource("12_nn1e3")
+
+[node name="Plants44" type="Sprite2D" parent="Folliage" index="61"]
+position = Vector2(830, 139)
+texture = ExtResource("15_f3td0")
+
+[node name="Plants45" type="Sprite2D" parent="Folliage" index="62"]
+position = Vector2(1013, 118)
+rotation = -2.16979
+texture = ExtResource("9_4synb")
+
+[node name="Plants46" type="Sprite2D" parent="Folliage" index="63"]
+position = Vector2(1034, 75)
+texture = ExtResource("11_vey46")
+
+[node name="Plants47" type="Sprite2D" parent="Folliage" index="64"]
+position = Vector2(798, -46)
+texture = ExtResource("10_scovq")
+
+[node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("16_scovq")]
+position = Vector2(503, 705)
+enemy_type = 2
+
+[node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("16_scovq")]
+position = Vector2(-59, 460)
+enemy_type = 2
+flip_h = true
+
+[node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("16_scovq")]
+position = Vector2(584, 53)
+enemy_type = 2
+flip_h = true
+
+[node name="EnemyMarker4" parent="Enemies" index="3" instance=ExtResource("16_scovq")]
+position = Vector2(-420, 769)
+
+[node name="EnemyMarker5" parent="Enemies" index="4" instance=ExtResource("16_scovq")]
+position = Vector2(227, -228)
+
+[node name="EnemyMarker6" parent="Enemies" index="5" instance=ExtResource("16_scovq")]
+position = Vector2(544, 1250)
+
+[node name="EnemyMarker7" parent="Enemies" index="6" instance=ExtResource("16_scovq")]
+position = Vector2(908, 406)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker9" parent="Enemies" index="7" instance=ExtResource("16_scovq")]
+position = Vector2(1265, -179)
+flip_h = true
+
+[node name="EnemyMarker8" parent="Enemies" index="8" instance=ExtResource("16_scovq")]
+position = Vector2(-410, 164)
+enemy_type = 1
+
+[node name="NavigationPolygon" parent="Navigation" index="0"]
+visible = false
+polygon = PackedVector2Array(-85, -77, 15, -156, 81, -253, 157, -118, 222, 41, 284, 130, 467, 127, 602, -115, 671, -329, 757, -180, 861, 20, 1099, 75, 1104, 145, 957, 148, 840, 168, 792, 237, 757, 343, 633, 307, 529, 379, 533, 483, 546, 942, 509, 993, 453, 1069, 457, 1211, 436, 1328, 353, 1460, 308, 1576, 205, 1501, 163, 1387, 150, 1225, 125, 1142, 49, 1197, 18, 1301, -92, 1294, -120, 1158, -146, 1027, -171, 914, -64, 876, 112, 828, 201, 800, 215, 690, 219, 559, 115, 572, -75, 586, -82, 448, -61, 272, 10, 180, -92, 10)
