@@ -97,7 +97,7 @@ target_container = NodePath("../../NavigationRegion2D/Plancton")
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.631388, 0.561746, 0.521776, 1)
-energy = 2.0
+energy = 1.8
 blend_mode = 1
 
 [node name="Ambient1" type="AudioStreamPlayer" parent="."]
