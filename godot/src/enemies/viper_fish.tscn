@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://bix5s1utrsmcx"]
+[gd_scene load_steps=26 format=3 uid="uid://bix5s1utrsmcx"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_stgf7"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="2_6yasc"]
 [ext_resource type="Script" uid="uid://xpoxsa4e6j1i" path="res://src/enemies/viper_fish.gd" id="2_uxved"]
-[ext_resource type="Texture2D" uid="uid://byncv36hv644w" path="res://assets/gfx/enemies/viperfish_sheet.png" id="3_5k4ec"]
+[ext_resource type="Texture2D" uid="uid://vdgscb21m3nl" path="res://assets/gfx/enemies/viperfish_sheet.png" id="3_5k4ec"]
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="3_gcgnh"]
 [ext_resource type="Script" uid="uid://dlsi2jauwupc1" path="res://addons/xsm/state_animation.gd" id="3_gd62g"]
 [ext_resource type="Script" uid="uid://dbjekn3lw8dad" path="res://src/enemies/xsm/align.gd" id="4_uxved"]
@@ -83,9 +83,27 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_haewh"]
+resource_name = "attack"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8tqs"]
 _data = {
 &"RESET": SubResource("Animation_5k4ec"),
+&"attack": SubResource("Animation_haewh"),
 &"idle": SubResource("Animation_vjupr"),
 &"move": SubResource("Animation_keu1t")
 }
@@ -119,18 +137,16 @@ modulate = Color(0.646029, 0.646029, 0.646029, 1)
 script = ExtResource("2_uxved")
 damage = 5.0
 accel = 20.0
+cruise_speed = 10.0
 max_speed = 750.0
 health = 5.0
-vision_range = 800.0
+vision_range = 350.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture_filter = 1
 texture = ExtResource("3_5k4ec")
 hframes = 3
 vframes = 2
-
-[node name="DetectionArea" parent="." index="1"]
-visible = false
 
 [node name="HurtArea" parent="HurtAreaPivot" index="0"]
 position = Vector2(10, 0)
@@ -151,6 +167,7 @@ metadata/_custom_type_script = "uid://byryw0ctc5ev8"
 [node name="Idle" type="Node" parent="XSM" index="0"]
 script = ExtResource("3_gcgnh")
 on_detection_state = "Align"
+move_distance = 50
 metadata/_custom_type_script = "uid://dlsi2jauwupc1"
 
 [node name="Align" type="Node" parent="XSM" index="1"]
