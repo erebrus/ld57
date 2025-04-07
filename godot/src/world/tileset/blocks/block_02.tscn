@@ -423,25 +423,44 @@ position = Vector2(704, 196)
 rotation = -1.72309
 texture = ExtResource("12_nni8j")
 
-[node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("17_hlwqw")]
-position = Vector2(-581, 444)
-enemy_type = 2
-
-[node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("17_hlwqw")]
-position = Vector2(-1031, -51)
-enemy_type = 2
-
-[node name="Plants6" type="Sprite2D" parent="." index="3"]
+[node name="Plants66" type="Sprite2D" parent="Folliage" index="85"]
 position = Vector2(874, 119)
 rotation = -1.41802
+scale = Vector2(1, 1)
 texture = ExtResource("11_soixk")
 
-[node name="Plants4" type="Sprite2D" parent="." index="4"]
+[node name="Plants67" type="Sprite2D" parent="Folliage" index="86"]
 position = Vector2(1005, 38)
 rotation = 2.30907
 texture = ExtResource("14_xkkw6")
 
-[node name="Plants5" type="Sprite2D" parent="." index="5"]
+[node name="Plants68" type="Sprite2D" parent="Folliage" index="87"]
 position = Vector2(1013, -129)
 rotation = 0.383863
 texture = ExtResource("16_yjq4f")
+
+[node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("17_hlwqw")]
+position = Vector2(-581, 444)
+enemy_type = 2
+flip_h = true
+
+[node name="EnemyMarker2" parent="Enemies" index="1" instance=ExtResource("17_hlwqw")]
+position = Vector2(-1031, -51)
+
+[node name="EnemyMarker3" parent="Enemies" index="2" instance=ExtResource("17_hlwqw")]
+position = Vector2(364, 457)
+enemy_type = 1
+
+[node name="EnemyMarker4" parent="Enemies" index="3" instance=ExtResource("17_hlwqw")]
+position = Vector2(1369, -355)
+flip_h = true
+
+[node name="EnemyMarker5" parent="Enemies" index="4" instance=ExtResource("17_hlwqw")]
+position = Vector2(339, -591)
+enemy_type = 1
+flip_h = true
+
+[node name="EnemyMarker6" parent="Enemies" index="5" instance=ExtResource("17_hlwqw")]
+position = Vector2(-501, -262)
+enemy_type = 2
+flip_h = true
