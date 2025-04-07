@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=4 uid="uid://bidnwv4kin1iu"]
+[gd_scene load_steps=27 format=4 uid="uid://bidnwv4kin1iu"]
 
 [ext_resource type="Script" uid="uid://tcsmme7rlcs8" path="res://src/world/world.gd" id="1_ilhj1"]
 [ext_resource type="PackedScene" uid="uid://b2s0lpgauu5w2" path="res://src/world/generator/chunk_manager.tscn" id="2_7osel"]
 [ext_resource type="PackedScene" uid="uid://bqwp3d1fs64el" path="res://src/player/player.tscn" id="2_ckmdn"]
-[ext_resource type="PackedScene" uid="uid://balrrqeap3uae" path="res://src/world/tileset/blocks/block_11_tut.tscn" id="3_1kyte"]
 [ext_resource type="Texture2D" uid="uid://cx05qajx6nm8c" path="res://assets/gfx/environment/back_color.png" id="3_3nirc"]
 [ext_resource type="PackedScene" uid="uid://ljmvdynfjm14" path="res://src/world/plancton/plancton_generator.tscn" id="3_m3x1u"]
 [ext_resource type="TileSet" uid="uid://cnjk1mun3f1mu" path="res://src/world/tileset/obstacle_tileset.tres" id="4_7manr"]
@@ -25,7 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://byn6csjknybod" path="res://assets/sfx/AMB_Deepsea_10.mp3" id="17_kucpv"]
 [ext_resource type="Script" uid="uid://dsanfc3iwqum4" path="res://addons/random_timer_plugin/random_timer.gd" id="18_1sjff"]
 [ext_resource type="PackedScene" uid="uid://c3iod7h0uuoav" path="res://src/ui/hud.tscn" id="22_sjpi6"]
-[ext_resource type="PackedScene" uid="uid://da0feelu0pc5r" path="res://src/ui/off_screen_indicator.tscn" id="26_4bl64"]
 
 [sub_resource type="Environment" id="Environment_l0av5"]
 background_mode = 3
@@ -55,7 +53,6 @@ script = ExtResource("1_ilhj1")
 [node name="ChunkManager" parent="." node_paths=PackedStringArray("player", "chunk_container") instance=ExtResource("2_7osel")]
 player = NodePath("../Player")
 chunk_container = NodePath("../NavigationRegion2D/World/Chunks")
-start_block = ExtResource("3_1kyte")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l0av5")
@@ -132,7 +129,7 @@ stream = SubResource("AudioStreamRandomizer_xmkh1")
 bus = &"Sfx"
 
 [node name="AmbientTimer" type="Timer" parent="."]
-wait_time = 24.461
+wait_time = 27.678
 autostart = true
 script = ExtResource("18_1sjff")
 variance = 4.0
@@ -141,7 +138,5 @@ metadata/_custom_type_script = "uid://dsanfc3iwqum4"
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUDLayer" instance=ExtResource("22_sjpi6")]
-
-[node name="OffScreenIndicator" parent="HUDLayer" instance=ExtResource("26_4bl64")]
 
 [connection signal="timeout" from="AmbientTimer" to="." method="_on_ambient_timer_timeout"]
