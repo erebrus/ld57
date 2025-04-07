@@ -15,7 +15,7 @@ func _on_volume_changed(_value: float) -> void:
 	if not is_node_ready():
 		return
 	
-	Globals.ui_sfx.click_sfx.play()
+	#Globals.ui_sfx.click_sfx.play()
 	
 
 
