@@ -1,4 +1,5 @@
 extends Enemy
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @onready var xsm: State = $XSM
 @onready var sfx_move: AudioStreamPlayer2D = $sfx/sfx_move
@@ -17,3 +18,7 @@ func _process(delta: float) -> void:
 func hurt_player():
 	super.hurt_player()
 	sfx_attack.play()
+
+func face(target_direction:Vector2 ):
+	super.face(target_direction)
+	$Polygon2D.position.x =abs($Polygon2D.position.x) * (-1 if sprite_2d.flip_h else 1)
