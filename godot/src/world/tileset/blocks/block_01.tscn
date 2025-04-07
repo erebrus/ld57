@@ -125,5 +125,59 @@ enemy_type = 1
 position = Vector2(273, 158)
 enemy_type = 1
 
+[node name="Eel" parent="Enemies" index="11" instance=ExtResource("2_wocir")]
+position = Vector2(270, 246)
+rotation = -0.555999
+enemy_type = 2
+
+[node name="Eel2" parent="Enemies" index="12" instance=ExtResource("2_wocir")]
+position = Vector2(100, -106)
+rotation = -0.555999
+enemy_type = 2
+
+[node name="Eel3" parent="Enemies" index="13" instance=ExtResource("2_wocir")]
+position = Vector2(-34, -17)
+rotation = -3.64477
+enemy_type = 2
+
+[node name="Eel4" parent="Enemies" index="14" instance=ExtResource("2_wocir")]
+position = Vector2(38, 123)
+rotation = -3.67497
+enemy_type = 2
+
+[node name="Eel5" parent="Enemies" index="15" instance=ExtResource("2_wocir")]
+position = Vector2(39, 268)
+rotation = -2.82129
+enemy_type = 2
+
+[node name="Eel6" parent="Enemies" index="16" instance=ExtResource("2_wocir")]
+position = Vector2(-32, 525)
+rotation = -3.09124
+enemy_type = 2
+
+[node name="Eel7" parent="Enemies" index="17" instance=ExtResource("2_wocir")]
+position = Vector2(210, 409)
+rotation = 1.56548
+enemy_type = 2
+
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(68, -237, -97, -65, 17, 164, -62, 403, -78, 595, 145, 582, 346, 416, 352, 240)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(-53, 193)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(29, -157)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(173, -40)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(303, 330)
+
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(130, 435)
+
+[node name="EldritchLamp" parent="." index="4"]
+position = Vector2(23, -155)
+enabled = true

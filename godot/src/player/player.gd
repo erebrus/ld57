@@ -13,8 +13,10 @@ class_name Player extends RigidBody2D
 @export var friction := .7
 @export_category("energy")
 @export var max_energy:=100.0
-@export var energy_per_thrust:=10.0
+@export var energy_per_thrust:=4.0
 @export var no_energy_factor:=.5
+@export var min_intensity:=.2
+@export var max_intensity:=1.2
 
 #@export_category("noise")
 #@export var noise_range:float = 600.0
@@ -57,8 +59,9 @@ var currents:int:
 	set(_energy):
 		energy = _energy
 		if light:
-			light.energy = energy/max_energy
+			light.energy = min_intensity+ energy/max_energy*max_intensity
 		
+@onready var eldritch_death: Node2D = $EldritchDeath
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var light: PointLight2D = $PointLight2D
@@ -73,14 +76,19 @@ var currents:int:
 @onready var ruffle_sfx: AudioStreamPlayer2D = $sfx/ruffle_sfx
 
 func _ready():
+	energy=max_energy
 	animation_player.play("idle")
-
+	Events.eldrith_death_requested.connect(func():energy=0)
 func has_energy():
 	return energy > 0 
 	
 func _physics_process(delta: float) -> void:
-	if in_animation:
+	if in_animation or eldritch_death.triggered:
 		return
+	if energy == 0.0:
+		await eldritch_death.trigger()
+		await get_tree().create_timer(1).timeout
+		get_tree().quit()
 	var rotate_input:float = Input.get_axis("rotate_left","rotate_right")
 	if rotate_input:
 		rotation += rotate_input * rotation_speed * delta
@@ -148,8 +156,8 @@ func do_thrust(rotation_delta:float = 0):
 			animation_player.play("thrust")
 
 			
-	$ThrustTimer.wait_time = max(min_thrust_timeout, base_thrust_timeout*thrust_factor *( 1 if has_energy() else 1.15))
-	Logger.debug("wait time %.2f" % $ThrustTimer.wait_time )
+	$ThrustTimer.wait_time = max(min_thrust_timeout, base_thrust_timeout*thrust_factor *( 1 if has_energy() else 1.0/no_energy_factor))
+	Logger.info("wait time %.2f" % $ThrustTimer.wait_time )
 	drain(energy_per_thrust*thrust_factor)
 	thrust_factor=0
 	$ThrustTimer.start()
@@ -190,6 +198,7 @@ func hurt(dmg:float):
 func kill():
 	Logger.info("hurt")
 	visible=false
+	hurt_sfx.play()
 	await get_tree().create_timer(1).timeout
 	get_tree().quit()
 

@@ -339,7 +339,6 @@ frame_progress = 0.192327
 [node name="Anemone2" parent="Folliage" index="68" instance=ExtResource("14_xk8mj")]
 position = Vector2(468, 299)
 rotation = -3.12487
-scale = Vector2(1, 1)
 frame_progress = 0.192327
 
 [node name="Anemone3" parent="Folliage" index="69" instance=ExtResource("14_xk8mj")]
@@ -375,7 +374,6 @@ scale = Vector2(1, -1)
 [node name="Kelp5" parent="Folliage" index="76" instance=ExtResource("15_n8mue")]
 position = Vector2(743, -59.0001)
 rotation = 0.00541067
-scale = Vector2(1, 1)
 
 [node name="Kelp6" parent="Folliage" index="77" instance=ExtResource("15_n8mue")]
 position = Vector2(323, -224)

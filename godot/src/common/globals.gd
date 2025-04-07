@@ -9,8 +9,14 @@ var config:ConfigFile
 var in_game:=false
 var in_dialogue:=false
 
-var enemy_probability:= 1
+@export var enemy_probabilities: Dictionary[Types.EnemyType, float] = {
+	Types.EnemyType.ANGLER: 0.2,
+	Types.EnemyType.VIPERFISH: 0.2,
+	Types.EnemyType.EEL: 0.2
+}
 
+@export var krill_probability:= 0.5
+@export var lamp_probability:= 0.2
 
 @onready var music_manager: MusicManager = $MusicManager
 @onready var ui_sfx: UiSfx = $UiSfx

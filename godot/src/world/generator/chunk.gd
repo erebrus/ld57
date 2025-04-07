@@ -3,6 +3,9 @@ class_name Chunk extends Node2D
 
 @export var show_borders:= true
 
+@export var krill_scene: PackedScene 
+
+
 @export_category("Currents")
 @export var current_scene: PackedScene
 @export var min_current_intensity:= 20
@@ -28,6 +31,8 @@ var block: BaseBlock
 func _ready():
 	_place_enemies()
 	_place_currents()
+	_place_krill()
+	block.lamp_enabled = rng.randf() < Globals.lamp_probability
 	
 
 func _draw() -> void:
@@ -40,22 +45,27 @@ func _draw() -> void:
 	
 
 func _place_enemies() -> void:
-	for node in block.enemy_markers():
-		if not node is EnemyMarker:
+	var markers_by_type = block.enemy_markers()
+	for type in markers_by_type:
+		if not type in enemy_scenes:
+			Logger.warn("Could not find scene for enemy marker of type %s" % Types.EnemyType.keys()[type])
 			continue
 		
-		var marker: EnemyMarker = node
+		var markers = markers_by_type[type]
+		var num_enemies = _random_number(Globals.enemy_probabilities[type], markers.size())
 		
-		if not marker.enemy_type in enemy_scenes:
-			Logger.warn("Could not find scene for enemy marker of type %s" % Types.EnemyType.keys()[marker.enemy_type])
-			continue
-		
-		if rng.randf() < Globals.enemy_probability:
-			var enemy: Enemy = enemy_scenes[marker.enemy_type].instantiate()
-			add_child(enemy)
+		for i in num_enemies:
+			var random_marker = rng.randi() % markers.size()
+			var marker = markers.pop_at(random_marker)
+			
+			var enemy: Enemy = enemy_scenes[type].instantiate()
+			marker.add_child(enemy)
 			
 			if marker.flip_h:
 				enemy.face(Vector2.LEFT)
+				
+			if type == Types.EnemyType.EEL:
+				enemy.rotate(PI/2)
 	
 
 func _place_currents() -> void:
@@ -81,6 +91,25 @@ func _place_current() -> void:
 	Logger.warn("Failed to place current")
 	
 
+func _place_krill() -> void:
+	var markers = block.krill_markers()
+	var num_krill = _random_number(Globals.krill_probability, markers.size())
+	for i in num_krill:
+		var random_marker = rng.randi() % markers.size()
+		var marker = markers.pop_at(random_marker)
+		var krill: Krill = krill_scene.instantiate()
+		marker.add_child(krill)
+	
+
 func _is_position_free(point: Vector2) -> bool:
 	return true
 	
+
+func _random_number(probability: float, quantity: int) -> int:
+	var random = probability * quantity
+	var min = floor(random)
+	if rng.randf() < random - min:
+		return min + 1
+	else:
+		return min
+		
