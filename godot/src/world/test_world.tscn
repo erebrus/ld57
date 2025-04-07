@@ -164,4 +164,4 @@ direction = Vector2(0, 1)
 position = Vector2(1003, 436)
 
 [node name="AmbientTimer" parent="." index="12"]
-wait_time = 42.048
+wait_time = 45.9007
