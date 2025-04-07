@@ -464,9 +464,6 @@ position = Vector2(1295, 876)
 enemy_type = 2
 flip_h = true
 
-[node name="Navigation" parent="." index="2"]
-visible = false
-
 [node name="NavigationPolygon" parent="Navigation" index="0"]
 polygon = PackedVector2Array(-23, -222, 29, -98, 50, 40, 37, 190, 89, 499, -36, 603, -170, 628, -285, 486, -399, 421, -430, 195, -391, -85, -305, -222, -103, -274)
 
@@ -477,6 +474,21 @@ polygon = PackedVector2Array(174, 265, 281, 188, 411, 169, 483, 40, 517, 107, 72
 [node name="NavigationPolygon3" type="Polygon2D" parent="Navigation" index="2"]
 color = Color(1, 1, 1, 0.392157)
 polygon = PackedVector2Array(481, 1251, 439, 1121, 475, 1041, 496, 927, 587, 916, 672, 906, 903, 940, 1072, 963, 1277, 914, 1308, 813, 1334, 686, 1422, 696, 1609, 683, 1829, 771, 1816, 859, 1588, 903, 1575, 1108, 1518, 1220, 1689, 1264, 1842, 1329, 1790, 1469, 1736, 1544, 1570, 1440, 1300, 1433, 1095, 1331, 1004, 1339, 916, 1383, 807, 1230, 618, 1204, 582, 1287, 532, 1329)
+
+[node name="Marker2D" type="Marker2D" parent="Krill" index="0"]
+position = Vector2(251, 605)
+
+[node name="Marker2D2" type="Marker2D" parent="Krill" index="1"]
+position = Vector2(1104, 825)
+
+[node name="Marker2D3" type="Marker2D" parent="Krill" index="2"]
+position = Vector2(648, -137)
+
+[node name="Marker2D4" type="Marker2D" parent="Krill" index="3"]
+position = Vector2(-80, 1096)
+
+[node name="Marker2D5" type="Marker2D" parent="Krill" index="4"]
+position = Vector2(847, 1584)
 
 [node name="EldritchLamp" parent="." index="4"]
 position = Vector2(-24, 323)
