@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt0sp1m51x6qh"]
+
+[ext_resource type="Texture2D" uid="uid://cjjk8b1kuiluw" path="res://assets/gfx/environment/plants/seaweed/seaweed1.png" id="1_atmu1"]
+[ext_resource type="Script" uid="uid://dumvyjd0h6nxs" path="res://src/world/plants/kelp.gd" id="1_uakd1"]
+[ext_resource type="Texture2D" uid="uid://djvlh0fgxae3y" path="res://assets/gfx/environment/plants/seaweed/seaweed2.png" id="2_uakd1"]
+[ext_resource type="Texture2D" uid="uid://dmmlge5wy68lk" path="res://assets/gfx/environment/plants/seaweed/seaweed3.png" id="3_4b64q"]
+[ext_resource type="Texture2D" uid="uid://bmhv2ldhoiepo" path="res://assets/gfx/environment/plants/seaweed/seaweed4.png" id="4_2q46g"]
+[ext_resource type="Texture2D" uid="uid://cnlxwv0g1mogf" path="res://assets/gfx/environment/plants/seaweed/seaweed5.png" id="5_1gsnl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_syf8j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_atmu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uakd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4b64q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2q46g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1gsnl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_atmu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uakd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4b64q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2q46g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1gsnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_atmu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uakd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4b64q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2q46g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1gsnl")
+}],
+"loop": false,
+"name": &"ruffle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b64q"]
+size = Vector2(20, 88)
+
+[node name="Kelp" type="Area2D"]
+collision_mask = 48
+script = ExtResource("1_uakd1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, -70)
+sprite_frames = SubResource("SpriteFrames_syf8j")
+animation = &"ruffle"
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -44)
+shape = SubResource("RectangleShape2D_4b64q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
