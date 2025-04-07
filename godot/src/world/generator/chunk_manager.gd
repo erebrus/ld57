@@ -34,8 +34,10 @@ func _ready():
 	
 	Logger.info("Seed: %d" % seed)
 	assert(player)
-	assert(chunk_container)
+	assert(chunk_container)	
 	init_map()
+	await get_tree().process_frame
+	Events.map_updated.emit()
 	
 
 func get_surrounding_cells(radius:int=1)->Array[Vector2i]:
@@ -56,6 +58,7 @@ func get_player_cell()->Vector2i:
 
 func check_for_creation():
 	var pcell := get_player_cell()
+	var map_needs_update:=false
 	for cell in get_surrounding_cells(load_radius):
 		if not cell in seed_matrix:
 			seed_matrix[cell]=rng.randi()
@@ -63,6 +66,10 @@ func check_for_creation():
 
 		if not cell in chunk_matrix:
 			load_chunk(cell)
+			map_needs_update=true
+			
+	if map_needs_update:
+		Events.map_updated.emit()
 	
 
 func load_chunk(cell:Vector2i):

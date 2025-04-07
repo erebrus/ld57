@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bix5s1utrsmcx"]
+[gd_scene load_steps=28 format=3 uid="uid://bix5s1utrsmcx"]
 
 [ext_resource type="PackedScene" uid="uid://cay0xw1kvkdsn" path="res://src/enemies/enemy.tscn" id="1_stgf7"]
 [ext_resource type="Script" uid="uid://byryw0ctc5ev8" path="res://addons/xsm/state.gd" id="2_6yasc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d3vv63oc7q5s8" path="res://src/enemies/xsm/idle.gd" id="3_gcgnh"]
 [ext_resource type="Script" uid="uid://dbjekn3lw8dad" path="res://src/enemies/xsm/align.gd" id="4_uxved"]
 [ext_resource type="Script" uid="uid://bu0d5672mh751" path="res://src/enemies/xsm/charge_attack.gd" id="5_gcgnh"]
+[ext_resource type="Texture2D" uid="uid://dn63hm8w68032" path="res://assets/gfx/environment/plankton.png" id="5_haewh"]
 [ext_resource type="Script" uid="uid://cossxko0rmudv" path="res://src/enemies/xsm/retreat.gd" id="9_5k4ec"]
 [ext_resource type="Shader" uid="uid://cypgc5u4yjqii" path="res://src/world/light/brakatuta.gdshader" id="9_keu1t"]
 [ext_resource type="AudioStream" uid="uid://mofxvh2jsk2t" path="res://assets/sfx/NPC_ViperFish_Swim_1.wav" id="10_5k4ec"]
@@ -178,11 +179,10 @@ texture = ExtResource("3_5k4ec")
 hframes = 3
 vframes = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="Sprite2D" index="0"]
+[node name="Core" type="Sprite2D" parent="Sprite2D" index="0"]
 material = SubResource("ShaderMaterial_g8tqs")
-position = Vector2(8, -1)
-color = Color(1, 1, 0.360784, 1)
-polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
+position = Vector2(9, -1)
+texture = ExtResource("5_haewh")
 
 [node name="XSM" type="Node" parent="." index="5"]
 script = ExtResource("2_6yasc")
