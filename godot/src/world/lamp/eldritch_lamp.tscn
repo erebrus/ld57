@@ -146,6 +146,12 @@ bus = &"Sfx"
 wait_time = 10.0
 autostart = true
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-36, -98)
+rect = Rect2(0, 0, 30, 30)
+
 [connection signal="body_entered" from="AttachArea2D" to="." method="_on_attach_area_2d_body_entered"]
 [connection signal="body_exited" from="AttachArea2D" to="." method="_on_attach_area_2d_body_exited"]
 [connection signal="timeout" from="PingTimer" to="." method="_on_ping_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
