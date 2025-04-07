@@ -62,11 +62,14 @@ func _place_enemies() -> void:
 			var enemy: Enemy = enemy_scenes[type].instantiate()
 			marker.add_child(enemy)
 			
-			if marker.flip_h:
-				enemy.face(Vector2.LEFT)
-				
 			if type == Types.EnemyType.EEL:
 				enemy.rotate(PI/2)
+				if marker.flip_h:
+					enemy.rotate(PI)
+			else:
+				if marker.flip_h:
+					enemy.face(Vector2.LEFT)
+				
 	
 
 func _place_currents() -> void:

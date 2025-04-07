@@ -211,7 +211,7 @@ position = Vector2(334, 263)
 rotation = 2.50282
 
 [node name="EnemyMarker" parent="Enemies" index="0" instance=ExtResource("16_gy40c")]
-position = Vector2(-39, 422)
+position = Vector2(-25, 423)
 enemy_type = 2
 flip_h = true
 
@@ -238,7 +238,7 @@ position = Vector2(-146, -145)
 enemy_type = 1
 
 [node name="EnemyMarker4" parent="Enemies" index="6" instance=ExtResource("16_gy40c")]
-position = Vector2(559, -139)
+position = Vector2(550, -141)
 enemy_type = 2
 
 [node name="EnemyMarker5" parent="Enemies" index="7" instance=ExtResource("16_gy40c")]
@@ -292,4 +292,5 @@ position = Vector2(582, -268)
 position = Vector2(210, 531)
 
 [node name="EldritchLamp" parent="." index="4"]
+visible = false
 position = Vector2(914, -211)
