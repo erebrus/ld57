@@ -369,7 +369,7 @@ offset_bottom = 6.0
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 0.603922, 0.894118, 1)
+color = Color(0.741026, 0.672275, 0.633681, 1)
 texture = SubResource("GradientTexture2D_mf2ua")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

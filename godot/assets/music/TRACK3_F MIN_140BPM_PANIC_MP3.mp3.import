@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xy4pnjoubj14"
+path="res://.godot/imported/TRACK3_F MIN_140BPM_PANIC_MP3.mp3-1b53c966009949bd59a6879d49405a22.mp3str"
+
+[deps]
+
+source_file="res://assets/music/TRACK3_F MIN_140BPM_PANIC_MP3.mp3"
+dest_files=["res://.godot/imported/TRACK3_F MIN_140BPM_PANIC_MP3.mp3-1b53c966009949bd59a6879d49405a22.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
