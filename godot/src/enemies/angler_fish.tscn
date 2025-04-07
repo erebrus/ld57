@@ -68,18 +68,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LureAnchor:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(220, -76)]
-}
 
 [sub_resource type="Animation" id="Animation_v23hx"]
 resource_name = "attack"
@@ -111,30 +99,41 @@ tracks/1/keys = {
 "method": &"pounce"
 }]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LureAnchor:position")
+tracks/2/path = NodePath("sfx/attack_sfx")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(214, -70), Vector2(206, -85), Vector2(206, -90), Vector2(224, -88)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("sfx/attack_sfx")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
 "method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2(214, -70)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(206, -85)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(206, -90)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(224, -88)],
+"method": &"adjust_lure_position"
 }]
 }
 
@@ -154,30 +153,41 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LureAnchor:position")
+tracks/1/path = NodePath("sfx/move_sfx")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sfx/move_sfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
 "method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2(220, -76)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(216, -85)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(214, -87)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(216, -85)],
+"method": &"adjust_lure_position"
 }]
 }
 
@@ -198,17 +208,28 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LureAnchor:position")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
+"values": [{
+"args": [Vector2(220, -76)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(216, -85)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(214, -87)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(216, -85)],
+"method": &"adjust_lure_position"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wfifh"]
@@ -227,17 +248,28 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 1)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LureAnchor:position")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(220, -76), Vector2(216, -85), Vector2(214, -87), Vector2(216, -85)]
+"values": [{
+"args": [Vector2(220, -76)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(216, -85)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(214, -87)],
+"method": &"adjust_lure_position"
+}, {
+"args": [Vector2(216, -85)],
+"method": &"adjust_lure_position"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_daflk"]
@@ -284,20 +316,20 @@ hframes = 4
 vframes = 2
 frame = 4
 
-[node name="LureAnchor" type="Marker2D" parent="." index="7"]
+[node name="LureAnchor" type="Marker2D" parent="Sprite2D" index="0"]
 position = Vector2(220, -76)
 
-[node name="Sprite2D" type="Sprite2D" parent="LureAnchor" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/LureAnchor" index="0"]
 material = SubResource("ShaderMaterial_m3oua")
 position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(1.77083, 1.77083)
 texture = SubResource("GradientTexture2D_2g57b")
 
-[node name="NavTimer" type="Timer" parent="." index="8"]
+[node name="NavTimer" type="Timer" parent="." index="7"]
 wait_time = 0.4
 autostart = true
 
-[node name="XSM" type="Node" parent="." index="9"]
+[node name="XSM" type="Node" parent="." index="8"]
 script = ExtResource("4_wtdoh")
 history_size = 0
 disabled = false
@@ -319,12 +351,12 @@ hurt_timebox = Vector2(0.4, 0.5)
 [node name="Retreat" type="Node" parent="XSM" index="3"]
 script = ExtResource("8_wfifh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
 libraries = {
 &"": SubResource("AnimationLibrary_daflk")
 }
 
-[node name="sfx" type="Node2D" parent="." index="11"]
+[node name="sfx" type="Node2D" parent="." index="10"]
 
 [node name="move_sfx" type="AudioStreamPlayer2D" parent="sfx" index="0"]
 stream = SubResource("AudioStreamRandomizer_i8pw5")

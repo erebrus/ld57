@@ -16,9 +16,9 @@ class_name Player extends RigidBody2D
 @export var energy_per_thrust:=10.0
 @export var no_energy_factor:=.5
 
-@export_category("noise")
-@export var noise_range:float = 600.0
-@export var thrust_noise_curve:Curve
+#@export_category("noise")
+#@export var noise_range:float = 600.0
+#@export var thrust_noise_curve:Curve
 
 var can_thrust:=true
 var thrust_factor := 0.0
@@ -124,7 +124,7 @@ func do_thrust(rotation_delta:float = 0):
 	var intensity:float = thrust * thrust_factor * (full_thrust_bonus if thrust_factor>=1.0 else 1)
 	Logger.debug("thrust intensity %.2f" % intensity)
 	apply_impulse(thrust_direction * intensity,Vector2.ZERO)
-	do_noise()
+	#do_noise()
 	can_thrust=false
 	$%ThrustState.color=Color("red")
 	match last_thrust_direction:
@@ -149,8 +149,8 @@ func do_thrust(rotation_delta:float = 0):
 	$ThrustTimer.start()
 	Logger.debug("thrust NOT available %d" % Time.get_ticks_msec())
 
-func do_noise():
-	Events.player_noise_ping.emit(global_position, noise_range*thrust_factor)
+#func do_noise():
+	#Events.player_noise_ping.emit(global_position, noise_range*thrust_factor)
 	
 func _on_thrust_timer_timeout() -> void:
 	can_thrust=true

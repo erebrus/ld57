@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bqwp3d1fs64el"]
+[gd_scene load_steps=45 format=3 uid="uid://bqwp3d1fs64el"]
 
 [ext_resource type="Script" uid="uid://ccpmywvyqpbe2" path="res://src/player/player.gd" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://euntmk64g6ld" path="res://assets/gfx/jellysheat.png" id="2_rxibo"]
@@ -25,10 +25,6 @@
 [ext_resource type="AudioStream" uid="uid://3c2obxmbdal5" path="res://assets/sfx/MC_KelpRuffle_2.wav" id="23_a4vah"]
 [ext_resource type="AudioStream" uid="uid://wfadk5flsjb0" path="res://assets/sfx/MC_KelpRuffle_3.wav" id="24_vwi60"]
 [ext_resource type="AudioStream" uid="uid://041vtj4u3ftv" path="res://assets/sfx/MC_KelpRuffle_4.wav" id="25_o04tx"]
-
-[sub_resource type="Curve" id="Curve_rxibo"]
-_data = [Vector2(0, 0.0224719), 0.0, 0.0, 0, 0, Vector2(0.340426, 0.382023), 0.0, 0.0, 0, 0, Vector2(0.542553, 0.606742), 0.0, 0.0, 0, 0, Vector2(0.787234, 0.707865), 0.0, 0.0, 0, 0, Vector2(0.994681, 1), 0.0, 0.0, 0, 0]
-point_count = 5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf2ua"]
 radius = 15.0
@@ -353,7 +349,6 @@ angular_damp = 2.0
 script = ExtResource("1_lowyb")
 thrust = 300.0
 energy_per_thrust = 1.0
-thrust_noise_curve = SubResource("Curve_rxibo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

@@ -21,7 +21,7 @@ class_name EldritchLamp extends Node2D
 @onready var ping_timer: Timer = $PingTimer
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	lit=(abs(sin(Time.get_ticks_msec()/1000.0)))
 
 func activate()->void:
