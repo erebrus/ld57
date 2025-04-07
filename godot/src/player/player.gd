@@ -13,8 +13,10 @@ class_name Player extends RigidBody2D
 @export var friction := .7
 @export_category("energy")
 @export var max_energy:=100.0
-@export var energy_per_thrust:=10.0
+@export var energy_per_thrust:=4.0
 @export var no_energy_factor:=.5
+@export var min_intensity:=.2
+@export var max_intensity:=1.2
 
 #@export_category("noise")
 #@export var noise_range:float = 600.0
@@ -57,7 +59,7 @@ var currents:int:
 	set(_energy):
 		energy = _energy
 		if light:
-			light.energy = energy/max_energy
+			light.energy = min_intensity+ energy/max_energy*max_intensity
 		
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -73,6 +75,7 @@ var currents:int:
 @onready var ruffle_sfx: AudioStreamPlayer2D = $sfx/ruffle_sfx
 
 func _ready():
+	energy=max_energy
 	animation_player.play("idle")
 
 func has_energy():
@@ -148,8 +151,8 @@ func do_thrust(rotation_delta:float = 0):
 			animation_player.play("thrust")
 
 			
-	$ThrustTimer.wait_time = max(min_thrust_timeout, base_thrust_timeout*thrust_factor *( 1 if has_energy() else 1.15))
-	Logger.debug("wait time %.2f" % $ThrustTimer.wait_time )
+	$ThrustTimer.wait_time = max(min_thrust_timeout, base_thrust_timeout*thrust_factor *( 1 if has_energy() else 1.0/no_energy_factor))
+	Logger.info("wait time %.2f" % $ThrustTimer.wait_time )
 	drain(energy_per_thrust*thrust_factor)
 	thrust_factor=0
 	$ThrustTimer.start()
